@@ -499,7 +499,7 @@
     12 => 
     array (
       'gc_id' => '12',
-      'gc_name' => 'T恤',
+      'gc_name' => 'T-shirt',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -514,7 +514,7 @@
     13 => 
     array (
       'gc_id' => '13',
-      'gc_name' => '衬衫',
+      'gc_name' => 'Sweater',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -529,7 +529,7 @@
     14 => 
     array (
       'gc_id' => '14',
-      'gc_name' => '针织衫',
+      'gc_name' => 'Stitches',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -544,7 +544,7 @@
     15 => 
     array (
       'gc_id' => '15',
-      'gc_name' => '雪纺衫',
+      'gc_name' => 'tkkskdfs',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -559,7 +559,7 @@
     16 => 
     array (
       'gc_id' => '16',
-      'gc_name' => '卫衣',
+      'gc_name' => 'asdf',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -574,7 +574,7 @@
     17 => 
     array (
       'gc_id' => '17',
-      'gc_name' => '马甲',
+      'gc_name' => 'asdf甲asdf',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -604,7 +604,7 @@
     19 => 
     array (
       'gc_id' => '19',
-      'gc_name' => '半身裙',
+      'gc_name' => 'asdfasdf',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -619,7 +619,7 @@
     20 => 
     array (
       'gc_id' => '20',
-      'gc_name' => '牛仔裤',
+      'gc_name' => 'Jeans',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -634,7 +634,7 @@
     21 => 
     array (
       'gc_id' => '21',
-      'gc_name' => '休闲裤',
+      'gc_name' => 'Trousers',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -649,7 +649,7 @@
     22 => 
     array (
       'gc_id' => '22',
-      'gc_name' => '打底裤',
+      'gc_name' => 'Underwear',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -664,7 +664,7 @@
     23 => 
     array (
       'gc_id' => '23',
-      'gc_name' => '正装裤',
+      'gc_name' => 'Formale',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -679,7 +679,7 @@
     24 => 
     array (
       'gc_id' => '24',
-      'gc_name' => '西服',
+      'gc_name' => 'Western',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -694,7 +694,7 @@
     25 => 
     array (
       'gc_id' => '25',
-      'gc_name' => '短外套',
+      'gc_name' => 'Short',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
@@ -709,7 +709,7 @@
     26 => 
     array (
       'gc_id' => '26',
-      'gc_name' => '风衣',
+      'gc_name' => 'Coat',
       'type_id' => '0',
       'type_name' => '',
       'gc_parent_id' => '4',
