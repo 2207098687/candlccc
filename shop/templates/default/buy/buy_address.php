@@ -2,8 +2,8 @@
 
 <div class="ncc-receipt-info">
   <div class="ncc-receipt-info-title">
-    <h3>收货人信息</h3>
-    <a href="javascript:void(0)" nc_type="buy_edit" id="edit_reciver">[修改]</a></div>
+    <h3>Shipping Info</h3>
+    <a href="javascript:void(0)" nc_type="buy_edit" id="edit_reciver">[Edit]</a></div>
   <div id="addr_list" class="ncc-candidate-items">
     <ul>
       <li><span class="true-name"><?php echo $output['address_info']['true_name'];?></span><span class="address"><?php echo $output['address_info']['area_info'],$output['address_info']['address'];?></span><span class="phone"><i class="icon-mobile-phone"></i><?php echo $output['address_info']['mob_phone'] ? $output['address_info']['mob_phone'] : $output['address_info']['tel_phone'];?></span></li>

@@ -3,7 +3,7 @@
 <div class="wrap">
   <div class="tabmenu">
     <ul id="listpj" class="tab">
-      <li class="active"><a href="index.php?act=<?php echo $output['pj_act'];?>&op=list">交易评价/晒单</a></li>
+      <li class="active"><a href="index.php?act=<?php echo $output['pj_act'];?>&op=list">Review</a></li>
     </ul>
   </div>
   <form id="goodsevalform" method="get" class="tc">
@@ -17,7 +17,7 @@
         <div class="date"><?php echo @date('Y-m-d H:i:s',$v['geval_addtime']);?></div>
         <div class="goods-thumb"><a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id' => $v['geval_goodsid']));?>"> <img src="<?php echo cthumb($v['geval_goodsimage'], 60);?>"> </a></div>
         <dl class="detail">
-          <dt><a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id'=>$v['geval_goodsid'])); ?>"><?php echo $v['geval_goodsname']?></a><span class="ml30">商品评分：<em class="raty" data-score="<?php echo $v['geval_scores'];?>"></em></span></dt>
+          <dt><a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id'=>$v['geval_goodsid'])); ?>"><?php echo $v['geval_goodsname']?></a><span class="ml30">Rating:<em class="raty" data-score="<?php echo $v['geval_scores'];?>"></em></span></dt>
           <dd><?php echo $v['geval_content'];?></dd>
           <dd>
             <?php if (!empty($v['geval_image'])){?>
@@ -45,7 +45,7 @@
             </ul>
           </dd>
           <?php }?>
-          <dd class="pubdate">确认收货并评价后<?php echo ($d = floor($v['geval_addtime_again']/ 60 / 60 / 24) - floor($v['geval_addtime']/ 60 / 60 / 24)) == 0? '当' : $d;?>天再次追加评价</dd>
+          <dd class="pubdate">Review after Reception<?php echo ($d = floor($v['geval_addtime_again']/ 60 / 60 / 24) - floor($v['geval_addtime']/ 60 / 60 / 24)) == 0? '当' : $d;?>Days after Make Up Review</dd>
           <?php if (!empty($v['geval_explain_again'])){?>
           <dd class="explain"> [<?php echo $lang['member_evaluation_explain'];?>]<?php echo $v['geval_explain_again'];?> </dd>
           <?php }?>

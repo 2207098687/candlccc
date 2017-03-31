@@ -16,9 +16,9 @@
 <div class="wrap">
   <div class="tabmenu">
     <ul id="listpj" class="tab">
-      <li class="active"><a href="index.php?act=member_goodsbrowse&op=list">我的足迹</a></li>
+      <li class="active"><a href="index.php?act=member_goodsbrowse&op=list">View History</a></li>
     </ul>
-    <a class="ncbtn ncbtn-grapefruit" href="javascript:void(0);" nc_type="delbtn" data-param='{"goods_id":"all"}'><i class="icon-trash"></i>清空全部足迹</a>
+    <a class="ncbtn ncbtn-grapefruit" href="javascript:void(0);" nc_type="delbtn" data-param='{"goods_id":"all"}'><i class="icon-trash"></i>Clean All</a>
   </div>
   
   <div class="ncm-browse">
@@ -33,19 +33,19 @@
             <div class="goods-thumb"><a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$v['goods_id'])); ?>" target="_blank"><img src="<?php echo cthumb($v['goods_image'], 60);?>" /></a> </div>
             <dl class="goods-info">
               <dt><a target="_blank" href="<?php echo urlShop('goods', 'index', array('goods_id'=>$v['goods_id'])); ?>"><?php echo $v['goods_name'];?></a></dt>
-              <dd>商城价：
+              <dd>Cool Price
               <!-- <?php if ($v['goods_promotion_type'] == 1){?>
               <span class="pricetag">抢购</span>
               <?php } elseif ($v['goods_promotion_type'] == 2){ ?>
               <span class="pricetag">限时折扣</span>
               <?php }?> -->
               <em class="sale-price"><?php echo $lang['currency'];?><?php echo ncPriceFormat($v['goods_promotion_price']);?></em>
-              <em class="market-price" title="市场价"><?php echo $lang['currency'];?><?php echo $v['goods_marketprice'];?></em>
+              <em class="market-price" title="Market Price"><?php echo $lang['currency'];?><?php echo $v['goods_marketprice'];?></em>
               </dd>
             </dl>
-            <a class="ncbtn ncbtn-bittersweet" href="javascript:void(0)"  nctype="add_cart" data-gid="<?php echo $v['goods_id'];?>"><i class="icon-shopping-cart"></i>加入购物车</a>
+            <a class="ncbtn ncbtn-bittersweet" href="javascript:void(0)"  nctype="add_cart" data-gid="<?php echo $v['goods_id'];?>"><i class="icon-shopping-cart"></i>Add to Cart</a>
             <br/><br/>
-            <a class="ncbtn" href="javascript:void(0);" nc_type="delbtn" data-param='{"goods_id":<?php echo $v['goods_id'];?>}'><i class="icon-trash"></i>删除该记录</a>
+            <a class="ncbtn" href="javascript:void(0);" nc_type="delbtn" data-param='{"goods_id":<?php echo $v['goods_id'];?>}'><i class="icon-trash"></i>Delete</a>
          </div>
         </li>
         <?php }?>
@@ -58,7 +58,7 @@
       <?php } ?>
     </div>
     <div class="ncm-browse-class">
-      <div class="title"><a href="index.php?act=member_goodsbrowse&op=list" class="<?php echo !$_GET['gc_id']?'selected':''; ?>"> 全部浏览历史</a></div>
+      <div class="title"><a href="index.php?act=member_goodsbrowse&op=list" class="<?php echo !$_GET['gc_id']?'selected':''; ?>"> All History</a></div>
       <ul id="sidebarMenu">
         <?php foreach ((array)$output['browseclass_arr'] as $k=>$v){ ?>
         <li class="side-menu"> <a href="index.php?act=member_goodsbrowse&op=list&gc_id=<?php echo $k;?>" class="<?php echo $_GET['gc_id'] == $k?'selected':''; ?>"><i></i><?php echo $v['gc_name'];?></a>
@@ -94,7 +94,7 @@ $(document).ready(function(){
    $('a[nctype="nyroModal"]').nyroModal();
    //清除单条浏览记录
    $("[nc_type='delbtn']").bind('click',function(){
-	   if(confirm("确实要删除吗？")){
+	   if(confirm("Sure to Delete？")){
 		   var data_str = $(this).attr('data-param');
 		   eval( "data_str = "+data_str);
 		   $.getJSON('index.php?act=member_goodsbrowse&op=del&goods_id='+data_str.goods_id,function(data){

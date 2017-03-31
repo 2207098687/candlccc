@@ -32,9 +32,9 @@
         </dl>
       </div>
       <div class="show-tab" data-sid="<?php echo $output['store_info']['store_id'];?>">
-        <a href="<?php if ($output['count']['new'] == 0) {?>javascript:;<?php } else {echo urlShop('member_favorite_store', 'more', array('store_id' => $output['store_info']['store_id'], 'sign' => 'new')) ;}?>" class="<?php if ($_GET['sign'] == 'new' || empty($_GET['sign'])) {?>current<?php }?> <?php if ($output['count']['new'] == 0) {?>disabled<?php }?>">店铺新品</a>
-        <a href="<?php if ($output['count']['promotion'] == 0) {?>javascript:;<?php } else { echo urlShop('member_favorite_store', 'more', array('store_id' => $output['store_info']['store_id'], 'sign' => 'promotion')) ;}?>" class="<?php if ($_GET['sign'] == 'promotion') {?>current<?php }?> <?php if ($output['count']['promotion'] == 0) {?>disabled<?php }?>">优惠促销</a>
-        <a href="<?php if ($output['count']['hot'] == 0) {?>javascript:;<?php } else { echo urlShop('member_favorite_store', 'more', array('store_id' => $output['store_info']['store_id'], 'sign' => 'hot')) ;}?>" class="<?php if ($_GET['sign'] == 'hot') {?>current<?php }?> <?php if ($output['count']['hot'] == 0) {?>disabled<?php }?>">热销商品</a>
+        <a href="<?php if ($output['count']['new'] == 0) {?>javascript:;<?php } else {echo urlShop('member_favorite_store', 'more', array('store_id' => $output['store_info']['store_id'], 'sign' => 'new')) ;}?>" class="<?php if ($_GET['sign'] == 'new' || empty($_GET['sign'])) {?>current<?php }?> <?php if ($output['count']['new'] == 0) {?>disabled<?php }?>">New Products</a>
+        <a href="<?php if ($output['count']['promotion'] == 0) {?>javascript:;<?php } else { echo urlShop('member_favorite_store', 'more', array('store_id' => $output['store_info']['store_id'], 'sign' => 'promotion')) ;}?>" class="<?php if ($_GET['sign'] == 'promotion') {?>current<?php }?> <?php if ($output['count']['promotion'] == 0) {?>disabled<?php }?>">Promo</a>
+        <a href="<?php if ($output['count']['hot'] == 0) {?>javascript:;<?php } else { echo urlShop('member_favorite_store', 'more', array('store_id' => $output['store_info']['store_id'], 'sign' => 'hot')) ;}?>" class="<?php if ($_GET['sign'] == 'hot') {?>current<?php }?> <?php if ($output['count']['hot'] == 0) {?>disabled<?php }?>">Hot Deal</a>
        </div>
       <ul id="favoritesMoreItem" class="<?php echo $_GET['sign'];?>">
         <?php require(BASE_TPL_PATH.'/member/favorites_store_index.more_item.php');?>
@@ -59,9 +59,9 @@ $(function(){
         loading: {
         	selector:'#page-nav',
             img: '<?php echo SHOP_TEMPLATES_URL;?>/images/loading.gif',
-            msgText:'努力加载中...',
+            msgText:'Loading...',
             maxPage : <?php echo $output['total_page'];?>,
-            finishedMsg : '没有记录了',
+            finishedMsg : 'No More Records',
             finished : function() {
             	$('.goods-thumb img').jqthumb({
             		width: 150,

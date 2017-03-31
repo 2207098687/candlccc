@@ -45,7 +45,7 @@ text-align: center; vertical-align: middle; display: table-cell; padding: 1px; b
 .cloudzoom-caption { display: none; text-align: center; background-color: #fff7d1; color: #FF5C4D; top: 20px; font-weight: 700; padding: 5px 10px; font-family: " ????????"; font-size: 13px }
 .cloudzoom-blank { background-image: url(../images/shop/blank.png) }
 .cloudzoom-ajax-loader { background-image: url(../images/shop/ajax-loader.gif); width: 32px; height: 32px }
-.ncs-goods-summary { background-color: #FFF; float: right; width: 589px; min-height: 500px; margin-right: 208px; border-right: solid 1px #EEE; border-left: solid 1px #EEE }
+.ncs-goods-summary { background-color: #FFF; float: right; width: 589px; min-height: 500px; margin-right: 208px; /* border-right: solid 1px #EEE;*/ border-left: solid 1px #EEE }
 .ncs-goods-summary .name { padding: 15px 20px }
 .ncs-goods-summary .name h1, .ncs-goods-summary .name strong { font: 700 16px/21px "Microsoft Yahei "; color: #333; text-overflow: ellipsis; white-space: nowrap; display: block; overflow: hidden }
 .ncs-goods-summary .name strong { font-weight: 400; font-size: 12px; line-height: 17px; color: #777; white-space: normal; margin-top: 5px }
@@ -468,7 +468,7 @@ zoom: 1; }
 .ncs-consult-form .code .change:hover i { opacity: 1;}
 .ncs-recommend { clear: both; margin: 10px 0; border: 1px solid #ededed; background: #fff }
 .ncs-recommend .title { background: #F7F7F7; border-bottom: 1px solid #eee; }
-.ncs-recommend .title h4 { color: #333; background-color: #FFF; padding: 0 30px; margin-bottom: -1px; border-style: solid; border-color: #f55 #eee transparent #eee; border-width: 2px 1px 0 0px; height: 32px; line-height: 32px; text-align: center; font-size: 14px; width: 56px; }
+.ncs-recommend .title h4 { color: #333; background-color: #FFF; padding: 0 30px; margin-bottom: -1px; border-style: solid; border-color: #f55 #eee transparent #eee; border-width: 2px 1px 0 0px; height: 32px; line-height: 32px; text-align: center; font-size: 14px; width: 100px; }
 .ncs-recommend .content { overflow: hidden }
 .ncs-recommend .content ul { font-size: 0; white-space: nowrap; padding: 0 0 5px 0; margin-left: 15px }
 .ncs-recommend .content ul li { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; padding: 20px 22px 22px; width: 150px }

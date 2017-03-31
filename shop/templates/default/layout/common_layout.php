@@ -30,11 +30,20 @@ $wapurl = WAP_SITE_URL;
 <title><?php echo $output['html_title'];?></title>
 <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>" />
 <meta name="description" content="<?php echo $output['seo_description']; ?>" />
-<meta name="author" content="运维舫">
-<meta name="copyright" content="ywf Inc. All Rights Reserved">
+<meta name="author" content="www.coolandless.com">
+<meta name="copyright" content="coolandless.com All Rights Reserved">
 <meta name="renderer" content="webkit">
 <meta name="renderer" content="ie-stand">
-<?php echo html_entity_decode($output['setting_config']['qq_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['sina_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_qqzone_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_sinaweibo_appcode'],ENT_QUOTES); ?>
+
+<!--    facebook share-->
+<meta property="og:url" content="<?php echo $goods['goods_url'];?>" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Share Item on coolandless.com" />
+<meta property="og:description" content="Share coolandless.com Items with your friends. Enjoy it." />
+<meta property="og:image" content="<?php echo SHOP_TEMPLATES_URL;?>/images/xin.png"/>
+<!--    facebook end-->
+
+    <?php echo html_entity_decode($output['setting_config']['qq_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['sina_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_qqzone_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_sinaweibo_appcode'],ENT_QUOTES); ?>
 <style type="text/css">
 body { _behavior: url(<?php echo SHOP_TEMPLATES_URL;
 ?>/css/csshover.htc);
@@ -167,6 +176,17 @@ $(function(){
 </script>
 </head>
 <body>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=596598423869351";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!--facebook end-->
 <!-- PublicTopLayout Begin -->
 <?php require_once template('layout/layout_top');?>
 <!-- PublicHeadLayout Begin -->
@@ -174,13 +194,14 @@ $(function(){
   <header class="public-head-layout wrapper">
     <h1 class="site-logo"><a href="<?php echo SHOP_SITE_URL;?>"><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.$output['setting_config']['site_logo']; ?>" class="pngFix"></a></h1>
     <div class="logo-banner"><?php echo loadadv(1048);?></div>
-   
+
     <div class="head-search-layout">
       <div class="head-search-bar" id="head-search-bar">
      <div id="search">
           <ul class="tab">
-            <li act="search" class="current"><span>商品</span><i class="arrow"></i></li>
-            <li act="store_list"><span>店铺</span></li>
+            <li act="search" class="current"><span>Product</span>
+<!--                <i class="arrow"></i></li>-->
+<!--            <li act="store_list"><span>店铺</span></li>-->
           </ul>
         </div>
 
@@ -197,12 +218,12 @@ $(function(){
                 $keyword = '';
             }
 		?>
-          <input name="keyword" id="keyword" type="text" class="input-text" value="<?php echo $keyword;?>" maxlength="60" x-webkit-speech lang="zh-CN" onwebkitspeechchange="foo()" placeholder="<?php echo $keyword_name ? $keyword_name : '请输入您要搜索的商品关键字';?>" data-value="<?php echo rawurlencode($keyword_value);?>" x-webkit-grammar="builtin:search" autocomplete="off" />
+          <input name="keyword" id="keyword" type="text" class="input-text" value="<?php echo $keyword;?>" maxlength="60" x-webkit-speech lang="zh-CN" onwebkitspeechchange="foo()" placeholder="<?php echo $keyword_name ? $keyword_name : 'Please Input Product Keywords';?>" data-value="<?php echo rawurlencode($keyword_value);?>" x-webkit-grammar="builtin:search" autocomplete="off" />
           <input type="submit" id="button" value="<?php echo $lang['nc_common_search'];?>" class="input-submit">
         </form>
         <div class="search-tip" id="search-tip">
           <div class="search-history">
-            <div class="title">历史纪录<a href="javascript:void(0);" id="search-his-del">清除</a></div>
+            <div class="title">Search History<a href="javascript:void(0);" id="search-his-del">Clear</a></div>
             <ul id="search-his-list">
               <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])) { ?>
               <?php foreach($output['his_search_list'] as $v) { ?>
@@ -212,7 +233,7 @@ $(function(){
             </ul>
           </div>
           <div class="search-hot">
-            <div class="title">热门搜索...</div>
+            <div class="title">Hot Keywords...</div>
             <ul>
               <?php if (is_array($output['rec_search_list']) && !empty($output['rec_search_list'])) { ?>
               <?php foreach($output['rec_search_list'] as $v) { ?>
@@ -242,7 +263,7 @@ $(function(){
           <div class="incart-goods-box">
             <div class="incart-goods"> <img class="loading" src="<?php echo SHOP_TEMPLATES_URL;?>/images/loading.gif" /> </div>
           </div>
-          <div class="checkout"> <span class="total-price">共<i><?php echo $output['cart_goods_num'];?></i><?php echo $lang['nc_kindof_goods'];?></span><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="btn-cart"><?php echo $lang['hao_bill_goods'];?></a> </div>
+          <div class="checkout"> <span class="total-price">Totally<i><?php echo $output['cart_goods_num'];?></i><?php echo $lang['nc_kindof_goods'];?></span><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="btn-cart"><?php echo $lang['hao_bill_goods'];?></a> </div>
         </dd>
       </dl>
     </div>
@@ -261,19 +282,22 @@ $(function(){
       <?php if (C('groupbuy_allow')){ ?>
       <li><a href="<?php echo urlShop('show_groupbuy', 'index');?>" <?php if($output['index_sign'] == 'groupbuy' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_groupbuy'];?></a></li>
       <?php } ?>
-      <li><a href="<?php echo urlShop('brand', 'index');?>" <?php if($output['index_sign'] == 'brand' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_brand'];?></a></li>
-	<li><a href="<?php echo urlShop('promotion','index');?>" <?php if($output['index_sign'] == 'promotion' && $output['index_sign'] != '0') {echo 'class="current"';} ?>>疯抢</a></li>
+<!--        注销Brands-->
+<!--      <li><a href="--><?php //echo urlShop('brand', 'index');?><!--" --><?php //if($output['index_sign'] == 'brand' && $output['index_sign'] != '0') {echo 'class="current"';} ?><!--> --><?php //echo $lang['nc_brand'];?><!--</a></li>-->
+	<li><a href="<?php echo urlShop('promotion','index');?>" <?php if($output['index_sign'] == 'promotion' && $output['index_sign'] != '0') {echo 'class="current"';} ?>>Flash Sale</a></li>
       <?php if (C('points_isuse') && C('pointshop_isuse')){ ?>
       <li><a href="<?php echo urlShop('pointshop', 'index');?>" <?php if($output['index_sign'] == 'pointshop' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_pointprod'];?></a></li>
       <?php } ?>
       <?php if (C('cms_isuse')){ ?>
-      <li><a href="<?php echo urlShop('special', 'special_list');?>" <?php if($output['index_sign'] == 'special' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_special'];?></a></li>
+<!-- 暂时屏蔽 Topics--><!--     <li><a href="--><?php //echo urlShop('special', 'special_list');?><!--" --><?php //if($output['index_sign'] == 'special' && $output['index_sign'] != '0') {echo 'class="current"';} ?><!--> --><?php //echo $lang['nc_special'];?><!--</a></li>-->
       <?php } ?>
  <?php if(!empty($output['nav_list']) && is_array($output['nav_list'])){?>
       <?php foreach($output['nav_list'] as $nav){?>
-      <?php if($nav['nav_location'] == '1'){?>
+<!--  按需输出导航栏 news,其它暂不输出    --><?php //if($nav['nav_location'] == '1' && $nav['nav_title']=='店铺'){?>
+      <?php if($nav['nav_location'] == '1'&& $nav['nav_title']=='News'){?>
       <li><a
         <?php
+        //var_dump($nav); exit;
         if($nav['nav_new_open']) {
             echo ' target="_blank"';
         }

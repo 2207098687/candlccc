@@ -41,9 +41,9 @@ $(function(){
         loading: {
         	selector:'#page-nav',
             img: '<?php echo SHOP_TEMPLATES_URL;?>/images/loading.gif',
-            msgText:'努力加载中...',
+            msgText:'Loading...',
             maxPage : <?php echo $output['total_page'];?>,
-            finishedMsg : '没有记录了',
+            finishedMsg : 'No Nore Records',
             finished : function() {
             	$('.favorite-goods-thumb img').jqthumb({
             		width: 150,

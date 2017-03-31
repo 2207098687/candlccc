@@ -9,7 +9,7 @@
   <div class="ncp-category">
     <ul>
       <input type="hidden" id="sc_id" value="<?php echo intval($_GET['sc_id'])>0?intval($_GET['sc_id']):'';?>"/>
-      <li><a class="<?php echo intval($_GET['gc_id']) <= 0?'selected':'';?>" href="<?php echo urlShop('promotion','index');?>">所有分类</a></li>
+      <li><a class="<?php echo intval($_GET['gc_id']) <= 0?'selected':'';?>" href="<?php echo urlShop('promotion','index');?>">All Categories</a></li>
       <?php foreach ($output['goods_class'] as $k=>$v){?>
       <li><a class="<?php echo intval($_GET['gc_id']) == $v['gc_id']?'selected':'';?>" href="<?php echo urlShop('promotion','index',array('gc_id'=>$v['gc_id']));?>"}'><?php echo $v['gc_name'];?></a></li>
       <?php } ?>
@@ -44,9 +44,9 @@ $(function(){
         loading: {
         	selector:'#page-nav',
             img: '<?php echo SHOP_TEMPLATES_URL;?>/images/loading.gif',
-            msgText:'努力加载中...',
+            msgText:'Loading...',
             maxPage : <?php echo $output['total_page'];?>,
-            finishedMsg : '没有记录了',
+            finishedMsg : 'No More Records',
             finished : function() {
             	$('.raty').raty({
                     path: "<?php echo RESOURCE_SITE_URL;?>/js/jquery.raty/img",

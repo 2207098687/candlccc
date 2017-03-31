@@ -30,6 +30,14 @@ $wapurl = WAP_SITE_URL;
 <title><?php echo $output['html_title'];?></title>
 <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>" />
 <meta name="description" content="<?php echo $output['seo_description']; ?>" />
+
+    <meta property="og:url" content="<?php echo $goods['goods_url']?>" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="coolandless.com" />
+    <meta property="og:description"   content="hahahha" />
+    <meta property="og:image" content="<?php echo SHOP_TEMPLATES_URL;?>/weixin.png" />
+
+
 <?php echo html_entity_decode($output['setting_config']['qq_appcode'],ENT_QUOTES); ?>
 <?php echo html_entity_decode($output['setting_config']['sina_appcode'],ENT_QUOTES); ?>
 <?php echo html_entity_decode($output['setting_config']['share_qqzone_appcode'],ENT_QUOTES); ?>

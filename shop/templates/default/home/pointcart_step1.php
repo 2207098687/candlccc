@@ -26,7 +26,7 @@
   <div class="ncc-main">
     <div class="ncc-title">
       <h3><?php echo $lang['pointcart_ensure_info'];?></h3>
-      <h5>请仔细核对填写收货、发票等信息，以确保物流快递及时准确投递。</h5>
+      <h5>To Ensure Timing Shipping, Please Double Check Shipping Address.</h5>
     </div>
     <form method="post" id="porder_form" name="porder_form" action="index.php?act=pointcart&op=step2">
       <div class="ncc-receipt-info">

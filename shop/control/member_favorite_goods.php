@@ -238,7 +238,7 @@ class member_favorite_goodsControl extends BaseMemberControl{
     private function profile_menu($menu_type,$menu_key='') {
         $menu_array = array(
             array('menu_key'=>'fav_goods','menu_name'=>Language::get('nc_member_path_collect_list'), 'menu_url'=>'index.php?act=member_favorite_goods&op=fglist'),
-            array('menu_key'=>'fav_goodsstore','menu_name'=>'同店商品', 'menu_url'=>'index.php?act=member_favorite_goods&op=fglist&show=store'),
+            array('menu_key'=>'fav_goodsstore','menu_name'=>'Other Products', 'menu_url'=>'index.php?act=member_favorite_goods&op=fglist&show=store'),
         );
         Tpl::output('member_menu',$menu_array);
         Tpl::output('menu_key',$menu_key);

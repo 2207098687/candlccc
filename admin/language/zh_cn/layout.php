@@ -293,7 +293,7 @@ $lang['nc_export'] = '导出';
 /**
  * footer中的文字
  */
-$lang['nc_index']			= "首页";
+$lang['nc_index']			= "Home";
 $lang['nc_page_execute']	= "页面执行";
 $lang['nc_second']			= "秒";
 $lang['nc_query']			= "查询";

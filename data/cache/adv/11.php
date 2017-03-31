@@ -8,7 +8,7 @@
   'ap_height' => '100',
   'adv_num' => '1',
   'click_num' => '0',
-  'default_content' => '05432463290833618.png',
+  'default_content' => 'banner.gif',
   'adv_list' => 
   array (
     0 => 

@@ -25,29 +25,29 @@
     </div><?php } ?>
     <?php if (!$output['store_info']['is_own_shop']) { ?>
     <dl class="no-border">
-      <dt>公司名称：</dt>
+      <dt>Seller:</dt>
       <dd><?php echo $output['store_info']['store_company_name'];?></dd>
     </dl>
      <dl>
-      <dt>所 在 地：</dt>
+      <dt>Location:</dt>
       <dd><?php echo $output['store_info']['area_info'];?></dd>
     </dl>
     <?php if(!empty($output['store_info']['store_phone'])){?>
     <dl>
-      <dt>客服电话：</dt>
+      <dt>Contact:</dt>
       <dd><?php echo $output['store_info']['store_phone'];?></dd>
     </dl>
     <?php } ?>
         <?php if($output['store_info']['store_workingtime'] !=''){?>
    
         <dl>
-      <dt>工作时间：</dt>
+      <dt>Support:</dt>
       <dd><?php echo html_entity_decode($output['store_info']['store_workingtime']);?></dd>
     </dl> <?php }?>
     <?php } ?>
     <?php if(!empty($output['store_info']['store_qq']) || !empty($output['store_info']['store_ww'])){?>
     <?php } ?>
-    <div class="btns clearfix"><a href="<?php echo urlShop('show_store', 'index', array('store_id' => $output['store_info']['store_id']), $output['store_info']['store_domain']);?>" class="goto" >进店逛逛</a><a href="javascript:collect_store('<?php echo $output['store_info']['store_id'];?>','count','store_collect')" >收藏店铺<span>(<em nctype="store_collect"><?php echo $output['store_info']['store_collect']?></em>)</span></a>
+    <div class="btns clearfix"><a href="<?php echo urlShop('show_store', 'index', array('store_id' => $output['store_info']['store_id']), $output['store_info']['store_domain']);?>" class="goto" >View the Shop</a><a href="javascript:collect_store('<?php echo $output['store_info']['store_id'];?>','count','store_collect')" >Follow<span>(<em nctype="store_collect"><?php echo $output['store_info']['store_collect']?></em>)</span></a>
    <?php if(!empty($output['store_info']['store_qq'])){?>
         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $output['store_info']['store_qq'];?>&site=qq&menu=yes" title="QQ: <?php echo $output['store_info']['store_qq'];?>"><img border="0" src="http://wpa.qq.com/pa?p=2:<?php echo $output['store_info']['store_qq'];?>:8" style=" vertical-align: middle;"/></a>
         <?php }?>

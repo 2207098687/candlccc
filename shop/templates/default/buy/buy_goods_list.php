@@ -2,7 +2,7 @@
 
 <div class="ncc-receipt-info">
   <div class="ncc-receipt-info-title">
-    <h3>商品清单</h3>
+    <h3>Product List</h3>
   </div>
   <table class="ncc-table-style">
     <thead>
@@ -21,7 +21,7 @@
         <td><a class="ncc-goods-thumb" href="%url%" target="_blank"> <img alt="%name%" data-src="%imgUrl%" /> </a></td>
         <td class="tl"><dl class="ncc-goods-info">
             <dt> <a href="%url%" target="_blank">%name%</a> </dt>
-            <dd class="ncc-goods-gift"><span>已选换购</span></dd>
+            <dd class="ncc-goods-gift"><span>Chosen Redemption</span></dd>
           </dl></td>
         <td><em class="goods-price">%jjgPrice%</em></td>
         <td>1</td>
@@ -31,22 +31,23 @@
     <?php foreach($output['store_cart_list'] as $store_id => $cart_list) {?>
     <tbody>
       <tr>
-        <th colspan="20"> <!-- S 店铺名称 -->
-          
-          <div class="ncc-store-name">店铺：<a href="<?php echo urlShop('show_store','index',array('store_id'=>$store_id));?>"><?php echo $cart_list[0]['store_name']; ?></a> <span member_id="<?php echo $output['store_list'][$store_id]['member_id'];?>"></span></div>
+        <th colspan="20">
+            <!-- S 店铺名称 -->
+<!--          暂时注销店铺名称-->
+<!--          <div class="ncc-store-name">By：<a href="--><?php //echo urlShop('show_store','index',array('store_id'=>$store_id));?><!--">--><?php //echo $cart_list[0]['store_name']; ?><!--</a> <span member_id="--><?php //echo $output['store_list'][$store_id]['member_id'];?><!--"></span></div>-->
           
           <!-- E 店铺名称 --> 
           <!-- S 店铺满即送 -->
           
           <?php if (!empty($output['store_mansong_rule_list'][$store_id])) {?>
-          <div class="ncc-store-sale ms"> <span>满即送</span><?php echo $output['store_mansong_rule_list'][$store_id]['desc'];?> </div>
+          <div class="ncc-store-sale ms"> <span>Buy&Win Free</span><?php echo $output['store_mansong_rule_list'][$store_id]['desc'];?> </div>
           <?php } ?>
           
           <!-- E 店铺满即送 --> 
           <!-- S 店铺满金额包邮 -->
           
           <?php if (!empty($output['cancel_calc_sid_list'][$store_id])) {?>
-          <div class="ncc-store-sale"> <span>免运费</span><?php echo $output['cancel_calc_sid_list'][$store_id]['desc'];?></div>
+          <div class="ncc-store-sale"> <span>Free Shipping</span><?php echo $output['cancel_calc_sid_list'][$store_id]['desc'];?></div>
           <?php } ?>
           
           <!-- S 店铺满金额包邮 --> </th>
@@ -73,14 +74,14 @@
         <td class="tl" <?php if ($cart_info['bl_id'] != '0') {?>colspan="2"<?php }?>><dl class="ncc-goods-info">
             <dt>
               <?php if ($cart_info['bl_id'] != '0'){?>
-              【套装】
+              Combo Package
               <?php }?>
               <a href="<?php echo urlShop('goods','index',array('goods_id'=>$cart_info['goods_id']));?>" target="_blank"><?php echo $cart_info['goods_name']; ?></a></dt>
             <?php if (!$cart_info['bl_id']) { ?>
             <dd class="goods-spec"><?php echo $cart_info['goods_spec'];?></dd>
             <?php } ?>
             <?php if ($cart_info['bl_id'] != '0') {?>
-            <dd> <span class="buldling">优惠套装，单套直降<em>￥<?php echo $cart_info['down_price']; ?></em></span></dd>
+            <dd> <span class="buldling">Combo Package, Save Per Pack<em>￥<?php echo $cart_info['down_price']; ?></em></span></dd>
             <?php }?>
             
             <!-- S 消费者保障服务 -->
@@ -93,10 +94,10 @@
             <?php }?>
             <!-- E 消费者保障服务 --> <!-- S 商品赠品列表 -->
             <?php if (!empty($cart_info['gift_list'])) { ?>
-            <dd class="ncc-goods-gift"><span>赠品</span>
+            <dd class="ncc-goods-gift"><span>Giveaway</span>
               <ul class="ncc-goods-gift-list">
                 <?php foreach ($cart_info['gift_list'] as $goods_info) { ?>
-                <li nc_group="<?php echo $cart_info['cart_id'];?>"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$goods_info['gift_goodsid']));?>" target="_blank" class="thumb" title="赠品：<?php echo $goods_info['gift_goodsname']; ?> * <?php echo $goods_info['gift_amount'] * $cart_info['goods_num']; ?>"><img src="<?php echo cthumb($goods_info['gift_goodsimage'],60,$store_id);?>" alt="<?php echo $goods_info['gift_goodsname']; ?>"/></a> </li>
+                <li nc_group="<?php echo $cart_info['cart_id'];?>"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$goods_info['gift_goodsid']));?>" target="_blank" class="thumb" title="Giveaway：<?php echo $goods_info['gift_goodsname']; ?> * <?php echo $goods_info['gift_amount'] * $cart_info['goods_num']; ?>"><img src="<?php echo cthumb($goods_info['gift_goodsimage'],60,$store_id);?>" alt="<?php echo $goods_info['gift_goodsname']; ?>"/></a> </li>
                 <?php } ?>
               </ul>
             </dd>
@@ -106,17 +107,17 @@
         <td><!-- S 商品单价 -->
           
           <?php if (!empty($cart_info['xianshi_info'])) {?>
-          <em class="goods-old-price tip" title="商品原价格"><?php echo $cart_info['goods_yprice']; ?></em>
+          <em class="goods-old-price tip" title="Price Before"><?php echo $cart_info['goods_yprice']; ?></em>
           <?php } ?>
           <em class="goods-price"><?php echo $cart_info['goods_price']; ?></em><!-- E 商品单价 --> 
           <!-- S 商品促销-限时折扣 -->
           
           <?php if (!empty($cart_info['xianshi_info'])) {?>
           <dl class="ncc-goods-sale">
-            <dt>商家促销<i class="icon-angle-down"></i></dt>
+            <dt>Promo<i class="icon-angle-down"></i></dt>
             <dd>
-              <p>活动名称：限时折扣</p>
-              <p>满<strong><?php echo $cart_info['xianshi_info']['lower_limit'];?></strong>件，单价直降<em>￥<?php echo $cart_info['xianshi_info']['down_price']; ?></em></p>
+              <p>Promo: Flash Sale</p>
+              <p>Buy<strong><?php echo $cart_info['xianshi_info']['lower_limit'];?></strong>Item(s), Save per Item<em>￥<?php echo $cart_info['xianshi_info']['down_price']; ?></em></p>
             </dd>
           </dl>
           <?php }?>
@@ -126,11 +127,11 @@
           
           <?php if ($cart_info['ifgroupbuy']) {?>
           <dl class="ncc-goods-sale">
-            <dt>商家促销<i class="icon-angle-down"></i></dt>
+            <dt>Promo<i class="icon-angle-down"></i></dt>
             <dd>
-              <p>活动名称：抢购</p>
+              <p>Promo: Groupbuy</p>
               <?php if ($cart_info['upper_limit']) {?>
-              <p>最多限购：<strong><?php echo $cart_info['upper_limit']; ?></strong>件 </p>
+              <p>Max Offer:<strong><?php echo $cart_info['upper_limit']; ?></strong>Items </p>
               <?php } ?>
             </dd>
           </dl>
@@ -141,10 +142,10 @@
           
           <?php if ($cart_info['jjgRank'] > 0) { ?>
           <dl class="ncc-goods-sale">
-            <dt>商家促销<i class="icon-angle-down"></i></dt>
+            <dt>Promo<i class="icon-angle-down"></i></dt>
             <dd>
-              <p>活动名称：加价购</p>
-              <p>活动满金额，加价购买更多优惠商品。</p>
+              <p>Promo: Add to Buy</p>
+              <p>Buy and Add Sum to Get Promo</p>
             </dd>
           </dl>
           <?php } ?>
@@ -152,11 +153,11 @@
           <!-- E 促销活动-抢购 --></td>
         <td><?php echo $cart_info['state'] ? $cart_info['goods_num'] : ''; ?></td>
         <td class="td-border-right"><?php if ($cart_info['state'] && $cart_info['storage_state']) {?>
-          <em cart_id="<?php echo $cart_info['cart_id']; ?>" goods_id="<?php echo $cart_info['goods_id'];?>" nc_type="eachGoodsTotal<?php echo $store_id?>" tpl_id="<?php echo $cart_info['transport_id']?>" class="goods-subtotal"><?php echo $cart_info['goods_total']; ?></em> <span id="no_send_tpl_<?php echo $cart_info['transport_id']?>" style="color: #F00;display:none">无货</span>
+          <em cart_id="<?php echo $cart_info['cart_id']; ?>" goods_id="<?php echo $cart_info['goods_id'];?>" nc_type="eachGoodsTotal<?php echo $store_id?>" tpl_id="<?php echo $cart_info['transport_id']?>" class="goods-subtotal"><?php echo $cart_info['goods_total']; ?></em> <span id="no_send_tpl_<?php echo $cart_info['transport_id']?>" style="color: #F00;display:none">No Stock</span>
           <?php } elseif (!$cart_info['storage_state']) {?>
-          <span style="color: #F00;">库存不足</span>
+          <span style="color: #F00;">Low Stock</span>
           <?php } elseif (!$cart_info['state']) {?>
-          <span style="color: #F00;">无效</span>
+          <span style="color: #F00;">Invalid</span>
           <?php }?></td>
       </tr>
       
@@ -183,7 +184,7 @@
           </dl></td>
         <td><em class="goods-price"><?php echo $goods_info['bl_goods_price'];?></em></td>
         <td><?php echo $cart_info['goods_num'];?></td>
-        <td class="td-border-right"><em goods_id="<?php echo $goods_info['goods_id'];?>" cart_id="<?php echo $cart_info['cart_id'];?>" nc_type="eachGoodsTotal<?php echo $store_id?>" class="goods-subtotal"><?php echo ncPriceFormat($goods_info['bl_goods_price']*$cart_info['goods_num']);?></em> <span style="color: #F00;display:none">无货</span></td>
+        <td class="td-border-right"><em goods_id="<?php echo $goods_info['goods_id'];?>" cart_id="<?php echo $cart_info['cart_id'];?>" nc_type="eachGoodsTotal<?php echo $store_id?>" class="goods-subtotal"><?php echo ncPriceFormat($goods_info['bl_goods_price']*$cart_info['goods_num']);?></em> <span style="color: #F00;display:none">No Stock</span></td>
       </tr>
       <?php } ?>
       <?php  } ?>
@@ -191,18 +192,18 @@
       
       <?php } ?>
       <tr>
-        <td colspan="20"><div class="ncc-msg">买家留言：
-            <textarea  name="pay_message[<?php echo $store_id;?>]" class="ncc-msg-textarea" placeholder="选填：对本次交易的说明（建议填写已经和商家达成一致的说明）" title="选填：对本次交易的说明（建议填写已经和商家达成一致的说明）"  maxlength="150"></textarea>
+        <td colspan="20"><div class="ncc-msg">Customer Msg:
+            <textarea  name="pay_message[<?php echo $store_id;?>]" class="ncc-msg-textarea" placeholder="Optional, Your Message to Seller." title="Optional, Your Message to Seller."  maxlength="150"></textarea>
           </div>
           <div class="ncc-store-account">
             <dl>
-              <dt>商品金额：</dt>
+              <dt>Amount:</dt>
               <dd class="rule"></dd>
               <dd class="sum"><em id="eachStoreGoodsTotal_<?php echo $store_id;?>"><?php echo $output['store_goods_total'][$store_id];?></em></dd>
             </dl>
             <?php if ($output['store_mansong_rule_list'][$store_id]['discount'] > 0) {?>
             <dl>
-              <dt>店铺优惠：</dt>
+              <dt>Save:</dt>
               <dd class="rule"><?php echo $output['store_mansong_rule_list'][$store_id]['desc'];?></dd>
               <dd class="sum"><em id="eachStoreManSong_<?php echo $store_id;?>" class="subtract">-<?php echo $output['store_mansong_rule_list'][$store_id]['discount'];?></em></dd>
             </dl>
@@ -212,10 +213,10 @@
             
             <?php if (!empty($output['store_voucher_list'][$store_id]) && is_array($output['store_voucher_list'][$store_id])) {?>
             <dl>
-              <dt>优惠卡券：</dt>
+              <dt>Coupon:</dt>
               <dd class="rule">
                 <select nctype="voucher" name="voucher[<?php echo $store_id;?>]" class="select">
-                  <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|0.00">-选择使用店铺代金券-</option>
+                  <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|0.00">-Use Coupon-</option>
                   <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) {?>
                   <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|<?php echo $voucher['voucher_price'];?>"><?php echo $voucher['desc'];?></option>
                   <?php } ?>
@@ -226,7 +227,7 @@
             <!-- E voucher list -->
             <?php } ?>
             <dl>
-              <dt>物流运费：</dt>
+              <dt>Shipping Fee</dt>
               <dd class="rule">
                 <?php if (!empty($output['cancel_calc_sid_list'][$store_id])) {?>
                 <?php echo $output['cancel_calc_sid_list'][$store_id]['desc'];?>
@@ -235,7 +236,7 @@
               <dd class="sum"><em nc_type="eachStoreFreight" id="eachStoreFreight_<?php echo $store_id;?>">0.00</em></dd>
             </dl>
             <dl class="total">
-              <dt>本店合计：</dt>
+              <dt>Total:</dt>
               <dd class="rule"></dd>
               <dd class="sum"><em store_id="<?php echo $store_id;?>" nc_type="eachStoreTotal"></em><?php echo $lang['currency_zh'];?></dd>
             </dl>
@@ -246,7 +247,7 @@
     <tfoot>
       <!-- S rpt list -->
       <tr id="rpt_panel" style="display: none">
-        <td class="pd-account" colspan="20"><div class="ncc-store-account"><dl><dt>平台红包：</dt><dd class="rule">
+        <td class="pd-account" colspan="20"><div class="ncc-store-account"><dl><dt>Gift Vouchers:</dt><dd class="rule">
             <select nctype="rpt" id="rpt" name="rpt" class="select">
             </select>
             <dd class="sum"><em id="orderRpt" class="subtract">-0.00</em></dd></dl></div></td>
@@ -256,7 +257,7 @@
         <td colspan="20"><?php if(!empty($output['ifcart'])){?>
           <a href="index.php?act=cart" class="ncc-prev-btn"><i class="icon-angle-left"></i><?php echo $lang['cart_step1_back_to_cart'];?></a>
           <?php }?>
-          <div class="ncc-all-account">订单总金额：<em id="orderTotal">....</font></em><?php echo $lang['currency_zh'];?></div>
+          <div class="ncc-all-account">Total Amount:<em id="orderTotal">....</font></em><?php echo $lang['currency_zh'];?></div>
           <a href="javascript:void(0)" id='submitOrder' class="ncc-next-submit"><?php echo $lang['cart_index_submit_order'];?></a></td>
       </tr>
     </tfoot>
@@ -267,7 +268,7 @@ function submitNext(){
 	if (!SUBMIT_FORM) return;
 
 	if ($('input[name="cart_id[]"]').size() == 0) {
-		showDialog('所购商品无效', 'error','','','','','','','','',2);
+		showDialog('Product Not Available', 'error','','','','','','','','',2);
 		return;
 	}
     if ($('#address_id').val() == ''){
@@ -275,15 +276,15 @@ function submitNext(){
 		return;
 	}
 	if ($('#buy_city_id').val() == '') {
-		showDialog('正在计算运费,请稍后！', 'error','','','','','','','','',2);
+		showDialog('Calculating Shipping Fee...', 'error','','','','','','','','',2);
 		return;
 	}
 	if ($('input[name="fcode"]').size() == 1 && $('#fcode_callback').val() != '1') {
-		showDialog('请输入并使用F码！', 'error','','','','','','','','',2);
+		showDialog('Input F-Code', 'error','','','','','','','','',2);
 		return;
 	}
 	if (no_send_tpl_ids.length > 0 || no_chain_goods_ids.length > 0) {
-		showDialog('有部分商品配送范围无法覆盖您选择的地址，请更换其它商品！', 'error','','','','','','','','',4);
+		showDialog('Some Products Are Not Available in Your Area, Please Contact Support', 'error','','','','','','','','',4);//有部分商品配送范围无法覆盖您选择的地址，请更换其它商品！
 		return;
 	}
 	SUBMIT_FORM = false;

@@ -1,11 +1,11 @@
 <?php defined('ShopNC_CLUB') or exit('Access Invalid!'); return array (
   'name' => 
   array (
-    1 => 'Makati',
-    2 => 'Manila',
-    3 => 'Pasay',
-    4 => 'Ortigas',
-    5 => 'Antipolo',
+    1 => '北京',
+    2 => '天津',
+    3 => '河北',
+    4 => '山西',
+    5 => '内蒙古',
     6 => '辽宁',
     7 => '吉林',
     8 => '黑龙江',
@@ -11191,15 +11191,13 @@
   ),
   'region' => 
   array (
-    'NRC' => 
+    '华北' => 
     array (
       0 => '1',
-    ),
-    'NCR' => 
-    array (
-      0 => '2',
-      1 => '3',
-      2 => '4',
+      1 => '2',
+      2 => '3',
+      3 => '4',
+      4 => '5',
     ),
     '东北' => 
     array (

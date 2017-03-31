@@ -98,8 +98,13 @@ class cartModel extends Model {
         } else {
             $condition['bl_id'] = 0;
         }
+
+        //查询cart 里面对应的商品信息
         $check_cart = $this->checkCart($condition);
-        if (!empty($check_cart)) return true;
+
+        //修改购物车问题，不更新个数
+        //if (!empty($check_cart)) return true;
+        if (!empty($check_cart)) { $data['goods_num'] =(int)$check_cart['goods_num']+(int)$quantity; $update = $this->editCart($data, array('cart_id'=>$check_cart['cart_id'])); if($update) { return true; } }
 
         $array    = array();
         $array['buyer_id']  = $goods_info['buyer_id'];

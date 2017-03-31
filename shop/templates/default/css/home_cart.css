@@ -58,7 +58,7 @@ label.error i { margin-right: 4px;}
 .ncc-main {}
 .ncc-title { height: 50px; padding: 15px 0; border: solid #F7F7F7; border-width: 1px 0 0; border-bottom: solid 1px #F5F5F5;}
 .ncc-title h3 { font: lighter 24px/30px arial,"microsoft yahei"; color: #555;}
-.ncc-title h5 { font: 12px/20px arial,"microsoft yahei"; color: #AAA;}
+.ncc-title h5 { font: 12px/20px arial,"microsoft yahei"; color: #AAA; padding-left: 2px}
 .ncc-title h5 a { color: #27A9E3;}
 .ncc-table-style { width: 100%; border-collapse: collapse; margin-bottom: 20px;}
 .ncc-table-style thead th { line-height: 20px; color: #666; background-color: #FAFAFA; text-align: center; height: 20px; padding: 10px;}

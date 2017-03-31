@@ -10,7 +10,7 @@
       <dt class="goods-name"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$v['goods_id']));?>" title="<?php echo $v['goods_name'];?>" target="_blank";><?php echo $v['goods_name'];?></a></dt>
       <dd><em class="goods-price"><?php echo $lang['currency'].$v['goods_price'];?></em>×<?php echo $v['goods_num'];?></dd>
     </dl>
-    <a href="javascript:drop_topcart_item(<?php echo $v['cart_id'];?>);" class="del" title="删除">X</a>
+    <a href="javascript:drop_topcart_item(<?php echo $v['cart_id'];?>);" class="del" title="delete">X</a>
   </li>
   <?php } ?>
 <script>
@@ -21,7 +21,7 @@ $(function(){
 </script>
   <?php } else { ?>
   <li>
-    <dl><dd style="text-align: center; ">暂无商品</dd></dl>
+    <dl><dd style="text-align: center; ">No Item... Shop Now</dd></dl>
   </li>
 <script>
 $(function(){
@@ -33,6 +33,6 @@ $(function(){
 </ul>
 <div class="btn-box">
 <?php if ($output['cart_list']['list']) { ?>
-<div ncType="rtoolbar_total_price" class="total-price">共计金额：<em class="goods-price">&yen;<?php echo $output['cart_list']['cart_all_price'];?></em></div>
-<a href="javascript:void(0);" onclick="javascript:window.location.href='<?php echo SHOP_SITE_URL;?>/index.php?act=cart'">结算购物车中的商品</a>
+<div ncType="rtoolbar_total_price" class="total-price">Total Amount：<em class="goods-price">&yen;<?php echo $output['cart_list']['cart_all_price'];?></em></div>
+<a href="javascript:void(0);" onclick="javascript:window.location.href='<?php echo SHOP_SITE_URL;?>/index.php?act=cart'">Checkout Now</a>
 <?php } ?>

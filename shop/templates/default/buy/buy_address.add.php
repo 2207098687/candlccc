@@ -30,7 +30,7 @@
       <dt> <i class="required">*</i><?php echo $lang['cart_step1_mobile_num'].$lang['nc_colon'];?></dt>
       <dd>
         <input type="text" class="text w200" name="mob_phone" id="mob_phone" maxlength="15" value=""/>
-        &nbsp;&nbsp;(或)&nbsp;<?php echo $lang['cart_step1_phone_num'].$lang['nc_colon'];?>
+        &nbsp;&nbsp;(or)&nbsp;<?php echo $lang['cart_step1_phone_num'].$lang['nc_colon'];?>
         <input type="text" class="text w200" id="tel_phone" name="tel_phone" maxlength="20" value=""/>
       </dd>
     </dl>
@@ -68,7 +68,7 @@ $(document).ready(function(){
                 required : '<i class="icon-exclamation-sign"></i><?php echo $lang['cart_step1_input_receiver'];?>'
             },
             region : {
-            	checklast: '<i class="icon-exclamation-sign"></i>请将地区选择完整'
+            	checklast: '<i class="icon-exclamation-sign"></i>Pls Select'
             },
             address : {
                 required : '<i class="icon-exclamation-sign"></i><?php echo $lang['cart_step1_input_address'];?>'

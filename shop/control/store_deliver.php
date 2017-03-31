@@ -243,7 +243,7 @@ class store_deliverControl extends BaseSellerControl {
         $condition['store_id'] = $_SESSION['store_id'];
         $order_info = $model_order->getOrderInfo($condition,array('order_common','order_goods'));
         if (empty($order_info) || $order_info['shipping_code'] == '') {
-            showMessage('未找到信息','','html','error');
+            showMessage('Message No Found','','html','error');
         }
         $order_info['state_info'] = orderState($order_info);
         Tpl::output('order_info',$order_info);
@@ -286,9 +286,9 @@ class store_deliverControl extends BaseSellerControl {
             if ($update) {
                 //新的最晚收货时间
                 $dalay_date = date('Y-m-d H:i:s',$delay_time+$delay_date*3600*24);
-                showDialog("成功将最晚收货期限延迟到了".$dalay_date.'&emsp;','','succ',empty($_GET['inajax']) ?'':'CUR_DIALOG.close();',4);
+                showDialog("Extended the Deadline for Reception".$dalay_date.'&emsp;','','succ',empty($_GET['inajax']) ?'':'CUR_DIALOG.close();',4);
             } else {
-                showDialog('延迟失败','','succ',empty($_GET['inajax']) ?'':'CUR_DIALOG.close();');
+                showDialog('Failed to Extend','','succ',empty($_GET['inajax']) ?'':'CUR_DIALOG.close();');
             }
         } else {
             $order_info['delay_time'] = $delay_time;

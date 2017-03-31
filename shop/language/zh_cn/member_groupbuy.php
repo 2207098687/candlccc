@@ -3,20 +3,20 @@ defined('ShopNC_CLUB') or exit('Access Invalid!');
 /**
  * 抢购状态 
  */
-$lang['groupbuy_state_all'] = '全部抢购';
-$lang['groupbuy_state_verify'] = '未审核';
-$lang['groupbuy_state_cancel'] = '已取消';
-$lang['groupbuy_state_progress'] = '已通过';
-$lang['groupbuy_state_fail'] = '审核失败';
-$lang['groupbuy_state_close'] = '已结束';
+$lang['groupbuy_state_all'] = 'All Groupguy';//全部抢购
+$lang['groupbuy_state_verify'] = 'Not Yet Verified';//未审核
+$lang['groupbuy_state_cancel'] = 'Cancelled';//已取消
+$lang['groupbuy_state_progress'] = 'Verified';//已通过
+$lang['groupbuy_state_fail'] = 'Not Qualified';//审核失败
+$lang['groupbuy_state_close'] = 'Finished';//已结束
 
 /**
  * 抢购字段
  **/
-$lang['group_template'] = '抢购活动';
-$lang['group_template_tip'] = '选择要参加的抢购活动及时间段';
-$lang['group_name'] = '抢购名称';
-$lang['group_name_tip'] = '抢购标题名称长度最多可输入30个字符';
+$lang['group_template'] = 'Groupbuy Promo';//抢购活动
+$lang['group_template_tip'] = 'Select Promo and Time';//选择要参加的抢购活动及时间段
+$lang['group_name'] = 'Groupbuy';//'抢购名称';
+$lang['group_name_tip'] = '抢购标题名称长度最多可输入30个字符';//抢购标题名称长度最多可输入30个字符
 $lang['group_goods_sel'] = '选择商品';
 $lang['group_help'] = '抢购说明';
 $lang['start_time'] = '开始时间';

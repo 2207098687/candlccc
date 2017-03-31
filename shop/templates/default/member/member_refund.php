@@ -16,7 +16,7 @@
         <th><select name="type">
             <option value="order_sn" <?php if($_GET['type'] == 'order_sn'){?>selected<?php }?>><?php echo $lang['refund_order_ordersn']; ?></option>
             <option value="refund_sn" <?php if($_GET['type'] == 'refund_sn'){?>selected<?php }?>><?php echo $lang['refund_order_refundsn']; ?></option>
-            <option value="goods_name" <?php if($_GET['type'] == 'goods_name'){?>selected<?php }?>><?php echo '商品名称'; ?></option>
+            <option value="goods_name" <?php if($_GET['type'] == 'goods_name'){?>selected<?php }?>><?php echo 'Product'; ?></option>
           </select></th>
         <td class="w160"><input type="text" class="text w150" name="key" value="<?php echo trim($_GET['key']); ?>" /></td>
         <td class="w70 tc"><label class="submit-border">
@@ -29,10 +29,10 @@
     <thead>
       <tr>
         <th class="w10"></th>
-        <th colspan="2">商品</th>
-        <th class="w100"><?php echo $lang['refund_order_refund'];?>（元）</th>
+        <th colspan="2">Product</th>
+        <th class="w100"><?php echo $lang['refund_order_refund'];?>₱</th>
         <th class="w100"><?php echo $lang['refund_state'];?></th>
-        <th class="w100">平台确认</th>
+        <th class="w100">Confirm</th>
         <th class="w100"><?php echo $lang['nc_handle'];?></th>
       </tr>
     </thead>
@@ -76,7 +76,7 @@
         <?php } ?>
         <td><?php echo $val['refund_amount'];?></td>
         <td><?php echo $output['state_array'][$val['seller_state']]; ?></td>
-        <td><?php echo $val['seller_state']==2 ? $output['admin_array'][$val['refund_state']]:'无'; ?></td>
+        <td><?php echo $val['seller_state']==2 ? $output['admin_array'][$val['refund_state']]:'None'; ?></td>
         <td class="bdr"><a href="index.php?act=member_refund&op=view&refund_id=<?php echo $val['refund_id']; ?>" class="ncbtn"><?php echo $lang['nc_view'];?> </a></td>
       </tr>
       <?php } ?>

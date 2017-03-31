@@ -8,7 +8,7 @@
       <ul class="tabs-nav">
         <li><a href="#default"><?php echo $lang['login_index_find_password'];?><i></i></a></li>
         <?php if (C('sms_password') == 1){?>
-        <li><a href="#mobile" title="手机找回密码" class="sms_find">手机找回密码<i></i></a></li>
+        <li><a href="#mobile" title="Retrieve Through Phone" class="sms_find">Retrieve Password Through Mobile<i></i></a></li>
         <?php } ?>
       </ul>
       <div id="tabs_container" class="tabs-container">
@@ -20,25 +20,25 @@
             <dl>
               <dt><?php echo $lang['login_password_you_account'];?>：</dt>
               <dd>
-                <input type="text" class="text" name="username" tipMsg="输入您已注册的用户名" />
+                <input type="text" class="text" name="username" tipMsg="Enter Username" />
               </dd>
             </dl>
             <dl>
               <dt><?php echo $lang['login_password_you_email'];?>：</dt>
               <dd>
-                <input type="text" class="text" name="email" tipMsg="输入您已注册的邮箱" />
+                <input type="text" class="text" name="email" tipMsg="Enter Email" />
               </dd>
             </dl>
             <div class="code-div mt15">
               <dl>
                 <dt><?php echo $lang['login_register_code'];?>：</dt>
                 <dd>
-                  <input type="text" name="captcha" class="text w100" id="captcha" size="10" tipMsg="输入验证码" />
+                  <input type="text" name="captcha" class="text w100" id="captcha" size="10" tipMsg="Enter Captcha" />
                 </dd>
               </dl>
               <span><img src="index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>" title="<?php echo $lang['login_index_change_checkcode'];?>" name="codeimage" id="codeimage"> <a class="makecode" href="javascript:void(0);" class="ml5" onclick="javascript:document.getElementById('codeimage').src='index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>&t=' + Math.random();"><?php echo $lang['login_password_change_code']; ?></a></span></div>
             <div class="submit-div">
-              <input type="button" class="submit" value="重置密码" name="Submit" id="Submit">
+              <input type="button" class="submit" value="Reset Password" name="Submit" id="Submit">
               <input type="hidden" value="<?php echo $output['ref_url']?>" name="ref_url">
             </div>
           </form>
@@ -50,35 +50,35 @@
             <input type="hidden" name="form_submit" value="ok" />
             <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
             <dl>
-              <dt>手机号：</dt>
+              <dt>Mobile No.</dt>
               <dd>
-                <input type="text" class="text" autocomplete="off" value="" name="phone" id="phone" tipMsg="输入您已注册的手机号" >
+                <input type="text" class="text" autocomplete="off" value="" name="phone" id="phone" tipMsg="Enter Mobile Number Registered" >
               </dd>
             </dl>
             <div class="code-div">
               <dl>
                 <dt><?php echo $lang['login_register_code'];?>：</dt>
                 <dd>
-                  <input type="text" name="captcha" class="text w100" id="image_captcha" size="10" tipMsg="输入验证码" />
+                  <input type="text" name="captcha" class="text w100" id="image_captcha" size="10" tipMsg="Input Captcha" />
               </dl>
               <span><img src="index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>" title="<?php echo $lang['login_index_change_checkcode'];?>" name="codeimage" id="sms_codeimage"> <a class="makecode" href="javascript:void(0);" class="ml5" onclick="javascript:document.getElementById('sms_codeimage').src='index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>&t=' + Math.random();"><?php echo $lang['login_password_change_code']; ?></a></span>
               </dd>
             </div>
-            <div class="tiptext" id="sms_text">正确输入上方验证码后，点击<span> <a href="javascript:void(0);"  onclick="get_sms_captcha('3')"><i class="icon-mobile-phone"></i>发送短信验证</a></span>，查收短信将系统发送的“6位手机验证码”输入到下方验证后登录。</div>
+            <div class="tiptext" id="sms_text">Enter Captcha Correctly, Click<span> <a href="javascript:void(0);"  onclick="get_sms_captcha('3')"><i class="icon-mobile-phone"></i>Send Verif Code</a></span>, Check Verification Code Sent to Mobile, Enter Code Below.</div>
             <dl>
-              <dt>短信验证：</dt>
+              <dt>Code: </dt>
               <dd>
-                <input type="text" name="sms_captcha" autocomplete="off" class="text w100" id="sms_captcha" size="15"  tipMsg="输入验证码" />
+                <input type="text" name="sms_captcha" autocomplete="off" class="text w100" id="sms_captcha" size="15"  tipMsg="Enter Code" />
               </dd>
             </dl>
             <dl>
-              <dt>新密码：</dt>
+              <dt>New Password: </dt>
               <dd>
-                <input type="text" name="password" id="password" class="text"  tipMsg="输入您修改的密码" />
+                <input type="text" name="password" id="password" class="text"  tipMsg="Enter Desire Password" />
               </dd>
             </dl>
             <div class="submit-div">
-              <input type="submit" id="submit" class="submit" value="确认重置">
+              <input type="submit" id="submit" class="submit" value="Reset">
             </div>
           </form>
         </div>
@@ -215,17 +215,17 @@ $(function(){
 		},
 		messages: {
 			phone: {
-                required : '<i class="icon-exclamation-sign"></i>请输入正确的手机号',
-                mobile : '<i class="icon-exclamation-sign"></i>请输入正确的手机号'
+                required : '<i class="icon-exclamation-sign"></i>Enter Right Mobile No.',
+                mobile : '<i class="icon-exclamation-sign"></i>Enter Right Mobile No.'
             },
 			captcha : {
-                required : '<i class="icon-remove-circle" title="请输入正确的验证码"></i>',
-                minlength: '<i class="icon-remove-circle" title="请输入正确的验证码"></i>',
-				remote	 : '<i class="icon-remove-circle" title="请输入正确的验证码"></i>'
+                required : '<i class="icon-remove-circle" title="Enter Right Mobile No."></i>',
+                minlength: '<i class="icon-remove-circle" title="Enter Right Mobile No."></i>',
+				remote	 : '<i class="icon-remove-circle" title="Enter Right Mobile No."></i>'
             },
 			sms_captcha: {
-                required : '<i class="icon-exclamation-sign"></i>请输入六位短信验证码',
-                minlength: '<i class="icon-exclamation-sign"></i>请输入六位短信验证码'
+                required : '<i class="icon-exclamation-sign"></i>Enter 6 Digits Verification Code',
+                minlength: '<i class="icon-exclamation-sign"></i>Enter 6 Digits Verification Code'
             },
             password  : {
                 required : '<i class="icon-exclamation-sign"></i><?php echo $lang['login_register_input_password'];?>',

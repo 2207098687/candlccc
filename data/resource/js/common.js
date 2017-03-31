@@ -16,7 +16,7 @@ function go(url){
 /* 格式化金额 */
 function price_format(price){
     if(typeof(PRICE_FORMAT) == 'undefined'){
-        PRICE_FORMAT = '&yen;%s';
+        PRICE_FORMAT = '₱%s';
     }
     price = number_format(price, 2);
 
@@ -255,12 +255,12 @@ function collect_store(fav_id,jstype,jsobj){
                 }
                 if(jstype == 'succ'){
                     $('[nctype="'+jsobj+'"]').each(function(){
-                        $(this).html("收藏成功");
+                        $(this).html("Liked");
                     });
                 }
                 if(jstype == 'store'){
                     $('[nc_store="'+fav_id+'"]').each(function(){
-                        $(this).before('<span class="goods-favorite" title="该店铺已收藏"><i class="have">&nbsp;</i></span>');
+                        $(this).before('<span class="goods-favorite" title="Liked the Shop Already"><i class="have">&nbsp;</i></span>');
                         $(this).remove();
                     });
                 }
@@ -315,14 +315,14 @@ function load_cart_information(){
 	            	html+='<dl ncTpye="cart_item_'+goods['cart_id']+'"><dt class="goods-name"><a href="'+goods['goods_url']+'">'+goods['goods_name']+'</a></dt>';
 	            	html+='<dd class="goods-thumb"><a href="'+goods['goods_url']+'" title="'+goods['goods_name']+'"><img src="'+goods['goods_image']+'"></a></dd>';
 		          	html+='<dd class="goods-sales"></dd>';
-		          	html+='<dd class="goods-price"><em>&yen;'+goods['goods_price']+'×'+goods['goods_num']+'</dd>';
-		          	html+='<dd class="handle"><a href="javascript:void(0);" onClick="drop_topcart_item('+goods['cart_id']+');">删除</a></dd>';
+		          	html+='<dd class="goods-price"><em>₱'+goods['goods_price']+'×'+goods['goods_num']+'</dd>';
+		          	html+='<dd class="handle"><a href="javascript:void(0);" onClick="drop_topcart_item('+goods['cart_id']+');">Remove</a></dd>';
 		          	html+="</dl>";
 		        }
 		        obj.find('.incart-goods').html(html);
     	        obj.find('.incart-goods-box').perfectScrollbar('destroy');
     	        obj.find('.incart-goods-box').perfectScrollbar({suppressScrollX:true});
-	         	html = "共<i>"+result.cart_goods_num+"</i>种商品&nbsp;&nbsp;总计金额：<em>&yen;"+result.cart_all_price+"</em>";
+	         	html = "Totally, <i>"+result.cart_goods_num+"</i>Types of Product&nbsp;&nbsp;Total Amount：<em>&yen;"+result.cart_all_price+"</em>";
 		        obj.find('.total-price').html(html);
 		        if (obj.find('.addcart-goods-num').size()==0) {
 		            obj.append('<div class="addcart-goods-num">0</div>');
@@ -330,7 +330,7 @@ function load_cart_information(){
 		        obj.find('.addcart-goods-num').html(result.cart_goods_num);
 		        $('#rtoobar_cart_count').html(result.cart_goods_num).show();
 	      } else {
-	      	html="<div class='no-order'><span>您的购物车中暂无商品，赶快选择心爱的商品吧！</span></div>";
+	      	html="<div class='no-order'><span>Empty Cart! Please Add Products!</span></div>";
 	      	obj.find('.incart-goods').html(html);
 	      	obj.find('.total-price').html('');
 	      	$('.addcart-goods-num').html('0');
@@ -348,22 +348,22 @@ function drop_topcart_item(cart_id){
             var obj = $('.head-user-menu .my-cart');
             //删除成功
             if(result.quantity == 0){
-    	      	html="<div class='no-order'><span>您的购物车中暂无商品，赶快选择心爱的商品吧！</span></div>";
+    	      	html="<div class='no-order'><span>Empty Cart! Please Add Products!</span></div>";
     	      	obj.find('.incart-goods').html(html);
     	      	obj.find('.total-price').html('');
     	      	$('.addcart-goods-num').html('0');
-    	      	$('.cart-list').html('<li><dl><dd style="text-align: center; ">暂无商品</dd></dl></li>');
+    	      	$('.cart-list').html('<li><dl><dd style="text-align: center; ">No Item Yet</dd></dl></li>');
     	      	$('div[ncType="rtoolbar_total_price"]').html('');
     	      	$('#rtoobar_cart_count').html('').hide();
             }else{
                 $('dl[ncTpye="cart_item_'+ cart_id+'"]').remove();
                 $('li[ncTpye="cart_item_'+ cart_id+'"]').remove();
-	         	html="共<i>"+result.quantity+"</i>种商品&nbsp;&nbsp;总计金额：<em>&yen;"+result.amount+"</em>";
+	         	html="Totolly,<i>"+result.quantity+"</i>Types of Products&nbsp;&nbsp;Total Amount<em>&yen;"+result.amount+"</em>";
 	         	obj.find('.total-price').html(html);
 		        obj.find('.addcart-goods-num').html(result.quantity);
     	        obj.find('.incart-goods-box').perfectScrollbar('destroy');
     	        obj.find('.incart-goods-box').perfectScrollbar({suppressScrollX:true});
-    	        $('div[ncType="rtoolbar_total_price"]').html("共计金额：<em class='goods-price'>&yen;"+result.amount+"</em>");
+    	        $('div[ncType="rtoolbar_total_price"]').html("Total Amount：<em class='goods-price'>&yen;"+result.amount+"</em>");
     	        $('#rtoobar_cart_count').html(result.quantity);
     	        if ($('#rtoolbar_cartlist > ul').children().size() != result.quantity) {
     	        	$("#rtoolbar_cartlist").load(SHOP_SITE_URL+ '/index.php?act=cart&op=ajax_load&type=html');return ;
@@ -447,29 +447,29 @@ function weixin_login(){
         var ref_url = document.location.href;
         var add_html = '<span class="other">';
         if (connect_qq == '1'){
-            add_html += '<a href="'+MEMBER_SITE_URL+'/index.php?act=connect_qq" onclick="ref_url_login()" title="QQ账号登录" class="qq"><i></i></a>';
+            add_html += '<a href="'+MEMBER_SITE_URL+'/index.php?act=connect_qq" onclick="ref_url_login()" title="QQlogin" class="qq"><i></i></a>';
         }
         if (connect_sn == '1'){
-            add_html += '<a href="'+MEMBER_SITE_URL+'/index.php?act=connect_sina" onclick="ref_url_login()" title="新浪微博账号登录" class="sina"><i></i></a>';
+            add_html += '<a href="'+MEMBER_SITE_URL+'/index.php?act=connect_sina" onclick="ref_url_login()" title="weiboLogin" class="sina"><i></i></a>';
         }
         if (connect_wx == '1'){
-            add_html += '<a href="javascript:void(0);" onclick="weixin_login()" title="微信账号登录" class="wx"><i></i></a>';
+            add_html += '<a href="javascript:void(0);" onclick="weixin_login()" title="wechatLogin" class="wx"><i></i></a>';
         }
         add_html += '</span>';
         login_dialog_html.append('<form class="bg" method="post" id="ajax_login" action="'+LOGIN_SITE_URL+settings.action+'"></form>').find('form')
         	.append('<input type="hidden" value="ok" name="form_submit">')
         	.append('<input type="hidden" value="'+settings.formhash+'" name="formhash">')
         	.append('<input type="hidden" value="'+settings.nchash+'" name="nchash">')
-        	.append('<dl><dt>用户名</dt><dd><input type="text" name="user_name" autocomplete="off" class="text"></dd></dl>')
-        	.append('<dl><dt>密&nbsp;&nbsp;&nbsp;码</dt><dd><input type="password" autocomplete="off" name="password" class="text"></dd></dl>')
-        	.append('<dl><dt>验证码</dt><dd><input type="text" size="10" maxlength="4" class="text fl w60" name="captcha"><img border="0" onclick="this.src=\'index.php?act=seccode&amp;op=makecode&amp;nchash='+settings.nchash+'&amp;t=\' + Math.random()" name="codeimage" title="看不清，换一张" src="index.php?act=seccode&amp;op=makecode&amp;nchash='+settings.nchash+'" class="fl ml10"><span>不区分大小写</span></dd></dl>')
-        	.append('<ul><li>›&nbsp;如果您没有登录账号，请先<a class="register" href="'+LOGIN_SITE_URL+'/index.php?act=login&amp;op=register">注册会员</a>然后登录</li><li>›&nbsp;如果您<a class="forget" href="'+LOGIN_SITE_URL+'/index.php?act=login&amp;op=forget_password">忘记密码</a>？，申请找回密码</li></ul>')
-        	.append('<div class="enter"><input type="submit" name="Submit" value="登&#12288;&#12288;录" class="submit">'+add_html+'</div><input type="hidden" name="ref_url" value="'+ref_url+'">');
+        	.append('<dl><dt>Username</dt><dd><input type="text" name="user_name" autocomplete="off" class="text"></dd></dl>')
+        	.append('<dl><dt>Password</dt><dd><input type="password" autocomplete="off" name="password" class="text"></dd></dl>')
+        	.append('<dl><dt>Captcha</dt><dd><input type="text" size="10" maxlength="4" class="text fl w60" name="captcha"><img border="0" onclick="this.src=\'index.php?act=seccode&amp;op=makecode&amp;nchash='+settings.nchash+'&amp;t=\' + Math.random()" name="codeimage" title="Refresh" src="index.php?act=seccode&amp;op=makecode&amp;nchash='+settings.nchash+'" class="fl ml10"><span>Case Insensitive</span></dd></dl>')
+        	.append('<ul><li>›&nbsp;No Account? Please<a class="register" href="'+LOGIN_SITE_URL+'/index.php?act=login&amp;op=register">Register</a>Then Login</li><li>›&nbsp;<a class="forget" href="'+LOGIN_SITE_URL+'/index.php?act=login&amp;op=forget_password">Forgot Password?</a>？Retrieve It</li></ul>')
+        	.append('<div class="enter"><input type="submit" name="Submit" value="Login" class="submit">'+add_html+'</div><input type="hidden" name="ref_url" value="'+ref_url+'">');
 
         login_dialog_html.find('input[type="submit"]').click(function(){
         	ajaxpost('ajax_login', '', '', 'onerror');
         });
-        html_form("form_dialog_login", "登录", login_dialog_html, 360);
+        html_form("form_dialog_login", "Login", login_dialog_html, 360);
     };
     $.fn.nc_login = function(options) {
         return this.each(function() {
@@ -611,25 +611,25 @@ function weixin_login(){
 		                		var _info = '';
 		                		if(typeof connect !== 'undefined' && connect === 1 && data.follow != 2){
 		                			var class_html = 'chat_offline';
-		                			var text_html = '离线';
+		                			var text_html = 'Offline';
 		                			if (typeof user_list[data.id] !== 'undefined' && user_list[data.id]['online'] > 0 ) {
 		                				class_html = 'chat_online';
-		                				text_html = '在线';
+		                				text_html = 'Online';
 		                			}
-		                			_info += '<a class="chat '+class_html+'" title="点击这里给我发消息" href="JavaScript:chat('+data.id+');">'+text_html+'</a>';
+		                			_info += '<a class="chat '+class_html+'" title="Message Me" href="JavaScript:chat('+data.id+');">'+text_html+'</a>';
 		                		}
 		                		if(data.qq != ''){
 		                			_info += '<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin='+data.qq+'&site=qq&menu=yes" title="QQ: '+data.qq+'"><img border="0" src="http://wpa.qq.com/pa?p=2:'+data.qq+':52" style=" vertical-align: middle;"/></a>';
 		                		}
 		                		if(data.ww != ''){
-		                			_info += '<a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid='+data.ww+'&site=cntaobao&s=1&charset='+_CHARSET+'" ><img border="0" src="http://amos.im.alisoft.com/online.aw?v=2&uid='+data.ww+'&site=cntaobao&s=2&charset='+_CHARSET+'" alt="点击这里给我发消息" style=" vertical-align: middle;"/></a>';
+		                			_info += '<a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid='+data.ww+'&site=cntaobao&s=1&charset='+_CHARSET+'" ><img border="0" src="http://amos.im.alisoft.com/online.aw?v=2&uid='+data.ww+'&site=cntaobao&s=2&charset='+_CHARSET+'" alt="Click to Message" style=" vertical-align: middle;"/></a>';
 		                		}
 		                		if(_info == ''){
 		                			_info = '--';
 		                		}
-		                		var _ul = $('<ul></ul>').append('<li>城市：'+((data.areainfo != null)?data.areainfo:'--')+'</li>')
-		                			.append('<li>生日：'+((data.birthday != null)?data.birthday:'--')+'</li>')
-		                			.append('<li>联系：'+_info+'</li>').appendTo('<dd class="info"></dd>').parent().appendTo(_dl);
+		                		var _ul = $('<ul></ul>').append('<li>City:'+((data.areainfo != null)?data.areainfo:'--')+'</li>')
+		                			.append('<li>Birthday:'+((data.birthday != null)?data.birthday:'--')+'</li>')
+		                			.append('<li>Contact:'+_info+'</li>').appendTo('<dd class="info"></dd>').parent().appendTo(_dl);
 		                		// ajax info
 		                		if(data.url != ''){
 			                		$.getJSON(data.url+'/index.php?act=member_card&op=mcard_info&uid='+data.id, function(d){
@@ -649,16 +649,16 @@ function weixin_login(){
 		                			if(data.follow == 1){
 		                				$('<div class="follow-handle" nctype="follow-handle'+data.id+'" data-param="{\'mid\':'+data.id+'}"></div>')
 		                					.append('<a href="javascript:void(0);" >已关注</a>')
-		                					.append('<a href="javascript:void(0);" nctype="nofollow">取消关注</a>').find('a[nctype="nofollow"]').click(function(){
+		                					.append('<a href="javascript:void(0);" nctype="nofollow">Unfollow</a>').find('a[nctype="nofollow"]').click(function(){
 		                						onfollow($(this));
 		                					}).end().appendTo(_bottom);
 		                			}else{
 		                				$('<div class="follow-handle" nctype="follow-handle'+data.id+'" data-param="{\'mid\':'+data.id+'}"></div>')
-		                					.append('<a href="javascript:void(0);" nctype="follow">加关注</a>').find('a[nctype="follow"]').click(function(){
+		                					.append('<a href="javascript:void(0);" nctype="follow">Follow</a>').find('a[nctype="follow"]').click(function(){
 		                						follow($(this));
 		                					}).end().appendTo(_bottom);
 		                			}
-		                			$('<div class="send-msg"> <a href="'+MEMBER_SITE_URL+'/index.php?act=member_message&op=sendmsg&member_id='+data.id+'" target="_blank"><i></i>站内信</a> </div>').appendTo(_bottom);
+		                			$('<div class="send-msg"> <a href="'+MEMBER_SITE_URL+'/index.php?act=member_message&op=sendmsg&member_id='+data.id+'" target="_blank"><i></i>Inbox</a> </div>').appendTo(_bottom);
 		                		}
 
 		                		var _content = $('<div class="member-card"></div>').append(_dl).append(_bottom);
@@ -682,7 +682,7 @@ function weixin_login(){
 			eval( "data_str = "+data_str);
 			$.getJSON(MEMBER_SITE_URL+'/index.php?act=member_snsfriend&op=addfollow&callback=?&mid='+data_str.mid, function(data){
 				if(data){
-					$('[nctype="follow-handle'+data_str.mid+'"]').html('<a href="javascript:void(0);" >已关注</a> <a href="javascript:void(0);" nctype="nofollow">取消关注</a>').find('a[nctype="nofollow"]').click(function(){
+					$('[nctype="follow-handle'+data_str.mid+'"]').html('<a href="javascript:void(0);" >Follow</a> <a href="javascript:void(0);" nctype="nofollow">Unfollow</a>').find('a[nctype="nofollow"]').click(function(){
 						onfollow($(this));
 					});
 				}
@@ -693,7 +693,7 @@ function weixin_login(){
 			eval( "data_str = "+data_str);
 			$.getJSON(MEMBER_SITE_URL+'/index.php?act=member_snsfriend&op=delfollow&callback=?&mid='+data_str.mid, function(data){
 				if(data){
-					$('[nctype="follow-handle'+data_str.mid+'"]').html('<a href="javascript:void(0);" nctype="follow">加关注</a>').find('a[nctype="follow"]').click(function(){
+					$('[nctype="follow-handle'+data_str.mid+'"]').html('<a href="javascript:void(0);" nctype="follow">Follow</a>').find('a[nctype="follow"]').click(function(){
 						follow($(this));
 					});
 				}
@@ -705,14 +705,14 @@ function weixin_login(){
 		function circle_function(d){
 			var rs = $('<dd class="ajax-info"></dd>');
 			$.each(d,function(i, n){
-				rs.append('<div class="rank-div" title="'+n.circle_name+'圈等级'+n.cm_level+'，经验值'+n.cm_exp+'"><a href="'+CIRCLE_SITE_URL+'/index.php?act=group&c_id='+n.circle_id+'" target="_blank">'+n.circle_name+'</a><i></i><em class="rank-em rank-'+n.cm_level+'">'+n.cm_level+'</em></div>');
+				rs.append('<div class="rank-div" title="'+n.circle_name+'Community Points'+n.cm_level+'，Experience Points'+n.cm_exp+'"><a href="'+CIRCLE_SITE_URL+'/index.php?act=group&c_id='+n.circle_id+'" target="_blank">'+n.circle_name+'</a><i></i><em class="rank-em rank-'+n.cm_level+'">'+n.cm_level+'</em></div>');
 			});
 			return rs;
 		}
 		function microshop_function(d){
 			var rs = $('<dd class="ajax-info"></dd>');
-            rs.append('<span class="ajax-info-microshop">随心看：' + d.goods_count + '</span>');
-            rs.append('<span class="ajax-info-microshop">个人秀：' + d.personal_count + '</span>');
+            rs.append('<span class="ajax-info-microshop">Random Checkout' + d.goods_count + '</span>');
+            rs.append('<span class="ajax-info-microshop">My Show:' + d.personal_count + '</span>');
 			return rs;
 		}
 	};
@@ -770,7 +770,7 @@ function weixin_login(){
 				initArea($inputArea)
 			} else {
 				var $region_span = $('<span id="_area_span" class="' + settings.region_span_class + '">' + $inputArea.val() + "</span>");
-				var $region_btn = $('<input type="button" class="input-btn" ' + settings.btn_style_html + ' value="编辑" />');
+				var $region_btn = $('<input type="button" class="input-btn" ' + settings.btn_style_html + ' value="Edit" />');
 				$inputArea.after($region_span);
 				$region_span.after($region_btn);
 				$region_btn.on("click", function() {
@@ -802,7 +802,7 @@ function weixin_login(){
 				if (settings.tip_type && settings.last_text != "") {
 					$area.append("<option value=''>" + settings.last_text + "(*)</option>")
 				} else {
-					$area.append("<option value=''>-请选择-</option>")
+					$area.append("<option value=''>-Pls Select-</option>")
 				}
 				for (i = 0; i < areas.length; i++) {
 					$area.append("<option value='" + areas[i][0] + "'>" + areas[i][1] + "</option>")
@@ -873,7 +873,7 @@ function weixin_login(){
 		if (typeof jQuery.validator != 'undefined') {
 			jQuery.validator.addMethod("checklast", function(value, element) {
 				return $(element).fetch('islast');
-			}, "请将地区选择完整");
+			}, "Pls Select");
 		}
 	};
 	$.fn.fetch = function(k) {
@@ -950,8 +950,8 @@ $(function(){
 		if (r!=null) return unescape(r[2]); return null;}
 	var act = $.getUrlParam('act');
 	if (act == "store_list"){
-		$('#search ul.tab li span').eq(0).html('店铺');
-		$('#search ul.tab li span').eq(1).html('商品');
+		$('#search ul.tab li span').eq(0).html('Shop');
+		$('#search ul.tab li span').eq(1).html('Product');
 		$('#search ul.tab li').eq(0).attr('act','store_list');
 		$('#search_act').attr("value","store_list");
 		}
@@ -964,15 +964,15 @@ $(function(){
 	});
 	$('#search ul.tab li').eq(1).click(function(){
 		$(this).hide();
-		if($(this).find('span').html() == '店铺') {
-			$('#keyword').attr("placeholder","请输入您要搜索的店铺关键字");
-			$('#search ul.tab li span').eq(0).html('店铺');
-			$('#search ul.tab li span').eq(1).html('商品');
+		if($(this).find('span').html() == 'Shop') {
+			$('#keyword').attr("placeholder","Shop Keywords");
+			$('#search ul.tab li span').eq(0).html('Shop');
+			$('#search ul.tab li span').eq(1).html('Product');
 			$('#search_act').attr("value",'store_list');
 		} else {
-			$('#keyword').attr('placeholder','请输入您要搜索的商品关键字');
-			$('#search ul.tab li span').eq(0).html('商品');
-			$('#search ul.tab li span').eq(1).html('店铺');
+			$('#keyword').attr('placeholder','Input Product Keywords');
+			$('#search ul.tab li span').eq(0).html('Product');
+			$('#search ul.tab li span').eq(1).html('Shop');
 			$('#search_act').attr("value",'search');
 		}
 		$("#keyword").focus();

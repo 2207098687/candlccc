@@ -2,9 +2,7 @@
 /**
  * 预定行为
  *
- * @运维舫提供技术支持 授权请购买shopnc授权
- * @license    http://www.shopnc.club
- * @link       唯一论坛：www.shopnc.club
+ *
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 class order_bookLogic {
@@ -114,7 +112,7 @@ class order_bookLogic {
                 $book_list[0]['book_state'] = $book_list[0]['book_end_time'] > TIMESTAMP ? '已支付' : '已完成';
                 $book_list[0]['book_operate'] = '已于'.date('Y-m-d H:i',$book_list[0]['book_pay_time']).'付款';
                 if ($order_info['order_state'] == ORDER_STATE_PAY) {
-                    $order_info['state_desc'] = '待发货';                    
+                    $order_info['state_desc'] = '待发货';
                 }
                 $order_info['if_buyer_cancel'] = false;
                 $book_list[0]['book_amount_ext'] = '(含定金'.ncPriceFormat($book_list[0]['book_deposit_amount']).')';

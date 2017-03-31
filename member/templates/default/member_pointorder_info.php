@@ -112,7 +112,7 @@
         <tr>
           <td colspan="20"><dl class="sum">
               <dt>兑换单所需：</dt>
-              <dd><em><?php echo $output['order_info']['point_allpoint'];?></em>分</dd>
+              <dd><em><?php echo $output['order_info']['point_allpoint'];?></em>Points</dd>
             </dl></td>
         </tr>
       </tfoot>

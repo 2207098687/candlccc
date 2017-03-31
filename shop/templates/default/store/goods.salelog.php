@@ -16,7 +16,7 @@ $(document).ready(function(){
     <tr>
       <th class="w200"><?php echo $lang['goods_index_buyer'];?></th>
       <th class="w100"><?php echo $lang['goods_index_buy_price'];?></th>
-      <th class="w100">优惠活动</th>
+      <th class="w100">Promo</th>
       <th class=""><?php echo $lang['goods_index_buy_amount'];?></th>
       <th class="w200"><?php echo $lang['goods_index_buy_time'];?></th>
     </tr>

@@ -172,7 +172,7 @@ class member_returnControl extends BaseMemberControl {
                 $menu_array = array(
                 array('menu_key'=>'buyer_refund','menu_name'=>Language::get('nc_member_path_buyer_refund'), 'menu_url'=>'index.php?act=member_refund'),
                 array('menu_key'=>'buyer_return','menu_name'=>Language::get('nc_member_path_buyer_return'), 'menu_url'=>'index.php?act=member_return'),
-                array('menu_key'=>'buyer_vr_refund','menu_name'=>'虚拟兑码退款',    'menu_url'=>'index.php?act=member_vr_refund'));
+                array('menu_key'=>'buyer_vr_refund','menu_name'=>'Redemption Return',    'menu_url'=>'index.php?act=member_vr_refund'));
                 break;
         }
         Tpl::output('member_menu',$menu_array);

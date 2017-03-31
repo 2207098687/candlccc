@@ -7,10 +7,11 @@
 <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>" />
 <meta name="description" content="<?php echo $output['seo_description']; ?>" />
 <meta name="author" content="ywf">
-<meta name="copyright" content="ywf Inc. All Rights Reserved">
+<meta name="copyright" content="coolandless.com All Rights Reserved">
 <meta name="renderer" content="webkit">
 <meta name="renderer" content="ie-stand">
-<?php echo html_entity_decode($output['setting_config']['qq_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['sina_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_qqzone_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_sinaweibo_appcode'],ENT_QUOTES); ?>
+
+    <?php echo html_entity_decode($output['setting_config']['qq_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['sina_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_qqzone_appcode'],ENT_QUOTES); ?><?php echo html_entity_decode($output['setting_config']['share_sinaweibo_appcode'],ENT_QUOTES); ?>
 <style type="text/css">
 body {
 _behavior: url(<?php echo MEMBER_TEMPLATES_URL;
@@ -155,8 +156,8 @@ $(function(){
       <div class="head-search-bar" id="head-search-bar">
      <div id="search">
           <ul class="tab">
-            <li act="search" class="current"><span>商品</span><i class="arrow"></i></li>
-            <li act="store_list"><span>店铺</span></li>
+            <li act="search" class="current"><span>Products</span><i class="arrow"></i></li>
+<!--            <li act="store_list"><span>店铺</span></li>-->
           </ul>
         </div>
 

@@ -6,9 +6,9 @@
       <div class="left">
         <div class="nc-register-mode">
           <ul class="tabs-nav">
-            <li><a href="#default">账号注册<i></i></a></li>
+            <li><a href="#default">Account Register<i></i></a></li>
             <?php if (C('sms_register') == 1){?>
-            <li><a href="#mobile">手机注册<i></i></a></li>
+            <li><a href="#mobile">Mobile Register<i></i></a></li>
             <?php } ?>
           </ul>
           <div id="tabs_container" class="tabs-container">
@@ -69,9 +69,9 @@
                 <input type="hidden" name="form_submit" value="ok" />
                 <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
                 <dl>
-                  <dt>手机号：</dt>
+                  <dt>Mobile：</dt>
                   <dd>
-                    <input type="text" class="text" tipMsg="请输入手机号码" autocomplete="off" value="" name="phone" id="phone"  >
+                    <input type="text" class="text" tipMsg="Please Enter Mobile Number" autocomplete="off" value="" name="phone" id="phone"  >
                   </dd>
                 </dl>
                 <div class="code-div">
@@ -82,9 +82,9 @@
                     </dd>
                   </dl>
                   <span><img src="index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>" title="<?php echo $lang['login_index_change_checkcode'];?>" name="codeimage" id="sms_codeimage"><a class="makecode" href="javascript:void(0);" onclick="javascript:document.getElementById('sms_codeimage').src='index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>&t=' + Math.random();"><?php echo $lang['login_password_change_code']; ?></a></span> </div>
-                <div class="tiptext" id="sms_text">确保上方验证码输入正确，点击<span><a href="javascript:void(0);" onclick="get_sms_captcha('1')"><i class="icon-mobile-phone"></i>发送短信验证</a></span>，并将您手机短信所接收到的“6位验证码”输入到下方短信验证，再提交下一步。</div>
+                <div class="tiptext" id="sms_text">Make Sure Entered Correct Code, Then Click<span><a href="javascript:void(0);" onclick="get_sms_captcha('1')"><i class="icon-mobile-phone"></i>Send Verification Code</a></span>, Please Enter the 6 Digits Code in the Field Below. Then Submit</div>
                 <dl>
-                  <dt>短信验证：</dt>
+                  <dt>Verification Code: </dt>
                   <dd>
                     <input type="text" name="sms_captcha" autocomplete="off" tipMsg="输入6位短信验证码" class="text" id="sms_captcha" size="15" />
                   </dd>

@@ -7,7 +7,7 @@
       <ul class="tabs-nav">
         <li><a href="#default"><?php echo $lang['login_index_user_login'];?><i></i></a></li>
         <?php if (C('sms_login') == 1){?>
-        <li><a href="#mobile">手机验证码登录<i></i></a></li>
+        <li><a href="#mobile">Mobile Verification Login<i></i></a></li>
         <?php } ?>
       </ul>
       <div id="tabs_container" class="tabs-container">
@@ -17,9 +17,9 @@
             <input type="hidden" name="form_submit" value="ok" />
             <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
             <dl>
-              <dt>账&nbsp;&nbsp;&nbsp;号：</dt>
+              <dt>Username：</dt>
               <dd>
-                <input type="text" class="text" autocomplete="off"  name="user_name" tipMsg="可使用已注册的用户名或手机号登录" id="user_name"  >
+                <input type="text" class="text" autocomplete="off"  name="user_name" tipMsg="Your Username" id="user_name"  >
               </dd>
             </dl>
             <dl>
@@ -39,7 +39,7 @@
               <span><img src="index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>" name="codeimage" id="codeimage"> <a class="makecode" href="javascript:void(0)" onclick="javascript:document.getElementById('codeimage').src='index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>&t=' + Math.random();"><?php echo $lang['login_index_change_checkcode'];?></a></span></div>
             <?php } ?>
             <div class="handle-div">
-            <span class="auto"><input type="checkbox" class="checkbox" name="auto_login" value="1">七天自动登录<em style="display: none;">请勿在公用电脑上使用</em></span>
+            <span class="auto"><input type="checkbox" class="checkbox" name="auto_login" value="1">Auto Login Within 7 Days<em style="display: none;">Dont Login on Public Computer</em></span>
             <a class="forget" href="<?php echo urlLogin('login', 'forget_password');?>"><?php echo $lang['login_index_forget_password'];?></a></div>
             <div class="submit-div">
               <input type="submit" class="submit" value="<?php echo $lang['login_index_login'];?>">
@@ -54,9 +54,9 @@
             <input type="hidden" name="form_submit" value="ok" />
             <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
             <dl>
-              <dt>手机号：</dt>
+              <dt>Mobile：</dt>
               <dd>
-                <input name="phone" type="text" class="text" id="phone" tipMsg="可填写已注册的手机号接收短信" autocomplete="off" value="" >              
+                <input name="phone" type="text" class="text" id="phone" tipMsg="Input Mobile Number to Receive Msg" autocomplete="off" value="" >
               </dd>
             </dl>
             <div class="code-div">
@@ -69,11 +69,11 @@
               </dl>
               <span><img src="index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>" title="<?php echo $lang['login_index_change_checkcode'];?>" name="codeimage" id="sms_codeimage"> <a class="makecode" href="javascript:void(0);" onclick="javascript:document.getElementById('sms_codeimage').src='index.php?act=seccode&op=makecode&type=50,120&nchash=<?php echo getNchash();?>&t=' + Math.random();"><?php echo $lang['login_password_change_code']; ?></a></span> </div>
             
-            <div class="tiptext" id="sms_text">正确输入上方验证码后，点击<span> <a href="javascript:void(0);" onclick="get_sms_captcha('2')"><i class="icon-mobile-phone"></i>发送手机验证码</a></span>，查收短信将系统发送的“6位短信验证码”输入到下方验证后登录。</div>
+            <div class="tiptext" id="sms_text">Please Input Captcha, Then Click<span> <a href="javascript:void(0);" onclick="get_sms_captcha('2')"><i class="icon-mobile-phone"></i>Send Verification Code</a></span>, Check Mobile Message and Input 6 Digits Code into Field Below</div>
             <dl>
-              <dt>短信验证：</dt>
+              <dt>Codes: </dt>
               <dd>
-                <input type="text" name="sms_captcha" autocomplete="off" class="text" tipMsg="输入6位短信验证码" id="sms_captcha" size="15" />
+                <input type="text" name="sms_captcha" autocomplete="off" class="text" tipMsg="Input 6 Digits Code" id="sms_captcha" size="15" />
                 
               </dd>
             </dl>
@@ -90,13 +90,13 @@
       <?php if (C('qq_isuse') == 1 || C('sina_isuse') == 1 || C('weixin_isuse') == 1){?>
       <h4><?php echo $lang['nc_otherlogintip'];?></h4>
       <?php if (C('qq_isuse') == 1){?>
-      <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_qq" title="QQ账号登录" class="qq"><i></i>QQ</a>
+      <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_qq" title="QQ Account Login" class="qq"><i></i>QQ</a>
       <?php } ?>
       <?php if (C('sina_isuse') == 1){?>
-      <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_sina" title="新浪微博账号登录" class="sina"><i></i>新浪微博</a>
+      <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_sina" title="Sina Weibo Login" class="sina"><i></i>Sina Weibo</a>
       <?php } ?>
       <?php if (C('weixin_isuse') == 1){?>
-      <a href="javascript:void(0);" onclick="ajax_form('weixin_form', '微信账号登录', '<?php echo urlLogin('connect_wx', 'index');?>', 360);" title="微信账号登录" class="wx"><i></i>微信</a>
+      <a href="javascript:void(0);" onclick="ajax_form('weixin_form', 'Wechat Login', '<?php echo urlLogin('connect_wx', 'index');?>', 360);" title="Wechat Login" class="wx"><i></i>Wechat</a>
       <?php } ?>
       <?php } ?>
     </div>
@@ -156,7 +156,7 @@ $(function(){
 			<?php } ?>
 		},
 		messages: {
-			user_name: "<i class='icon-exclamation-sign'></i>请输入已注册的用户名或手机号",
+			user_name: "<i class='icon-exclamation-sign'></i>Please Enter Your Username",
 			password: "<i class='icon-exclamation-sign'></i><?php echo $lang['login_index_input_password'];?>"
 			<?php if(C('captcha_status_login') == '1') { ?>
             ,captcha : {
@@ -226,17 +226,17 @@ $(function(){
 		},
 		messages: {
 			phone: {
-                required : '<i class="icon-exclamation-sign"></i>请输入正确的手机号',
-                mobile : '<i class="icon-exclamation-sign"></i>请输入正确的手机号'
+                required : '<i class="icon-exclamation-sign"></i>Incorrect Mobile Number',
+                mobile : '<i class="icon-exclamation-sign"></i>Please Enter Correct Mobile Number'
             },
 			captcha : {
-                required : '<i class="icon-remove-circle" title="请输入正确的验证码"></i>',
-                minlength: '<i class="icon-remove-circle" title="请输入正确的验证码"></i>',
-				remote	 : '<i class="icon-remove-circle" title="请输入正确的验证码"></i>'
+                required : '<i class="icon-remove-circle" title="Please Enter Correct Code"></i>',
+                minlength: '<i class="icon-remove-circle" title="Please Enter Correct Code"></i>',
+				remote	 : '<i class="icon-remove-circle" title="Please Enter Correct Code"></i>'
             },
 			sms_captcha: {
-                required : '<i class="icon-exclamation-sign"></i>请输入六位短信验证码',
-                minlength: '<i class="icon-exclamation-sign"></i>请输入六位短信验证码'
+                required : '<i class="icon-exclamation-sign"></i>Please Enter 6 Digits Verification Code',
+                minlength: '<i class="icon-exclamation-sign"></i>Please Enter 6 Digits Verification Code'
             }
 		}
 	});

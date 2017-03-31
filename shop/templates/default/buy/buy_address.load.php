@@ -6,19 +6,19 @@
   <li class="receive_add address_item <?php echo $k == 0 ? 'ncc-selected-item' : null; ?>">
     <input address="<?php echo $val['area_info'].'&nbsp;'.$val['address']; ?>" true_name="<?php echo $val['true_name'];?>" id="addr_<?php echo $val['address_id']; ?>" nc_type="addr" type="radio" class="radio" city_id="<?php echo $val['city_id']?>" area_id=<?php echo $val['area_id'];?> name="addr" value="<?php echo $val['address_id']; ?>" phone="<?php echo $val['mob_phone'] ? $val['mob_phone'] : $val['tel_phone'];?>" <?php echo $val['is_default'] == '1' ? 'checked' : null; ?> />
     <label for="addr_<?php echo $val['address_id']; ?>"><span class="true-name"><?php echo $val['true_name'];?></span><span class="address"><?php echo $val['area_info']; ?>&nbsp;<?php echo $val['address']; ?></span><span class="phone"><i class="icon-mobile-phone"></i><?php echo $val['mob_phone'] ? $val['mob_phone'] : $val['tel_phone'];?></span></label>
-    <a href="javascript:void(0);" onclick="delAddr(<?php echo $val['address_id']?>);" class="del">[ 删除 ]</a> </li>
+    <a href="javascript:void(0);" onclick="delAddr(<?php echo $val['address_id']?>);" class="del">[ Delete ]</a> </li>
   <?php } ?>
   <li class="receive_add addr_item">
     <input value="0" nc_type="addr" id="add_addr" type="radio" name="addr">
-    <label for="add_addr">使用新地址</label>
+    <label for="add_addr">Add New Address</label>
     <?php if (C('delivery_isuse')) { ?>
-    &nbsp;<label><a class="del" href="<?php echo urlMember('member_address','address');?>" target="_blank">管理自提服务站 </a></label>
+    &nbsp;<label><a class="del" href="<?php echo urlMember('member_address','address');?>" target="_blank">Manage Meetup Point</a></label>
     <?php } ?>
   </li>
   <?php if ($_GET['ifchain']) { ?>
   <li class="receive_add addr_item">
     <input value="-1" nc_type="addr" id="add_chain" type="radio" name="addr">
-    <label for="add_chain">使用自提门店</label>
+    <label for="add_chain">Meetup Deal</label>
   </li>
   <?php } ?>
   <div id="add_addr_box"><!-- 存放新增地址表单 --></div>

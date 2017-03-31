@@ -1,0 +1,150 @@
+[2017-03-28 11:19:18] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490671158','587','530','540','587')
+[2017-03-28 11:20:50] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490671250','587','530','540','587')
+[2017-03-28 11:22:36] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490671356','587','530','540','587')
+[2017-03-28 11:23:32] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490671412','587','530','540','587')
+[2017-03-28 11:27:41] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490671661','587','530','540','587')
+[2017-03-28 11:31:27] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490671887','587','530','540','587')
+[2017-03-28 11:32:32] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490671952','587','530','540','587')
+[2017-03-28 11:36:33] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672193','587','530','540','587')
+[2017-03-28 11:36:49] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672209','587','530','540','587')
+[2017-03-28 11:37:34] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672254','587','530','540','587')
+[2017-03-28 11:38:20] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672300','587','530','540','587')
+[2017-03-28 11:40:07] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672407','587','530','540','587')
+[2017-03-28 11:46:18] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672778','587','530','540','587')
+[2017-03-28 11:46:20] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672780','587','530','540','587')
+[2017-03-28 11:46:27] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490672787','587','530','540','587')
+[2017-03-28 11:51:18] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673078','587','530','540','587')
+[2017-03-28 11:51:25] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673085','587','530','540','587')
+[2017-03-28 11:56:55] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673415','587','530','540','587')
+[2017-03-28 11:58:53] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673533','587','530','540','587')
+[2017-03-28 11:59:38] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673578','587','530','540','587')
+[2017-03-28 12:00:18] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673618','587','530','540','587')
+[2017-03-28 12:00:26] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673626','587','530','540','587')
+[2017-03-28 12:00:37] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673637','587','530','540','587')
+[2017-03-28 12:04:10] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673850','587','530','540','587')
+[2017-03-28 12:04:24] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673864','587','530','540','587')
+[2017-03-28 12:04:41] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490673881','587','530','540','587')
+[2017-03-28 12:09:42] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674182','587','530','540','587')
+[2017-03-28 12:10:35] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674235','587','530','540','587')
+[2017-03-28 12:10:42] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674242','587','530','540','587')
+[2017-03-28 12:11:39] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674299','587','530','540','587')
+[2017-03-28 12:11:43] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674303','587','530','540','587')
+[2017-03-28 12:14:02] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674442','587','530','540','587')
+[2017-03-28 12:18:14] /shop/index.php?act=goods&op=addbrowse&gid=100008 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100008-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100008','2','1490674694','587','530','540','587')
+[2017-03-28 12:18:44] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674724','587','530','540','587')
+[2017-03-28 12:18:52] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674732','587','530','540','587')
+[2017-03-28 12:19:57] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674797','587','530','540','587')
+[2017-03-28 12:20:06] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674806','587','530','540','587')
+[2017-03-28 12:20:55] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674855','587','530','540','587')
+[2017-03-28 12:20:56] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674856','587','530','540','587')
+[2017-03-28 12:21:58] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674918','587','530','540','587')
+[2017-03-28 12:22:05] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490674925','587','530','540','587')
+[2017-03-28 12:27:34] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490675254','587','530','540','587')
+[2017-03-28 12:28:32] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490675312','587','530','540','587')
+[2017-03-28 12:29:54] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490675394','587','530','540','587')
+[2017-03-28 17:00:01] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490691601','587','530','540','587')
+[2017-03-28 17:33:04] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490693584','587','530','540','587')
+[2017-03-28 17:33:14] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490693594','587','530','540','587')
+[2017-03-28 17:33:19] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490693599','587','530','540','587')
+[2017-03-28 17:51:23] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490694683','587','530','540','587')
+[2017-03-28 18:06:44] /shop/index.php?act=goods&op=addbrowse&gid=100009 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100009-2' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100009','2','1490695604','587','530','540','587')

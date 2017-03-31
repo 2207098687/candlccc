@@ -54,7 +54,7 @@ $(function(){
 
     $('#rpt').on('change',function(){
         if (typeof allTotal == 'undefined') {
-            alert('系统正忙，请稍后再试');return false
+            alert('System Busy, Pls Try Later');return false
         }
         if ($(this).val() == '') {
         	$('#orderRpt').html('-0.00');
@@ -98,18 +98,18 @@ function disableSubmitOrder(){
 
 <!-- S fcode -->
 <?php if ($output['current_goods_info']['is_fcode']) { ?>
-    <?php include template('buy/buy_fcode');?>
+    <?php //include template('buy/buy_fcode');?>
 <?php } ?>
 <!-- E fcode -->
 
 <div class="ncc-main">
   <div class="ncc-title">
     <h3><?php echo $lang['cart_index_ensure_info'];?></h3>
-    <h5>请仔细核对填写收货、发票等信息，以确保物流快递及时准确投递。</h5>
+    <h5>To Ensure Timing Shipping, Please Double Check Shipping Address.</h5>
   </div>
     <?php include template('buy/buy_address');?>
     <?php include template('buy/buy_payment');?>
-    <?php include template('buy/buy_invoice');?>
+    <?php //include template('buy/buy_invoice'); // 注销invoice 部分?>
 
     <?php if ($output['current_goods_info']['is_book']) { ?>
         <?php include template('buy/buy_book_goods');?>

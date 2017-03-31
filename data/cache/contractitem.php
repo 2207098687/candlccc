@@ -2,9 +2,9 @@
   1 => 
   array (
     'cti_id' => '1',
-    'cti_name' => '7天退货',
-    'cti_describe' => '卖家就该商品退货服务向买家作出承诺，自商品签收之日起至卖家承诺保障时间内，商品符合卖家约定状态的情况下，如买家对购买的商品不满意可无理由申请退货。',
-    'cti_cost' => '1000.00',
+    'cti_name' => '7 Days Refund',
+    'cti_describe' => 'Coolandless allows customers to refund within 7 days after order received without any reason, providing no any damage and contamination.',
+    'cti_cost' => '1.00',
     'cti_icon' => '7day.gif',
     'cti_descurl' => '',
     'cti_state' => '1',
@@ -18,8 +18,8 @@
   2 => 
   array (
     'cti_id' => '2',
-    'cti_name' => '品质承诺',
-    'cti_describe' => '卖家就该商品品质向买家作出承诺，承诺商品为正品。',
+    'cti_name' => 'Quanlity Assurance',
+    'cti_describe' => 'Coolandless assure customer of good quality. We provides 15 days period for exchange products.',
     'cti_cost' => '1000.00',
     'cti_icon' => 'pz.gif',
     'cti_descurl' => '',
@@ -34,8 +34,8 @@
   3 => 
   array (
     'cti_id' => '3',
-    'cti_name' => '破损补寄',
-    'cti_describe' => '卖家就该商品签收状态作出承诺，自商品签收之日起至卖家承诺保障时间内，如发现商品在运输途中出现破损，买家可申请破损部分商品补寄。',
+    'cti_name' => 'Delivery Safety',
+    'cti_describe' => 'Coolandless assume delivery damages and make up by resending the damage ones upon request within 7 days upon receiving goods.',
     'cti_cost' => '1000.00',
     'cti_icon' => 'psbf.gif',
     'cti_descurl' => '',
@@ -50,8 +50,8 @@
   4 => 
   array (
     'cti_id' => '4',
-    'cti_name' => '急速物流',
-    'cti_describe' => '与优秀快递公司合作，快速送达买家手中，保障买家良好的购物物流体验。',
+    'cti_name' => 'Express Delivery',
+    'cti_describe' => 'We dispatch packages in time, work with reliable shipping companies.',
     'cti_cost' => '1000.00',
     'cti_icon' => 'jswl.gif',
     'cti_descurl' => '',

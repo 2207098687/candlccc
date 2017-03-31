@@ -3,7 +3,7 @@
 <div class="ncc-main">
   <div class="ncc-title">
     <h3><?php echo $lang['cart_index_payment'];?></h3>
-    <h5>订单详情内容可通过查看<a href="index.php?act=member_order" target="_blank">我的订单</a>进行核对处理。</h5>
+    <h5>You Are Able to Checkout Order Details in <a href="index.php?act=member_order" target="_blank">MY ORDER</a> and Make Payment Later.</h5>
   </div>
   <form action="index.php?act=payment&op=real_order" method="POST" id="buy_form">
     <input type="hidden" name="pay_sn" value="<?php echo $output['pay_info']['pay_sn'];?>">
@@ -13,16 +13,16 @@
       <div class="ncc-receipt-info-title">
         <h3>
         <?php echo $output['pay']['order_remind'];?>
-        <?php echo $output['pay']['pay_amount_online'] > 0 ? "应付金额：<strong>".ncPriceFormat($output['pay']['pay_amount_online'])."</strong>元" : null;?>
+        <?php echo $output['pay']['pay_amount_online'] > 0 ? "Total Amount：<strong>".ncPriceFormat($output['pay']['pay_amount_online'])."</strong>₱" : null;?>
         </h3>
       </div>
       <table class="ncc-table-style">
         <thead>
           <tr>
             <th class="w50"></th>
-            <th class="w200 tl">订单号</th>
-            <th class="tl w150">支付方式</th>
-            <th class="tl">金额(元)</th>
+            <th class="w200 tl">Order Number</th>
+            <th class="tl w150">Payment Method</th>
+            <th class="tl">Amount Payable</th>
           </tr>
         </thead>
         <tbody>

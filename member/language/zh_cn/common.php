@@ -77,9 +77,9 @@ $lang['hao_points']			= '我的积分';
 $lang['hao_browse']			= '最近浏览的商品';
 $lang['hao_history']		= '全部浏览历史';
 $lang['hao_invite']			= '邀请返利';
-$lang['hao_ensure_order']		= '我的购物车';
-$lang['hao_new_goods']		= '最新加入的商品';
-$lang['hao_bill_goods']		= '去购物车结算';
+$lang['hao_ensure_order']		= 'My Cart';//我的购物车
+$lang['hao_new_goods']		= 'Added Items';//最新加入的商品
+$lang['hao_bill_goods']		= 'Checkout';//去购物车结算
 /**
  * nav中的文字
  */
@@ -134,7 +134,7 @@ $lang['nc_selling_goods']			= "销售中的商品";
 $lang['nc_mystroe']					= "我的店铺";
 $lang['nc_favorites_goods']			= "收藏的商品";
 $lang['nc_favorites_stroe']			= "收藏的店铺";
-$lang['nc_cart_no_goods']			= "您的购物车中暂无商品，赶快选择心爱的商品吧！";
+$lang['nc_cart_no_goods']			= 'Empty Cart! Please Add Products!';//"您的购物车中暂无商品，赶快选择心爱的商品吧！";
 $lang['nc_check_cart']				= "查看购物车";
 $lang['nc_accounts_goods']			= "结算商品";
 $lang['nc_delete']					= "删除";

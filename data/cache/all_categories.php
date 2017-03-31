@@ -2,7 +2,7 @@
   1 => 
   array (
     'gc_id' => '1',
-    'gc_name' => 'Fashion',
+    'gc_name' => '服饰鞋帽',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -179,7 +179,7 @@
       0 => 
       array (
         'gc_id' => '12',
-        'gc_name' => 'T-shirt',
+        'gc_name' => 'T恤',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '4',
@@ -194,7 +194,7 @@
       1 => 
       array (
         'gc_id' => '19',
-        'gc_name' => 'asdfasdf',
+        'gc_name' => '半身裙',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '4',
@@ -209,7 +209,7 @@
       2 => 
       array (
         'gc_id' => '26',
-        'gc_name' => 'Coat',
+        'gc_name' => '风衣',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '4',
@@ -302,7 +302,7 @@
       4 => 
       array (
         'gc_id' => '4',
-        'gc_name' => 'Female Fashion',
+        'gc_name' => '女装',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -318,7 +318,7 @@
           12 => 
           array (
             'gc_id' => '12',
-            'gc_name' => 'T-shirt',
+            'gc_name' => 'T恤',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -333,7 +333,7 @@
           13 => 
           array (
             'gc_id' => '13',
-            'gc_name' => 'Sweater',
+            'gc_name' => '衬衫',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -348,7 +348,7 @@
           14 => 
           array (
             'gc_id' => '14',
-            'gc_name' => 'Stitches',
+            'gc_name' => '针织衫',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -363,7 +363,7 @@
           15 => 
           array (
             'gc_id' => '15',
-            'gc_name' => 'tkkskdfs',
+            'gc_name' => '雪纺衫',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -378,7 +378,7 @@
           16 => 
           array (
             'gc_id' => '16',
-            'gc_name' => 'asdf',
+            'gc_name' => '卫衣',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -393,7 +393,7 @@
           17 => 
           array (
             'gc_id' => '17',
-            'gc_name' => 'asdf甲asdf',
+            'gc_name' => '马甲',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -423,7 +423,7 @@
           19 => 
           array (
             'gc_id' => '19',
-            'gc_name' => 'asdfasdf',
+            'gc_name' => '半身裙',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -438,7 +438,7 @@
           20 => 
           array (
             'gc_id' => '20',
-            'gc_name' => 'Jeans',
+            'gc_name' => '牛仔裤',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -453,7 +453,7 @@
           21 => 
           array (
             'gc_id' => '21',
-            'gc_name' => 'Trousers',
+            'gc_name' => '休闲裤',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -468,7 +468,7 @@
           22 => 
           array (
             'gc_id' => '22',
-            'gc_name' => 'Underwear',
+            'gc_name' => '打底裤',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -483,7 +483,7 @@
           23 => 
           array (
             'gc_id' => '23',
-            'gc_name' => 'Formale',
+            'gc_name' => '正装裤',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -498,7 +498,7 @@
           24 => 
           array (
             'gc_id' => '24',
-            'gc_name' => 'Western',
+            'gc_name' => '西服',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -513,7 +513,7 @@
           25 => 
           array (
             'gc_id' => '25',
-            'gc_name' => 'Short',
+            'gc_name' => '短外套',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -528,7 +528,7 @@
           26 => 
           array (
             'gc_id' => '26',
-            'gc_name' => 'Coat',
+            'gc_name' => '风衣',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '4',
@@ -680,7 +680,7 @@
       5 => 
       array (
         'gc_id' => '5',
-        'gc_name' => 'Male Fashion',
+        'gc_name' => '男装',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -1043,7 +1043,7 @@
       6 => 
       array (
         'gc_id' => '6',
-        'gc_name' => 'Innerwear',
+        'gc_name' => '内衣',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -1301,7 +1301,7 @@
       7 => 
       array (
         'gc_id' => '7',
-        'gc_name' => 'Sport Wear',
+        'gc_name' => '运动',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -1559,7 +1559,7 @@
       8 => 
       array (
         'gc_id' => '8',
-        'gc_name' => 'Female Shoe',
+        'gc_name' => '女鞋',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -1832,7 +1832,7 @@
       9 => 
       array (
         'gc_id' => '9',
-        'gc_name' => 'Male Shoe',
+        'gc_name' => '男鞋',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -2030,7 +2030,7 @@
       10 => 
       array (
         'gc_id' => '10',
-        'gc_name' => 'Accessory',
+        'gc_name' => '配饰',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -2318,7 +2318,7 @@
       11 => 
       array (
         'gc_id' => '11',
-        'gc_name' => 'Kids',
+        'gc_name' => '童装',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '1',
@@ -2548,7 +2548,7 @@
   2 => 
   array (
     'gc_id' => '2',
-    'gc_name' => 'Gift&amp;Bag',
+    'gc_name' => '礼品箱包',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -3585,7 +3585,7 @@
   3 => 
   array (
     'gc_id' => '3',
-    'gc_name' => 'Furniture',
+    'gc_name' => '家居家装',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -4730,7 +4730,7 @@
   256 => 
   array (
     'gc_id' => '256',
-    'gc_name' => 'Eletronics&amp;Office',
+    'gc_name' => '数码办公',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -6966,7 +6966,7 @@
   308 => 
   array (
     'gc_id' => '308',
-    'gc_name' => 'Appliance',
+    'gc_name' => '家用电器',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -8498,7 +8498,7 @@
   470 => 
   array (
     'gc_id' => '470',
-    'gc_name' => 'Costimetics',
+    'gc_name' => '个护化妆',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -9706,7 +9706,7 @@
   530 => 
   array (
     'gc_id' => '530',
-    'gc_name' => 'Watche&amp;Jewery',
+    'gc_name' => '珠宝手表',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -10968,7 +10968,7 @@
   593 => 
   array (
     'gc_id' => '593',
-    'gc_name' => 'Food&amp;Drink',
+    'gc_name' => '食品饮料',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -12320,7 +12320,7 @@
   662 => 
   array (
     'gc_id' => '662',
-    'gc_name' => 'Sport&amp;Health',
+    'gc_name' => '运动健康',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -13666,7 +13666,7 @@
   730 => 
   array (
     'gc_id' => '730',
-    'gc_name' => 'Car Accesory',
+    'gc_name' => '汽车用品',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -15432,7 +15432,7 @@
   825 => 
   array (
     'gc_id' => '825',
-    'gc_name' => 'Toys',
+    'gc_name' => '玩具乐器',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -16700,7 +16700,7 @@
   888 => 
   array (
     'gc_id' => '888',
-    'gc_name' => 'Kitchen Ware',
+    'gc_name' => '厨具',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -17695,7 +17695,7 @@
   959 => 
   array (
     'gc_id' => '959',
-    'gc_name' => 'Mother&amp;Baby',
+    'gc_name' => '母婴用品',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -19131,7 +19131,7 @@
   1037 => 
   array (
     'gc_id' => '1037',
-    'gc_name' => 'Virtual',
+    'gc_name' => '虚拟充值',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',

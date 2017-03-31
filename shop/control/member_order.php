@@ -180,7 +180,7 @@ class member_orderControl extends BaseMemberControl {
         $condition['buyer_id'] = $_SESSION['member_id'];
         $order_info = $model_order->getOrderInfo($condition,array('order_common','order_goods'));
         if (empty($order_info) || !in_array($order_info['order_state'],array(ORDER_STATE_SEND,ORDER_STATE_SUCCESS))) {
-            showMessage('未找到信息','','html','error');
+            showMessage('No Found','','html','error');
         }
         Tpl::output('order_info',$order_info);
 
@@ -288,11 +288,11 @@ class member_orderControl extends BaseMemberControl {
             $logic_order = Logic('order');
             $if_allow = $model_order->getOrderOperateState('buyer_cancel',$order_info);
             if (!$if_allow) {
-                return callback(false,'无权操作');
+                return callback(false,'No Permitted');
             }
             if (TIMESTAMP - 86400 < $order_info['api_pay_time']) {
                 $_hour = ceil(($order_info['api_pay_time']+86400-TIMESTAMP)/3600);
-                return callback(false,'该订单曾尝试使用第三方支付平台支付，须在'.$_hour.'小时以后才可取消');
+                return callback(false,'You Have Tried to Pay thru Online Payment, Wait'.$_hour.'Hours to Enable Deletion');
             }
 
             $msg = $post['state_info1'] != '' ? $post['state_info1'] : $post['state_info'];
@@ -356,7 +356,7 @@ class member_orderControl extends BaseMemberControl {
         Language::read('member_layout');
         $menu_array = array(
             array('menu_key'=>'member_order','menu_name'=>Language::get('nc_member_path_order_list'), 'menu_url'=>'index.php?act=member_order'),
-            array('menu_key'=>'member_order_recycle','menu_name'=>'回收站', 'menu_url'=>'index.php?act=member_order&recycle=1'),
+            array('menu_key'=>'member_order_recycle','menu_name'=>'Recycle Bin', 'menu_url'=>'index.php?act=member_order&recycle=1'),
         );
         Tpl::output('member_menu',$menu_array);
         Tpl::output('menu_key',$menu_key);

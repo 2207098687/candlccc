@@ -374,32 +374,32 @@ class BaseMemberControl extends Control {
      */
     private function _getMenuList() {
         $menu_list = array(
-            'trade' => array('name' => '交易中心', 'child' => array(
-                'member_order'      => array('name' => '实物交易订单', 'url' => urlShop('member_order', 'index')),
-                'member_vr_order'   => array('name' => '虚拟兑码订单', 'url' => urlShop('member_vr_order', 'index')),
-                'member_evaluate'   => array('name' => '交易评价/晒单', 'url' => urlShop('member_evaluate', 'list')),
-                'member_appoint'    => array('name' => '预约/到货通知', 'url' => urlShop('member_appoint', 'list'))
+            'trade' => array('name' => 'Order Center', 'child' => array(
+                'member_order'      => array('name' => 'Orders', 'url' => urlShop('member_order', 'index')),
+                'member_vr_order'   => array('name' => 'Redemption', 'url' => urlShop('member_vr_order', 'index')),
+                'member_evaluate'   => array('name' => 'Review', 'url' => urlShop('member_evaluate', 'list'))//,
+               // 'member_appoint'    => array('name' => '预约/到货通知', 'url' => urlShop('member_appoint', 'list'))
             )),
-            'follow' => array('name' => '关注中心', 'child' => array(
-                'member_favorite_goods' => array('name' => '商品收藏', 'url' => urlShop('member_favorite_goods', 'index')),
-                'member_favorite_store' => array('name' => '店铺收藏', 'url' => urlShop('member_favorite_store', 'index')),
-                'member_goodsbrowse'   => array('name' => '我的足迹', 'url' => urlShop('member_goodsbrowse', 'list'))
+            'follow' => array('name' => 'Followed', 'child' => array(
+                'member_favorite_goods' => array('name' => 'Wishlist', 'url' => urlShop('member_favorite_goods', 'index')),
+//                'member_favorite_store' => array('name' => '店铺收藏', 'url' => urlShop('member_favorite_store', 'index')),
+                'member_goodsbrowse'   => array('name' => 'Viewed', 'url' => urlShop('member_goodsbrowse', 'list'))
             )),
-            'client' => array('name' => '客户服务', 'child' => array(
-                'member_refund'     => array('name' => '退款及退货', 'url' => urlShop('member_refund', 'index')),
-                'member_complain'   => array('name' => '交易投诉', 'url' => urlShop('member_complain', 'index')),
-                'member_consult'    => array('name' => '商品咨询', 'url' => urlShop('member_consult', 'my_consult')),
-                'member_inform'     => array('name' => '违规举报', 'url' => urlShop('member_inform', 'index')),
-                'member_mallconsult'=> array('name' => '平台客服', 'url' => urlShop('member_mallconsult', 'index'))
+            'client' => array('name' => 'Support', 'child' => array(
+                'member_refund'     => array('name' => 'Refund/Change', 'url' => urlShop('member_refund', 'index')),
+                'member_mallconsult'=> array('name' => 'Customer Care', 'url' => urlShop('member_mallconsult', 'index')),
+                'member_complain'   => array('name' => 'Complain', 'url' => urlShop('member_complain', 'index')),
+                //'member_consult'    => array('name' => 'Inquire', 'url' => urlShop('member_consult', 'my_consult')),
+                //'member_inform'     => array('name' => '违规举报', 'url' => urlShop('member_inform', 'index')),
             )),
-            'info' => array('name' => '会员资料', 'child' => array(
-                'member_information'=> array('name' => '账户信息', 'url'=>urlMember('member_information', 'member')),
-                'member_address'    => array('name' => '收货地址', 'url'=>urlMember('member_address', 'address'))
+            'info' => array('name' => 'Profile', 'child' => array(
+                'member_information'=> array('name' => 'Basic Info', 'url'=>urlMember('member_information', 'member')),
+                'member_address'    => array('name' => 'Shipping Addr', 'url'=>urlMember('member_address', 'address'))
             )),
-            'property' => array('name' => '财产中心', 'child' => array(
-                'predeposit'        => array('name' => '账户余额', 'url'=>urlMember('predeposit', 'pd_log_list')),
-                'member_voucher'    => array('name' => '我的代金券', 'url'=>urlMember('member_voucher', 'index')),
-                'member_redpacket'  => array('name' => '我的红包', 'url'=>urlMember('member_redpacket', 'index'))
+            'property' => array('name' => 'Assets', 'child' => array(
+                'predeposit'        => array('name' => 'Balance', 'url'=>urlMember('predeposit', 'pd_log_list')),
+                'member_voucher'    => array('name' => 'Coupon', 'url'=>urlMember('member_voucher', 'index')),
+                'member_redpacket'  => array('name' => 'Gift Voucher', 'url'=>urlMember('member_redpacket', 'index'))
             )),
         );
         return $menu_list;

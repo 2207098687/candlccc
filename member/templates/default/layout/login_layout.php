@@ -45,7 +45,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
     <?php if ($_GET['op'] == 'index') {?>
     <div class="nc-regist-now">
     <span class="avatar"><img src="<?php echo getMemberAvatarHttps(cookie('member_avatar'));?>"></span>
-    <span>您好，欢迎来到<?php echo $output['setting_config']['site_name']; ?><br/><?php echo $lang['login_index_regist_now_1'];?><a title="" href="<?php echo urlLogin('login', 'register', array('ref_url' => $_GET['ref_url']));?>" class="register"><?php echo $lang['login_index_regist_now_2'];?></a></span></div>
+    <span>Hi, Welcome to <?php echo $output['setting_config']['site_name']; ?><br/><?php echo $lang['login_index_regist_now_1'];?><a title="" href="<?php echo urlLogin('login', 'register', array('ref_url' => $_GET['ref_url']));?>" class="register"><?php echo $lang['login_index_regist_now_2'];?></a></span></div>
     <?php } else {?>
     <div class="nc-login-now"><?php echo $lang['login_register_login_now_1'];?><a href="<?php echo urlLogin('login', 'index', array('ref_url' => $_GET['ref_url']));?>" title="<?php echo $lang['login_register_login_now'];?>" class="register"><?php echo $lang['login_register_login_now_2'];?></a></span></div>
     <?php }?>

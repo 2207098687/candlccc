@@ -1,0 +1,9 @@
+[2017-03-31 00:05:55] /shop/index.php?act=goods&op=addbrowse&gid=100007 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100007-6' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100007','6','1490889955','587','530','540','587')
+[2017-03-31 09:48:38] /shop/index.php?act=goods&op=addbrowse&gid=100007 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100007-6' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100007','6','1490924918','587','530','540','587')
+[2017-03-31 10:24:10] /shop/index.php?act=goods&op=addbrowse&gid=100007 ( act=goods&op=addbrowse ) 
+ERR: Db Error: Duplicate entry '100007-6' for key 'PRIMARY'
+INSERT  INTO `club_goods_browse` (goods_id,member_id,browsetime,gc_id,gc_id_1,gc_id_2,gc_id_3) VALUES ('100007','6','1490927050','587','530','540','587')

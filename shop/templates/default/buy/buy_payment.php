@@ -2,45 +2,49 @@
 
 <div class="ncc-receipt-info" id="paymentCon">
   <div class="ncc-receipt-info-title">
-    <h3>支付方式</h3>
-    <?php if (!$output['deny_edit_payment']) {?>
-    <a href="javascript:void(0)" nc_type="buy_edit" id="edit_payment">[修改]</a>
+    <h3>Payment Method</h3>
+    <?php if (!$output['deny_edit_payment']) { //是否支持修改支付方式?>
+    <a href="javascript:void(0)" nc_type="buy_edit" id="edit_payment">[Edit]</a>
     <?php }?>
   </div>
   <div class="ncc-candidate-items">
     <ul>
-      <li>在线支付</li>
+<!--      <li>Online Payment</li>-->
     </ul>
   </div>
-  <div id="payment_list" class="ncc-candidate-items" style="display:none">
+  <div id="payment_list" class="ncc-candidate-items" style="display:block">
     <ul>
       <li>
-        <input type="radio" value="online" name="payment_type" id="payment_type_online">
-        <label for="payment_type_online">在线支付</label>
+<!--        <input type="radio" value="online" name="payment_type" id="payment_type_online">-->
+<!--        <label for="payment_type_online">Online Payment</label>-->
       </li>
-    <?php if ($output['ifshow_chainpay']) { ?>
+    <?php //if ($output['ifshow_chainpay']) { ?>
+<!--      <li>-->
+<!--        <input type="radio" value="chain" name="payment_type" id="payment_type_chain">-->
+<!--        <label for="payment_type_chain">Meetup Payment</label>-->
+<!--      </li>-->
+   <?php //} ?>
       <li>
-        <input type="radio" value="chain" name="payment_type" id="payment_type_chain">
-        <label for="payment_type_chain">门店支付</label>
+        <input type="radio" checked="checked" value="offline" name="payment_type" id="payment_type_offline">
+        <label for="payment_type_offline">Cash On Delivery</label>
+<!--        <a id="show_goods_list" style="display: none" class="ncc-payment-showgoods" href="javascript:void(0);"><i class="icon-truck"></i>Cash On Delivery (<span data-cod-nums="offline">--><?php //echo count($output['pay_goods_list']['offline']);?><!--</span>Products) + <i class="icon-credit-card"></i>Online Payment (<span data-cod-nums="online">--><?php //echo count($output['pay_goods_list']['online']);?><!--</span>Products)</a>-->
       </li>
-   <?php } ?>
       <li>
-        <input type="radio" value="offline" name="payment_type" id="payment_type_offline">
-        <label for="payment_type_offline">货到付款</label>
-        <a id="show_goods_list" style="display: none" class="ncc-payment-showgoods" href="javascript:void(0);"><i class="icon-truck"></i>货到付款 (<span data-cod-nums="offline"><?php echo count($output['pay_goods_list']['offline']);?></span>种商品) + <i class="icon-credit-card"></i>在线支付 (<span data-cod-nums="online"><?php echo count($output['pay_goods_list']['online']);?></span>种商品)</a>
+          <input type="radio" value="offline" name="payment_type" id="payment_type_deposit">
+          <label for="payment_type_deposit">Bank Deposit(Pls Contact Customer Support)</label>
       </li>
     </ul>
-    <div class="hr16"> <a href="javascript:void(0);" class="ncbtn ncbtn-grapefruit" id="hide_payment_list">保存支付方式</a></div>
+    <div class="hr16"> <a href="javascript:void(0);" class="ncbtn ncbtn-grapefruit" id="hide_payment_list">Save Choice</a></div>
   </div>
   <div id="ncc-payment-showgoods-list" class="ncc-payment-showgoods-list">
     <dl>
-      <dt data-hideshow="offline">货到付款</dt>
+      <dt data-hideshow="offline">Cash On Delivery</dt>
       <dd data-hideshow="offline" data-cod2-type="offline">
         <?php foreach((array) $output['pay_goods_list']['offline'] as $value) {?>
         <div class="goods-thumb" data-cod2-store="<?php echo $value['store_id']; ?>"><span><img src="<?php echo thumb($value,60);?>"></span></div>
         <?php } ?>
       </dd>
-      <dt data-hideshow="online">在线支付</dt>
+      <dt data-hideshow="online">Online Payment</dt>
       <dd data-hideshow="online" data-cod2-type="online">
         <?php foreach((array) $output['pay_goods_list']['online'] as $value) {?>
         <div class="goods-thumb" data-cod2-store="<?php echo $value['store_id']; ?>"><span><img src="<?php echo thumb($value,60);?>"></span></div>
@@ -53,7 +57,7 @@
 <!-- 在线支付和货到付款组合时，显示弹出确认层内容 -->
 <div id="confirm_offpay_goods_list" style="display: none;">
   <dl class="ncc-offpay-list" data-hideshow="offline">
-    <dt>以下商品支持<strong>货到付款</strong></dt>
+    <dt>Products Support<strong>Cash On Delivery</strong></dt>
     <dd>
       <ul data-cod-type="offline">
         <?php foreach((array) $output['pay_goods_list']['offline'] as $value) {?>
@@ -62,12 +66,12 @@
       </ul>
       <label>
         <input type="radio" value="" checked="checked">
-        货到付款
+        Cash On Delivery
       </label>
     </dd>
   </dl>
   <dl class="ncc-offpay-list" data-hideshow="online">
-    <dt>以下商品支持<strong>在线支付</strong></dt>
+    <dt>Products Support<strong>Online Payment</strong></dt>
     <dd>
       <ul data-cod-type="online">
         <?php foreach((array) $output['pay_goods_list']['online'] as $value) {?>
@@ -76,12 +80,12 @@
       </ul>
       <label>
         <input type="radio" value="" checked="checked">
-        在线支付
+        Online Payment
       </label>
     </dd>
   </dl>
 
-  <div class="tc mt10 mb10"><a href="javascript:void(0);" class="ncbtn ncbtn-bittersweet" id="close_confirm_button">确认支付方式</a></div>
+  <div class="tc mt10 mb10"><a href="javascript:void(0);" class="ncbtn ncbtn-bittersweet" id="close_confirm_button">Confirm</a></div>
 </div>
 <script type="text/javascript">
 $(function(){
@@ -146,7 +150,7 @@ var setCodGoodsShow = function() {
         	$('#payment_type_chain').parent().hide();
         	$('#payment_type_offline').parent().show();
         }
-        disableOtherEdit('如需要修改，请先保存支付方式');
+        disableOtherEdit('To Edit, Save First');
     });
     //保存支付方式
     $('#hide_payment_list').on('click',function(){
@@ -157,15 +161,15 @@ var setCodGoodsShow = function() {
 
         //判断该地区(县ID)是否能货到付款
         if (payment_type == 'offline' && ($('#allow_offpay').val() == '0' || failInPage)) {
-            showDialog('您目前选择的收货地区不支持货到付款!', 'error','','','','','','','','',2);return;
+            showDialog('Cash On Delivery Is Not Available in Your Area!', 'error','','','','','','','','',2);return;
         }
         $('#payment_list').hide();
         $('#edit_payment').show();
 		$('.current_box').removeClass('current_box');
 		if (payment_type == 'chain') {
-			var content = '门店支付';
+			var content = 'Meetup';
 		} else {
-			var content = (payment_type == 'online' ? '在线支付' : '货到付款');
+			var content = (payment_type == 'online' ? 'Online Payment' : 'Cash On Delivery');
 		}
 
         $('#pay_name').val(payment_type);
@@ -174,7 +178,7 @@ var setCodGoodsShow = function() {
             //如果混合支付（在线+货到付款）
             if (hybrid) {
                 content = $('#show_goods_list').clone().html();
-                $('#edit_payment').parent().after('<div class="ncc-candidate-items"><ul><li>您选择货到付款 + 在线支付完成此订单<br/><a href="javsacript:void(0);" id="show_goods_list" class="ncc-payment-showgoods">'+content+'</a></li></ul></div>');
+                $('#edit_payment').parent().after('<div class="ncc-candidate-items"><ul><li>You Chose COD + Online Payment<br/><a href="javsacript:void(0);" id="show_goods_list" class="ncc-payment-showgoods">'+content+'</a></li></ul></div>');
                 $('#show_goods_list').hover(function(){showPayGoodsList(this)},function(){$('#ncc-payment-showgoods-list').fadeOut()});
             } else {
                 $('#edit_payment').parent().after('<div class="ncc-candidate-items"><ul><li>'+content+'</li></ul></div>');
@@ -184,6 +188,52 @@ var setCodGoodsShow = function() {
         }
         ableOtherEdit();
     });
+
+//页面加载完毕后，默认选择货到付款
+
+    $(document).ready(function(){
+
+        var payment_type = $('input[name="payment_type"]:checked').val();
+        if ($('input[name="payment_type"]:checked').size() == 0) return;
+
+        setCodGoodsShow();
+
+        //判断该地区(县ID)是否能货到付款
+        if (payment_type == 'offline' && ($('#allow_offpay').val() == '0' || failInPage)) {
+            showDialog('Cash On Delivery Is Not Available in Your Area!', 'error','','','','','','','','',2);return;
+        }
+        $('#payment_list').hide();
+        $('#edit_payment').show();
+        $('.current_box').removeClass('current_box');
+        if (payment_type == 'chain') {
+            var content = 'Meetup';
+        } else {
+            var content = (payment_type == 'online' ? 'Online Payment' : 'Cash On Delivery');
+        }
+
+        $('#pay_name').val(payment_type);
+
+        if (payment_type == 'offline'){
+            //如果混合支付（在线+货到付款）
+            if (hybrid) {
+                content = $('#show_goods_list').clone().html();
+                $('#edit_payment').parent().after('<div class="ncc-candidate-items"><ul><li>You Chose COD + Online Payment<br/><a href="javsacript:void(0);" id="show_goods_list" class="ncc-payment-showgoods">'+content+'</a></li></ul></div>');
+                $('#show_goods_list').hover(function(){showPayGoodsList(this)},function(){$('#ncc-payment-showgoods-list').fadeOut()});
+            } else {
+                $('#edit_payment').parent().after('<div class="ncc-candidate-items"><ul><li>'+content+'</li></ul></div>');
+            }
+        }else{
+            $('#edit_payment').parent().after('<div class="ncc-candidate-items"><ul><li>'+content+'</li></ul></div>');
+        }
+        ableOtherEdit();
+    });
+
+//
+
+
+
+
+
     $('#show_goods_list').hover(function(){showPayGoodsList(this)},function(){$('#ncc-payment-showgoods-list').fadeOut()});
     function showPayGoodsList(item){
 		var pos = $(item).position();
@@ -201,9 +251,9 @@ var setCodGoodsShow = function() {
                 //判断该地区(县ID)是否能货到付款
                 if (($('#allow_offpay').val() == '0') || failInPage) {
                     $('#payment_type_online').attr('checked',true);
-                    showDialog('您目前选择的收货地区不支持货到付款', 'error','','','','','','','','',2);return;
+                    showDialog('Cash On Delivery Is Not Available', 'error','','','','','','','','',2);return;
                 }
-                html_form('confirm_pay_type', '请确认支付方式', $('#confirm_offpay_goods_list').html(), 500,1);
+                html_form('confirm_pay_type', 'Confirm', $('#confirm_offpay_goods_list').html(), 500,1);
                 $('#show_goods_list').show();
         	} else {
         	}

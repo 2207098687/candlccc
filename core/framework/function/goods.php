@@ -197,27 +197,27 @@ function brandImage($image_name = '') {
 function orderState($order_info) {
     switch ($order_info['order_state']) {
         case ORDER_STATE_CANCEL:
-            $order_state = '已取消';
+            $order_state = 'Cancelled';
         break;
         case ORDER_STATE_NEW:
             if ($order_info['chain_code']) {
-                $order_state = '门店付款自提';
+                $order_state = 'Meetup';
             } else {
-                $order_state = '待付款';
+                $order_state = 'Pending Payment';
             }
         break;
         case ORDER_STATE_PAY:
             if ($order_info['chain_code']) {
-                $order_state = '待自提';
+                $order_state = 'Meetup';//待自提
             } else {
-                $order_state = '待发货';
+                $order_state = 'Pending Dispatch';
             }
         break;
         case ORDER_STATE_SEND:
-            $order_state = '待收货';
+            $order_state = 'Pending Reception';//待收货
         break;
         case ORDER_STATE_SUCCESS:
-            $order_state = '交易完成';
+            $order_state = 'Completed';//交易完成
         break;
     }
     return $order_state;

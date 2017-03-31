@@ -1335,7 +1335,7 @@ class goodsModel extends Model{
             //抢购
             if (!empty($goods_info['groupbuy_info'])) {
                 $goods_info['promotion_type'] = 'groupbuy';
-                $goods_info['title'] = '抢购';
+                $goods_info['title'] = 'Groupbuy';
                 $goods_info['remark'] = $goods_info['groupbuy_info']['remark'];
                 $goods_info['promotion_price'] = $goods_info['groupbuy_info']['groupbuy_price'];
                 $goods_info['down_price'] = ncPriceFormat($goods_info['goods_price'] - $goods_info['groupbuy_info']['groupbuy_price']);
@@ -1345,7 +1345,7 @@ class goodsModel extends Model{
             // 手机专享
             if (!empty($goods_info['sole_info'])) {
                 $goods_info['promotion_type'] = 'sole';
-                $goods_info['title'] = '手机专享';
+                $goods_info['title'] = 'Mobile Privilege';
                 $goods_info['promotion_price'] = $goods_info['sole_info']['sole_price'];
                 unset($goods_info['sole_info']);
             }
@@ -1354,7 +1354,7 @@ class goodsModel extends Model{
                 $jjgFirstLevel = $goods_info['jjg_info']['firstLevel'];
                 if ($jjgFirstLevel && $jjgFirstLevel['mincost'] > 0) {
                     $goods_info['jjg_explain'] = sprintf(
-                        '购满<em>&yen;%.2f</em>，再加<em>&yen;%.2f</em>，可换购商品',
+                        'Spend<em>₱%.2f</em>, Add<em>₱%.2f</em>, May Redeem',
                         $jjgFirstLevel['mincost'],
                         $jjgFirstLevel['plus']
                     );
@@ -1389,13 +1389,13 @@ class goodsModel extends Model{
         }
 
         // 立即购买文字显示
-        $goods_info['buynow_text'] = '立即购买';
+        $goods_info['buynow_text'] = 'Buy Now';
         if ($goods_info['is_presell'] == 1) {
-            $goods_info['buynow_text'] = '预售购买';
+            $goods_info['buynow_text'] = 'Presale Buy';
         } elseif ($goods_info['is_book'] == 1) {
-            $goods_info['buynow_text'] = '支付定金';
+            $goods_info['buynow_text'] = 'Down Payment';//支付定金
         } elseif ($goods_info['is_fcode'] == 1) {
-            $goods_info['buynow_text'] = 'F码购买';
+            $goods_info['buynow_text'] = 'F Code Buy';//F码购买
         }
         
 

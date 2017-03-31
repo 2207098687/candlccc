@@ -4,7 +4,7 @@
 </style>
 <div class="ncc-receipt-info">
   <div class="ncc-receipt-info-title">
-    <h3>商品清单
+    <h3>Product Details
       <input value="1" type="hidden" name="is_book">
     </h3>
   </div>
@@ -14,7 +14,7 @@
         <th class="w10"></th>
         <th></th>
         <th><?php echo $lang['cart_index_store_goods'];?></th>
-        <th class="w150">预定价(<?php echo $lang['currency_zh'];?>)</th>
+        <th class="w150">Presale Price(<?php echo $lang['currency_zh'];?>)</th>
         <th class="w100"><?php echo $lang['cart_index_amount'];?></th>
         <th class="w150"><?php echo $lang['cart_index_sum'].'('.$lang['currency_zh'].')';?></th>
       </tr>
@@ -26,13 +26,13 @@
       <tr>
         <th colspan="20"><!-- S 店铺名称 -->
           
-          <div class="ncc-store-name">店铺：<a href="<?php echo urlShop('show_store','index',array('store_id'=>$store_id));?>"><?php echo $cart_list[0]['store_name']; ?></a><span member_id="<?php echo $output['store_list'][$store_id]['member_id'];?>"></span></div>
+          <div class="ncc-store-name">By:<a href="<?php echo urlShop('show_store','index',array('store_id'=>$store_id));?>"><?php echo $cart_list[0]['store_name']; ?></a><span member_id="<?php echo $output['store_list'][$store_id]['member_id'];?>"></span></div>
           
           <!-- E 店铺名称 --> 
           <!-- S 店铺满金额包邮 -->
           
           <?php if (!empty($output['cancel_calc_sid_list'][$store_id])) {?>
-          <div class="ncc-store-sale"> <span>免运费</span><?php echo $output['cancel_calc_sid_list'][$store_id]['desc'];?></div>
+          <div class="ncc-store-sale"> <span>Free Shipping</span><?php echo $output['cancel_calc_sid_list'][$store_id]['desc'];?></div>
           <?php } ?>
           
           <!-- S 店铺满金额包邮 --> </th>
@@ -54,58 +54,59 @@
             <?php }?>
             <!-- E消费者保障服务 -->
           </dl></td>
-        <td><em class="goods-price">定金：<?php echo $cart_info['book_down_payment'];?></em>
+        <td><em class="goods-price">Downpay：<?php echo $cart_info['book_down_payment'];?></em>
           <p>+</p>
-          <em class="goods-price"> 尾款：<?php echo $cart_info['book_final_payment'];?></em></td>
+          <em class="goods-price"> Balance：<?php echo $cart_info['book_final_payment'];?></em></td>
         <td><?php echo $cart_info['state'] ? $cart_info['goods_num'] : ''; ?></td>
         <td class="td-border-right"><?php if ($cart_info['state'] && $cart_info['storage_state']) {?>
-          <em class="goods-subtotal"><?php echo $cart_info['goods_total']; ?></em> <span id="no_send_tpl" style="color: #F00;display:none">无货</span>
+          <em class="goods-subtotal"><?php echo $cart_info['goods_total']; ?></em> <span id="no_send_tpl" style="color: #F00;display:none">No Stock</span>
           <?php } elseif (!$cart_info['storage_state']) {?>
-          <span style="color: #F00;">库存不足</span>
+          <span style="color: #F00;">Low Stock</span>
           <?php }elseif (!$cart_info['state']) {?>
-          <span style="color: #F00;">无效</span>
+          <span style="color: #F00;">Invalid</span>
           <?php }?></td>
       </tr>
       <tr>
-        <td colspan="20"><div class="ncc-msg">买家留言：
-            <textarea  name="pay_message[<?php echo $store_id;?>]" class="ncc-msg-textarea" placeholder="选填：对本次交易的说明（建议填写已经和商家达成一致的说明）" title="选填：对本次交易的说明（建议填写已经和商家达成一致的说明）"  maxlength="150"></textarea>
+        <td colspan="20"><div class="ncc-msg">Customer Msg:
+            <textarea  name="pay_message[<?php echo $store_id;?>]" class="ncc-msg-textarea" placeholder="Optional, Your Message to Seller." title="Optional, Your Message to Seller."  maxlength="150"></textarea>
           </div>
           <div class="ncc-form-default"> </div>
           <div class="ncc-store-account">
             <dl>
-              <dt>支付方式：</dt>
+              <dt>Payment Method:</dt>
               <dd class="all">
                 <label for="book_pay_part" class="mr10">
                   <input type="radio" value="part" name="book_pay_type" checked="checked" id="book_pay_part" class="vm">
-                  支付定金</label>
+                  Downpay</label>
                 <label for="book_pay_full">
                   <input type="radio" value="full" name="book_pay_type" id="book_pay_full" class="vm">
-                  全款支付(享受优先发货特权)</label>
+                  Pay Full Amount(Prioritize for Shipping)</label>
               </dd>
             </dl>
             <dl>
-              <dt>物流运费：</dt>
-              <dd class="rule">在尾款阶段或全款支付时支付</dd>
+              <dt>Shipping Fee:</dt>
+              <dd class="rule">Upon Maturity of Balance</dd>
               <dd class="sum"><em id="eachStoreFreight_<?php echo $store_id;?>">0.00</em></dd>
             </dl>
             <dl nctype="book_pay_content_part" class="total">
-              <dt>定金合计：</dt>
+              <dt>Total Downpay:</dt>
               <dd class="rule"><i>*</i>
                 <input type="checkbox" value="1" name="agree_part" id="agree_part" class="vm mr5">
-                同意支付定金 (不退)</span></dd>
+                Agree Downpay(NO REFUND)</span></dd>
               <dd class="sum"><em><?php echo ncPriceFormat($cart_info['book_down_payment']*$cart_info['goods_num']);?></em></dd>
             </dl>
             <dl nctype="book_pay_content_part">
-              <dt>定时通知：</dt>
-              <dd class="all"><i>*</i>短信提示尾款到期通知
-                <input name="buyer_phone" autocomplete="off" class="w150 ml10" type="text" id="buyer_phone" placeholder="请填写接受通知的手机号码" value="<?php echo $output['member_info']['member_mobile'];?>" maxlength="11">
+              <dt>Notify</dt>
+<!--              <dd class="all"><i>*</i>短信提示尾款到期通知-->
+              <dd class="all"><i>*</i>Through Text
+                <input name="buyer_phone" autocomplete="off" class="w150 ml10" type="text" id="buyer_phone" placeholder="Input Your Phone Number" value="<?php echo $output['member_info']['member_mobile'];?>" maxlength="11">
               </dd>
             </dl>
             <dl nctype="book_pay_content_full" style="display: none" class="total">
-              <dt>全款合计：</dt>
+              <dt>Total Amount: </dt>
               <dd class="rule"><i>*</i>
                 <input type="checkbox" value="1" name="agree_full" id="agree_full" class="vm mr5">
-                同意支付定金 (不退)</dd>
+                Agree to Pay All(NO REFUND)</dd>
               <dd class="sum"><em id="storeGoodsTotal"><?php echo $output['store_goods_total'][$store_id];?></em></dd>
             </dl>
           </div></td>
@@ -113,7 +114,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="20"><div class="ncc-all-account">本次需支付：<em id="orderBookTotal">...</em><?php echo $lang['currency_zh'];?></div>
+        <td colspan="20"><div class="ncc-all-account">This Payment:<em id="orderBookTotal">...</em><?php echo $lang['currency_zh'];?></div>
           <a href="javascript:void(0)" id='submitOrder' class="ncc-next-submit ok"><?php echo $lang['cart_index_submit_order'];?></a></td>
       </tr>
     </tfoot>
@@ -143,12 +144,12 @@ function submitNext(){
 	if (!SUBMIT_FORM) return;
 
 	if ((!$('#agree_part').prop('checked') && $('#book_pay_part').prop('checked')) || (!$('#agree_full').prop('checked') && $('#book_pay_full').prop('checked'))){
-		showDialog('预定商品定金恕不退换，请同意支付定金', 'error','','','','','','','',2);
+		showDialog('Presale Orders NO REFUND, Please Pay Downpay', 'error','','','','','','','',2);
 		return;
 	}
 
 	if ($('input[name="cart_id[]"]').size() == 0) {
-		showDialog('所购商品无效', 'error','','','','','','','','',2);
+		showDialog('Invalid Product', 'error','','','','','','','','',2);
 		return;
 	}
     if ($('#address_id').val() == ''){
@@ -156,17 +157,17 @@ function submitNext(){
 		return;
 	}
 	if ($('#buy_city_id').val() == '') {
-		showDialog('正在计算运费,请稍后', 'error','','','','','','','',2);
+		showDialog('Calculating Shipping...', 'error','','','','','','','',2);
 		return;
 	}
 	var re = /^1\d{10}$/;
 	if (!re.test($('#buyer_phone').val()) && $('#book_pay_part').prop('checked')) {
-		showDialog('请正确输入通知号码', 'error','','','','','','','',2);
+		showDialog('Input Your Mobile', 'error','','','','','','','',2);
 		return;
 	}
 
 	if (no_send_tpl_ids.length > 0) {
-		showDialog('有部分商品配送范围无法覆盖您选择的收货地址，请更换其它商品！', 'error','','','','','','','','',4);
+		showDialog('No Available in Your Area, Please Contact Support', 'error','','','','','','','','',4);
 		return;
 	}
 

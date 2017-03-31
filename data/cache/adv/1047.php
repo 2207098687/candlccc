@@ -8,7 +8,7 @@
   'ap_height' => '90',
   'adv_num' => '1',
   'click_num' => '0',
-  'default_content' => '05432451286887914.png',
+  'default_content' => '04891676111561966.png',
   'adv_list' => 
   array (
     0 => 
@@ -16,7 +16,7 @@
       'adv_id' => '936',
       'ap_id' => '1047',
       'adv_title' => '运维舫S7',
-      'adv_content' => 'a:2:{s:7:"adv_pic";s:0:"";s:11:"adv_pic_url";s:0:"";}',
+      'adv_content' => 'a:2:{s:7:"adv_pic";s:21:"04891676111561966.png";s:11:"adv_pic_url";s:13:"www.shopnc.club";}',
       'adv_start_date' => '1435766400',
       'adv_end_date' => '1753891200',
       'slide_sort' => '0',

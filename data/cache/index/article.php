@@ -65,7 +65,7 @@ $article_list=array (
   array (
     'ac_id' => '2',
     'ac_code' => 'member',
-    'ac_name' => 'Beginner',
+    'ac_name' => '新手上路',
     'ac_parent_id' => '0',
     'ac_sort' => '2',
     'list' => 
@@ -79,7 +79,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '如何注册成为会员',
         'article_time' => '1449242303',
-        'ac_name' => 'Beginner',
+        'ac_name' => '新手上路',
         'ac_parent_id' => '0',
       ),
       1 => 
@@ -91,7 +91,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '积分细则',
         'article_time' => '1449242303',
-        'ac_name' => 'Beginner',
+        'ac_name' => '新手上路',
         'ac_parent_id' => '0',
       ),
       2 => 
@@ -103,7 +103,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '积分兑换说明',
         'article_time' => '1449242303',
-        'ac_name' => 'Beginner',
+        'ac_name' => '新手上路',
         'ac_parent_id' => '0',
       ),
       3 => 
@@ -115,7 +115,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '如何搜索',
         'article_time' => '1449242303',
-        'ac_name' => 'Beginner',
+        'ac_name' => '新手上路',
         'ac_parent_id' => '0',
       ),
       4 => 
@@ -127,20 +127,20 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '忘记密码',
         'article_time' => '1449242303',
-        'ac_name' => 'Beginner',
+        'ac_name' => '新手上路',
         'ac_parent_id' => '0',
       ),
     ),
     'class' => 
     array (
-      'ac_name' => 'Beginner',
+      'ac_name' => '新手上路',
     ),
   ),
   1 => 
   array (
     'ac_id' => '4',
     'ac_code' => 'payment',
-    'ac_name' => 'Payment',
+    'ac_name' => '支付方式',
     'ac_parent_id' => '0',
     'ac_sort' => '4',
     'list' => 
@@ -154,7 +154,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '分期付款',
         'article_time' => '1449242303',
-        'ac_name' => 'Payment',
+        'ac_name' => '支付方式',
         'ac_parent_id' => '0',
       ),
       1 => 
@@ -166,7 +166,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '邮局汇款',
         'article_time' => '1449242303',
-        'ac_name' => 'Payment',
+        'ac_name' => '支付方式',
         'ac_parent_id' => '0',
       ),
       2 => 
@@ -178,7 +178,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '公司转账',
         'article_time' => '1449242303',
-        'ac_name' => 'Payment',
+        'ac_name' => '支付方式',
         'ac_parent_id' => '0',
       ),
       3 => 
@@ -190,7 +190,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '如何注册支付宝',
         'article_time' => '1449242303',
-        'ac_name' => 'Payment',
+        'ac_name' => '支付方式',
         'ac_parent_id' => '0',
       ),
       4 => 
@@ -202,20 +202,20 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '在线支付',
         'article_time' => '1449242303',
-        'ac_name' => 'Payment',
+        'ac_name' => '支付方式',
         'ac_parent_id' => '0',
       ),
     ),
     'class' => 
     array (
-      'ac_name' => 'Payment',
+      'ac_name' => '支付方式',
     ),
   ),
   2 => 
   array (
     'ac_id' => '5',
     'ac_code' => 'sold',
-    'ac_name' => 'After Sales',
+    'ac_name' => '售后服务',
     'ac_parent_id' => '0',
     'ac_sort' => '5',
     'list' => 
@@ -229,7 +229,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '联系卖家',
         'article_time' => '1449242303',
-        'ac_name' => 'After Sales',
+        'ac_name' => '售后服务',
         'ac_parent_id' => '0',
       ),
       1 => 
@@ -241,7 +241,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '退换货政策',
         'article_time' => '1449242303',
-        'ac_name' => 'After Sales',
+        'ac_name' => '售后服务',
         'ac_parent_id' => '0',
       ),
       2 => 
@@ -253,7 +253,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '退换货流程',
         'article_time' => '1449242303',
-        'ac_name' => 'After Sales',
+        'ac_name' => '售后服务',
         'ac_parent_id' => '0',
       ),
       3 => 
@@ -265,7 +265,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '返修/退换货',
         'article_time' => '1449242303',
-        'ac_name' => 'After Sales',
+        'ac_name' => '售后服务',
         'ac_parent_id' => '0',
       ),
       4 => 
@@ -277,20 +277,20 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '退款申请',
         'article_time' => '1449242303',
-        'ac_name' => 'After Sales',
+        'ac_name' => '售后服务',
         'ac_parent_id' => '0',
       ),
     ),
     'class' => 
     array (
-      'ac_name' => 'After Sales',
+      'ac_name' => '售后服务',
     ),
   ),
   3 => 
   array (
     'ac_id' => '6',
     'ac_code' => 'service',
-    'ac_name' => 'How To Buy',
+    'ac_name' => '购物指南',
     'ac_parent_id' => '0',
     'ac_sort' => '6',
     'list' => 
@@ -304,7 +304,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '会员修改密码',
         'article_time' => '1449242303',
-        'ac_name' => 'How To Buy',
+        'ac_name' => '购物指南',
         'ac_parent_id' => '0',
       ),
       1 => 
@@ -316,7 +316,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '会员修改个人资料',
         'article_time' => '1449242303',
-        'ac_name' => 'How To Buy',
+        'ac_name' => '购物指南',
         'ac_parent_id' => '0',
       ),
       2 => 
@@ -328,7 +328,7 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '商品发布',
         'article_time' => '1449242303',
-        'ac_name' => 'How To Buy',
+        'ac_name' => '购物指南',
         'ac_parent_id' => '0',
       ),
       3 => 
@@ -340,13 +340,13 @@ $article_list=array (
         'article_position' => '1',
         'article_title' => '修改收货地址',
         'article_time' => '1449242303',
-        'ac_name' => 'How To Buy',
+        'ac_name' => '购物指南',
         'ac_parent_id' => '0',
       ),
     ),
     'class' => 
     array (
-      'ac_name' => 'How To Buy',
+      'ac_name' => '购物指南',
     ),
   ),
 );

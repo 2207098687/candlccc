@@ -11,7 +11,7 @@ body { _behavior: url(<?php echo SHOP_TEMPLATES_URL;
     <?php if (!empty($output['goods_class_array'])) {?>
     <div class="nch-module nch-module-style02">
       <div class="title">
-        <h3>分类筛选</h3>
+        <h3>Category Filter</h3>
       </div>
       <div class="content">
         <ul id="files" class="tree">
@@ -64,7 +64,7 @@ body { _behavior: url(<?php echo SHOP_TEMPLATES_URL;
             <?php } ?>
           </ul>
         </div>
-        <a href="<?php echo SHOP_SITE_URL;?>/index.php?act=member_goodsbrowse&op=list" class="nch-sidebar-all-viewed">全部浏览历史</a></div>
+        <a href="<?php echo SHOP_SITE_URL;?>/index.php?act=member_goodsbrowse&op=list" class="nch-sidebar-all-viewed">All Viewed</a></div>
     </div>
   </div>
   <div class="right"> 
@@ -105,7 +105,7 @@ body { _behavior: url(<?php echo SHOP_TEMPLATES_URL;
             <dt><?php echo $lang['goods_class_index_brand'].$lang['nc_colon'];?></dt>
             <dd class="list">
               <ul class="nch-brand-tab" nctype="ul_initial" style="display:none;">
-                <li data-initial="all"><a href="javascript:void(0);">所有品牌<i class="arrow"></i></a></li>
+                <li data-initial="all"><a href="javascript:void(0);">All Brands<i class="arrow"></i></a></li>
                 <?php if (!empty($output['initial_array'])) {?>
                 <?php foreach ($output['initial_array'] as $val) {?>
                 <li data-initial="<?php echo $val;?>"><a href="javascript:void(0);"><?php echo $val;?><i class="arrow"></i></a></li>
@@ -164,7 +164,7 @@ body { _behavior: url(<?php echo SHOP_TEMPLATES_URL;
             <?php require template('layout/home_goods_class');?>
           </div>
         </div>
-        <div class="nch-sortbar-array"> 排序方式：
+        <div class="nch-sortbar-array"> Sort By：
           <ul>
             <li <?php if(!$_GET['key']){?>class="selected"<?php }?>><a href="<?php echo dropParam(array('order', 'key'));?>"  title="<?php echo $lang['goods_class_index_default_sort'];?>"><?php echo $lang['goods_class_index_default'];?></a></li>
             <li <?php if($_GET['key'] == '1'){?>class="selected"<?php }?>><a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '1') ? replaceParam(array('key' => '1', 'order' => '1')):replaceParam(array('key' => '1', 'order' => '2')); ?>" <?php if($_GET['key'] == '1'){?>class="<?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '1')?$lang['goods_class_index_sold_asc']:$lang['goods_class_index_sold_desc']; ?>"><?php echo $lang['goods_class_index_sold'];?><i></i></a></li>
@@ -173,28 +173,28 @@ body { _behavior: url(<?php echo SHOP_TEMPLATES_URL;
           </ul>
         </div>
         <div class="nch-sortbar-filter" nc_type="more-filter">
-        <span class="arrow"></span>
-          <ul>
-            <li><a href="<?php if ($_GET['type'] == 1) { echo dropParam(array('type'));} else { echo replaceParam(array('type' => '1'));}?>" <?php if ($_GET['type'] == 1) {?>class="selected"<?php }?>><i></i>平台自营</a></li>
-            <li><a href="<?php if ($_GET['gift'] == 1) { echo dropParam(array('gift'));} else { echo replaceParam(array('gift' => '1'));}?>" <?php if ($_GET['gift'] == 1) {?>class="selected"<?php }?>><i></i>赠品</a></li>
-            <!-- 消费者保障服务 -->
-            <?php if($output['contract_item']){?>
-            <?php foreach($output['contract_item'] as $citem_k=>$citem_v){ ?>
-            <li><a href="<?php if (in_array($citem_k,$output['search_ci_arr'])){ echo removeParam(array('ci' => $citem_k));} else { echo replaceParam(array("ci" => $output['search_ci_str'].$citem_k));}?>" <?php if (in_array($citem_k,$output['search_ci_arr'])) {?>class="selected"<?php }?>><i></i><?php echo $citem_v['cti_name']; ?></a></li>
-            <?php }?>
-            <?php }?>
-          </ul>
+<!--        <span class="arrow"></span>-->
+<!--          <ul>-->
+<!--            <li><a href="--><?php //if ($_GET['type'] == 1) { echo dropParam(array('type'));} else { echo replaceParam(array('type' => '1'));}?><!--" --><?php //if ($_GET['type'] == 1) {?><!--class="selected"--><?php //}?><!--<i></i>平台自营</a></li>-->
+<!--            <li><a href="--><?php //if ($_GET['gift'] == 1) { echo dropParam(array('gift'));} else { echo replaceParam(array('gift' => '1'));}?><!--" --><?php //if ($_GET['gift'] == 1) {?><!--class="selected"--><?php //}?><!--<i></i>赠品</a></li>-->
+<!--            <!-- 消费者保障服务 -->
+<!--            --><?php //if($output['contract_item']){?>
+<!--            --><?php //foreach($output['contract_item'] as $citem_k=>$citem_v){ ?>
+<!--            <li><a href="--><?php //if (in_array($citem_k,$output['search_ci_arr'])){ echo removeParam(array('ci' => $citem_k));} else { echo replaceParam(array("ci" => $output['search_ci_str'].$citem_k));}?><!--" --><?php //if (in_array($citem_k,$output['search_ci_arr'])) {?><!--class="selected"--><?php //}?><!--<i></i>--><?php //echo $citem_v['cti_name']; ?><!--</a></li>-->
+<!--            --><?php //}?>
+<!--            --><?php //}?>
+<!--          </ul>-->
         </div>
-        <div class="nch-sortbar-location">商品所在地：
-          <div class="select-layer">
-            <div class="holder"><em nc_type="area_name"><?php echo $lang['goods_class_index_area']; ?><!-- 所在地 --></em></div>
-            <div class="selected"><a nc_type="area_name"><?php echo $lang['goods_class_index_area']; ?><!-- 所在地 --></a></div>
-            <i class="direction"></i>
-            <ul class="options">
-              <?php require(BASE_TPL_PATH.'/home/goods_class_area.php');?>
-            </ul>
-          </div>
-        </div>
+<!--        <div class="nch-sortbar-location">Location：-->
+<!--          <div class="select-layer">-->
+<!--            <div class="holder"><em nc_type="area_name">--><?php //echo $lang['goods_class_index_area']; ?><!--<!-- 所在地 </em></div>-->
+<!--            <div class="selected"><a nc_type="area_name">--><?php //echo $lang['goods_class_index_area']; ?><!--<!-- 所在地 </a></div>-->
+<!--            <i class="direction"></i>-->
+<!--            <ul class="options">-->
+<!--              --><?php //require(BASE_TPL_PATH.'/home/goods_class_area.php');?>
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
       </nav>
       <!-- 商品列表循环  -->
       <div>

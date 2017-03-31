@@ -47,11 +47,11 @@ class member_goodsbrowseControl extends BaseMemberControl{
                     $tmp = $goods_list[$v['goods_id']];
                     $tmp["browsetime"] = $v['browsetime'];
                     if (date('Y-m-d',$v['browsetime']) == date('Y-m-d',time())){
-                        $tmp['browsetime_day'] = '今天';
+                        $tmp['browsetime_day'] = 'Today';
                     } elseif (date('Y-m-d',$v['browsetime']) == date('Y-m-d',(time()-86400))){
-                        $tmp['browsetime_day'] = '昨天';
+                        $tmp['browsetime_day'] = 'Yesterday';
                     } else {
-                        $tmp['browsetime_day'] = date('Y年m月d日',$v['browsetime']);
+                        $tmp['browsetime_day'] = date('Y/m/d/',$v['browsetime']);
                     }
                     $tmp['browsetime_text'] = $tmp['browsetime_day'].date('H:i',$v['browsetime']);
                     $browselist_new[] = $tmp;
@@ -90,17 +90,17 @@ class member_goodsbrowseControl extends BaseMemberControl{
             if ($model->delGoodsbrowse(array('member_id'=>$_SESSION['member_id']))){
                 $return_arr = array('done'=>true);
             } else {
-                $return_arr = array('done'=>false,'msg'=>'删除失败');
+                $return_arr = array('done'=>false,'msg'=>'Failed');
             }
         } elseif (intval($_GET['goods_id']) >= 0) {
             $goods_id = intval($_GET['goods_id']);
             if ($model->delGoodsbrowse(array('member_id'=>$_SESSION['member_id'],'goods_id'=>$goods_id))){
                 $return_arr = array('done'=>true);
             } else {
-                $return_arr = array('done'=>false,'msg'=>'删除失败');
+                $return_arr = array('done'=>false,'msg'=>'Failed');
             }
         } else {
-            $return_arr = array('done'=>false,'msg'=>'参数错误');
+            $return_arr = array('done'=>false,'msg'=>'Error');
         }
         echo json_encode($return_arr);
     }

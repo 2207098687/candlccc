@@ -361,9 +361,9 @@ class vr_refundModel extends Model{
      */
     public function getRefundStateArray($type = 'all') {
         $admin_array = array(
-            '1' => '待审核',
-            '2' => '同意',
-            '3' => '不同意'
+            '1' => 'Pending',
+            '2' => 'Pass',
+            '3' => 'Reject'
             );//退款状态:1为待审核,2为同意,3为不同意
         Tpl::output('admin_array', $admin_array);
 

@@ -3,7 +3,7 @@
 <div class="ncc-main">
   <div class="ncc-title">
     <h3><?php echo $lang['cart_index_ensure_order'];?></h3>
-    <h5>查看购物车商品清单，增加减少商品数量，并勾选想要的商品进入下一步操作。</h5>
+    <h5>To Ensure Timing Shipping, Please Double Check Shipping Address.</h5>
   </div>
   <form action="<?php echo urlShop('buy','buy_step1');?>" method="POST" id="form_buy" name="form_buy">
     <input type="hidden" value="1" name="ifcart">
@@ -13,7 +13,7 @@
         <tr>
           <th class="w50"><label>
               <input type="checkbox" checked value="1" id="selectAll">
-              全选</label></th>
+              All</label></th>
           <th></th>
           <th><?php echo $lang['cart_index_store_goods'];?></th>
           <th class="w150"><?php echo $lang['cart_index_price'].'('.$lang['currency_zh'].')';?></th>
@@ -28,19 +28,19 @@
         <tr>
           <th colspan="20"> <!-- S 店铺名称 -->
             
-            <div class="ncc-store-name">店铺：<a href="<?php echo urlShop('show_store','index',array('store_id'=>$store_id), $output['store_list'][$store_id]['store_domain']);?>"><?php echo $cart_list[0]['store_name']; ?></a><span member_id="<?php echo $output['store_list'][$store_id]['member_id'];?>"></span></div>
+<!--   注销店铺名称         <div class="ncc-store-name"><a href="--><?php //echo urlShop('show_store','index',array('store_id'=>$store_id), $output['store_list'][$store_id]['store_domain']);?><!--">--><?php //echo $cart_list[0]['store_name']; ?><!--</a><span member_id="--><?php //echo $output['store_list'][$store_id]['member_id'];?><!--"></span></div>-->
             
             <!-- E 店铺名称 --> 
             <!-- S 店铺满即送 -->
             
             <?php if (isset($output['voucher_template'][$store_id])) {?>
-            <div class="ncc-store-sale" nctype="get_voucher"> <span>代金券</span>免费领取<i class="icon-angle-down"></i>
+            <div class="ncc-store-sale" nctype="get_voucher"> <span>Coupon</span>Get Free<i class="icon-angle-down"></i>
               <div class="combobox"><i></i>
                 <?php foreach ($output['voucher_template'][$store_id] as $voucher) {?>
-                <div class="combobox-list"> <span class="par">¥<?php echo $voucher['voucher_t_price'];?></span> <span class="rule">
-                  <p>全店通用，满<?php echo ncPriceFormat($voucher['voucher_t_limit']);?>元可折扣<?php echo $voucher['voucher_t_price'];?>元</p>
-                  <time>限<?php echo date('Y-m-d', $voucher['voucher_t_end_date']);?>前使用</time>
-                  </span> <a data-tid="<?php echo $voucher['voucher_t_id'];?>" href="javascript:;">领取</a> </div>
+                <div class="combobox-list"> <span class="par">₱<?php echo $voucher['voucher_t_price'];?></span> <span class="rule">
+                  <p>Appliable for All If Spend<?php echo ncPriceFormat($voucher['voucher_t_limit']);?>₱ Above<?php echo $voucher['voucher_t_price'];?>₱</p>
+                  <time>Only<?php echo date('Y-m-d', $voucher['voucher_t_end_date']);?>Onwards</time>
+                  </span> <a data-tid="<?php echo $voucher['voucher_t_id'];?>" href="javascript:;">Get</a> </div>
                 <?php }?>
               </div>
             </div>
@@ -51,7 +51,7 @@
             <!-- S 店铺满即送 -->
             
             <?php if (!empty($output['mansong_rule_list'][$store_id]) && is_array($output['mansong_rule_list'][$store_id])) {?>
-            <div class="ncc-store-sale ms" nc_group="<?php echo $cart_info['cart_id'];?>"><span>满即送</span><?php echo $output['mansong_rule_list'][$store_id][0];?><i class="icon-angle-down"></i>
+            <div class="ncc-store-sale ms" nc_group="<?php echo $cart_info['cart_id'];?>"><span>Buy & Get Free</span><?php echo $output['mansong_rule_list'][$store_id][0];?><i class="icon-angle-down"></i>
               <?php array_shift($output['mansong_rule_list'][$store_id]);if (!empty($output['mansong_rule_list'][$store_id])) {?>
               <div class="combobox"><i></i>
                 <?php foreach ($output['mansong_rule_list'][$store_id] as $val) { ?>
@@ -67,7 +67,7 @@
             <!-- S 店铺满金额包邮 -->
             
             <?php if (!empty($output['free_freight_list'][$store_id])) {?>
-            <div class="ncc-store-sale"><span>免运费</span><?php echo $output['free_freight_list'][$store_id];?></div>
+            <div class="ncc-store-sale"><span>Free Shipping</span><?php echo $output['free_freight_list'][$store_id];?></div>
             <?php } ?>
             
             <!-- S 店铺满金额包邮 --> </th>
@@ -86,7 +86,7 @@
           <td class="tl" <?php if ($cart_info['bl_id'] != '0') {?>colspan="2"<?php }?>><dl class="ncc-goods-info">
               <dt>
                 <?php if ($cart_info['bl_id'] != '0'){?>
-                <strong>【优惠套装】</strong>
+                <strong>Promo Combo</strong>
                 <?php }?>
                 <a href="<?php echo urlShop('goods','index',array('goods_id'=>$cart_info['goods_id']));?>" target="_blank"><?php echo $cart_info['goods_name']; ?></a></dt>
               <?php if (!$cart_info['bl_id']) { ?>
@@ -94,12 +94,12 @@
               <?php } ?>
               <!-- S 优惠套装规则 -->
               <?php if ($cart_info['bl_id'] != '0') {?>
-              <dd class="goods-sale">活动规则：单套直降<em><?php echo $cart_info['down_price']; ?></em>元</dd>
+              <dd class="goods-sale">Promo Policy: One Pack Save<em><?php echo $cart_info['down_price']; ?></em>₱</dd>
               <?php }?>
               <!-- E 优惠套装规则 --> 
               <!-- S 门店自提服务 -->
               <?php if ($cart_info['is_chain']) {?>
-              <dd class="goods-chain"><i>*</i>(该商品支持<strong>门店自提</strong>服务)</dd>
+              <dd class="goods-chain"><i>*</i>(Support<strong>Meet Up</strong>Delivery)</dd>
               <?php }?>
               <!-- E 门店自提服务 --> 
               <!-- S 消费者保障服务 -->
@@ -113,7 +113,7 @@
               <!-- E 消费者保障服务 --> 
               <!-- S 商品赠品列表 -->
               <?php if (!empty($cart_info['gift_list'])) {?>
-              <dd class="ncc-goods-gift"> <span>赠</span>
+              <dd class="ncc-goods-gift"> <span>Free</span>
                 <ul class="ncc-goods-gift-list">
                   <?php foreach ($cart_info['gift_list'] as $goods_info) { ?>
                   <li nc_group="<?php echo $cart_info['cart_id'];?>"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$goods_info['gift_goodsid']));?>" target="_blank" class="thumb" title="赠品：<?php echo $goods_info['gift_goodsname']; ?> * <?php echo $goods_info['gift_amount'] * $cart_info['goods_num']; ?>"><img src="<?php echo cthumb($goods_info['gift_goodsimage'],60,$store_id);?>" alt="<?php echo $goods_info['gift_goodsname']; ?>" /></a>
@@ -127,7 +127,7 @@
           <td><!-- S 商品单价 -->
             
             <?php if (!empty($cart_info['xianshi_info'])) {?>
-            <em class="goods-old-price tip" title="商品原价格"><?php echo $cart_info['goods_yprice']; ?></em>
+            <em class="goods-old-price tip" title="Price Before"><?php echo $cart_info['goods_yprice']; ?></em>
             <?php } ?>
             <em id="item<?php echo $cart_info['cart_id']; ?>_price" class="goods-price"><?php echo $cart_info['goods_price']; ?></em> 
             <!-- E 商品单价 --> 
@@ -135,10 +135,10 @@
             
             <?php if (!empty($cart_info['xianshi_info'])) {?>
             <dl class="ncc-goods-sale">
-              <dt>商家促销<i class="icon-angle-down"></i></dt>
+              <dt>Promo<i class="icon-angle-down"></i></dt>
               <dd>
-                <p>活动名称：限时折扣</p>
-                <p>满<strong><?php echo $cart_info['xianshi_info']['lower_limit'];?></strong>件，单价直降<em>￥<?php echo $cart_info['xianshi_info']['down_price']; ?></em></p>
+                <p>Promo: Flash Sale</p>
+                <p>Buy<strong><?php echo $cart_info['xianshi_info']['lower_limit'];?></strong>Items, Save Per Item<em>￥<?php echo $cart_info['xianshi_info']['down_price']; ?></em></p>
               </dd>
             </dl>
             <?php }?>
@@ -148,11 +148,11 @@
             
             <?php if ($cart_info['ifgroupbuy']) {?>
             <dl class="ncc-goods-sale">
-              <dt>商家促销<i class="icon-angle-down"></i></dt>
+              <dt>Promo<i class="icon-angle-down"></i></dt>
               <dd>
-                <p>活动名称：抢购</p>
+                <p>Promo:Groupbuy</p>
                 <?php if ($cart_info['upper_limit']) {?>
-                <p>最多限购：<strong><?php echo $cart_info['upper_limit']; ?></strong>件 </p>
+                <p>Allowed to Buy<strong><?php echo $cart_info['upper_limit']; ?></strong>Items </p>
                 <?php } ?>
               </dd>
             </dl>
@@ -164,15 +164,13 @@
             <input id="input_item_<?php echo $cart_info['cart_id']; ?>" bl_id="<?php echo $cart_info['bl_id'];?>" value="<?php echo $cart_info['goods_num']; ?>" orig="<?php echo $cart_info['goods_num']; ?>" changed="<?php echo $cart_info['goods_num']; ?>" onkeyup="change_quantity(<?php echo $cart_info['cart_id']; ?>, this);" type="text" class="text tc w20"/>
             <a href="JavaScript:void(0);" onclick="add_quantity(<?php echo $cart_info['cart_id']; ?>);" title="<?php echo $lang['cart_index_increase'];?>" class="add-substract-key tip" >+</a></td>
           <?php } else {?>
-          <td>无效
+          <td>Invalid
             <input type="hidden" value="<?php echo $cart_info['cart_id']; ?>" name="invalid_cart[]"></td>
           <?php }?>
           <td><?php if ($cart_info['state']) {?>
             <em id="item<?php echo $cart_info['cart_id']; ?>_subtotal" nc_type="eachGoodsTotal" class="goods-subtotal"><?php echo $cart_info['goods_total']; ?></em>
             <?php }?></td>
-          <td class="tl td-border-right"><?php if ($cart_info['bl_id'] == '0') {?>
-            <a href="javascript:void(0)" onclick="collect_goods('<?php echo $cart_info['goods_id']; ?>');">移入收藏夹</a><br/>
-            <?php } ?>
+          <td class="tl td-border-right">
             <a href="javascript:void(0)" onclick="drop_cart_item(<?php echo $cart_info['cart_id']; ?>);"><?php echo $lang['cart_index_del'];?></a></td>
         </tr>
         <!-- S bundling goods list -->
@@ -197,9 +195,9 @@
               </dd>
             </dl></td>
           <td><em class="goods-price"><?php echo $goods_info['bl_goods_price'];?></em></td>
-          <td><?php echo $cart_info['state'] ? '' : '无效';?>1件/套x<em ncType="blnum<?php echo $cart_info['bl_id'];?>"><?php echo $cart_info['goods_num']; ?></em></td>
+          <td><?php echo $cart_info['state'] ? '' : 'Invalid';?>1/Pack x<em ncType="blnum<?php echo $cart_info['bl_id'];?>"><?php echo $cart_info['goods_num']; ?></em></td>
           <td><em ncType="bltotal<?php echo $cart_info['bl_id'];?>" price="<?php echo $goods_info['bl_goods_price'];?>" class="goods-subtotal"><?php echo ncPriceFormat($goods_info['bl_goods_price']*$cart_info['goods_num']);?></em></td>
-          <td class="tl td-border-right"><a href="javascript:void(0)" onclick="collect_goods('<?php echo $goods_info['goods_id']; ?>');">移入收藏夹</a></td>
+          <td class="tl td-border-right"><a href="javascript:void(0)" onclick="collect_goods('<?php echo $goods_info['goods_id']; ?>');">Add to Wishlist</a></td>
         </tr>
         <?php } ?>
         <tr>
@@ -211,7 +209,7 @@
         <!-- E one store list -->
         <tr>
           <td colspan="20"><?php if ($is_chain) { ?>
-            <div class="ncc-chain-tip"><strong>*</strong>该订单中包含支持“门店自提”服务的商品，如需到店自提，请选择提交<a data_store_id="<?php echo $store_id ?>" nc_type="chain" href="javascript:void(0)"><i class="icon-truck"></i>门店自提订单</a></div>
+            <div class="ncc-chain-tip"><strong>*</strong>Products Support Meet Up Transactions Along Mrt/Lrt Only<a data_store_id="<?php echo $store_id ?>" nc_type="chain" href="javascript:void(0)"><i class="icon-truck"></i>Meetup Orders</a></div>
             <?php } ?></td>
         </tr>
         <?php } ?>
@@ -219,7 +217,7 @@
       <tfoot>
         <tr>
           <td colspan="20"><div class="ncc-all-account"><?php echo $lang['cart_index_goods_sumary'];?><em id="cartTotal"><?php echo $output['cart_totals']; ?></em><?php echo $lang['currency_zh'];?></div>
-            <a id="next_submit" href="javascript:void(0)" class="ncc-next-submit"><?php echo $lang['cart_index_ensure_info'];?></a></td>
+            <a id="next_submit" href="javascript:void(0)" class="ncc-next-submit"><?php echo $lang['cart_index_ensure_info2'];?></a></td>
         </tr>
       </tfoot>
     </table>
@@ -230,16 +228,16 @@
 </div>
 <div class="jjg-chooes-box" id="jjg-choose-container">
   <div class="title-bar">
-    <h3>换购商品列表</h3>
-    <a href="javascript:;" id="jjg-choose-container-close" class="close" title="关闭">&#215;</a></div>
+    <h3>Redeem Product List</h3>
+    <a href="javascript:;" id="jjg-choose-container-close" class="close" title="Close">&#215;</a></div>
   <div class="choose-inner" id="jjg-choose-container-inner">
     <table>
       <thead>
         <tr>
           <th class="w30"></th>
-          <th colspan="2">换购商品</th>
-          <th class="w80">换购价格</th>
-          <th class="w80">换购数量</th>
+          <th colspan="2">Redeem Product</th>
+          <th class="w80">Redeem Price</th>
+          <th class="w80">Redeem Quantity</th>
         </tr>
       </thead>
       <tbody>
@@ -307,7 +305,7 @@ $(function() {
 			$('#ifchain').val('1');
 			$('#form_buy').submit();
 		} else {
-			alert('请先选择支持门店自提的商品');
+			alert('Pls Choose Meetup Products');
 			$('#ifchain').val('');
 		}
 	});

@@ -3,11 +3,6 @@
  * 购买行为
  *
  *
- *
- *
- * @运维舫提供技术支持 授权请购买shopnc授权
- * @license    http://www.shopnc.club
- * @link       唯一论坛：www.shopnc.club
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 class buyLogic {
@@ -96,7 +91,7 @@ class buyLogic {
         if ($orderdiscount > 0) {
             foreach ($result['data']['store_cart_list'] as $store_id => $v) {
                 if (in_array($store_id,$own_shop_ids)) {
-                    $result['data']['zk_list'][$store_id] = sprintf('V[%s]会员%s折',$member_level,$orderdiscount/10);
+                    $result['data']['zk_list'][$store_id] = sprintf('V[%s]Member%sDiscount',$member_level,$orderdiscount/10);
                 }
             }
         }
@@ -115,11 +110,11 @@ class buyLogic {
         //取得POST ID和购买数量
         $buy_items = $this->_parseItems($cart_id);
         if (empty($buy_items)) {
-            return callback(false, '所购商品无效');
+            return callback(false, 'Invalid Product');
         }
 
         if (count($buy_items) > 50) {
-            return callback(false, '一次最多只可购买50种商品');
+            return callback(false, 'No More than 50 Products at A Time');
         }
 
         //购物车列表
@@ -194,7 +189,7 @@ class buyLogic {
         //以店铺下标归类
         $store_cart_list = $this->_getStoreCartList($cart_list);
         if (empty($store_cart_list) || !is_array($store_cart_list)) {
-            return callback(false, '提交数据错误');
+            return callback(false, 'Data Error');
         }
 
         return callback(true, '', array(
@@ -230,7 +225,7 @@ class buyLogic {
         //取得POST ID和购买数量
         $buy_items = $this->_parseItems($cart_id);
         if (empty($buy_items)) {
-            return callback(false, '所购商品无效');
+            return callback(false, 'Invalid Product');
         }
 
         $goods_id = key($buy_items);
@@ -239,12 +234,12 @@ class buyLogic {
         //商品信息[得到最新商品属性及促销信息]
         $goods_info = $this->_logic_buy_1->getGoodsOnlineInfo($goods_id,intval($quantity));
         if(empty($goods_info)) {
-            return callback(false, '商品已下架或不存在');
+            return callback(false, 'Product Not Available');
         }
 
         //不能购买自己店铺的商品
         if ($goods_info['store_id'] == $store_id) {
-            return callback(false, '不能购买自己店铺的商品');
+            return callback(false, 'You Cant Buy Your Own Products');
         }
 
         if (!$goods_info['is_book']) {
@@ -355,15 +350,15 @@ class buyLogic {
         //输出默认使用的发票信息
         $inv_info = Model('invoice')->getDefaultInvInfo(array('member_id'=>$member_id));
         if ($inv_info['inv_state'] == '2' && !$vat_deny) {
-            $inv_info['content'] = '增值税发票 '.$inv_info['inv_company'].' '.$inv_info['inv_code'].' '.$inv_info['inv_reg_addr'];
+            $inv_info['content'] = 'Invoice'.$inv_info['inv_company'].' '.$inv_info['inv_code'].' '.$inv_info['inv_reg_addr'];//增值税发票
         } elseif ($inv_info['inv_state'] == '2' && $vat_deny) {
             $inv_info = array();
-            $inv_info['content'] = '不需要发票';
+            $inv_info['content'] = 'No Invoice Needed';
         } elseif (!empty($inv_info)) {
-            $inv_info['content'] = '普通发票 '.$inv_info['inv_title'].' '.$inv_info['inv_content'];
+            $inv_info['content'] = 'Regular Invoice'.$inv_info['inv_title'].' '.$inv_info['inv_content'];//普通发票
         } else {
             $inv_info = array();
-            $inv_info['content'] = '不需要发票';
+            $inv_info['content'] = 'No Invoice Needed';
         }
         $result['inv_info'] = $inv_info;
 
@@ -563,18 +558,18 @@ class buyLogic {
         //取得商品ID和购买数量
         $input_buy_items = $this->_parseItems($post['cart_id']);
         if (empty($input_buy_items)) {
-            throw new Exception('所购商品无效');
+            throw new Exception('Product Not Valid');
         }
 
         //验证收货地址
         if (!$post['chain']['id']) {
             $input_address_id = intval($post['address_id']);
             if ($input_address_id <= 0) {
-                throw new Exception('请选择收货地址');
+                throw new Exception('Pls Select Shipping Address');
             } else {
                 $input_address_info = Model('address')->getAddressInfo(array('address_id'=>$input_address_id));
                 if ($input_address_info['member_id'] != $this->_member_info['member_id']) {
-                    throw new Exception('请选择收货地址');
+                    throw new Exception('Pls Select Shipping Address');
                 }
                 if ($input_address_info['dlyp_id']) {
                     $input_dlyp_id = $input_address_info['dlyp_id'];
@@ -596,14 +591,14 @@ class buyLogic {
                 $input_city_id = $chain_info['area_id_2'];
                 $input_chain_id = $chain_info['chain_id'];
             } else {
-                throw new Exception('门店地址错误');
+                throw new Exception('Wrong Store Address');//门店地址错误
             }
         }
 
         //是否开增值税发票
         $input_if_vat = $this->buyDecrypt($post['vat_hash'], $this->_member_info['member_id']);
         if (!in_array($input_if_vat,array('allow_vat','deny_vat'))) {
-            throw new Exception('订单保存出现异常[增值税发票出现错误]，请重试');
+            throw new Exception('Error');//订单保存出现异常[增值税发票出现错误]，请重试
         }
         $input_if_vat = ($input_if_vat == 'allow_vat') ? true : false;
 
@@ -611,14 +606,14 @@ class buyLogic {
             //是否支持货到付款
             $input_if_offpay = $this->buyDecrypt($post['offpay_hash'], $this->_member_info['member_id']);
             if (!in_array($input_if_offpay,array('allow_offpay','deny_offpay'))) {
-                throw new Exception('订单保存出现异常[货到付款验证错误]，请重试');
+                throw new Exception('Error COD Order ');//订单保存出现异常[货到付款验证错误]，请重试
             }
             $input_if_offpay = ($input_if_offpay == 'allow_offpay') ? true : false;
 
             //是否支持货到付款 具体到各个店铺
             $input_if_offpay_batch = $this->buyDecrypt($post['offpay_hash_batch'], $this->_member_info['member_id']);
             if (!is_array($input_if_offpay_batch)) {
-                throw new Exception('订单保存出现异常[部分店铺付款方式出现异常]，请重试');
+                throw new Exception('Error Partial Payment Method Error');//订单保存出现异常[部分店铺付款方式出现异常]，请重试
             }
         } else {
             $input_if_offpay = false;
@@ -627,7 +622,7 @@ class buyLogic {
 
         //付款方式:在线支付/货到付款(online/offline)
         if (!in_array($post['pay_name'],array('online','offline','chain'))) {
-            throw new Exception('付款方式错误，请重新选择');
+            throw new Exception('Payment Method Error, Pls Select Again');//付款方式错误，请重新选择
         }
         $input_pay_name = $post['pay_name'];
 
@@ -637,7 +632,7 @@ class buyLogic {
             if ($input_invoice_id > 0) {
                 $input_invoice_info = Model('invoice')->getinvInfo(array('inv_id'=>$input_invoice_id));
                 if ($input_invoice_info['member_id'] != $this->_member_info['member_id']) {
-                    throw new Exception('请正确填写发票信息');
+                    throw new Exception('Incorrect Invoice Info');//请正确填写发票信息
                 }
             }
         }
@@ -896,7 +891,7 @@ class buyLogic {
             //将赠品追加到购买列表(如果库存0，则不送赠品)
             $append_premiums_to_cart_list = $this->_logic_buy_1->appendPremiumsToCartList($store_cart_list,$store_premiums_list,$store_mansong_rule_list,$this->_member_info['member_id']);
             if($append_premiums_to_cart_list === false) {
-                throw new Exception('抱歉，您购买的商品库存不足，请重购买');
+                throw new Exception('Sorry, Out of Stock, Pls Buy Other Products');//抱歉，您购买的商品库存不足，请重购买
             } else {
                 list($store_cart_list,$goods_buy_quantity,$store_mansong_rule_list) = $append_premiums_to_cart_list;
             }
@@ -921,7 +916,7 @@ class buyLogic {
         }
 
         if (is_array($no_send_tpl_ids) && !empty($no_send_tpl_ids)) {
-            throw new Exception('抱歉，您购买的部分商品无货，请重购买');
+            throw new Exception('Sorry, Some Products Are Out of Stock for Now');//抱歉，您购买的部分商品无货，请重购买
         }
 
         //保存数据
@@ -977,7 +972,7 @@ class buyLogic {
         $order_pay['buyer_id'] = $member_id;
         $order_pay_id = $model_order->addOrderPay($order_pay);
         if (!$order_pay_id) {
-            throw new Exception('订单保存失败[未生成支付单]');
+            throw new Exception('Order Error, Failed to Create Order');//订单保存失败[未生成支付单]
         }
 
         //收货人信息
@@ -1031,7 +1026,7 @@ class buyLogic {
 
             $order_id = $model_order->addOrder($order);
             if (!$order_id) {
-                throw new Exception('订单保存失败[未生成订单数据]');
+                throw new Exception('Order Failed, No Created');//订单保存失败[未生成订单数据]
             }
             $order['order_id'] = $order_id;
             $order_list[$order_id] = $order;
@@ -1060,16 +1055,16 @@ class buyLogic {
             $order_common['promotion_info'] = array();
             if(is_array($store_mansong_rule_list[$store_id])) {
                 if (APP_ID != 'mobile') {
-                    $order_common['promotion_info'][] =  array('满即送',$store_mansong_rule_list[$store_id]['desc']);
+                    $order_common['promotion_info'][] =  array('Buy&Win Free',$store_mansong_rule_list[$store_id]['desc']);//满即送
                 } else {
-                    $order_common['promotion_info'][] =  array('满即送',$store_mansong_rule_list[$store_id]['desc']['desc']);
+                    $order_common['promotion_info'][] =  array('Buy&Win Free',$store_mansong_rule_list[$store_id]['desc']['desc']);//满即送
                 }
                 
             }
 
             //平台红包值
             if ($store_rpt_total[$store_id]) {
-                $order_common['promotion_info'][] = array('平台红包',sprintf('使用%s元红包 编码：%s',$store_rpt_total[$store_id],$input_rpt_info['rpacket_code']));
+                $order_common['promotion_info'][] = array('Free Gift Voucher',sprintf('Used%s₱ Gift Voucher Code:%s',$store_rpt_total[$store_id],$input_rpt_info['rpacket_code']));//平台红包   使用%s元红包 编码：%s
             }
 
             //折扣值
@@ -1080,20 +1075,20 @@ class buyLogic {
 
             //代金券
             if (isset($input_voucher_list[$store_id])){
-                $order_common['promotion_info'][] = array('店铺代金券',sprintf('使用%s元代金券 编码：%s',$input_voucher_list[$store_id]['voucher_price'],$input_voucher_list[$store_id]['voucher_code']));
+                $order_common['promotion_info'][] = array('Coupon',sprintf('Used%s₱ Coupon Code:%s',$input_voucher_list[$store_id]['voucher_price'],$input_voucher_list[$store_id]['voucher_code']));//店铺代金券
             }
             $order_common['promotion_info'] = $order_common['promotion_info'] ? serialize($order_common['promotion_info']) : '';
 
             $insert = $model_order->addOrderCommon($order_common);
             if (!$insert) {
-                throw new Exception('订单保存失败[未生成订单扩展数据]');
+                throw new Exception('Order Failed 100');//订单保存失败[未生成订单扩展数据]100
             }
 
             //生成order_goods订单商品数据
             $i = 0;
             foreach ($goods_list as $goods_info) {
                 if (!$goods_info['state'] || !$goods_info['storage_state']) {
-                    throw new Exception('抱歉，部分商品存在下架、变更销售方式或库存不足的情况，请重新选择');
+                    throw new Exception('Sorry, Product Not Available for Now, Please Check Other Items');//抱歉，部分商品存在下架、变更销售方式或库存不足的情况，请重新选择
                 }
 				$goods_invit=Model('goods')->getGoodsInfo(array('goods_id'=>$goods_info['goods_id']));
                 if (!intval($goods_info['bl_id'])) {
@@ -1194,7 +1189,7 @@ class buyLogic {
             // 加价购换购商品
             foreach ((array) $jjgValidStoreSkus[$store_id] as $goods_info) {
                 if ($goods_info['storage'] < 1) {
-                    throw new Exception('抱歉，部分商品存在下架或库存不足的情况，请重新选择');
+                    throw new Exception('Sorry, Some Products just Went out of Stock, Please Checkout Other Items');//抱歉，部分商品存在下架或库存不足的情况，请重新选择
                 }
 				$ml_goods_invit=Model('goods')->getGoodsInfo(array('goods_id'=>$goods_info['id']));
 
@@ -1249,7 +1244,7 @@ class buyLogic {
             }
             $insert = $model_order->addOrderGoods($order_goods);
             if (!$insert) {
-                throw new Exception('订单保存失败[未生成商品数据]');
+                throw new Exception('Error 101, Order Failed');//订单保存失败[未生成商品数据] 101
             }
 
             //存储商家发货提醒数据
@@ -1311,14 +1306,14 @@ class buyLogic {
         //变更库存和销量
         $result = Logic('queue')->createOrderUpdateStorage($goods_buy_quantity);
         if (!$result['state']) {
-            throw new Exception('订单保存失败[变更库存销量失败]');
+            throw new Exception('Order Failed 102');//订单保存失败[变更库存销量失败] 102
         }
 
         //门店自提订单减存
         if ($input_chain_id) {
             $result = Logic('queue')->createOrderUpdateChainStorage($goods_buy_quantity,$input_chain_id);
             if (!$result['state']) {
-                throw new Exception('订单保存失败[变更自提门店库存销量失败]');
+                throw new Exception('Sorry, Something Went Wrong 104');//订单保存失败[变更自提门店库存销量失败]104
             }
         }
 
@@ -1326,7 +1321,7 @@ class buyLogic {
         if (!empty($input_voucher_list) && is_array($input_voucher_list)) {
             $result = Logic('queue')->editVoucherState($input_voucher_list);
             if (!$result['state']) {
-                throw new Exception('订单保存失败[代金券处理失败]');
+                throw new Exception('Coupon Failed 105');//订单保存失败[代金券处理失败]105
             }
         }
 
@@ -1334,7 +1329,7 @@ class buyLogic {
         if (!empty($input_rpt_info) && is_array($input_rpt_info)) {
             $result = Logic('queue')->editRptState($input_rpt_info,$pay_sn);
             if (!$result['state']) {
-                throw new Exception('订单保存失败[平台红包处理失败]');
+                throw new Exception('Error, Gift Certificate Not Valid 106');//订单保存失败[平台红包处理失败] 106
             }
         }
 
@@ -1342,7 +1337,7 @@ class buyLogic {
         if ($fc_id) {
             $result = Logic('queue')->updateGoodsFCode($fc_id);
             if (!$result['state']) {
-                throw new Exception('订单保存失败[F码处理失败]');
+                throw new Exception('Invalid F Code 107');//订单保存失败[F码处理失败]107
             }
         }
 
@@ -1397,7 +1392,7 @@ class buyLogic {
                 $_code = rand(100000,999999);
                 $result = Model('order')->editOrder(array('chain_code'=>$_code),array('order_id'=>$order_info['order_id']));
                 if (!$result) {
-                    throw new Exception('门店自提订单更新提货码失败');
+                    throw new Exception('Error Updating Codes 108');//门店自提订单更新提货码失败 108
                 }
                 $param = array();
                 $param['chain_code'] = $_code;

@@ -1,47 +1,49 @@
 <?php defined('ShopNC_CLUB') or exit('Access Invalid!');?>
 
-<div class="ncs-sidebar-container ncs-class-bar">
-  <div class="title">
-    <h4><?php echo $lang['nc_goods_class'];?></h4>
-  </div>
-  <div class="content">
-    <p><span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '1', 'order' => '2'));?>"><?php echo $lang['nc_by_new'];?></a></span><span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '2', 'order' => '2'));?>"><?php echo $lang['nc_by_price'];?></a></span><span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '3', 'order' => '2'));?>"><?php echo $lang['nc_by_sale'];?></a></span><span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '5', 'order' => '2'));?>"><?php echo $lang['nc_by_click'];?></a></span></p>
-    <div class="ncs-search">
-      <form id="" name="searchShop" method="get" action="index.php" >
-        <input type="hidden" name="act" value="show_store" />
-        <input type="hidden" name="op" value="goods_all" />
-        <input type="hidden" name="store_id" value="<?php echo $output['store_info']['store_id'];?>" />
-        <input type="text" class="text w120" name="inkeyword" value="<?php echo $_GET['inkeyword'];?>" placeholder="搜索店内商品">
-        <a href="javascript:document.searchShop.submit();" class="ncbtn"><?php echo $lang['nc_search'];?></a>
-      </form>
-    </div>
-    <ul class="ncs-submenu">
-      <li><span class="ico-none"><em>-</em></span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id']));?>"><?php echo $lang['nc_whole_goods'];?></a></li>
-      <?php if(!empty($output['goods_class_list']) && is_array($output['goods_class_list'])){?>
-      <?php foreach($output['goods_class_list'] as $value){?>
-      <?php if(!empty($value['children']) && is_array($value['children'])){?>
-      <li><span class="ico-none" onclick="class_list(this);" span_id="<?php echo $value['stc_id'];?>" style="cursor: pointer;"><em>-</em></span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'stc_id' => $value['stc_id']));?>"><?php echo $value['stc_name'];?></a>
-        <ul id="stc_<?php echo $value['stc_id'];?>">
-          <?php foreach($value['children'] as $value1){?>
-          <li><span class="ico-sub">&nbsp;</span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'stc_id' => $value1['stc_id']));?>"><?php echo $value1['stc_name'];?></a></li>
-          <?php }?>
-        </ul>
-      </li>
-      <?php }else {?>
-      <li> <span class="ico-none"><em>-</em></span><a href="<?php echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'stc_id' => $value['stc_id']));?>"><?php echo $value['stc_name'];?></a></li>
-      <?php }?>
-      <?php }?>
-      <?php }?>
-    </ul>
-    
-  </div>
-</div>
+<!--注销店内搜索与排序-->
+<!--此文件被store 下面的goods.php加载-->
+<!--<div class="ncs-sidebar-container ncs-class-bar">-->
+<!--  <div class="title">-->
+<!--    <h4>--><?php //echo $lang['nc_goods_class'];?><!--</h4>-->
+<!--  </div>-->
+<!--  <div class="content">-->
+<!--    <p><span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '1', 'order' => '2'));?><!--">--><?php //echo $lang['nc_by_new'];?><!--</a></span><span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '2', 'order' => '2'));?><!--">--><?php //echo $lang['nc_by_price'];?><!--</a></span><span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '3', 'order' => '2'));?><!--">--><?php //echo $lang['nc_by_sale'];?><!--</a></span><span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'key' => '5', 'order' => '2'));?><!--">--><?php //echo $lang['nc_by_click'];?><!--</a></span></p>-->
+<!--    <div class="ncs-search">-->
+<!--      <form id="" name="searchShop" method="get" action="index.php" >-->
+<!--        <input type="hidden" name="act" value="show_store" />-->
+<!--        <input type="hidden" name="op" value="goods_all" />-->
+<!--        <input type="hidden" name="store_id" value="--><?php //echo $output['store_info']['store_id'];?><!--" />-->
+<!--        <input type="text" class="text w120" name="inkeyword" value="--><?php //echo $_GET['inkeyword'];?><!--" placeholder="搜索店内商品">-->
+<!--        <a href="javascript:document.searchShop.submit();" class="ncbtn">--><?php //echo $lang['nc_search'];?><!--</a>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--    <ul class="ncs-submenu">-->
+<!--      <li><span class="ico-none"><em>-</em></span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id']));?><!--">--><?php //echo $lang['nc_whole_goods'];?><!--</a></li>-->
+<!--      --><?php //if(!empty($output['goods_class_list']) && is_array($output['goods_class_list'])){?>
+<!--      --><?php //foreach($output['goods_class_list'] as $value){?>
+<!--      --><?php //if(!empty($value['children']) && is_array($value['children'])){?>
+<!--      <li><span class="ico-none" onclick="class_list(this);" span_id="--><?php //echo $value['stc_id'];?><!--" style="cursor: pointer;"><em>-</em></span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'stc_id' => $value['stc_id']));?><!--">--><?php //echo $value['stc_name'];?><!--</a>-->
+<!--        <ul id="stc_--><?php //echo $value['stc_id'];?><!--">-->
+<!--          --><?php //foreach($value['children'] as $value1){?>
+<!--          <li><span class="ico-sub">&nbsp;</span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'stc_id' => $value1['stc_id']));?><!--">--><?php //echo $value1['stc_name'];?><!--</a></li>-->
+<!--          --><?php //}?>
+<!--        </ul>-->
+<!--      </li>-->
+<!--      --><?php //}else {?>
+<!--      <li> <span class="ico-none"><em>-</em></span><a href="--><?php //echo urlShop('show_store', 'goods_all', array('store_id' => $output['store_info']['store_id'], 'stc_id' => $value['stc_id']));?><!--">--><?php //echo $value['stc_name'];?><!--</a></li>-->
+<!--      --><?php //}?>
+<!--      --><?php //}?>
+<!--      --><?php //}?>
+<!--    </ul>-->
+<!--    -->
+<!--  </div>-->
+<!--</div>-->
 
             
  <?php if(!empty($output['goods_rand_list']) && is_array($output['goods_rand_list']) && count($output['goods_rand_list'])>1){?>
     <div class="ncs-sidebar-container hao-look-look">
       <div class="title">
-        <h4>看了又看</h4>
+        <h4>Related Products</h4>
       </div>
       <div class="content">
         <ul>

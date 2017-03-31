@@ -9,7 +9,7 @@
   <div class="ncp-main-layout">
     <div class="ncp-category">
       <dl class="searchbox">
-        <dt>排序方式：</dt>
+        <dt>Sort By：</dt>
         <dd><!-- 高级搜索start -->
           <ul>
             <input type="hidden" id="orderby" name="orderby" value="<?php echo $_GET['orderby']?$_GET['orderby']:'default';?>"/>

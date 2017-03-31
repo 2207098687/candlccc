@@ -149,7 +149,7 @@ class buyControl extends BaseBuyControl {
         $condition['order_state'] = array('in',array(ORDER_STATE_NEW,ORDER_STATE_PAY));
         $order_list = $model_order->getOrderList($condition,'','*','','',array(),true);
         if (empty($order_list)) {
-            showMessage('未找到需要支付的订单','index.php?act=member_order','html','error');
+            showMessage('Order No Found','index.php?act=member_order','html','error');
         }
 
         //取特殊类订单信息
@@ -162,11 +162,11 @@ class buyControl extends BaseBuyControl {
             $order_pay['buyer_id'] = $_SESSION['member_id'];
             $order_pay_id = $model_order->addOrderPay($order_pay);
             if (!$order_pay_id) {
-                showMessage('支付失败','index.php?act=member_order','html','error');
+                showMessage('Payment Failed','index.php?act=member_order','html','error');
             }
             $update = $model_order->editOrder(array('pay_sn'=>$pay_sn_new,'pay_sn1'=>$pay_sn),array('order_id'=>$order_list[0]['order_id'],'order_type'=>2));
             if (!$update) {
-                showMessage('支付失败','index.php?act=member_order','html','error');
+                showMessage('Payment Failed','index.php?act=member_order','html','error');
             } else {
                 redirect('index.php?act=buy&op=pay&pay_sn='.$pay_sn_new);exit;
             }
@@ -208,15 +208,15 @@ class buyControl extends BaseBuyControl {
             }
             //显示支付方式
             if ($order_info['payment_code'] == 'offline') {
-                $order_list[$key]['payment_type'] = '货到付款';
+                $order_list[$key]['payment_type'] = 'Cash On Delivery';
             } elseif ($order_info['payment_code'] == 'chain') {
-                $order_list[$key]['payment_type'] = '门店支付';
+                $order_list[$key]['payment_type'] = 'Meetup';
             } else {
-                $order_list[$key]['payment_type'] = '在线支付';
+                $order_list[$key]['payment_type'] = 'Online Payment';
             }
         }
         if ($order_info['chain_id'] && $order_info['payment_code'] == 'chain') {
-            $order_list[0]['order_remind'] = '下单成功，请在'.CHAIN_ORDER_PAYPUT_DAY.'日内前往门店提货，逾期订单将自动取消。';
+            $order_list[0]['order_remind'] = 'Please Pickup Order Within'.CHAIN_ORDER_PAYPUT_DAY.'Days, Stay in Touch with Us.';
             $flag_chain = 1;
         }
 
@@ -232,11 +232,11 @@ class buyControl extends BaseBuyControl {
 
         //输出订单描述
         if (empty($pay['pay_amount_online'])) {
-            $pay['order_remind'] = '下单成功，我们会尽快为您发货，请保持电话畅通。';
+            $pay['order_remind'] = 'Please Attend to Your Phone after Order Placed, <span style="color:red">We Will Get in Touch with You Soon.</span>';//下单成功，我们会尽快为您发货，请保持电话畅通。
         } elseif (empty($pay['pay_amount_offline'])) {
-            $pay['order_remind'] = '请您在'.(ORDER_AUTO_CANCEL_TIME*60).'分钟内完成支付，逾期订单将自动取消。 ';
+            $pay['order_remind'] = 'Pls Make Payment within '.(ORDER_AUTO_CANCEL_TIME*60).' Minutes, or else, Order Will Be Closed.';//请您在'.(ORDER_AUTO_CANCEL_TIME*60).'分钟内完成支付，逾期订单将自动取消。
         } else {
-            $pay['order_remind'] = '部分商品需要在线支付，请您在'.(ORDER_AUTO_CANCEL_TIME*60).'分钟内完成支付，逾期订单将自动取消。';
+            $pay['order_remind'] = 'Some Products Only Support Online Payment, Pls Settle Within'.(ORDER_AUTO_CANCEL_TIME*60).' Minutes, Afterwards Order Will Be Closed.';
         }
         if (!empty($order_list[0]['order_remind'])) {
             $pay['order_remind'] = $order_list[0]['order_remind'];
@@ -252,7 +252,7 @@ class buyControl extends BaseBuyControl {
                 unset($payment_list['offline']);
             }
             if (empty($payment_list)) {
-                showMessage('暂未找到合适的支付方式','index.php?act=member_order','html','error');
+                showMessage('No Payment Method Found, Pls Contact Us.','index.php?act=member_order','html','error');//暂未找到合适的支付方式
             }
             Tpl::output('payment_list',$payment_list);
         }
@@ -286,13 +286,13 @@ class buyControl extends BaseBuyControl {
             $order_info = $order_list[0];
             $result = Logic('order_book')->getOrderBookInfo($order_info);
             if (!$result['data']['if_buyer_pay']) {
-                showMessage('未找到需要支付的订单','index.php?act=member_order','html','error');
+                showMessage('No Order Found','index.php?act=member_order','html','error');//未找到需要支付的订单
             }
             $order_list[0] = $result['data'];
             $order_list[0]['order_amount'] = $order_list[0]['pay_amount'];
             $order_list[0]['order_state'] = ORDER_STATE_NEW;
             if ($order_list[0]['if_buyer_repay']) {
-                $order_list[0]['order_remind'] = '请您在 '.date('Y-m-d H:i',$order_list[0]['book_list'][1]['book_end_time']+1).' 之前完成支付，否则订单会被自动取消。';
+                $order_list[0]['order_remind'] = 'Pls Make Payment Before '.date('Y-m-d H:i',$order_list[0]['book_list'][1]['book_end_time']+1).' , After That, Order Will Be Closed.';
             }
         }
     }
@@ -426,7 +426,7 @@ class buyControl extends BaseBuyControl {
         if (chksubmit()){
             $count = $model_addr->getAddressCount(array('member_id'=>$_SESSION['member_id']));
             if ($count >= 20) {
-                exit(json_encode(array('state'=>false,'msg'=>'最多允许添加20个有效地址')));
+                exit(json_encode(array('state'=>false,'msg'=>'Maximum Allow to Add 20 Addresses')));//最多允许添加20个有效地址
             }
             //验证表单信息
             $obj_validate = new Validate();
@@ -452,7 +452,7 @@ class buyControl extends BaseBuyControl {
             if ($insert_id){
                 exit(json_encode(array('state'=>true,'addr_id'=>$insert_id)));
             }else {
-                exit(json_encode(array('state'=>false,'msg'=>'新地址添加失败')));
+                exit(json_encode(array('state'=>false,'msg'=>'Addition Address Failed.')));
             }
         } else {
             Tpl::showpage('buy_address.add','null_layout');

@@ -3,7 +3,7 @@
 <div id="transaction" class="double">
   <div class="outline">
     <div class="title">
-      <h3>交易提醒</h3>
+      <h3>Recent Orders</h3>
       <ul>
         <li>
           <?php if ($output['home_member_info']['order_nopay_count'] > 0) { ?>
@@ -36,27 +36,27 @@
           <dl class="ncm-goods-info">
             <dt><a href="<?php echo urlShop('member_order','show_order',array('order_id'=>$order_info['order_id'])); ?>" target="_blank"><?php echo $order_info['extend_order_goods'][0]['goods_name']; ?></a>
               <?php if (count($order_info['extend_order_goods']) > 1) { ?>
-              <span>等<strong><?php echo count($order_info['extend_order_goods']);?></strong>种商品</span>
+              <span>Totally,<strong><?php echo count($order_info['extend_order_goods']);?></strong>Types of Items</span>
               <?php } ?>
             </dt>
-            <dd><span class="order-date">下单时间：<?php echo date('Y-m-d H:i:s',$order_info['add_time']);?></span><span class="ncm-order-price">订单金额：<em>￥<?php echo $order_info['order_amount'];?></em></span></dd>
-            <dd><span class="order-state">订单状态：<?php echo orderState($order_info);?>
+            <dd><span class="order-date">Time:<?php echo date('Y-m-d H:i:s',$order_info['add_time']);?></span><span class="ncm-order-price">Amount:<em>₱<?php echo $order_info['order_amount'];?></em></span></dd>
+            <dd><span class="order-state">Status:<?php echo orderState($order_info);?>
               <?php if ($order_info['if_deliver']){ ?>
-              <a href='index.php?act=member_order&op=search_deliver&order_id=<?php echo $order_info['order_id']; ?>&order_sn=<?php echo $order_info['order_sn']; ?>' target="_blank"><i class="icon-truck"></i>查看物流</a>
+              <a href='index.php?act=member_order&op=search_deliver&order_id=<?php echo $order_info['order_id']; ?>&order_sn=<?php echo $order_info['order_sn']; ?>' target="_blank"><i class="icon-truck"></i>Delivery</a>
               <?php } ?>
               </span> </dd>
           </dl>
           <?php if ($order_info['if_payment']) {?>
-          <a href="index.php?act=buy&op=pay&pay_sn=<?php echo $order_info['pay_sn'];?>" target="_blank" class="ncbtn ncbtn-bittersweet"><i class="icon-shield"></i>订单支付</a>
+          <a href="index.php?act=buy&op=pay&pay_sn=<?php echo $order_info['pay_sn'];?>" target="_blank" class="ncbtn ncbtn-bittersweet"><i class="icon-shield"></i>Pay Order</a>
           <?php } ?>
           <?php if ($order_info['if_receive']) { ?>
-          <a href="<?php echo urlShop('member_order','show_order',array('order_id'=>$order_info['order_id'])); ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-ok-sign"></i>确认收货</a>
+          <a href="<?php echo urlShop('member_order','show_order',array('order_id'=>$order_info['order_id'])); ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-ok-sign"></i>Received</a>
           <?php } ?>
           <?php if ($order_info['if_evaluation']) { ?>
-          <a href="index.php?act=member_evaluate&op=add&order_id=<?php echo $order_info['order_id']; ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-comments-alt"></i>交易评价</a>
+          <a href="index.php?act=member_evaluate&op=add&order_id=<?php echo $order_info['order_id']; ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-comments-alt"></i>Review</a>
           <?php } ?>
           <?php if (!$order_info['if_payment'] && !$order_info['if_receive'] && !$order_info['if_evaluation']) {?>
-          <a href="index.php?act=member_order&op=show_order&order_id=<?php echo $order_info['order_id'];?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-eye-open"></i>查看订单</a>
+          <a href="index.php?act=member_order&op=show_order&order_id=<?php echo $order_info['order_id'];?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-eye-open"></i>Detail</a>
           <?php } ?>
         </li>
         <?php } ?>
@@ -66,8 +66,10 @@
     <dl class="null-tip">
       <dt></dt>
       <dd>
-        <h4>您好久没在商城购物了</h4>
-        <h5>交易提醒可帮助您了解订单状态和物流情况</h5>
+<!--        <h4>您好久没在商城购物了</h4>-->
+<!--        <h5>交易提醒可帮助您了解订单状态和物流情况</h5>-->
+        <h4>No Order Yet. Explore & Enjoy Shopping.</h4>
+        <h5>Transaction Notice Helps You Track Your Order Status.</h5>
       </dd>
     </dl>
     <?php } ?>
@@ -76,7 +78,7 @@
 <div id="shopping" class="normal">
   <div class="outline">
     <div class="title">
-      <h3>购物车</h3>
+      <h3>My Cart</h3>
     </div>
     <?php if (!empty($output['cart_list']) && is_array($output['cart_list'])) { ?>
     <div class="cart-list">
@@ -86,19 +88,19 @@
           <div class="ncm-goods-thumb"><a target="_blank" href="<?php echo urlShop('goods','index',array('goods_id'=>$cart_info['goods_id']));?>"><img src="<?php echo thumb($cart_info,60);?>"></a></div>
           <dl class="ncm-goods-info">
             <dt><a href="<?php echo urlShop('goods','index',array('goods_id'=>$cart_info['goods_id']));?>"><?php echo $cart_info['goods_name']; ?></a></dt>
-            <dd><span class="ncm-order-price">商城价：<em>￥<?php echo ncPriceFormat($cart_info['goods_price']); ?></em></span><!-- <span class="sale">限时折扣</span> --></dd>
+            <dd><span class="ncm-order-price">Cool Price: <em>₱<?php echo ncPriceFormat($cart_info['goods_price']); ?></em></span><!-- <span class="sale">限时折扣</span> --></dd>
           </dl>
         </li>
         <?php } ?>
       </ul>
-      <div class="more"><a href="index.php?act=cart">查看购物车所有商品</a></div>
+      <div class="more"><a href="index.php?act=cart">See All Products</a></div>
     </div>
     <?php } else { ?>
     <dl class="null-tip">
       <dt></dt>
       <dd>
-        <h4>您的购物车还是空的</h4>
-        <h5>将想买的商品放进购物车，一起结算更轻松</h5>
+        <h4>Empty Cart, Shop Now</h4>
+        <h5>Order Is Easy: Add Desire Products into Cart -> <br/>Modify Quantity -> Submit</h5>
       </dd>
     </dl>
     <?php } ?>

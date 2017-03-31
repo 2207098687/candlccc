@@ -1,6 +1,5 @@
 <?php defined('ShopNC_CLUB') or exit('Access Invalid!');?>
 <link rel="stylesheet" type="text/css" href="<?php echo RESOURCE_SITE_URL;?>/js/jquery-ui/themes/ui-lightness/jquery.ui.css"  />
-
 <div class="wrap">
   <div class="tabmenu">
     <?php include template('layout/submenu');?>
@@ -14,17 +13,17 @@
         <th><?php echo $lang['member_order_state'];?></th>
         <td class="w100"><select name="state_type">
             <option value="" <?php echo $_GET['state_type']==''?'selected':''; ?>><?php echo $lang['member_order_all'];?></option>
-            <option value="state_new" <?php echo $_GET['state_type']=='state_new'?'selected':''; ?>>待付款</option>
-            <option value="state_pay" <?php echo $_GET['state_type']=='state_pay'?'selected':''; ?>>待发货</option>
-            <option value="state_send" <?php echo $_GET['state_type']=='state_send'?'selected':''; ?>>待收货</option>
-            <option value="state_success" <?php echo $_GET['state_type']=='state_success'?'selected':''; ?>>已完成</option>
-            <option value="state_noeval" <?php echo $_GET['state_type']=='state_noeval'?'selected':''; ?>>待评价</option>
-            <option value="state_notakes" <?php echo $_GET['state_type']=='state_notakes'?'selected':''; ?>>待自提</option>
-            <option value="state_cancel" <?php echo $_GET['state_type']=='state_cancel'?'selected':''; ?>>已取消</option>
+            <option value="state_new" <?php echo $_GET['state_type']=='state_new'?'selected':''; ?>>Pending Payment</option>
+            <option value="state_pay" <?php echo $_GET['state_type']=='state_pay'?'selected':''; ?>>Pending Dispatch</option>
+            <option value="state_send" <?php echo $_GET['state_type']=='state_send'?'selected':''; ?>>Pending Reception</option>
+            <option value="state_success" <?php echo $_GET['state_type']=='state_success'?'selected':''; ?>>Completed</option>
+            <option value="state_noeval" <?php echo $_GET['state_type']=='state_noeval'?'selected':''; ?>>Pending Review</option>
+            <option value="state_notakes" <?php echo $_GET['state_type']=='state_notakes'?'selected':''; ?>>Pending Delivery</option>
+            <option value="state_cancel" <?php echo $_GET['state_type']=='state_cancel'?'selected':''; ?>>Cancelled</option>
           </select></td>
         <th><?php echo $lang['member_order_time'];?></th>
         <td class="w240"><input type="text" class="text w70" name="query_start_date" id="query_start_date" value="<?php echo $_GET['query_start_date']; ?>"/><label class="add-on"><i class="icon-calendar"></i></label>&nbsp;&#8211;&nbsp;<input type="text" class="text w70" name="query_end_date" id="query_end_date" value="<?php echo $_GET['query_end_date']; ?>"/><label class="add-on"><i class="icon-calendar"></i></label></td>
-        <td class="w240 tr"><input type="text" class="text w200" placeholder="输入商品标题或订单号进行搜索" name="keyword" value="<?php echo $_GET['keyword']; ?>"></td>
+        <td class="w240 tr"><input type="text" class="text w200" placeholder="Input Product Keywords or Order No. to Search" name="keyword" value="<?php echo $_GET['keyword']; ?>"></td>
         <td class="w70 tc"><label class="submit-border">
             <input type="submit" class="submit" value="<?php echo $lang['nc_search'];?>"/>
           </label></td>
@@ -35,14 +34,14 @@
     <thead>
       <tr>
         <th class="w10"></th>
-        <th colspan="2">商品</th>
-        <th class="w90">单价（元）</th>
-        <th class="w40">数量</th>
-        <th class="w90">优惠活动</th>
-        <th class="w90">售后维权</th>
-        <th class="w110">订单金额</th>
-        <th class="w90">交易状态</th>
-        <th class="w120">交易操作</th>
+        <th colspan="2">Product</th>
+        <th class="w90">Unit Price</th>
+        <th class="w40">Quantity</th>
+        <th class="w90">Promo</th>
+        <th class="w90">Aftersale</th>
+        <th class="w110">Amount</th>
+        <th class="w90">Status</th>
+        <th class="w120">Manage</th>
       </tr>
     </thead>
     <?php if ($output['order_group_list']) { ?>
@@ -60,7 +59,7 @@
         <td colspan="19" class="sep-row"></td>
       </tr>
       <tr>
-        <td colspan="19" class="pay-td"><span class="ml15">在线支付金额：<em>￥<?php echo ncPriceFormat($group_info['pay_amount']);?></em></span> <a class="ncbtn ncbtn-bittersweet fr mr15" href="index.php?act=buy&op=pay&pay_sn=<?php echo $order_pay_sn; ?>"><i class="icon-shield"></i>订单支付</a></td>
+        <td colspan="19" class="pay-td"><span class="ml15">Online Payment<em>￥<?php echo ncPriceFormat($group_info['pay_amount']);?></em>₱</span> <a class="ncbtn ncbtn-bittersweet fr mr15" href="index.php?act=buy&op=pay&pay_sn=<?php echo $order_pay_sn; ?>"><i class="icon-shield"></i>Order Payment</a></td>
       </tr>
       <?php }?>
       <?php $p++;?>
@@ -96,13 +95,13 @@
           <!-- 放入回收站 -->
           
           <?php if ($order_info['if_delete']) { ?>
-          <a href="javascript:void(0);" class="order-trash" onclick="ajax_get_confirm('您确定要删除吗?删除后该订单可以在回收站找回，或彻底删除', 'index.php?act=member_order&op=change_state&state_type=order_delete&order_id=<?php echo $order_info['order_id']; ?>');"><i class="icon-trash"></i>删除</a>
+          <a href="javascript:void(0);" class="order-trash" onclick="ajax_get_confirm('Sure to Delete? Still Can Find in Recycle Bin', 'index.php?act=member_order&op=change_state&state_type=order_delete&order_id=<?php echo $order_info['order_id']; ?>');"><i class="icon-trash"></i>Delete</a>
           <?php } ?>
           
           <!-- 还原订单 -->
           
           <?php if ($order_info['if_restore']) { ?>
-          <a href="javascript:void(0);" class="order-trash" onclick="ajax_get_confirm('您确定要还原吗?', 'index.php?act=member_order&op=change_state&state_type=order_restore&order_id=<?php echo $order_info['order_id']; ?>');"><i class="icon-refresh"></i>还原</a>
+          <a href="javascript:void(0);" class="order-trash" onclick="ajax_get_confirm('Sure to restore?', 'index.php?act=member_order&op=change_state&state_type=order_restore&order_id=<?php echo $order_info['order_id']; ?>');"><i class="icon-refresh"></i>Restore</a>
           <?php } ?>
         </th>
       </tr>
@@ -116,7 +115,7 @@
         <td class="bdl"></td>
         <td class="w70"><div class="ncm-goods-thumb"><a href="<?php echo $goods_info['goods_url'];?>" target="_blank"><img src="<?php echo $goods_info['image_60_url'];?>" onMouseOver="toolTip('<img src=<?php echo $goods_info['image_240_url'];?>>')" onMouseOut="toolTip()"/></a></div></td>
         <td class="tl"><dl class="goods-name">
-            <dt><a href="<?php echo $goods_info['goods_url'];?>" target="_blank"><?php echo $goods_info['goods_name']; ?></a><span class="rec"><a target="_blank" href="<?php echo urlShop('snapshot', 'index', array('rec_id' => $goods_info['rec_id']));?>">[交易快照]</a></span></dt>
+            <dt><a href="<?php echo $goods_info['goods_url'];?>" target="_blank"><?php echo $goods_info['goods_name']; ?></a><span class="rec"><a target="_blank" href="<?php echo urlShop('snapshot', 'index', array('rec_id' => $goods_info['rec_id']));?>">[Snapshot]</a></span></dt>
             <?php if (!empty($goods_info['goods_spec'])) { ?>
           <dd><?php echo $goods_info['goods_spec'];?></dd>
           <?php } ?>
@@ -133,9 +132,9 @@
         <td><?php echo ncPriceFormat($goods_info['goods_price']);?>
           <p class="green">
             <?php if (is_array($order_info['refund_all']) && !empty($order_info['refund_all']) && $order_info['refund_all']['admin_time'] > 0) {?>
-            <?php echo $goods_info['goods_pay_price'];?>(退)
+            <?php echo $goods_info['goods_pay_price'];?>（Return）
             <?php } elseif ($goods_info['extend_refund']['admin_time'] > 0) { ?>
-            <?php echo $goods_info['extend_refund']['refund_amount'];?>(退)
+            <?php echo $goods_info['extend_refund']['refund_amount'];?>(Return)
             <?php } ?>
           </p></td>
         <td><?php echo $goods_info['goods_num']; ?></td>
@@ -145,20 +144,20 @@
         <td><!-- 退款 -->
           
           <?php if ($goods_info['refund'] == 1){?>
-          <p><a href="index.php?act=member_refund&op=add_refund&order_id=<?php echo $order_info['order_id']; ?>&goods_id=<?php echo $goods_info['rec_id']; ?>">退款/退货</a></p>
+          <p><a href="index.php?act=member_refund&op=add_refund&order_id=<?php echo $order_info['order_id']; ?>&goods_id=<?php echo $goods_info['rec_id']; ?>">Refund/Return</a></p>
           <?php }?>
           <?php if (is_array($order_info['refund_all']) && !empty($order_info['refund_all'])) {?>
-          <dd><a target="_blank" href="index.php?act=member_refund&op=view&refund_id=<?php echo $order_info['refund_all']['refund_id'];?>">查看退款</a></dd>
+          <dd><a target="_blank" href="index.php?act=member_refund&op=view&refund_id=<?php echo $order_info['refund_all']['refund_id'];?>">See Refund</a></dd>
           <?php }else if($goods_info['extend_refund']['refund_type'] == 1) {?>
-          <dd><a target="_blank" href="index.php?act=member_refund&op=view&refund_id=<?php echo $goods_info['extend_refund']['refund_id'];?>">查看退款</a></dd>
+          <dd><a target="_blank" href="index.php?act=member_refund&op=view&refund_id=<?php echo $goods_info['extend_refund']['refund_id'];?>">See Refund</a></dd>
           <?php }else if($goods_info['extend_refund']['refund_type'] == 2) {?>
-          <dd><a target="_blank" href="index.php?act=member_return&op=view&return_id=<?php echo $goods_info['extend_refund']['refund_id'];?>">查看退货</a></dd>
+          <dd><a target="_blank" href="index.php?act=member_return&op=view&return_id=<?php echo $goods_info['extend_refund']['refund_id'];?>">See Return</a></dd>
           <?php } ?>
           
           <!-- 投诉 -->
           
           <?php if ($order_info['if_complain']){ ?>
-          <p><a href="index.php?act=member_complain&op=complain_new&order_id=<?php echo $order_info['order_id']; ?>&goods_id=<?php echo $goods_info['rec_id']; ?>">交易投诉</a></p>
+          <p><a href="index.php?act=member_complain&op=complain_new&order_id=<?php echo $order_info['order_id']; ?>&goods_id=<?php echo $goods_info['rec_id']; ?>">Compalin</a></p>
           <?php } ?></td>
         
         <!-- S 合并TD -->
@@ -166,7 +165,7 @@
         <td class="bdl" rowspan="<?php echo $order_info['goods_count'];?>"><p class=""><strong><?php echo $order_info['order_amount']; ?></strong></p>
           <p class="goods-freight">
             <?php if ($order_info['shipping_fee'] > 0){?>
-            (<?php echo $lang['member_order_shipping_han'];?>运费<?php echo $order_info['shipping_fee'];?>)
+            (<?php echo $lang['member_order_shipping_han'];?>Shipping Fee<?php echo $order_info['shipping_fee'];?>)
             <?php }else{?>
             <?php echo $lang['nc_common_shipping_free'];?>
             <?php }?>
@@ -188,7 +187,7 @@
           <!-- 锁定-->
           
           <?php if ($order_info['if_lock']) { ?>
-          <p>退款退货中</p>
+          <p>Refunding/Returning</p>
           <?php } ?>
           
           <!-- 取消订单 -->
@@ -200,7 +199,7 @@
           <!-- 退款取消订单 -->
           
           <?php if ($order_info['if_refund_cancel']){ ?>
-          <p><a href="index.php?act=member_refund&op=add_refund_all&order_id=<?php echo $order_info['order_id']; ?>" class="ncbtn"><i class="icon-legal"></i>订单退款</a></p>
+          <p><a href="index.php?act=member_refund&op=add_refund_all&order_id=<?php echo $order_info['order_id']; ?>" class="ncbtn"><i class="icon-legal"></i>Refund</a></p>
           <?php } ?>
           
           <!-- 收货 -->
@@ -218,10 +217,10 @@
           <!-- 追加评价 -->
           
           <?php if ($order_info['if_evaluation_again']) { ?>
-          <p><a class="ncbtn" href="index.php?act=member_evaluate&op=add_again&order_id=<?php echo $order_info['order_id']; ?>"><i class="icon-thumbs-up-alt"></i>追加评价</a></p>
+          <p><a class="ncbtn" href="index.php?act=member_evaluate&op=add_again&order_id=<?php echo $order_info['order_id']; ?>"><i class="icon-thumbs-up-alt"></i>Makeup Review</a></p>
           <?php } ?>
           <?php if ($order_info['if_drop']) { ?>
-          <p><a href="javascript:void(0);" onclick="ajax_get_confirm('您确定要永久删除吗?永久删除后您将无法再查看该订单，也无法进行投诉维权，请谨慎操作！', 'index.php?act=member_order&op=change_state&state_type=order_drop&order_id=<?php echo $order_info['order_id']; ?>');" class="ncbtn ncbtn-grapefruit mt5"><i class="icon-trash"></i>永久删除</a></p>
+          <p><a href="javascript:void(0);" onclick="ajax_get_confirm('Delete Forever? You will be not able to restore once delete permanently.', 'index.php?act=member_order&op=change_state&state_type=order_drop&order_id=<?php echo $order_info['order_id']; ?>');" class="ncbtn ncbtn-grapefruit mt5"><i class="icon-trash"></i>Delete Permanently</a></p>
           <?php } ?></td>
         <!-- E 合并TD -->
         <?php } ?>
@@ -231,7 +230,7 @@
       <?php if (!empty($order_info['zengpin_list']) && $i == count($order_info['goods_list'])) { ?>
       <tr>
         <td class="bdl"></td>
-        <td colspan="6" class="tl"><div class="ncm-goods-gift"><strong>赠品：</strong>
+        <td colspan="6" class="tl"><div class="ncm-goods-gift"><strong>Giveawys:</strong>
 			<ul><?php foreach ($order_info['zengpin_list'] as $zengpin_info) { ?>
               <li><a title="赠品：<?php echo $zengpin_info['goods_name'];?> * <?php echo $zengpin_info['goods_num'];?>" href="<?php echo $zengpin_info['goods_url'];?>" target="_blank"><img src="<?php echo $zengpin_info['image_60_url'];?>" onMouseOver="toolTip('<img src=<?php echo $zengpin_info['image_240_url'];?>>')" onMouseOut="toolTip()"/></a></li>
               <?php } ?>

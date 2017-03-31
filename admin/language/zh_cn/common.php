@@ -4,7 +4,7 @@ defined('ShopNC_CLUB') or exit('Access Invalid!');
  * 信息文字
  */
 $lang['error']				= '在处理您的请求时出现了问题:<br />';
-$lang['homepage']			= '首页';
+$lang['homepage']			= 'Home';
 $lang['cur_location']		= '当前位置';
 $lang['miss_argument']		= '缺少参数';
 $lang['invalid_request']	= '非法访问';

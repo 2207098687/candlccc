@@ -41,38 +41,38 @@ $(document).ready(function() {
   <div class="ncm-header">
     <div class="ncm-header-top">
       <div class="ncm-member-info">
-        <div class="avatar"><a href="<?php echo urlMember('member_information', 'avatar');?>" title="修改头像"><img src="<?php echo getMemberAvatar($output['member_info']['member_avatar']);?>">
+        <div class="avatar"><a href="<?php echo urlMember('member_information', 'avatar');?>" title="Change Avatar"><img src="<?php echo getMemberAvatar($output['member_info']['member_avatar']);?>">
           <div class="frame"></div>
           </a>
           <?php if (intval($output['message_num']) > 0){ ?>
-          <a href="<?php echo MEMBER_SITE_URL?>/index.php?act=member_message&op=message" class="new-message" title="新消息"><?php echo intval($output['message_num']); ?></a>
+          <a href="<?php echo MEMBER_SITE_URL?>/index.php?act=member_message&op=message" class="new-message" title="New Msg"><?php echo intval($output['message_num']); ?></a>
           <?php }?>
         </div>
         <dl>
-          <dt><a href="<?php echo urlMember('member_information', 'member');?>" title="修改资料"><?php echo $output['member_info']['member_name'];?></a></dt>
-          <dd>会员等级：
+          <dt><a href="<?php echo urlMember('member_information', 'member');?>" title="Update Info"><?php echo $output['member_info']['member_name'];?></a></dt>
+          <dd>Ranking:
             <?php if ($output['member_info']['level_name']){ ?>
-            <div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('<?php echo urlShop('pointgrade','index');?>');"><?php echo $output['member_info']['level_name'];?>会员</div>
+            <div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('<?php echo urlShop('pointgrade','index');?>');"><?php echo $output['member_info']['level_name'];?>Member</div>
             <?php } ?>
           </dd>
-          <dd>账户安全：
-            <div class="SAM"><a href="<?php echo urlMember('member_security','index');?>" title="安全设置">
+          <dd>Security:
+            <div class="SAM"><a href="<?php echo urlMember('member_security','index');?>" title="Security">
               <?php if ($output['member_info']['security_level'] <= 1) { ?>
-              <div id="low" class="SAM-info"><span><em></em></span><strong>低</strong></div>
+              <div id="low" class="SAM-info"><span><em></em></span><strong>Low</strong></div>
               <?php } elseif ($output['member_info']['security_level'] == 2) {?>
-              <div id="normal" class="SAM-info"><span><em></em></span><strong>中</strong></div>
+              <div id="normal" class="SAM-info"><span><em></em></span><strong>Faire</strong></div>
               <?php }else {?>
-              <div id="high" class="SAM-info"><span><em></em></span><strong>高</strong></div>
+              <div id="high" class="SAM-info"><span><em></em></span><strong>High</strong></div>
               <?php } ?>
               </a> </div>
           </dd>
-          <dd>用户财产：
+          <dd>My Assets:
             <div class="user-account">
               <ul>
-                <li id="pre-deposit"><a href="<?php echo urlMember('predeposit', 'pd_log_list');?>" title="我的余额：￥<?php echo $output['member_info']['available_predeposit'];?>"> <span class="icon"></span> </a> </li>
-                <li id="points"><a href="<?php echo urlMember('member_points', 'index');?>" title="我的积分：<?php echo $output['member_info']['member_points'];?>分"> <span class="icon"></span></a> </li>
-                <li id="voucher"><a href="<?php echo urlMember('member_voucher', 'index');?>" title="我的代金券：<?php echo $output['member_info']['voucher_count'];?>张"> <span class="icon"></span></a> </li>
-                <li id="envelope"><a href="<?php echo urlMember('member_redpacket', 'index');?>" title="我的红包：<?php echo $output['member_info']['redpacket_count'];?>张"> <span class="icon"></span></a></li>
+                <li id="pre-deposit"><a href="<?php echo urlMember('predeposit', 'pd_log_list');?>" title="Balance:₱<?php echo $output['member_info']['available_predeposit'];?>"> <span class="icon"></span> </a> </li>
+                <li id="points"><a href="<?php echo urlMember('member_points', 'index');?>" title="My Points:<?php echo $output['member_info']['member_points'];?>分"> <span class="icon"></span></a> </li>
+                <li id="voucher"><a href="<?php echo urlMember('member_voucher', 'index');?>" title="My Coupon：<?php echo $output['member_info']['voucher_count'];?>Pcs"> <span class="icon"></span></a> </li>
+                <li id="envelope"><a href="<?php echo urlMember('member_redpacket', 'index');?>" title="Gift Voucher：<?php echo $output['member_info']['redpacket_count'];?>Pcs"> <span class="icon"></span></a></li>
               </ul>
             </div>
           </dd>
@@ -81,22 +81,22 @@ $(document).ready(function() {
       <div class="ncm-trade-menu">
         <div class="line-bg"></div>
         <dl class="trade-step-01">
-          <dt>关注中</dt>
+          <dt>Followed</dt>
           <dd></dd>
         </dl>
         <ul class="trade-function-01">
           <li><a href="<?php echo urlShop('member_favorite_goods', 'index');?>"><span class="tf01"></span>
-            <h5>商品</h5>
+            <h5>Product</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_favorite_store', 'index');?>"><span class="tf02"></span>
-            <h5>店铺</h5>
+            <h5>Store</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_goodsbrowse', 'list');?>"><span class="tf03"></span>
-            <h5>足迹</h5>
+            <h5>Footstep</h5>
             </a> </li>
         </ul>
         <dl class="trade-step-02">
-          <dt>交易进行</dt>
+          <dt>Ongoing Deal</dt>
           <dd></dd>
         </dl>
         <ul class="trade-function-02">
@@ -105,99 +105,99 @@ $(document).ready(function() {
             <sup><?php echo $output['order_tip']['order_nopay_count']?></sup>
             <?php }?>
             <span class="tf04"></span>
-            <h5>待付款</h5>
+            <h5>Payment</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_send'));?>">
             <?php if ($output['order_tip']['order_noreceipt_count'] > 0) {?>
             <sup><?php echo $output['order_tip']['order_noreceipt_count']?></sup>
             <?php }?>
             <span class="tf05"></span>
-            <h5>待收货</h5>
+            <h5>Reception</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_notakes'));?>">
             <?php if ($output['order_tip']['order_notakes_count'] > 0) {?>
             <sup><?php echo $output['order_tip']['order_notakes_count']?></sup>
             <?php }?>
             <span class="tf06"></span>
-            <h5>待自提</h5>
+            <h5>Meetup</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_order', 'index', array('state_type' => 'state_noeval'));?>">
             <?php if ($output['order_tip']['order_noeval_count'] > 0) {?>
             <sup><?php echo $output['order_tip']['order_noeval_count']?></sup>
             <?php }?>
             <span class="tf07"></span>
-            <h5>待评价</h5>
+            <h5>Review</h5>
             </a> </li>
         </ul>
         <dl class="trade-step-03">
-          <dt>售后服务</dt>
+          <dt>Aftersales</dt>
           <dd></dd>
         </dl>
         <ul class="trade-function-03">
           <li><a href="<?php echo urlShop('member_refund', 'index');?>"><span class="tf08"></span>
-            <h5>退款</h5>
+            <h5>Refund</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_return', 'index');?>"><span class="tf09"></span>
-            <h5>退货</h5>
+            <h5>Return</h5>
             </a> </li>
           <li><a href="<?php echo urlShop('member_complain', 'index',array('select_complain_state' => '1'));?>"><span class="tf10"></span>
-            <h5>投诉</h5>
+            <h5>Complain</h5>
             </a> </li>
         </ul>
       </div>
     </div>
     <div class="ncm-header-nav">
       <ul class="nav-menu">
-        <li><a href="<?php echo urlShop('member', 'home');?>" class="current">我的商城</a></li>
-        <li class="set"><a href="<?php echo urlMember('member', 'home');?>">用户设置<i></i></a>
+        <li><a href="<?php echo urlShop('member', 'home');?>" class="current">My Center</a></li>
+        <li class="set"><a href="<?php echo urlMember('member', 'home');?>">Settings<i></i></a>
           <div class="sub-menu">
             <dl>
-              <dt><a href="<?php echo urlMember('member_security', 'index');?>" style="color: #3AAC8A;">安全设置</a></dt>
-              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_pwd'));?>">修改登录密码</a></dd>
-              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">手机绑定</a></dd>
-              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_email'));?>">邮件绑定</a></dd>
-              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>">支付密码</a></dd>
+              <dt><a href="<?php echo urlMember('member_security', 'index');?>" style="color: #3AAC8A;">Security</a></dt>
+              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_pwd'));?>">Login Password</a></dd>
+                <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>">Payout Password</a></dd>
+              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">Update Mobile</a></dd>
+              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_email'));?>">Update Email</a></dd>
             </dl>
             <dl>
-              <dt><a href="<?php echo urlMember('member_information', 'member')?>" style="color: #EA746B">个人资料</a></dt>
-              <dd><a href="<?php echo urlMember('member_address', 'address');?>">收货地址</a></dd>
-              <dd><a href="<?php echo urlMember('member_information', 'avatar')?>">修改头像</a></dd>
-              <dd><a href="<?php echo urlMember('member_message', 'setting');?>">消息接受设置</a></dd>
+              <dt><a href="<?php echo urlMember('member_information', 'member')?>" style="color: #EA746B">Profile</a></dt>
+              <dd><a href="<?php echo urlMember('member_address', 'address');?>">Shipping Address</a></dd>
+              <dd><a href="<?php echo urlMember('member_information', 'avatar')?>">Change Avatar</a></dd>
+              <dd><a href="<?php echo urlMember('member_message', 'setting');?>">Notification</a></dd>
             </dl>
             <dl>
-              <dt><a href="<?php echo urlMember('predeposit', 'pd_log_list')?>" style="color: #FF7F00">账户财产</a></dt>
-              <dd><a href="<?php echo urlMember('predeposit', 'recharge_add');?>">余额充值</a></dd>
-              <dd><a href="<?php echo urlMember('member_voucher', 'voucher_binding')?>">领取代金券</a></dd>
-              <dd><a href="<?php echo urlMember('member_redpacket', 'rp_binding');?>">领取红包</a></dd>
+              <dt><a href="<?php echo urlMember('predeposit', 'pd_log_list')?>" style="color: #FF7F00">Assets</a></dt>
+              <dd><a href="<?php echo urlMember('predeposit', 'recharge_add');?>">Balance</a></dd>
+              <dd><a href="<?php echo urlMember('member_voucher', 'voucher_binding')?>">Coupon</a></dd>
+              <dd><a href="<?php echo urlMember('member_redpacket', 'rp_binding');?>">Gift Voucher</a></dd>
             </dl>
             <dl>
-              <dt><a href="<?php echo urlMember('member_bind', 'qqbind')?>" style="color: #398EE8">账号绑定</a></dt>
-              <dd><a href="<?php echo urlMember('member_bind', 'qqbind');?>">QQ绑定</a></dd>
-              <dd><a href="<?php echo urlMember('member_bind', 'sinabind')?>">微博绑定</a></dd>
-              <dd><a href="<?php echo urlMember('member_bind', 'weixinbind');?>">微信绑定</a></dd>
-              <dd><a href="<?php echo urlMember('member_sharemanage', 'index');?>">分享绑定</a></dd>
+              <dt><a href="<?php echo urlMember('member_bind', 'qqbind')?>" style="color: #398EE8">Connect</a></dt>
+              <dd><a href="<?php echo urlMember('member_bind', 'qqbind');?>">Facebook</a></dd>
+              <dd><a href="<?php echo urlMember('member_bind', 'sinabind')?>">Integram</a></dd>
+              <dd><a href="<?php echo urlMember('member_bind', 'weixinbind');?>">Google+</a></dd>
+<!--              <dd><a href="--><?php //echo urlMember('member_sharemanage', 'index');?><!--">分享绑定</a></dd>-->
             </dl>
           </div>
         </li>
-        <li><a href="<?php echo urlShop('member_snshome', 'index')?>">个人主页<i></i></a>
-          <div class="sub-menu">
-            <dl>
-              <dd><a href="<?php echo urlShop('member_snshome', 'index');?>">新鲜事</a></dd>
-              <dd><a href="<?php echo urlShop('sns_album', 'index');?>">个人相册</a></dd>
-              <dd><a href="<?php echo urlShop('member_snshome', 'shareglist');?>">分享商品</a></dd>
-              <dd><a href="<?php echo urlShop('member_snshome', 'storelist');?>">分享店铺</a></dd>
-            </dl>
-          </div>
-        </li>
-        <li><a href="javascript:;">其他应用<i></i></a>
-          <div class="sub-menu">
-            <dl>
-              <dd><a href="<?php echo urlCMS('member_article', 'article_list');?>">我的CMS</a></dd>
-              <dd><a href="<?php echo urlCircle('p_center', 'index');?>">我的圈子</a></dd>
-              <dd><a href="<?php echo urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id']));?>">我的微商城</a></dd>
-            </dl>
-          </div>
-        </li>
+<!--        <li><a href="--><?php //echo urlShop('member_snshome', 'index')?><!--">个人主页<i></i></a>-->
+<!--          <div class="sub-menu">-->
+<!--            <dl>-->
+<!--              <dd><a href="--><?php //echo urlShop('member_snshome', 'index');?><!--">新鲜事</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlShop('sns_album', 'index');?><!--">个人相册</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlShop('member_snshome', 'shareglist');?><!--">分享商品</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlShop('member_snshome', 'storelist');?><!--">分享店铺</a></dd>-->
+<!--            </dl>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li><a href="javascript:;">其他应用<i></i></a>-->
+<!--          <div class="sub-menu">-->
+<!--            <dl>-->
+<!--              <dd><a href="--><?php //echo urlCMS('member_article', 'article_list');?><!--">我的CMS</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlCircle('p_center', 'index');?><!--">我的圈子</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id']));?><!--">我的微商城</a></dd>-->
+<!--            </dl>-->
+<!--          </div>-->
+<!--       </li>-->
       </ul>
       <div class="notice">
         <ul class="line">

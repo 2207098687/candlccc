@@ -12,9 +12,9 @@
       <div class="goods-content" nctype_goods=" <?php echo $value['goods_id'];?>" nctype_store="<?php echo $value['store_id'];?>">
         <div class="goods-pic"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>" target="_blank" title="<?php echo $value['goods_name'];?>"><img src="<?php echo UPLOAD_SITE_URL;?>/shop/common/loading.gif" data-url="<?php echo cthumb($value['goods_image'], 240,$value['store_id']);?>" rel="lazy" title="<?php echo $value['goods_name'];?>" alt="<?php echo $value['goods_name'];?>" /></a></div>
         <?php if (C('groupbuy_allow') && $value['goods_promotion_type'] == 1) {?>
-        <div class="goods-promotion"><span>抢购商品</span></div>
+        <div class="goods-promotion"><span>Group Buy</span></div>
         <?php } elseif (C('promotion_allow') && $value['goods_promotion_type'] == 2)  {?>
-        <div class="goods-promotion"><span>限时折扣</span></div>
+        <div class="goods-promotion"><span>Flash Sale</span></div>
         <?php }?>
         <div class="goods-info">
           <div class="goods-pic-scroll-show">
@@ -29,7 +29,7 @@
             </ul>
           </div>
           <div class="goods-name"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>" target="_blank" title="<?php echo $value['goods_jingle'];?>"><?php echo $value['goods_name_highlight'];?><em><?php echo $value['goods_jingle'];?></em></a></div>
-          <div class="goods-price"> <em class="sale-price" title="<?php echo $lang['goods_class_index_store_goods_price'].$lang['nc_colon'].$lang['currency'].ncPriceFormat($value['goods_promotion_price']);?>"><?php echo ncPriceFormatForList($value['goods_promotion_price']);?></em> <em class="market-price" title="市场价：<?php echo $lang['currency'].$value['goods_marketprice'];?>"><?php echo ncPriceFormatForList($value['goods_marketprice']);?></em>
+          <div class="goods-price"> <em class="sale-price" title="<?php echo $lang['goods_class_index_store_goods_price'].$lang['nc_colon'].$lang['currency'].ncPriceFormat($value['goods_promotion_price']);?>"><?php echo ncPriceFormatForList($value['goods_promotion_price']);?></em> <em class="market-price" title="Market Price：<?php echo $lang['currency'].$value['goods_marketprice'];?>"><?php echo ncPriceFormatForList($value['goods_marketprice']);?></em>
             <?php if($value["contractlist"]){?>
             <div class="goods-cti">
               <?php foreach($value["contractlist"] as $gcitem_k=>$gcitem_v){?>
@@ -41,64 +41,64 @@
             <?php }?>
             <!--<span class="raty" data-score="<?php echo $value['evaluation_good_star'];?>"></span>--> </div>
           <div class="goods-sub">
-            <?php if ($value['is_virtual'] == 1) {?>
-            <span class="virtual" title="虚拟兑换商品">虚拟兑换</span>
-            <?php }?>
-            <?php if ($value['is_fcode'] == 1) {?>
-            <span class="fcode" title="F码优先购买商品">F码优先</span>
-            <?php }?>
+            <?php //if ($value['is_virtual'] == 1) {?>
+<!--            <span class="virtual" title="Virtual Redeem">Virtual Redeem</span>-->
+            <?php //}?>
+<!--            --><?php //if ($value['is_fcode'] == 1) {?>
+<!--            <span class="fcode" title="F码优先购买商品">F码优先</span>-->
+            <?php //}?>
             <?php if ($value['is_book'] == 1) {?>
-            <span class="book" title="支付定金预定商品">预定</span>
+            <span class="book" title="Pre-Order">Pre-Order</span>
             <?php }?>
             <?php if ($value['is_presell'] == 1) {?>
-            <span class="presell" title="预售购买商品">预售</span>
+            <span class="presell" title="Pre-Sale">Pre-Sale</span>
             <?php }?>
             <?php if ($value['have_gift'] == 1) {?>
-            <span class="gift" title="捆绑赠品">赠品</span>
+            <span class="gift" title="Give Away">Give Away</span>
             <?php }?>
-            <span class="goods-compare" nc_type="compare_<?php echo $value['goods_id'];?>" data-param='{"gid":"<?php echo $value['goods_id'];?>"}'><i></i>加入对比</span> </div>
+            <span class="goods-compare" nc_type="compare_<?php echo $value['goods_id'];?>" data-param='{"gid":"<?php echo $value['goods_id'];?>"}'><i></i>Compare</span> </div>
           <div class="sell-stat">
             <ul>
               <li><a href="<?php echo urlShop('goods', 'index', array('goods_id' => $value['goods_id']));?>#ncGoodsRate" target="_blank" class="status"><?php echo $value['goods_salenum'];?></a>
-                <p>商品销量</p>
+                <p>Sale</p>
               </li>
               <li><a href="<?php echo urlShop('goods', 'comments_list', array('goods_id' => $value['goods_id']));?>" target="_blank"><?php echo $value['evaluation_count'];?></a>
-                <p>用户评论</p>
+                <p>Reviews</p>
               </li>
 			  
-			  <?php if(C('node_chat')){ ?>
-			  <li><em member_id="<?php echo $value['member_id'];?>">&nbsp;</em></li>
-			  <?php } else {?>
-			  <?php if ($value['store_qq']) {?>
-            <li>
-              <a title="QQ客服:<?php echo $value['store_qq'];?>" href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $value['store_qq'];?>&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style=" vertical-align: middle;" src="http://wpa.qq.com/pa?p=2:<?php echo $value['store_qq'];?>:52"></a>
-              <p>在线客服</p></li>
-			  <?php } else {?>
-               <li><a title="QQ客服离线" href="javascript:;" style="cursor: default;"><img border="0" style=" vertical-align: middle;" src="http://pub.idqqimg.com/qconn/wpa/button/button_120.gif"></a>
-              <p>客服离线</p></li>
-			   <?php }?>
-			   <?php } ?>
+			  <?php //if(C('node_chat')){ ?>
+<!--			  <li><em member_id="--><?php //echo $value['member_id'];?><!--">&nbsp;</em></li>-->
+			  <?php //} else {?>
+			  <?php //if ($value['store_qq']) {?>
+<!--            <li>-->
+<!--              <a title="Support:--><?php //echo $value['store_qq'];?><!--" href="http://wpa.qq.com/msgrd?v=3&amp;uin=--><?php //echo $value['store_qq'];?><!--&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style=" vertical-align: middle;" src="http://wpa.qq.com/pa?p=2:--><?php //echo $value['store_qq'];?><!--:52"></a>-->
+<!--              <p>在线客服</p></li>-->
+			  <?php //} else {?>
+<!--               <li><a title="QQ客服离线" href="javascript:;" style="cursor: default;"><img border="0" style=" vertical-align: middle;" src="http://pub.idqqimg.com/qconn/wpa/button/button_120.gif"></a>-->
+<!--              <p>客服离线</p></li>-->
+			   <?php //}?>
+			   <?php //} ?>
             </ul>
           </div>
           <div class="store"><a href="<?php echo urlShop('show_store','index',array('store_id'=>$value['store_id']), $value['store_domain']);?>" title="<?php echo $value['store_name'];?>" class="name"><?php echo $value['store_name'];?></a></div>
           <div class="add-cart">
             <?php if ($value['goods_storage'] == 0) {?>
-            <a href="javascript:void(0);" onclick="<?php if ($_SESSION['is_login'] !== '1'){?>login_dialog();<?php }else{?>ajax_form('arrival_notice', '到货通知', '<?php echo urlShop('goods', 'arrival_notice', array('goods_id' => $value['goods_id'], 'type' => 2));?>', 350);<?php }?>"><i class="icon-bullhorn"></i>到货通知</a>
+            <a href="javascript:void(0);" onclick="<?php if ($_SESSION['is_login'] !== '1'){?>login_dialog();<?php }else{?>ajax_form('arrival_notice', 'Arrival Notice', '<?php echo urlShop('goods', 'arrival_notice', array('goods_id' => $value['goods_id'], 'type' => 2));?>', 350);<?php }?>"><i class="icon-bullhorn"></i>Arrival Notice</a>
             <?php } else {?>
             <?php if ($value['is_virtual'] == 1 || $value['is_fcode'] == 1 || $value['is_presell'] == 1 || $value['is_book'] == 1) {?>
             <a href="javascript:void(0);" nctype="buy_now" data-param="{goods_id:<?php echo $value['goods_id'];?>}"><i class="icon-shopping-cart"></i>
             <?php if ($value['is_fcode'] == 1) {
-                echo 'F码购买';
+                echo 'F Code Purchase';
             } else if ($value['is_book'] == 1) {
-                echo '支付定金';
+                echo 'Downpay Order';
             } else if ($value['is_presell'] == 1) {
-                echo '预售购买';
+                echo 'Presell';
             } else {
-                echo '立即购买'; 
+                echo 'Buy Now';
             }?>
             </a>
             <?php } else {?>
-            <a href="javascript:void(0);" nctype="add_cart" data-gid="<?php echo $value['goods_id'];?>"><i class="icon-shopping-cart"></i>加入购物车</a>
+            <a href="javascript:void(0);" nctype="add_cart" data-gid="<?php echo $value['goods_id'];?>"><i class="icon-shopping-cart"></i>Add to Cart</a>
             <?php }?>
             <?php }?>
           </div>

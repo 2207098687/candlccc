@@ -2,9 +2,9 @@
   'index' => 
   array (
     'id' => '1',
-    'title' => '{sitename} - cool stuffs &amp; less efforts, best wholeseller site.',
-    'keywords' => 'Collandless.com, wholeseller, cellphone accessories',
-    'description' => 'this is a cool site.',
+    'title' => '{sitename} - Welcome to www.coolandless.com',
+    'keywords' => '运维舫,PHP商城系统,运维舫商城系统,多用户商城系统,电商ERP,电商CRM,电子商务解决方案',
+    'description' => '运维舫专注于研发符合时代发展需要的电子商务商城系统，以专业化的服务水平为企业级用户提供B(2B)2C【B2B2C】电子商务平台解决方案，全力打造电商平台专项ERP(CRM)系统、ERP(RFID)系统等，引领中国电子商务行业企业级需求的发展方向。咨询电话：400-611-5098',
     'type' => 'index',
   ),
   'group' => 

@@ -30,7 +30,7 @@
 <div class="ncp-member-point">
   <dl style="border-left: none 0;">
     <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=member_points" target="_blank">
-    <dt><strong><?php echo $output['member_info']['member_points'];?></strong>分</dt>
+    <dt><strong><?php echo $output['member_info']['member_points'];?></strong>Points</dt>
     <dd>我的积分</dd>
     </a>
   </dl>

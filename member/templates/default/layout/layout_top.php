@@ -95,7 +95,7 @@
     </div>
     <div class="content-box" id="content-cart">
       <div class="top">
-        <h3>我的购物车</h3>
+        <h3>My Cart</h3>
         <a href="javascript:void(0);" class="close" title="隐藏"></a></div>
       <div id="rtoolbar_cartlist"></div>
     </div>

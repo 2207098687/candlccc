@@ -24,7 +24,7 @@
 
       <!-- 高级搜索start -->
       <dl class="searchbox">
-        <dt>排序方式：</dt>
+        <dt>Sort By：</dt>
         <dd>
           <ul>
             <input type="hidden" id="orderby" name="orderby" value="<?php echo $_GET['orderby']?$_GET['orderby']:'default';?>"/>
