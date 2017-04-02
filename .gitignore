@@ -13,4 +13,5 @@
 ./install
 ./ywf_S7.sql
 ./install_bak
+./data/*
 ./install_bak/*
