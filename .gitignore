@@ -13,6 +13,7 @@
 ./install
 ./ywf_S7.sql
 ./install_bak
+.idea/*
 ./.idea/*
 ./data/*
 ./install_bak/*

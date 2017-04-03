@@ -50,7 +50,7 @@
           <a href="index.php?act=buy&op=pay&pay_sn=<?php echo $order_info['pay_sn'];?>" target="_blank" class="ncbtn ncbtn-bittersweet"><i class="icon-shield"></i>Pay Order</a>
           <?php } ?>
           <?php if ($order_info['if_receive']) { ?>
-          <a href="<?php echo urlShop('member_order','show_order',array('order_id'=>$order_info['order_id'])); ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-ok-sign"></i>Received</a>
+          <a href="<?php echo urlShop('member_order','show_order',array('order_id'=>$order_info['order_id'])); ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-ok-sign"></i>Receive</a>
           <?php } ?>
           <?php if ($order_info['if_evaluation']) { ?>
           <a href="index.php?act=member_evaluate&op=add&order_id=<?php echo $order_info['order_id']; ?>" target="_blank" class="ncbtn ncbtn-mint"><i class="icon-comments-alt"></i>Review</a>
