@@ -497,16 +497,16 @@ class goodsControl extends BaseGoodsControl {
         if ($freight_total > 0) {
             if ($_GET['myf'] > 0) {
                 if ($freight_total >= $_GET['myf']) {
-                    $freight_total = '免运费';
+                    $freight_total = 'Free Shipping';
                 } else {
-                    $freight_total = '运费：'.$freight_total.' 元，店铺满 '.$_GET['myf'].' 元 免运费';
+                    $freight_total = 'Shipping: '.$freight_total.' ₱, Single Order of'.$_GET['myf'].' ₱ Free Shipping';
                 }
             } else {
-                $freight_total = '运费：'.$freight_total.' 元';
+                $freight_total = 'Shipping Fee: '.$freight_total.' ₱';
             }
         } else {
             if ($freight_total !== false) {
-                $freight_total = '免运费';
+                $freight_total = 'Free Shipping';
             }
         }
         echo $_GET['callback'].'('.json_encode(array('total'=>$freight_total)).')';

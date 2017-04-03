@@ -6,7 +6,7 @@
     <input type="hidden" name="form_submit" value="ok" />
     <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
     <dl>
-      <dt>账&nbsp;&nbsp;&nbsp;号</dt>
+      <dt>Username</dt>
       <dd>
         <input type="text" class="text" autocomplete="off"  name="user_name" id="user_name" autofocus >
       </dd>
@@ -30,7 +30,7 @@
       <li><?php echo $lang['quick_login_please_forget1']?><a href="<?php echo urlLogin('login', 'forget_password');?>" class="forget"><?php echo $lang['quick_login_please_forget2']?></a><?php echo $lang['quick_login_please_forget3']?></li>
     </ul>
     <div class="enter">
-      <input type="submit" class="submit" value="登&#12288;录" name="Submit">
+      <input type="submit" class="submit" value="Login" name="Submit">
       <?php if (C('qq_isuse') == 1 || C('sina_isuse') == 1 || C('weixin_isuse') == 1){?>
       <span class="other">
       <?php if (C('qq_isuse') == 1){?>
@@ -89,7 +89,7 @@ $(document).ready(function(){
 			<?php if(C('captcha_status_login') == '1') { ?>
             ,captcha : {
                 required : '',
-				remote	 : '验证码错误'
+				remote	 : 'Captcha Incorrect'
             }
 			<?php } ?>
 		}

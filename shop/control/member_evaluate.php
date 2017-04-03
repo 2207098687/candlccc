@@ -44,12 +44,12 @@ class member_evaluateControl extends BaseMemberControl{
             if ($exppoints_rule['exp_comments'] > 0 || $points_comments > 0){
                 $ruleexplain .= 'You will earn';
                 if ($exppoints_rule['exp_comments'] > 0){
-                    $ruleexplain .= (' “'.$exppoints_rule['exp_comments'].'Experience Point”');
+                    $ruleexplain .= (' “'.$exppoints_rule['exp_comments'].' Experience Point”');
                 }
                 if ($points_comments > 0){
-                    $ruleexplain .= (' “'.$points_comments.'Points”');
+                    $ruleexplain .= (' “'.$points_comments.' Reward Points”');
                 }
-                $ruleexplain .= '。';
+                $ruleexplain .= '.';
             }
             Tpl::output('ruleexplain', $ruleexplain);
     

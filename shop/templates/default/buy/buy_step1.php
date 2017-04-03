@@ -23,7 +23,7 @@ var ref_area_id_2 = "<?php echo $_POST['area_id_2']?>";
 function iniRpt(order_total) {
     var _tmp,_hide_flag = true;
 	$('#rpt').empty();
-	$('#rpt').append('<option value="|0.00">-选择使用平台红包-</option>');
+	$('#rpt').append('<option value="|0.00">-Pls Select Voucher-</option>');
 	for (i = 0; i < rpt_list_json.length; i++) {
 		_tmp = parseFloat(rpt_list_json[i]['rpacket_limit']);
 		order_total = parseFloat(order_total);
