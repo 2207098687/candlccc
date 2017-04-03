@@ -236,7 +236,7 @@
       </dl>
     </div>
     <div class="user-entry">
-      <?php echo $lang['nc_hello'];?>, <?php if($_SESSION['is_login'] == '1'){?>
+      <?php echo $lang['nc_hello'];?><?php if($_SESSION['is_login'] == '1'){?>
       <span> <a href="<?php echo urlShop('member','home');?>"><?php echo $_SESSION['member_name'];?></a>
       <?php if ($output['member_info']['level_name']){ ?>
       <div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('<?php echo urlShop('pointgrade','index');?>');"><?php echo $output['member_info']['level_name'];?></div>
