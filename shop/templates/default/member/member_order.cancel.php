@@ -34,12 +34,12 @@
       </dd>
     </dl>
     <div class="bottom">
-      <label class="submit-border"><input type="submit" id="confirm_button" class="submit" value="<?php echo $lang['nc_ok'];?>提交" /></label>
-      <a class="ncbtn ml5" href="javascript:DialogManager.close('buyer_order_cancel_order');">取消</a>
+      <label class="submit-border"><input type="submit" id="confirm_button" class="submit" value="<?php echo $lang['nc_ok'];?>" /></label>
+      <a class="ncbtn ml5" href="javascript:DialogManager.close('buyer_order_cancel_order');">Cancel</a>
     </div>
   </form>
   <?php } else { ?>
-  <p style="line-height:80px;text-align:center">该订单并不存在，请检查参数是否正确!</p>
+  <p style="line-height:80px;text-align:center">Order Does Not Exists!</p>
   <?php } ?>
 </div>
 <script type="text/javascript">

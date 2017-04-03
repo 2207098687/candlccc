@@ -24,7 +24,7 @@
     <thead>
       <tr>
         <th class="w10"></th>
-        <th colspan="2">投诉商品</th>
+        <th colspan="2">Product Name</th>
         <th class="w200"><?php echo $lang['complain_subject_content'];?></th>
         <th class="w200"><?php echo $lang['complain_datetime'];?></th>
         <th class="w150"><?php echo $lang['complain_state'];?></th>
@@ -42,10 +42,10 @@
             <img src="<?php echo thumb($goods,60); ?>" onMouseOver="toolTip('<img src=<?php echo thumb($goods,240); ?>>')" onMouseOut="toolTip()" /></a></div></td>
         <td class="tl"><dl class="goods-name">
             <dt><a target="_blank" href="<?php echo urlShop('goods','index',array('goods_id'=> $goods['goods_id'])); ?>"><?php echo $goods['goods_name']; ?></a></dt>
-            <dd>商家：<?php echo $val['accused_name'];?></dd>
+<!-- <dd>Seller：--><?php //echo $val['accused_name'];?><!--</dd>-->
           </dl></td>
         <td><?php echo $val['complain_subject_content'];?></td>
-        <td class="goods-time"><?php echo date("Y-m-d H:i:s",$val['complain_datetime']);?></td>
+        <td class="goods-time"><?php echo date("m-d-Y H:i:s",$val['complain_datetime']);?></td>
         <td><?php
 				if(intval($val['complain_state'])===10) echo $lang['complain_state_new'];
 				if(intval($val['complain_state'])===20) echo $lang['complain_state_appeal'];
