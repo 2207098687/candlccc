@@ -4,7 +4,7 @@
     <?php include template('layout/submenu');?>
   </div>
   <div class="alert alert-success">
-    <h4>操作提示：</h4>
+    <h4>Tips：</h4>
     <ul>
       <li>1. 请选择“绑定邮箱”或“绑定手机”方式其一作为安全校验码的获取方式并正确输入。</li>
       <li>2. 如果您的邮箱已失效，可以 <a href="index.php?act=member_security&op=auth&type=modify_mobile">绑定手机</a> 后通过接收手机短信完成验证。</li>
@@ -101,7 +101,7 @@ $(function(){
 
     $('#auth_form').validate({
         rules : {
-        	auth_code : {
+            auth_code : {
                 required : true,
                 maxlength : 6,
                 minlength : 6,

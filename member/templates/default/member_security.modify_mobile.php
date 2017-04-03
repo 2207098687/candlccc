@@ -4,7 +4,7 @@
     <?php include template('layout/submenu');?>
   </div>
    <div class="alert alert-success">
-    <h4>操作提示：</h4>
+    <h4>Tips：</h4>
     <ul>
       <li>1. 绑定手机后可直接通过短信接受安全验证等重要操作。</li>
       <li>2. 更改手机时，请通过安全验证后重新输入新手机号码绑定。</li>
@@ -82,7 +82,7 @@ $(function(){
         },
         rules : {
         	vcode : {
-                required : true,
+                required : false,
                 maxlength : 6,
                 minlength : 6,
                 digits : true

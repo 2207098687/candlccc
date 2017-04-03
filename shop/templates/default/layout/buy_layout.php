@@ -6,8 +6,8 @@
 <title><?php echo $output['html_title'];?></title>
 <meta name="keywords" content="<?php echo $output['seo_keywords']; ?>" />
 <meta name="description" content="<?php echo $output['seo_description']; ?>" />
-<meta name="author" content="运维舫">
-<meta name="copyright" content="ywf Inc. All Rights Reserved">
+<meta name="author" content="www.coolandless.com">
+<meta name="copyright" content="coolandless.com Inc. All Rights Reserved">
 <style type="text/css">
 body {
 _behavior: url(<?php echo SHOP_TEMPLATES_URL;

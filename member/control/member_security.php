@@ -37,7 +37,7 @@ class member_securityControl extends BaseMemberControl {
     public function send_bind_emailOp() {
         $obj_validate = new Validate();
         $obj_validate->validateparam = array(
-            array("input"=>$_POST["email"], "require"=>"true", 'validator'=>'email',"message"=>'请正确填写邮箱')
+            array("input"=>$_POST["email"], "require"=>"true", 'validator'=>'email',"message"=>'Input Correct Email')
         );
         $error = $obj_validate->validate();
         if ($error != ''){
@@ -50,21 +50,21 @@ class member_securityControl extends BaseMemberControl {
         $member_common_info = $model_member->getMemberCommonInfo(array('member_id'=>$_SESSION['member_id']));
         
         if (!empty($member_common_info['send_email_time']) && TIMESTAMP - $member_common_info['send_email_time'] < 58) {
-            showDialog('请60秒以后再次发送邮件');
+            showDialog('Pls Resend in 60 Seconds');
         }
         $condition = array();
         $condition['member_email'] = $_POST['email'];
         $condition['member_id'] = array('neq',$_SESSION['member_id']);
         $member_info = $model_member->getMemberInfo($condition,'member_id');
         if ($member_info) {
-            showDialog('该邮箱已被使用');
+            showDialog('Email Has Been Used');
         }
         $data = array();
         $data['member_email'] = $_POST['email'];
         $data['member_email_bind'] = 0;
         $update = $model_member->editMember(array('member_id'=>$_SESSION['member_id']),$data);
         if (!$update) {
-            showDialog('系统发生错误，如有疑问请与管理员联系');
+            showDialog('System Error, Pls Contact Support');
         }
 
         $seed = random(6);
@@ -75,7 +75,7 @@ class member_securityControl extends BaseMemberControl {
         $data['send_acode_times'] = array('exp','send_acode_times+1');
         $update = $model_member->editMemberCommon($data,array('member_id'=>$_SESSION['member_id']));
         if (!$update) {
-            showDialog('系统发生错误，如有疑问请与管理员联系');
+            showDialog('System Error, Pls Contact Support');
         }
         $uid = base64_encode(encrypt($_SESSION['member_id'].' '.$_POST["email"]));
         $verify_url = urlMember('login', 'bind_email', array('uid' => $uid, 'hash' => md5($seed)));
@@ -91,7 +91,7 @@ class member_securityControl extends BaseMemberControl {
 
         $email	= new Email();
 	    $result	= $email->send_sys_email($_POST["email"],$subject,$message);
-	    showDialog('验证邮件已经发送至您的邮箱，请于24小时内登录邮箱并完成验证！如果您始终未收到邮件，请于60秒后重新发送','index.php?act=member_security&op=index','succ','',10);
+	    showDialog('Verification Email Sent, Pls Check Email within 24 Hours and Complete Verification Process. <br/>You Can Resend in 60s If You Didnt Receive.','index.php?act=member_security&op=index','succ','',10);
 
     }
 
@@ -109,20 +109,20 @@ class member_securityControl extends BaseMemberControl {
             }
             $member_common_info = $model_member->getMemberCommonInfo(array('member_id'=>$_SESSION['member_id']));
             if (empty($member_common_info) || !is_array($member_common_info)) {
-                showMessage('验证失败','','html','error');
+                showMessage('Authentication Failed','','html','error');
             }
             if (TIMESTAMP - $member_common_info['send_acode_time'] > 1800) {
-                showMessage('验证码已失效，请重新获取验证码','','html','error');
+                showMessage('Captcha Expired, Refresh it.','','html','error');
             }
             if ($member_common_info['auth_code'] != $_POST['auth_code']) {
-                showMessage('验证失败','','html','error');
+                showMessage('Verification Failed','','html','error');
             }
             $data = array();
             $data['auth_code'] = '';
             $data['send_acode_time'] = 0;
             $update = $model_member->editMemberCommon($data,array('member_id'=>$_SESSION['member_id']));
             if (!$update) {
-                showMessage('系统发生错误，如有疑问请与管理员联系',SHOP_SITE_URL,'html','error');
+                showMessage('System Error, Pls Contact Support',SHOP_SITE_URL,'html','error');
             }
             setNcCookie('seccode'.$_POST['nchash'], '',-3600);
             $_SESSION['auth_'.$_POST['type']] = TIMESTAMP;
@@ -159,7 +159,7 @@ class member_securityControl extends BaseMemberControl {
             //修改密码、设置支付密码时，必须绑定邮箱或手机
             if (in_array($_GET['type'],array('modify_pwd','modify_paypwd')) && $member_info['member_email_bind'] == '0' &&
             $member_info['member_mobile_bind'] == '0') {
-                showMessage('请先绑定邮箱或手机','index.php?act=member_security&op=index','html','error');
+                showMessage('Please Bind Your Email First','index.php?act=member_security&op=index','html','error');
             }
 
             Tpl::output('member_info',$member_info);
@@ -236,22 +236,22 @@ class member_securityControl extends BaseMemberControl {
 
         //身份验证后，需要在30分钟内完成修改密码操作
         if (TIMESTAMP - $_SESSION['auth_modify_pwd'] > 1800) {
-            showDialog('操作超时，请重新获得验证码','index.php?act=member_security&op=auth&type=modify_pwd','html','error');
+            showDialog('Timeout, Please Refresh Captcha','index.php?act=member_security&op=auth&type=modify_pwd','html','error');
         }
 
         if(!chksubmit()) exit();
 
         $obj_validate = new Validate();
         $obj_validate->validateparam = array(
-            array("input"=>$_POST["password"],      "require"=>"true",      "message"=>'请正确输入密码'),
-            array("input"=>$_POST["confirm_password"],  "require"=>"true",      "validator"=>"Compare","operator"=>"==","to"=>$_POST["password"],"message"=>'两次密码输入不一致'),
+            array("input"=>$_POST["password"],      "require"=>"true",      "message"=>'Input Your Password'),
+            array("input"=>$_POST["confirm_password"],  "require"=>"true",      "validator"=>"Compare","operator"=>"==","to"=>$_POST["password"],"message"=>'Passwords Do Not Match.'),
         );
         $error = $obj_validate->validate();
         if ($error != ''){
             showValidateError($error);
         }
         $update = $model_member->editMember(array('member_id'=>$_SESSION['member_id']),array('member_passwd'=>md5($_POST['password'])));
-        $message = $update ? '密码修改成功' : '密码修改失败';
+        $message = $update ? 'Success!' : 'Failed~~';
         unset($_SESSION['auth_modify_pwd']);
         showDialog($message,'index.php?act=member_security&op=index',$update ? 'succ' : 'error');
 
@@ -272,8 +272,8 @@ class member_securityControl extends BaseMemberControl {
 
         $obj_validate = new Validate();
         $obj_validate->validateparam = array(
-                array("input"=>$_POST["password"],      "require"=>"true",      "message"=>'请正确输入密码'),
-                array("input"=>$_POST["confirm_password"],  "require"=>"true",      "validator"=>"Compare","operator"=>"==","to"=>$_POST["password"],"message"=>'两次密码输入不一致'),
+                array("input"=>$_POST["password"],      "require"=>"true",      "message"=>'Input Correct Password'),
+                array("input"=>$_POST["confirm_password"],  "require"=>"true",      "validator"=>"Compare","operator"=>"==","to"=>$_POST["password"],"message"=>'Passwords Do Not Match'),
         );
         $error = $obj_validate->validate();
         if ($error != ''){
@@ -296,7 +296,7 @@ class member_securityControl extends BaseMemberControl {
             $obj_validate = new Validate();
             $obj_validate->validateparam = array(
                 array("input"=>$_POST["mobile"], "require"=>"true", 'validator'=>'mobile',"message"=>'请正确填写手机号'),
-                array("input"=>$_POST["vcode"], "require"=>"true", 'validator'=>'number',"message"=>'请正确填写手机验证码'),
+                array("input"=>$_POST["vcode"], "require"=>"false", 'validator'=>'number',"message"=>'请正确填写手机验证码'),
             );
             $error = $obj_validate->validate();
             if ($error != ''){
@@ -307,12 +307,12 @@ class member_securityControl extends BaseMemberControl {
             $condition['member_id'] = $_SESSION['member_id'];
             $condition['auth_code'] = intval($_POST['vcode']);
             $member_common_info = $model_member->getMemberCommonInfo($condition,'send_acode_time');
-            if (!$member_common_info) {
-                showDialog('手机验证码错误，请重新输入');
-            }
-            if (TIMESTAMP - $member_common_info['send_acode_time'] > 1800) {
-                showDialog('手机验证码已过期，请重新获取验证码');
-            }
+//            if (!$member_common_info) {
+//                showDialog('手机验证码错误，请重新输入');
+//            }
+//            if (TIMESTAMP - $member_common_info['send_acode_time'] > 1800) {
+//                showDialog('手机验证码已过期，请重新获取验证码');
+//            }
             $data = array();
             $data['auth_code'] = '';
             $data['send_acode_time'] = 0;
@@ -324,7 +324,7 @@ class member_securityControl extends BaseMemberControl {
             if (!$update) {
                 showDialog('系统发生错误，如有疑问请与管理员联系');
             }
-            showDialog('手机号绑定成功','index.php?act=member_security&op=index','succ');
+            showDialog('Success!','index.php?act=member_security&op=index','succ');
         }
     }
 
@@ -415,39 +415,39 @@ class member_securityControl extends BaseMemberControl {
         switch ($menu_type) {
             case 'index':
                 $menu_array = array(
-                array('menu_key'=>'index', 'menu_name'=>'账户安全','menu_url'=>'index.php?act=member_security&op=index'),
+                array('menu_key'=>'index', 'menu_name'=>'Security','menu_url'=>'index.php?act=member_security&op=index'),
                 );
                 break;
             case 'modify_pwd':
                 $menu_array = array(
-                array('menu_key'=>'index', 'menu_name'=>'账户安全','menu_url'=>'index.php?act=member_security&op=index'),
-                array('menu_key'=>'modify_pwd','menu_name'=>'修改登录密码','menu_url'=>'index.php?act=member_security&op=auth&type=modify_pwd'),
+                array('menu_key'=>'index', 'menu_name'=>'Security','menu_url'=>'index.php?act=member_security&op=index'),
+                array('menu_key'=>'modify_pwd','menu_name'=>'Change Password','menu_url'=>'index.php?act=member_security&op=auth&type=modify_pwd'),
                 );
                 break;
             case 'modify_email':
                 $menu_array = array(
-                array('menu_key'=>'index', 'menu_name'=>'账户安全','menu_url'=>'index.php?act=member_security&op=index'),
-                array('menu_key'=>'modify_email', 'menu_name'=>'邮箱验证','menu_url'=>'index.php?act=member_security&op=auth&type=modify_email'),
+                array('menu_key'=>'index', 'menu_name'=>'Security','menu_url'=>'index.php?act=member_security&op=index'),
+                array('menu_key'=>'modify_email', 'menu_name'=>'Verify Email','menu_url'=>'index.php?act=member_security&op=auth&type=modify_email'),
                 );
                 break;
             case 'modify_mobile':
                 $menu_array = array(
-                array('menu_key'=>'index', 'menu_name'=>'账户安全','menu_url'=>'index.php?act=member_security&op=index'),
-                array('menu_key'=>'modify_mobile','menu_name'=>'手机验证','menu_url'=>'index.php?act=member_security&op=auth&type=modify_mobile'),
+                array('menu_key'=>'index', 'menu_name'=>'Security','menu_url'=>'index.php?act=member_security&op=index'),
+                array('menu_key'=>'modify_mobile','menu_name'=>'Mobile Binding','menu_url'=>'index.php?act=member_security&op=auth&type=modify_mobile'),
                 );
                 break;
             case 'modify_paypwd':
                 $menu_array = array(
-                array('menu_key'=>'index', 'menu_name'=>'账户安全','menu_url'=>'index.php?act=member_security&op=index'),
-                array('menu_key'=>'modify_paypwd','menu_name'=>'设置支付密码','menu_url'=>'index.php?act=member_security&op=auth&type=modify_paypwd'),
+                array('menu_key'=>'index', 'menu_name'=>'Security','menu_url'=>'index.php?act=member_security&op=index'),
+                array('menu_key'=>'modify_paypwd','menu_name'=>'Set Payment Pass','menu_url'=>'index.php?act=member_security&op=auth&type=modify_paypwd'),
                 );
                 break;
             case 'pd_cash':
                 $menu_array = array(
-                array('menu_key'=>'loglist','menu_name'=>'账户余额',    'menu_url'=>'index.php?act=predeposit&op=pd_log_list'),
-                array('menu_key'=>'recharge_list','menu_name'=>'充值明细', 'menu_url'=>'index.php?act=predeposit&op=index'),
-                array('menu_key'=>'cashlist','menu_name'=>'余额提现', 'menu_url'=>'index.php?act=predeposit&op=pd_cash_list'),
-                array('menu_key'=>'pd_cash','menu_name'=>'提现申请','menu_url'=>'index.php?act=member_security&op=auth&type=pd_cash'),
+                array('menu_key'=>'loglist','menu_name'=>'Balance',    'menu_url'=>'index.php?act=predeposit&op=pd_log_list'),
+                array('menu_key'=>'recharge_list','menu_name'=>'Cash-in Report', 'menu_url'=>'index.php?act=predeposit&op=index'),
+                array('menu_key'=>'cashlist','menu_name'=>'Balance Cash-out', 'menu_url'=>'index.php?act=predeposit&op=pd_cash_list'),
+                array('menu_key'=>'pd_cash','menu_name'=>'Cash-out Application','menu_url'=>'index.php?act=member_security&op=auth&type=pd_cash'),
                 );
                 break;
         }

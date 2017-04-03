@@ -115,9 +115,9 @@ $(function() {
               <li <?php if($output['member_info']['member_email_bind'] == '1') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_email'));?>"><span class="zhaq02"></span><sub></sub>
                 <h5>Bind Email</h5>
                 </a> </li>
-              <li <?php if($output['member_info']['member_mobile_bind'] == '1') {?>class="have"<?php }?>><a href="<?php //echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">
-<!--                      <span class="zhaq03"></span><sub></sub>-->
-<!--                <h5>手机绑定</h5>-->
+              <li <?php if($output['member_info']['member_mobile_bind'] == '1') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">
+                      <span class="zhaq03"></span><sub></sub>
+                <h5>Mobile</h5>
                 </a> </li>
               <li <?php if($output['member_info']['member_paypwd'] != '') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>">
 <!--                      <span class="zhaq04"></span><sub></sub>-->
@@ -164,49 +164,49 @@ $(function() {
     </div>
     <div class="ncm-header-nav">
       <ul class="nav-menu">
-        <li class="shop"><a href="<?php echo urlShop('member', 'home');?>">我的商城<i></i></a>
+        <li class="shop"><a href="<?php echo urlShop('member', 'home');?>">MY Center<i></i></a>
           <div class="sub-menu">
             <dl>
-              <dt><a href="<?php echo urlShop('member_order', 'index');?>" style="color: #398EE8;">交易管理</a></dt>
-              <dd><a href="<?php echo urlShop('member_order', 'index');?>">实物交易订单</a></dd>
-              <dd><a href="<?php echo urlShop('member_vr_order', 'index');?>">虚拟兑码订单</a></dd>
-              <dd><a href="<?php echo urlShop('member_evaluate', 'list');?>">评价/晒单</a></dd>
-              <dd><a href="<?php echo urlShop('member_appoint', 'list');?>">预约/到货通知</a></dd>
+              <dt><a href="<?php //echo urlShop('member_order', 'index');?>" style="color: #398EE8;">Orders</a></dt>
+              <dd><a href="<?php echo urlShop('member_order', 'index');?>">My Orders</a></dd>
+<!--              <dd><a href="--><?php //echo urlShop('member_vr_order', 'index');?><!--">虚拟兑码订单</a></dd>-->
+              <dd><a href="<?php echo urlShop('member_evaluate', 'list');?>">Reviews</a></dd>
+<!--              <dd><a href="--><?php //echo urlShop('member_appoint', 'list');?><!--">预约/到货通知</a></dd>-->
             </dl>
             <dl>
-              <dt><a href="<?php echo urlShop('member_favorite_goods', 'index')?>" style="color: #3AAC8A">收藏关注</a></dt>
-              <dd><a href="<?php echo urlShop('member_favorite_goods', 'index');?>">收藏的商品</a></dd>
-              <dd><a href="<?php echo urlShop('member_favorite_store', 'index')?>">收藏的店铺</a></dd>
-              <dd><a href="<?php echo urlShop('member_goodsbrowse', 'list');?>">浏览足迹</a></dd>
+              <dt><a href="<?php //echo urlShop('member_favorite_goods', 'index')?>" style="color: #3AAC8A">Follows</a></dt>
+              <dd><a href="<?php echo urlShop('member_favorite_goods', 'index');?>">Wishlist</a></dd>
+<!--              <dd><a href="--><?php //echo urlShop('member_favorite_store', 'index')?><!--">收藏的店铺</a></dd>-->
+              <dd><a href="<?php echo urlShop('member_goodsbrowse', 'list');?>">Footsteps</a></dd>
             </dl>
             <dl>
-              <dt><a href="<?php echo urlShop('member_refund', 'index')?>" style="color: #B68571">服务售后</a></dt>
-              <dd><a href="<?php echo urlShop('member_refund', 'index');?>">退款/退货</a></dd>
-              <dd><a href="<?php echo urlShop('member_complain', 'index')?>">交易投诉</a></dd>
-              <dd><a href="<?php echo urlShop('member_consult', 'my_consult');?>">商品咨询</a></dd>
-              <dd><a href="<?php echo urlShop('member_mallconsult', 'index');?>">平台客服</a></dd>
+              <dt><a href="<?php echo urlShop('member_refund', 'index')?>" style="color: #B68571">Services</a></dt>
+              <dd><a href="<?php echo urlShop('member_refund', 'index');?>">Refund/Return</a></dd>
+              <dd><a href="<?php echo urlShop('member_complain', 'index')?>">Complain</a></dd>
+              <dd><a href="<?php echo urlShop('member_consult', 'my_consult');?>">Inquiry</a></dd>
+              <dd><a href="<?php echo urlShop('member_mallconsult', 'index');?>">Support</a></dd>
             </dl>
           </div>
         </li>
-        <li><a href="<?php echo urlMember('member', 'home');?>" class="current">用户设置</a> </li>
-        <li><a href="<?php echo urlShop('member_snshome', 'index')?>">个人主页<i></i></a>
-          <div class="sub-menu">
-            <dl>
-              <dd><a href="<?php echo urlShop('member_snshome', 'index');?>">新鲜事</a></dd>
-              <dd><a href="<?php echo urlShop('sns_album', 'index');?>">个人相册</a></dd>
-              <dd><a href="<?php echo urlShop('member_snshome', 'shareglist');?>">分享商品</a></dd>
-              <dd><a href="<?php echo urlShop('member_snshome', 'storelist');?>">分享店铺</a></dd>
-            </dl>
-          </div>
-        </li>
-        <li><a href="javascript:;">其他应用<i></i></a>
-          <div class="sub-menu">
-            <dl>
-              <dd><a href="<?php echo urlCMS('member_article', 'article_list');?>">我的CMS</a></dd>
-              <dd><a href="<?php echo urlCircle('p_center', 'index');?>">我的圈子</a></dd>
-              <dd><a href="<?php echo urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id']));?>">我的微商城</a></dd>
-            </dl>
-          </div>
+        <li><a href="<?php echo urlMember('member', 'home');?>" class="current">User Setting</a> </li>
+<!--        <li><a href="--><?php //echo urlShop('member_snshome', 'index')?><!--">个人主页<i></i></a>-->
+<!--          <div class="sub-menu">-->
+<!--            <dl>-->
+<!--              <dd><a href="--><?php //echo urlShop('member_snshome', 'index');?><!--">新鲜事</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlShop('sns_album', 'index');?><!--">个人相册</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlShop('member_snshome', 'shareglist');?><!--">分享商品</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlShop('member_snshome', 'storelist');?><!--">分享店铺</a></dd>-->
+<!--            </dl>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li><a href="javascript:;">其他应用<i></i></a>-->
+<!--          <div class="sub-menu">-->
+<!--            <dl>-->
+<!--              <dd><a href="--><?php //echo urlCMS('member_article', 'article_list');?><!--">我的CMS</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlCircle('p_center', 'index');?><!--">我的圈子</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id']));?><!--">我的微商城</a></dd>-->
+<!--            </dl>-->
+<!--          </div>-->
         </li>
       </ul>
       <div class="notice">

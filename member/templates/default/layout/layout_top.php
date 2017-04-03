@@ -7,7 +7,7 @@
     <?php if ($_SESSION['is_login']) {?>
     <div class="user ta_delay" nctype="a-barUserInfo">
       <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
-      <p>我</p>
+      <p>Me</p>
     </div>
     <div class="user-info" nctype="barUserInfo" style="display:none;"><i class="arrow"></i>
       <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/>
@@ -15,29 +15,29 @@
       </div>
       <dl>
         <dt>Hi, <a href="<?php echo urlShop('member','home');?>"><?php echo $_SESSION['member_name'];?></a></dt>
-        <dd>当前等级：<strong nctype="barMemberGrade"><?php echo $output['member_info']['level_name'];?></strong></dd>
-        <dd>当前经验值：<strong nctype="barMemberExp"><?php echo $output['member_info']['member_exppoints'];?></strong></dd>
+        <dd>My Rank: <strong nctype="barMemberGrade"><?php echo $output['member_info']['level_name'];?></strong></dd>
+        <dd>Experience: <strong nctype="barMemberExp"><?php echo $output['member_info']['member_exppoints'];?></strong></dd>
       </dl>
     </div>
     <?php } else {?>
     <div class="user ta_delay" nctype="a-barLoginBox">
       <div class="avatar"><img src="<?php echo getMemberAvatar($_SESSION['avatar']);?>"/></div>
-      <p>未登录</p>
+      <p>Not Yet Login</p>
     </div>
-    <div class="user-login-box" nctype="barLoginBox" style="display:none;"> <i class="arrow"></i> <a href="javascript:void(0);" class="close-a" nctype="close-barLoginBox" title="关闭">X</a>
+    <div class="user-login-box" nctype="barLoginBox" style="display:none;"> <i class="arrow"></i> <a href="javascript:void(0);" class="close-a" nctype="close-barLoginBox" title="Close">X</a>
       <form id="login_form" method="post" action="<?php echo urlLogin('login', 'login');?>" onsubmit="ajaxpost('login_form', '', '', 'onerror')">
         <?php Security::getToken();?>
         <input type="hidden" name="form_submit" value="ok" />
         <input name="nchash" type="hidden" value="<?php echo getNchash('login','index');?>" />
         <dl>
-          <dt><strong>登录账号</strong></dt>
+          <dt><strong>Login</strong></dt>
           <dd>
             <input type="text" class="text" tabindex="1" autocomplete="off"  name="user_name" autofocus >
             <label></label>
           </dd>
         </dl>
         <dl>
-          <dt><strong>登录密码</strong><a href="<?php echo urlLogin('login', 'forget_password');?>" target="_blank">忘记登录密码？</a></dt>
+          <dt><strong>Login Password</strong><a href="<?php echo urlLogin('login', 'forget_password');?>" target="_blank">Forgot Password?</a></dt>
           <dd>
             <input tabindex="2" type="password" class="text" name="password" autocomplete="off">
             <label></label>
@@ -45,7 +45,7 @@
         </dl>
         <?php if(C('captcha_status_login') == '1') { ?>
         <dl>
-          <dt><strong>验证码</strong><a href="javascript:void(0)" class="ml5" onclick="javascript:document.getElementById('codeimage').src='<?php echo SHOP_SITE_URL?>/index.php?act=seccode&op=makecode&nchash=<?php echo getNchash('login','index');?>&t=' + Math.random();">更换验证码</a></dt>
+          <dt><strong>Captcha</strong><a href="javascript:void(0)" class="ml5" onclick="javascript:document.getElementById('codeimage').src='<?php echo SHOP_SITE_URL?>/index.php?act=seccode&op=makecode&nchash=<?php echo getNchash('login','index');?>&t=' + Math.random();">Refresh</a></dt>
           <dd>
             <input tabindex="3" type="text" name="captcha" autocomplete="off" class="text w130" id="captcha2" maxlength="4" size="10" />
             <img src="" name="codeimage" border="0" id="codeimage" class="vt">
@@ -56,17 +56,17 @@
             <div class="bottom">
               <input type="submit" class="submit" value="确认">
               <input type="hidden" value="" name="ref_url">
-              <a href="<?php echo urlLogin('login', 'register', array('ref_url' => $_GET['ref_url']));?>" target="_blank">注册新用户</a>
+              <a href="<?php echo urlLogin('login', 'register', array('ref_url' => $_GET['ref_url']));?>" target="_blank">Register</a>
               <?php if (C('qq_isuse') == 1 || C('sina_isuse') == 1 || C('weixin_isuse') == 1){?>
               <h4><?php echo $lang['nc_otherlogintip'];?></h4>
               <?php if (C('weixin_isuse') == 1){?>
-              <a href="javascript:void(0);" onclick="ajax_form('weixin_form', '微信账号登录', '<?php echo urlLogin('connect_wx', 'index');?>', 360);" title="微信账号登录" class="mr20">微信</a>
+              <a href="javascript:void(0);" onclick="ajax_form('weixin_form', 'Wechat Login', '<?php echo urlLogin('connect_wx', 'index');?>', 360);" title="Wechat Login" class="mr20">Wechat</a>
               <?php } ?>
               <?php if (C('sina_isuse') == 1){?>
-              <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_sina" title="新浪微博账号登录" class="mr20">新浪微博</a>
+              <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_sina" title="Weibo Login" class="mr20">Sina Weibo</a>
               <?php } ?>
               <?php if (C('qq_isuse') == 1){?>
-              <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_qq" title="QQ账号登录" class="mr20">QQ账号</a>
+              <a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=connect_qq" title="QQ Login" class="mr20">QQ</a>
               <?php } ?>
               <?php } ?>
           </div>
@@ -75,28 +75,28 @@
     <?php }?>
     <ul class="tools">
     <?php if(C('node_chat')){ ?>
-      <li><a href="javascript:void(0);" id="chat_show_user" class="chat ta_delay"><div class="tools_img"></div><span>聊天</span><i id="new_msg" class="new_msg" style="display:none;"></i></a></li>
+      <li><a href="javascript:void(0);" id="chat_show_user" class="chat ta_delay"><div class="tools_img"></div><span>Chat</span><i id="new_msg" class="new_msg" style="display:none;"></i></a></li>
         <?php } else {?>
-         <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $output['setting_config']['site_qq']; ?>&amp;site=qq&amp;menu=yes" id="chat_show_user" class="chat ta_delay"><div class="tools_img"></div><span>QQ客服</span><i id="new_msg" class="new_msg" style="display:none;"></i></a></li>
+         <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $output['setting_config']['site_qq']; ?>&amp;site=qq&amp;menu=yes" id="chat_show_user" class="chat ta_delay"><div class="tools_img"></div><span>QQ Support</span><i id="new_msg" class="new_msg" style="display:none;"></i></a></li>
      <?php } ?>
       <?php if (!$output['hidden_rtoolbar_cart']) { ?>
-      <li><a href="javascript:void(0);" id="rtoolbar_cart" class="cart ta_delay"><div class="tools_img"></div><span>购物车</span><i id="rtoobar_cart_count" class="new_msg" style="display:none;"></i></a></li>
+      <li><a href="javascript:void(0);" id="rtoolbar_cart" class="cart ta_delay"><div class="tools_img"></div><span>Cart</span><i id="rtoobar_cart_count" class="new_msg" style="display:none;"></i></a></li>
       <?php } ?>
       <?php if (!$output['hidden_rtoolbar_compare']) { ?>
-      <li><a href="javascript:void(0);" id="compare" class="compare ta_delay"><div class="tools_img"></div><span>对比</span></a></li>
+      <li><a href="javascript:void(0);" id="compare" class="compare ta_delay"><div class="tools_img"></div><span>Compare</span></a></li>
       <?php } ?>
-      <li><a href="javascript:void(0);" id="gotop" class="gotop ta_delay"><div class="tools_img"></div><span>顶部</span></a></li>
+      <li><a href="javascript:void(0);" id="gotop" class="gotop ta_delay"><div class="tools_img"></div><span>Top</span></a></li>
     </ul>
     <div class="content-box" id="content-compare">
       <div class="top">
-        <h3>商品对比</h3>
-        <a href="javascript:void(0);" class="close" title="隐藏"></a></div>
+        <h3>Compare</h3>
+        <a href="javascript:void(0);" class="close" title="Hide"></a></div>
       <div id="comparelist"></div>
     </div>
     <div class="content-box" id="content-cart">
       <div class="top">
         <h3>My Cart</h3>
-        <a href="javascript:void(0);" class="close" title="隐藏"></a></div>
+        <a href="javascript:void(0);" class="close" title="Hide"></a></div>
       <div id="rtoolbar_cartlist"></div>
     </div>
     <a id="activator" href="javascript:void(0);" class="nc-appbar-hide"></a> </div>
@@ -116,7 +116,7 @@
 <?php if ($output['setting_config']['hao_top_banner_status']>0 && $output['index_sign'] == 'index' && $output['index_sign'] != '0'){ ?>
 <div style=" background:<?php echo $output['setting_config']['hao_top_banner_color']; ?>;">
   <div class="wrapper" id="top-banner" style="display: none;">
-      <a href="javascript:void(0);" class="close" title="关闭"></a>
+      <a href="javascript:void(0);" class="close" title="Close"></a>
       <a href="<?php echo $output['setting_config']['hao_top_banner_url']; ?>" title="<?php echo $output['setting_config']['hao_top_banner_name']; ?>"><img border="0" src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.$output['setting_config']['hao_top_banner_pic']; ?>" alt=""></a>
   </div>
 </div>
@@ -241,7 +241,7 @@
       <?php } ?>
       </span><span class="wr"><a href="<?php echo urlLogin('login','logout');?>"><?php echo $lang['nc_logout'];?></a></span>
       <?php }else{?>
-      <span class="wr"><a class="login" href="<?php echo urlMember('login');?>">请<?php echo $lang['nc_login'];?></a> <a href="<?php echo urlLogin('login','register');?>"><?php echo $lang['nc_register'];?></a></span>
+      <span class="wr"><a class="login" href="<?php echo urlMember('login');?>">Please<?php echo $lang['nc_login'];?></a> <a href="<?php echo urlLogin('login','register');?>"><?php echo $lang['nc_register'];?></a></span>
       <?php }?>
       <span><a href="<?php echo BASE_SITE_URL;?>/index.php?act=invite"><?php echo $lang['hao_invite'];?></a></span>
     </div>
