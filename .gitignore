@@ -15,5 +15,6 @@
 ./install_bak
 .idea/*
 ./.idea/*
+.idea/workspace.xml
 ./data/*
 ./install_bak/*
