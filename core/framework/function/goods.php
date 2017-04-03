@@ -231,7 +231,7 @@ function orderState($order_info) {
 function orderPaymentName($payment_code) {
     return str_replace(
             array('offline','online','ali_native','alipay','tenpay','chinabank','predeposit','wxpay','wx_jsapi','wx_saoma','chain'),
-            array('货到付款','在线付款','支付宝移动支付','支付宝','财付通','网银在线','站内余额支付','微信支付[客户端]','微信支付[jsapi]','微信支付[扫码]','门店支付'),
+            array('Cash On Delivery','Online Payment','支付宝移动支付','支付宝','财付通','网银在线','Balance','微信支付[客户端]','微信支付[jsapi]','微信支付[扫码]','Meetup'),
             $payment_code);
 }
 
