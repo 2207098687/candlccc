@@ -174,12 +174,12 @@ $(function(){
                 $keyword = '';
             }
 		?>
-          <input name="keyword" id="keyword" type="text" class="input-text" value="<?php echo $keyword;?>" maxlength="60" x-webkit-speech lang="zh-CN" onwebkitspeechchange="foo()" placeholder="<?php echo $keyword_name ? $keyword_name : '请输入您要搜索的商品关键字';?>" data-value="<?php echo rawurlencode($keyword_value);?>" x-webkit-grammar="builtin:search" autocomplete="off" />
+          <input name="keyword" id="keyword" type="text" class="input-text" value="<?php echo $keyword;?>" maxlength="60" x-webkit-speech lang="zh-CN" onwebkitspeechchange="foo()" placeholder="<?php echo $keyword_name ? $keyword_name : 'Input Product Keywords';?>" data-value="<?php echo rawurlencode($keyword_value);?>" x-webkit-grammar="builtin:search" autocomplete="off" />
           <input type="submit" id="button" value="<?php echo $lang['nc_common_search'];?>" class="input-submit">
         </form>
         <div class="search-tip" id="search-tip">
           <div class="search-history">
-            <div class="title">历史纪录<a href="javascript:void(0);" id="search-his-del">清除</a></div>
+            <div class="title">Hitory<a href="javascript:void(0);" id="search-his-del">Clear</a></div>
             <ul id="search-his-list">
               <?php if (is_array($output['his_search_list']) && !empty($output['his_search_list'])) { ?>
               <?php foreach($output['his_search_list'] as $v) { ?>
@@ -189,7 +189,7 @@ $(function(){
             </ul>
           </div>
           <div class="search-hot">
-            <div class="title">热门搜索...</div>
+            <div class="title">Top Search...</div>
             <ul>
               <?php if (is_array($output['rec_search_list']) && !empty($output['rec_search_list'])) { ?>
               <?php foreach($output['rec_search_list'] as $v) { ?>
@@ -211,15 +211,15 @@ $(function(){
     <div class="head-user-menu">
       <dl class="my-cart">
         <div class="addcart-goods-num"><?php echo $output['cart_goods_num'];?></div>
-        <dt><span class="ico"></span>我的购物车<i class="arrow"></i></dt>
+        <dt><span class="ico"></span>My Cart<i class="arrow"></i></dt>
         <dd>
           <div class="sub-title">
-            <h4>最新加入的商品</h4>
+            <h4>Added Items</h4>
           </div>
           <div class="incart-goods-box">
             <div class="incart-goods"> <img class="loading" src="<?php echo MEMBER_TEMPLATES_URL;?>/images/loading.gif" /> </div>
           </div>
-          <div class="checkout"> <span class="total-price">共<i><?php echo $output['cart_goods_num'];?></i><?php echo $lang['nc_kindof_goods'];?></span><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="btn-cart">结算购物车中的商品</a> </div>
+          <div class="checkout"> <span class="total-price">Totally<i><?php echo $output['cart_goods_num'];?></i><?php echo $lang['nc_kindof_goods'];?></span><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="btn-cart">Checkout All</a> </div>
         </dd>
       </dl>
     </div>
@@ -238,17 +238,17 @@ $(function(){
       <?php if (C('groupbuy_allow')){ ?>
       <li><a href="<?php echo urlShop('show_groupbuy', 'index');?>" <?php if($output['index_sign'] == 'groupbuy' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_groupbuy'];?></a></li>
       <?php } ?>
-      <li><a href="<?php echo urlShop('brand', 'index');?>" <?php if($output['index_sign'] == 'brand' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_brand'];?></a></li>
-	<li><a href="<?php echo urlShop('promotion','index');?>" <?php if($output['index_sign'] == 'promotion' && $output['index_sign'] != '0') {echo 'class="current"';} ?>>疯抢</a></li>
+<!--      <li><a href="--><?php //echo urlShop('brand', 'index');?><!--" --><?php //if($output['index_sign'] == 'brand' && $output['index_sign'] != '0') {echo 'class="current"';} ?><!-- > --><?php //echo $lang['nc_brand'];?><!--</a></li>-->
+	<li><a href="<?php echo urlShop('promotion','index');?>" <?php if($output['index_sign'] == 'promotion' && $output['index_sign'] != '0') {echo 'class="current"';} ?>>Flash Sale</a></li>
       <?php if (C('points_isuse') && C('pointshop_isuse')){ ?>
       <li><a href="<?php echo urlShop('pointshop', 'index');?>" <?php if($output['index_sign'] == 'pointshop' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> <?php echo $lang['nc_pointprod'];?></a></li>
       <?php } ?>
       <?php if (C('cms_isuse')){ ?>
-      <li><a href="<?php echo urlShop('special', 'special_list');?>" <?php if($output['index_sign'] == 'special' && $output['index_sign'] != '0') {echo 'class="current"';} ?>> 专题</a></li>
+<!--      <li><a href="--><?php //echo urlShop('special', 'special_list');?><!--" --><?php //if($output['index_sign'] == 'special' && $output['index_sign'] != '0') {echo 'class="current"';} ?><!--Topics</a></li>-->
       <?php } ?>
  <?php if(!empty($output['nav_list']) && is_array($output['nav_list'])){?>
-      <?php foreach($output['nav_list'] as $nav){?>
-      <?php if($nav['nav_location'] == '1'){?>
+      <?php foreach($output['nav_list'] as $nav){ //下面判断只输出NEWS的导航 ?>
+      <?php if($nav['nav_location'] == '1' && $nav['nav_title']=='News'){?>
       <li><a
         <?php
         if($nav['nav_new_open']) {

@@ -1,10 +1,7 @@
 <?php
 /**
  * 用户中心
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 
 
@@ -153,7 +150,7 @@ public function uploadOp() {
                 showMessage($upload->error,'','html','error');
             }
         }else{
-            showMessage('上传失败，请尝试更换图片格式或小图片','','html','error');
+            showMessage('Upload Failed, Pls Change Image Type or Smaller Image','','html','error');
         }
         self::profile_menu('member','avatar');
         Tpl::output('menu_sign','profile');

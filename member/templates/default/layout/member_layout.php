@@ -56,7 +56,7 @@ $(function() {
 
         // 最多添加5个
         if (_operations.find('li').length >= 5 && _type == 'add') {
-            showError('最多只能添加5个常用选项。');
+            showError('Maximum of 5 Tabs');
             return false;
         }
         $.getJSON('<?php echo urlShop('member', 'common_operations')?>', {type : _type, value : _value}, function(data){
@@ -87,80 +87,74 @@ $(function() {
   <div class="ncm-header">
     <div class="ncm-header-top">
       <div class="ncm-member-info">
-        <div class="avatar"><a href="<?php echo urlMember('member_information', 'avatar');?>" title="修改头像"><img src="<?php echo getMemberAvatar($output['member_info']['member_avatar']);?>">
+        <div class="avatar"><a href="<?php echo urlMember('member_information', 'avatar');?>" title="Change Avatar"><img src="<?php echo getMemberAvatar($output['member_info']['member_avatar']);?>">
           <div class="frame"></div>
           </a>
           <?php if (intval($output['message_num']) > 0){ ?>
-          <a href="<?php echo MEMBER_SITE_URL?>index.php?act=member_message&op=message" class="new-message" title="新消息"><?php echo intval($output['message_num']); ?></a>
+          <a href="<?php echo MEMBER_SITE_URL?>index.php?act=member_message&op=message" class="new-message" title="New Message"><?php echo intval($output['message_num']); ?></a>
           <?php }?>
         </div>
         <dl>
-          <dt><a href="<?php echo urlMember('member_information', 'member');?>" title="修改资料"><?php echo $output['member_info']['member_name'];?></a></dt>
-          <dd>会员等级：
+          <dt><a href="<?php echo urlMember('member_information', 'member');?>" title="Update Profile"><?php echo $output['member_info']['member_name'];?></a></dt>
+          <dd>Rank:
             <?php if ($output['member_info']['level_name']){ ?>
-            <div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('<?php echo urlShop('pointgrade','index');?>');"><?php echo $output['member_info']['level_name'];?>会员</div>
+            <div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('<?php echo urlShop('pointgrade','index');?>');"><?php echo $output['member_info']['level_name'];?>Member</div>
             <?php } ?>
           </dd>
-          <dd>上次登录：<?php echo date('Y年m月d日 H:i:s',$output['member_info']['member_old_login_time']);?> </dd>
-          <dd>登录绑定：
-            <div class="user-account">
-              <ul>
-                <li id="qq"><a href="<?php echo urlMember('member_bind', 'qqbind');?>" title="登录绑定QQ账号" <?php if (!empty($output['member_info']['member_qqopenid'])){?>class="have"<?php }?>> <span class="icon"></span> </a> </li>
-                <li id="weichat"><a href="<?php echo urlMember('member_bind', 'weixinbind');?>" title="登录绑定微信账号" <?php if (!empty($output['member_info']['weixin_unionid'])){?>class="have"<?php }?>> <span class="icon"></span></a> </li>
-                <li id="weibo"><a href="<?php echo urlMember('member_bind', 'sinabind');?>" title="登录绑定微博账号" <?php if (!empty($output['member_info']['member_sinaopenid'])){?>class="have"<?php }?>> <span class="icon"></span></a> </li>
-              </ul>
-            </div>
-          </dd>
+          <dd>Last Login：<?php echo date('Y-m-d H:i:s',$output['member_info']['member_old_login_time']);?> </dd>
         </dl>
       </div>
       <div class="ncm-set-menu">
         <dl class="zhaq">
-          <dt>账户安全</dt>
+          <dt>Account Security</dt>
           <dd>
             <ul>
               <li><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_pwd'));?>"><span class="zhaq01"></span><sub></sub>
-                <h5>修改密码</h5>
+                <h5>Change Password</h5>
                 </a> </li>
               <li <?php if($output['member_info']['member_email_bind'] == '1') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_email'));?>"><span class="zhaq02"></span><sub></sub>
-                <h5>邮箱绑定</h5>
+                <h5>Bind Email</h5>
                 </a> </li>
-              <li <?php if($output['member_info']['member_mobile_bind'] == '1') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>"><span class="zhaq03"></span><sub></sub>
-                <h5>手机绑定</h5>
+              <li <?php if($output['member_info']['member_mobile_bind'] == '1') {?>class="have"<?php }?>><a href="<?php //echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">
+<!--                      <span class="zhaq03"></span><sub></sub>-->
+<!--                <h5>手机绑定</h5>-->
                 </a> </li>
-              <li <?php if($output['member_info']['member_paypwd'] != '') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>"><span class="zhaq04"></span><sub></sub>
-                <h5>支付密码</h5>
+              <li <?php if($output['member_info']['member_paypwd'] != '') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>">
+<!--                      <span class="zhaq04"></span><sub></sub>-->
+<!--                <h5>支付密码</h5>-->
                 </a> </li>
             </ul>
           </dd>
         </dl>
         <dl class="zhcc">
-          <dt>账户财产</dt>
+          <dt>Account Asset</dt>
           <dd>
             <ul>
-              <li><a href="<?php echo urlMember('predeposit', 'recharge_add');?>"> <span class="zhcc01"></span>
-                <h5>在线充值</h5>
+              <li><a href="<?php echo urlMember('predeposit', 'recharge_add');?>">
+<!--                      <span class="zhcc01"></span>-->
+<!--                <h5>在线充值</h5>-->
                 </a> </li>
-              <li><a href="<?php echo urlMember('predeposit', 'rechargecard_add');?>"> <span class="zhcc02"></span>
-                <h5>充值卡充值</h5>
+<!--              <li><a href="--><?php //echo urlMember('predeposit', 'rechargecard_add');?><!--"> <span class="zhcc02"></span>-->
+<!--                <h5>充值卡充值</h5>-->
                 </a> </li>
               <li><a href="<?php echo urlMember('member_voucher', 'voucher_binding')?>"><span class="zhcc03"></span>
-                <h5>领取代金券</h5>
+                <h5>My Coupon</h5>
                 </a> </li>
               <li><a href="<?php echo urlMember('member_redpacket', 'rp_binding');?>"> <span class="zhcc04"></span>
-                <h5>领取红包</h5>
+                <h5>My Voucher</h5>
                 </a> </li>
             </ul>
           </dd>
         </dl>
         <dl class="xgsz">
-          <dt>相关设置</dt>
+          <dt>Other Settings</dt>
           <dd>
             <ul class="trade-function-03">
               <li><a href="<?php echo urlMember('member_address', 'address');?>"><span class="xgsz01"></span>
-                <h5>收货地址</h5>
+                <h5>Shipping Address</h5>
                 </a> </li>
               <li><a href="<?php echo urlMember('member_message', 'setting');?>"><span class="xgsz02"></span>
-                <h5>消息接收</h5>
+                <h5>Message Notification</h5>
                 </a> </li>
               
             </ul>

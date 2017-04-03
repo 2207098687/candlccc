@@ -22,7 +22,7 @@
           <div class="ncm-upload-btn"> <a href="javascript:void(0);"><span>
             <input type="file" hidefocus="true" size="1" class="input-file" name="pic" id="pic" file_id="0" multiple="" maxlength="0"/>
             </span>
-            <p><i class="icon-upload-alt"></i>图片上传</p>
+            <p><i class="icon-upload-alt"></i>Upload</p>
             <input id="submit_button" style="display:none" type="button" value="&nbsp;" onClick="submit_form($(this))" />
             </a> </div>
         </dd>
@@ -97,7 +97,7 @@ $(function(){
 		var w = $('#w').val();
 		var h = $('#h').val();
 		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-			alert("您必须先选定一个区域");
+			alert("You have to select an area");
 			return false;
 		}else{
 			$('#form_cut').submit();
@@ -109,7 +109,7 @@ $(function(){
 		var extStart=filepath.lastIndexOf(".");
 		var ext=filepath.substring(extStart,filepath.length).toUpperCase();
 		if(ext!=".PNG"&&ext!=".GIF"&&ext!=".JPG"&&ext!=".JPEG"){
-			alert("文件类型错误，请选择图片文件（png|gif|jpg|jpeg）");
+			alert("Wrong Type, Pls Use One of（png|gif|jpg|jpeg）");
 			$(this).attr('value','');
 			return false;
 		}
