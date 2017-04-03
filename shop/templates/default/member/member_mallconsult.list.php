@@ -3,15 +3,15 @@
 <div class="wrap">
   <div class="tabmenu">
     <?php include template('layout/submenu');?>
-    <a class="ncbtn ncbtn-bittersweet" href="<?php echo urlShop('member_mallconsult', 'add_mallconsult');?>"><i class="icon-comments-alt"></i>平台客服</a></div>
+    <a class="ncbtn ncbtn-bittersweet" href="<?php echo urlShop('member_mallconsult', 'add_mallconsult');?>"><i class="icon-comments-alt"></i>Customer Support</a></div>
   <table class="ncm-default-table">
     <thead>
       <tr>
         <th class="w10"></th>
-        <th class="tl">咨询内容</th>
-        <th class="w150">咨询时间</th>
-        <th class="w150">状态</th>
-        <th class="w110">操作</th>
+        <th class="tl">Content</th>
+        <th class="w150">Time</th>
+        <th class="w150">Status</th>
+        <th class="w110">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +23,8 @@
         <td><?php echo date('Y-m-d H:i:s', $val['mc_addtime']);?></td>
         <td class=""><?php echo $output['state'][$val['is_reply']];?></td>
         <td class="ncm-table-handle">
-          <span><a href="<?php echo urlShop('member_mallconsult', 'mallconsult_info', array('id' => $val['mc_id']));?>" class="btn-bluejeans"><i class="icon-eye-open"></i><p>查看</p></a></span>
-          <span><a href="javascript:void(0);" onclick="ajax_get_confirm('<?php echo $lang['nc_common_op_confirm'];?>', '<?php echo urlShop('member_mallconsult', 'del_mallconsult', array('id' => $val['mc_id']));?>');" class="btn-bluejeans"><i class="icon-trash"></i><p>删除</p></a></span>
+          <span><a href="<?php echo urlShop('member_mallconsult', 'mallconsult_info', array('id' => $val['mc_id']));?>" class="btn-bluejeans"><i class="icon-eye-open"></i><p>Detail</p></a></span>
+          <span><a href="javascript:void(0);" onclick="ajax_get_confirm('<?php echo $lang['nc_common_op_confirm'];?>', '<?php echo urlShop('member_mallconsult', 'del_mallconsult', array('id' => $val['mc_id']));?>');" class="btn-bluejeans"><i class="icon-trash"></i><p>Delete</p></a></span>
         </td>
       </tr>
       <?php } ?>

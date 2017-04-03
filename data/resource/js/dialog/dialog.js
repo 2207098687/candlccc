@@ -272,7 +272,7 @@ Dialog.prototype = {
                     self.setPosition(self.lastPos);
                 });
                 /* 先提示正在加载 */
-                _html = this.createContents('loading', { 'text': '正在处理...' });
+                _html = this.createContents('loading', { 'text': 'Processing...' });
                 break;            
             /* 以下是内置的几种对话框类型 */
             case 'loading':
@@ -291,7 +291,7 @@ Dialog.prototype = {
                 switch (type){
                     case 'notice':
                     case 'warning':
-                        var button_name = '确定';
+                        var button_name = 'Ok';
                         if (options.button_name)
                         {
                             button_name = options.button_name;
@@ -310,8 +310,8 @@ Dialog.prototype = {
                         $(_buttons_bar).append(_ok_button);
                     break;
                     case 'confirm':
-                        var yes_button_name = "确定";
-                        var no_button_name = "取消";
+                        var yes_button_name = "Ok";
+                        var no_button_name = "No";
                         if (options.yes_button_name)
                         {
                             yes_button_name = options.yes_button_name;
@@ -617,7 +617,7 @@ function Ajax(recvType, waitId) {
 				aj.resultHandle(aj.XMLHttpRequest.responseText, aj);
 			} else if(aj.recvType == 'XML') {
 				if(!aj.XMLHttpRequest.responseXML || !aj.XMLHttpRequest.responseXML.lastChild || aj.XMLHttpRequest.responseXML.lastChild.localName == 'parsererror') {
-					aj.resultHandle('<a href="' + aj.targetUrl + '" target="_blank" style="color:red">内部错误，无法显示此内容</a>' , aj);
+					aj.resultHandle('<a href="' + aj.targetUrl + '" target="_blank" style="color:red">Internal Error.</a>' , aj);
 				} else {
 					aj.resultHandle(aj.XMLHttpRequest.responseXML.lastChild.firstChild.nodeValue, aj);
 				}
@@ -828,7 +828,7 @@ function ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
 				try {
 					s = $$(ajaxframeid).contentWindow.document.documentElement.firstChild.nodeValue;
 				} catch(e) {
-					s = '内部错误，无法显示此内容';
+					s = 'Internal Error.';
 				}
 			}
 		}
@@ -915,7 +915,7 @@ function stringxor(s1, s2) {
 
 function showloading(display, waiting) {
 	var display = display ? display : 'block';
-	var waiting = waiting ? waiting : '请稍候...';
+	var waiting = waiting ? waiting : 'Pls Wait...';
 	$$('ajaxwaitid').innerHTML = waiting;
 	$$('ajaxwaitid').style.display = display;
 }
@@ -1407,7 +1407,7 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 	var menuid = 'fwin_dialog';
 	var menuObj = $$(menuid);
 	var showconfirm = 1;
-	confirmtxtdefault = '确定';
+	confirmtxtdefault = 'Confirm';
 	closetime = isUndefined(closetime) ? '' : closetime;
 	closefunc = function () {
 		if(typeof func == 'function') func();
@@ -1415,18 +1415,18 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		hideMenu(menuid, 'dialog');
 	};
 	if(closetime) {
-		leftmsg = closetime + ' 秒后窗口关闭';
+		leftmsg = closetime + ' Seconds to Close';
 		showDialogST = setTimeout(closefunc, closetime * 1000);
 		showconfirm = 0;
 	}
 	locationtime = isUndefined(locationtime) ? '' : locationtime;
 	if(locationtime) {
-		leftmsg = locationtime + ' 秒后页面跳转';
+		leftmsg = locationtime + ' Seconds to Redirect';
 		showDialogST = setTimeout(closefunc, locationtime * 1000);
 		showconfirm = 0;
 	}
 	confirmtxt = confirmtxt ? confirmtxt : confirmtxtdefault;
-	canceltxt = canceltxt ? canceltxt : '取消';
+	canceltxt = canceltxt ? canceltxt : 'Cancel';
 
 	if(menuObj) hideMenu('fwin_dialog', 'dialog');
 	menuObj = document.createElement('div');
@@ -1439,7 +1439,7 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		hidedom = '<style type="text/css">object{visibility:hidden;}</style>';
 	}
 	var s = hidedom + '<h3 class="dialog_head"><span class="dialog_title">';
-	s += t ? t : '<span class="dialog_title_icon">提示信息</span>';
+	s += t ? t : '<span class="dialog_title_icon">Notice</span>';
 	s += '</span><span class="dialog_close_button" id="fwin_dialog_close" onclick="hideMenu(\'' + menuid + '\', \'dialog\')" title="关闭">X</span></h3>';
 	if(mode == 'info') {
 		s += msg ? msg : '';
@@ -1474,7 +1474,7 @@ function showSucc(msg) {
 	var p = /<script[^\>]*?>([^\x00]*?)<\/script>/ig;
 	msg = msg.replace(p, '');
 	if(msg !== '') {
-		showDialog(msg, 'succ', '提示信息', null, true, null, '', '', '', 3);
+		showDialog(msg, 'succ', 'Notice', null, true, null, '', '', '', 3);
 	}
 }
 
@@ -1482,7 +1482,7 @@ function showError(msg) {
 	var p = /<script[^\>]*?>([^\x00]*?)<\/script>/ig;
 	msg = msg.replace(p, '');
 	if(msg !== '') {
-		showDialog(msg, 'alert', '错误信息', null, true, null, '', '', '', 3);
+		showDialog(msg, 'alert', 'Error info', null, true, null, '', '', '', 3);
 	}
 }
 

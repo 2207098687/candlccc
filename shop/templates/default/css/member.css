@@ -38,7 +38,7 @@ a.goods-favorite:hover {background-color:#F5F5F5; border: 1px #CCC solid; paddin
 
 /*表格操作按钮*/
 .ncm-table-handle { font-size: 0; word-spacing:-1em;}
-.ncm-table-handle span { vertical-align: middle; letter-spacing: normal; word-spacing: normal; text-align: center; display: inline-block; padding: 0 4px; border-left: solid 1px #E6E6E6;}
+.ncm-table-handle span { vertical-align: middle; letter-spacing: normal; word-spacing: normal; text-align: center; display: inline-block; padding: 0 0px; border-left: solid 1px #E6E6E6;}
 .ncm-table-handle span { *display: inline/*IE6,7*/;}
 .ncm-table-handle span:first-child { border-left: none 0;}
 .ncm-table-handle span a { color: #777; background-color: #FFF; display: block; padding: 3px 7px; margin: 1px;}

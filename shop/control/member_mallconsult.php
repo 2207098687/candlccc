@@ -82,8 +82,8 @@ class member_mallconsultControl extends BaseMemberControl {
         //验证表单信息
         $obj_validate = new Validate();
         $obj_validate->validateparam = array(
-            array("input"=>$_POST["type_id"],"require"=>"true","validator"=>"Number","message"=>"请选择咨询类型"),
-            array("input"=>$_POST["consult_content"],"require"=>"true","message"=>"请填写咨询内容")
+            array("input"=>$_POST["type_id"],"require"=>"true","validator"=>"Number","message"=>"Pls Select Type"),
+            array("input"=>$_POST["consult_content"],"require"=>"true","message"=>"Pls Fill Content")
         );
         $error = $obj_validate->validate();
         if ($error != ''){
@@ -125,7 +125,7 @@ class member_mallconsultControl extends BaseMemberControl {
      * 咨询的回复状态
      */
     private function typeState() {
-        $state = array('0'=>'未回复', '1'=>'已回复');
+        $state = array('0'=>'No Replied', '1'=>'Replied');
         Tpl::output('state', $state);
     }
 
@@ -137,7 +137,7 @@ class member_mallconsultControl extends BaseMemberControl {
      */
     private function profile_menu($menu_key='') {
         $menu_array = array(
-            1=>array('menu_key'=>'consult_list', 'menu_name'=>'平台客服咨询列表', 'menu_url'=>urlShop('member_mallconsult', 'index')),
+            1=>array('menu_key'=>'consult_list', 'menu_name'=>'Inquiry List', 'menu_url'=>urlShop('member_mallconsult', 'index')),
         );
         Tpl::output('member_menu',$menu_array);
         Tpl::output('menu_key',$menu_key);
