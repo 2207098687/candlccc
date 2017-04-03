@@ -2,23 +2,23 @@
 
 <div class="ncm-flow-layout">
   <div class="ncm-flow-container">
-    <div class="title"><a href="javascript:history.go(-1);" class="ncbtn-mini fr"><i class="icon-reply"></i>返&nbsp;回</a>
+    <div class="title"><a href="javascript:history.go(-1);" class="ncbtn-mini fr"><i class="icon-reply"></i>Back</a>
       <h3><?php echo $lang['member_evaluation_toevaluategoods'];?></h3>
     </div>
     <form id="evalform" method="post" action="index.php?act=member_evaluate&op=add_again&order_id=<?php echo $_GET['order_id'];?>">
       <input type="hidden" name="form_submit" value="ok" />
       <div class="alert alert-block">
-        <h4>操作提示：</h4>
+        <h4>Tips: </h4>
         <ul>
           <li><?php echo $lang['member_evaluation_rule_3'];?></li>
           <li><?php echo $output['ruleexplain'];?></li>
           <li><?php echo $lang['member_evaluation_rule_4'];?></li>
-          <li>图片上传请使用jpg\jpeg\png等格式、单张大小不超过1M的图片，最多可发布5张晒图，上传后的图片也将被保存在个人主页相册中以便其它使用。</li>
+          <li>Please Use jpg\jpeg\png Formats Image; Single Image Should Not Exceed 1M, Maximum of 5 Pics.</li>
         </ul>
       </div>
       <div class="tabmenu">
         <ul class="tab">
-          <li class="active"><a href="javascript:void(0);">对购买过的商品追加评价</a></li>
+          <li class="active"><a href="javascript:void(0);">Additional Review</a></li>
         </ul>
       </div>
       <table class="ncm-default-table mb30">       
@@ -33,15 +33,15 @@
               </dl></td>
             
             <td valign="top" class="tl">
-              <div class="first-time"><strong>初次评价：</strong><?php echo $goods['geval_content']?></div>
-              <textarea name="goods[<?php echo $goods['geval_id'];?>][comment]" cols="150" class="w450 mt10 mb10 h40" placeholder="请输入追加评价的内容，不要超过150个字符。"></textarea>
+              <div class="first-time"><strong>First Review: </strong><?php echo $goods['geval_content']?></div>
+              <textarea name="goods[<?php echo $goods['geval_id'];?>][comment]" cols="150" class="w450 mt10 mb10 h40" placeholder="Pls Fill up with Review Comments within 150 Words."></textarea>
               <div class="show-pic">
                 <div class="ncm-upload-btn fl">
                   <a href="javascript:void(0);">
                     <span><input type="file" hidefocus="true" size="1" class="input-file" name="file" id="file<?php echo $goods['geval_id'];?>" multiple></span>
-                    <p><i class="icon-camera" data_type="0"></i>追加晒图</p>
+                    <p><i class="icon-camera" data_type="0"></i>Images</p>
                   </a>
-                </div><div class="ml5 mt5 fl">限5张</div>
+                </div><div class="ml5 mt5 fl">Allowed 5 Images</div>
                 <div class="evaluation-image"><ul nctype="ul_evaluate_image<?php echo $goods['geval_id'];?>" data-count='0'></ul></div>
                </div>
             </td>
@@ -94,7 +94,7 @@ $(function(){
                 $('<li>' +
                         '<div class="upload-thumb" nctype="image_item">' +
                         '<img src="' + data.result.file_url + '"><input type="hidden" nctype="input_image" name="goods[<?php echo $goods['geval_id'];?>][evaluate_image][]" value=" ' + data.result.file_name + ' " >' +
-                        '<a href="javascript:;" nctype="del" data-file-id="' + data.result.file_id + '" class="del" title="移除">X</a>' +
+                        '<a href="javascript:;" nctype="del" data-file-id="' + data.result.file_id + '" class="del" title="Remove">X</a>' +
                         '</div></li>').appendTo('ul[nctype="ul_evaluate_image<?php echo $goods['geval_id'];?>"]');
             } else {
                 showError(data.result.message);

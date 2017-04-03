@@ -42,12 +42,12 @@ class member_evaluateControl extends BaseMemberControl{
             $exppoints_rule['exp_comments'] = intval($exppoints_rule['exp_comments']);
             $points_comments = intval(C('points_comments'));
             if ($exppoints_rule['exp_comments'] > 0 || $points_comments > 0){
-                $ruleexplain .= '评价完成将获得';
+                $ruleexplain .= 'You will earn';
                 if ($exppoints_rule['exp_comments'] > 0){
-                    $ruleexplain .= (' “'.$exppoints_rule['exp_comments'].'经验值”');
+                    $ruleexplain .= (' “'.$exppoints_rule['exp_comments'].'Experience Point”');
                 }
                 if ($points_comments > 0){
-                    $ruleexplain .= (' “'.$points_comments.'积分”');
+                    $ruleexplain .= (' “'.$points_comments.'Points”');
                 }
                 $ruleexplain .= '。';
             }

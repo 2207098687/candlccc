@@ -60,7 +60,7 @@ $lang['member_evaluation_decrease1']				= '-1 Point';
 $lang['member_evaluation_attention']				= 'Note';//注意
 $lang['member_evaluation_rule_1']					= 'For A Order Contains Multiple Products, You May Review Each Product. For SELLER DYNAMIC RATING, Only Allowed One Time Per Order.';//'同一订单多件商品成交时，您可以对商品进行逐一评价/评述，针对卖方店铺的“动态评分”只能评价一次。';
 $lang['member_evaluation_rule_2']					= 'Default Rating is GOOD. If You Select FAIR or POOR,<span class="orange">Within 48 Hours after Mutual Review</span>, You have 1 More Chance to Modify.';//'默认评价为“好评”，如您选择了中评或差评，在<span class="orange">双方互评后48小时内</span>有一次修改评价的机会。';
-$lang['member_evaluation_rule_3']					= 'Review Should Be Not More Than 250 Words. Please, Review Objectively and Fairly, as Your Review Serves as Reference for Other Customers. ';//'评价信息最多填写250字，请您根据本次交易，给予真实、客观地评价；您的评价将是其他会员的参考。';
+$lang['member_evaluation_rule_3']					= 'Review Should Be Not More Than 150 Words. Please, Review Objectively and Fairly, as Your Review Serves as Reference for Other Customers. ';//'评价信息最多填写250字，请您根据本次交易，给予真实、客观地评价；您的评价将是其他会员的参考。';
 $lang['member_evaluation_rule_4']					= 'Store Dynamic Rating by Default Is 5 Point, You Can Give Your Rating.<span class="orange">Not Allowed to Change Afterwards.</span>';//'店铺动态评分默认为“5分”，您可以根据本次交易情况给予商家评分，<span class="orange"> 一旦提交后不能修改。</span>';
 
 $lang['member_evaluation_submit']					= 'Submit';//'提交';

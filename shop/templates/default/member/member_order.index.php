@@ -217,7 +217,7 @@
           <!-- 追加评价 -->
           
           <?php if ($order_info['if_evaluation_again']) { ?>
-          <p><a class="ncbtn" href="index.php?act=member_evaluate&op=add_again&order_id=<?php echo $order_info['order_id']; ?>"><i class="icon-thumbs-up-alt"></i>Makeup Review</a></p>
+          <p><a class="ncbtn" href="index.php?act=member_evaluate&op=add_again&order_id=<?php echo $order_info['order_id']; ?>"><i class="icon-thumbs-up-alt"></i>Additional Review</a></p>
           <?php } ?>
           <?php if ($order_info['if_drop']) { ?>
           <p><a href="javascript:void(0);" onclick="ajax_get_confirm('Delete Forever? You will be not able to restore once delete permanently.', 'index.php?act=member_order&op=change_state&state_type=order_drop&order_id=<?php echo $order_info['order_id']; ?>');" class="ncbtn ncbtn-grapefruit mt5"><i class="icon-trash"></i>Delete Permanently</a></p>
