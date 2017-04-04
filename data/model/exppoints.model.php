@@ -1,10 +1,7 @@
 <?php
 /**
  * 经验值及经验值日志管理
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 
@@ -26,7 +23,7 @@ class exppointsModel extends Model{
         switch ($stage){
             case 'login':
                 if (!$insertarr['exp_desc']){
-                    $insertarr['exp_desc'] = '会员登录';
+                    $insertarr['exp_desc'] = 'Login';
                 }
                 $insertarr['exp_points'] = 0;
                 if (intval($exppoints_rule['exp_login']) > 0){
@@ -35,7 +32,7 @@ class exppointsModel extends Model{
                 break;
             case 'comments':
                 if (!$insertarr['exp_desc']){
-                    $insertarr['exp_desc'] = '评论商品';
+                    $insertarr['exp_desc'] = 'Review Product';
                 }
                 $insertarr['exp_points'] = 0;
                 if (intval($exppoints_rule['exp_comments']) > 0){
@@ -44,7 +41,7 @@ class exppointsModel extends Model{
                 break;
             case 'order':
                 if (!$insertarr['exp_desc']){
-                    $insertarr['exp_desc'] = '订单'.$insertarr['order_sn'].'购物消费';
+                    $insertarr['exp_desc'] = 'Order'.$insertarr['order_sn'].'Purchase';
                 }
                 $insertarr['exp_points'] = 0;
                 $exppoints_rule['exp_orderrate'] = floatval($exppoints_rule['exp_orderrate']);
@@ -130,9 +127,9 @@ class exppointsModel extends Model{
       */
     public function getStage(){
         $stage_arr = array();
-        $stage_arr['login'] = '会员登录';
-        $stage_arr['comments'] = '商品评论';
-        $stage_arr['order'] = '订单消费';
+        $stage_arr['login'] = 'Login';
+        $stage_arr['comments'] = 'Review';
+        $stage_arr['order'] = 'Order';
         return $stage_arr;
     }
 }

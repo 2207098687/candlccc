@@ -12,7 +12,7 @@
         <th class="w100"><?php echo $lang['member_pointorder_exchangepoints'];?></th>
         <th class="w40"><?php echo $lang['member_pointorder_exnum'];?></th>
         <th class="w150"><?php echo $lang['member_pointorder_exchangepoints_shippingfee'];?></th>
-        <th class="w100">交易状态</th>
+        <th class="w100">Status</th>
         <th class="w100"><?php echo $lang['member_pointorder_orderstate_handle'];?></th>
       </tr>
     </thead>

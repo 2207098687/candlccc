@@ -1,10 +1,7 @@
 <?php
 /**
  * 红包
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 
 
@@ -18,7 +15,7 @@ class member_redpacketControl extends BaseMemberControl{
         Language::read('member_layout');
         //判断系统是否开启红包功能
         if (C('redpacket_allow') != 1){
-            showDialog('系统未开启红包功能',urlShop('member', 'home'),'error');
+            showDialog('Gift Voucher Function Not Exists',urlShop('member', 'home'),'error');
         }
         $model_redpacket = Model('redpacket');
         $this->redpacket_state_arr = $model_redpacket->getRedpacketState();
@@ -59,7 +56,7 @@ class member_redpacketControl extends BaseMemberControl{
         if(chksubmit(false,true)){
             $obj_validate = new Validate();
             $obj_validate->validateparam = array(
-                array("input" => $_POST["pwd_code"],"require" => "true","message" => '请输入红包卡密'),
+                array("input" => $_POST["pwd_code"],"require" => "true","message" => 'Input Voucher Code'),
             );
             $error = $obj_validate->validate();
             if ($error != '')
@@ -72,10 +69,10 @@ class member_redpacketControl extends BaseMemberControl{
             $where['rpacket_pwd'] = md5($_POST["pwd_code"]);
             $redpacket_info = $model_redpacket->getRedpacketInfo($where);
             if(!$redpacket_info){
-                showDialog('红包卡密错误','','error','submiting = false');
+                showDialog('Invalid Code','','error','submiting = false');
             }
             if($redpacket_info['rpacket_owner_id'] > 0){
-                showDialog('该红包卡密已被使用，不可重复领取','','error','submiting = false');
+                showDialog('The Voucher Had Been Claimed','','error','submiting = false');
             }
             $where = array();
             $where['rpacket_id'] = $redpacket_info['rpacket_id'];
@@ -89,9 +86,9 @@ class member_redpacketControl extends BaseMemberControl{
                 $update_arr = array();
                 $update_arr['rpacket_t_giveout'] = array('exp','rpacket_t_giveout+1');
                 $model_redpacket->editRptTemplate(array('rpacket_t_id'=>$redpacket_info['rpacket_t_id']),$update_arr);
-                showDialog('红包领取成功', 'index.php?act=member_redpacket&op=rp_list','succ');
+                showDialog('Succeed', 'index.php?act=member_redpacket&op=rp_list','succ');
             } else {
-                showDialog('红包领取失败','','error','submiting = false');
+                showDialog('Failed','','error','submiting = false');
             }
         }
         $this->profile_menu('rp_binding');
@@ -108,8 +105,8 @@ class member_redpacketControl extends BaseMemberControl{
      */
     private function profile_menu($menu_key='') {
         $menu_array = array(
-            1=>array('menu_key'=>'rp_list','menu_name'=>'我的红包','menu_url'=>'index.php?act=member_redpacket&op=rp_list'),
-            2=>array('menu_key'=>'rp_binding','menu_name'=>'领取红包','menu_url'=>'index.php?act=member_redpacket&op=rp_binding'),
+            1=>array('menu_key'=>'rp_list','menu_name'=>'My Voucher','menu_url'=>'index.php?act=member_redpacket&op=rp_list'),
+            2=>array('menu_key'=>'rp_binding','menu_name'=>'Claim Voucher','menu_url'=>'index.php?act=member_redpacket&op=rp_binding'),
         );
         Tpl::output('member_menu',$menu_array);
         Tpl::output('menu_key',$menu_key);

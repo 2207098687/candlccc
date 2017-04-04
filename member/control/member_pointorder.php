@@ -157,13 +157,13 @@ class member_pointorderControl extends BaseMemberControl{
         switch ($menu_type) {
             case 'pointorder':
                 $menu_array = array(
-                    1=>array('menu_key'=>'points',  'menu_name'=>'积分明细',    'menu_url'=>'index.php?act=member_points'),
+                    1=>array('menu_key'=>'points',  'menu_name'=>'Point Report',    'menu_url'=>'index.php?act=member_points'),
                     2=>array('menu_key'=>'orderlist','menu_name'=>Language::get('member_pointorder_list_title'),    'menu_url'=>'index.php?act=member_pointorder&op=orderlist')
                 );
                 break;
             case 'pointorderinfo':
                 $menu_array = array(
-                    1=>array('menu_key'=>'points',  'menu_name'=>'积分明细',    'menu_url'=>'index.php?act=member_points'),
+                    1=>array('menu_key'=>'points',  'menu_name'=>'Point Report',    'menu_url'=>'index.php?act=member_points'),
                     2=>array('menu_key'=>'orderlist','menu_name'=>Language::get('nc_member_path_pointorder_list'),  'menu_url'=>'index.php?act=member_pointorder&op=orderlist'),
                     3=>array('menu_key'=>'orderinfo','menu_name'=>Language::get('nc_member_path_pointorder_info'),  '')
                 );

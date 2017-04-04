@@ -3,11 +3,6 @@
  * 代金券
  *
  *
- *
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
  */
 
 
@@ -22,7 +17,7 @@ class member_voucherControl extends BaseMemberControl
         Language::read('member_layout,member_voucher');
         // 判断系统是否开启代金券功能
         if (intval(C('voucher_allow')) !== 1) {
-            showMessage('系统未开启代金券功能', urlShop('member', 'home'), 'html', 'error');
+            showMessage('Coupon Function Not Availed', urlShop('member', 'home'), 'html', 'error');
         }
     }
 
@@ -92,7 +87,7 @@ class member_voucherControl extends BaseMemberControl
                 array(
                     "input" => $_POST["pwd_code"],
                     "require" => "true",
-                    "message" => '请输入代金券卡密'
+                    "message" => 'Input Coupon Code'
                 )
             );
             $error = $obj_validate->validate();
@@ -105,13 +100,13 @@ class member_voucherControl extends BaseMemberControl
             $where['voucher_pwd'] = md5($_POST["pwd_code"]);
             $voucher_info = $model_voucher->getVoucherInfo($where);
             if (! $voucher_info) {
-                showDialog('代金券卡密错误','','error','submiting = false');
+                showDialog('Incorrect Code','','error','submiting = false');
             }
             if (intval($_SESSION['store_id']) == $voucher_info['voucher_store_id']) {
-                showDialog('不能领取自己店铺的代金券','','error','submiting = false');
+                showDialog('Cant Be Your Own Coupon','','error','submiting = false');
             }
             if ($voucher_info['voucher_owner_id'] > 0) {
-                showDialog('该代金券卡密已被使用，不可重复领取','','error','submiting = false');
+                showDialog('The Coupon Used Already','','error','submiting = false');
             }
             $where = array();
             $where['voucher_id'] = $voucher_info['voucher_id'];
@@ -130,9 +125,9 @@ class member_voucherControl extends BaseMemberControl
                 $model_voucher->editVoucherTemplate(array(
                     'voucher_t_id' => $voucher_info['voucher_t_id']
                 ), $update_arr);
-                showDialog('代金券领取成功', 'index.php?act=member_voucher&op=voucher_list', 'succ');
+                showDialog('Coupon Added!', 'index.php?act=member_voucher&op=voucher_list', 'succ');
             } else {
-                showDialog('代金券领取失败','','error','submiting = false');
+                showDialog('Coupon Failed','','error','submiting = false');
             }
         }
         $this->profile_menu('voucher_binding');
@@ -161,7 +156,7 @@ class member_voucherControl extends BaseMemberControl
             ),
             2 => array(
                 'menu_key' => 'voucher_binding',
-                'menu_name' => '领取代金券',
+                'menu_name' => 'New Coupon',
                 'menu_url' => 'index.php?act=member_voucher&op=voucher_binding'
             )
         );

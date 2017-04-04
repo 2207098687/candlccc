@@ -4,10 +4,6 @@
  *
  *
  *
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 
@@ -33,25 +29,25 @@ class pointsModel extends Model {
         switch ($stage){
             case 'regist':
                 if (!$insertarr['pl_desc']){
-                    $insertarr['pl_desc'] = '注册会员';
+                    $insertarr['pl_desc'] = 'Register';
                 }
                 $insertarr['pl_points'] = intval(C('points_reg'));
                 break;
             case 'login':
                 if (!$insertarr['pl_desc']){
-                    $insertarr['pl_desc'] = '会员登录';
+                    $insertarr['pl_desc'] = 'Login';
                 }
                 $insertarr['pl_points'] = intval(C('points_login'));
                 break;
             case 'comments':
                 if (!$insertarr['pl_desc']){
-                    $insertarr['pl_desc'] = '评论商品';
+                    $insertarr['pl_desc'] = 'Review Product';
                 }
                 $insertarr['pl_points'] = intval(C('points_comments'));
                 break;
             case 'order':
                 if (!$insertarr['pl_desc']){
-                    $insertarr['pl_desc'] = '订单'.$insertarr['order_sn'].'购物消费';
+                    $insertarr['pl_desc'] = 'Order'.$insertarr['order_sn'].'Purchase';
                 }
                 $insertarr['pl_points'] = 0;
                 if ($insertarr['orderprice']){
@@ -70,7 +66,7 @@ class pointsModel extends Model {
                 break;
             case 'pointorder':
                 if (!$insertarr['pl_desc']){
-                    $insertarr['pl_desc'] = '兑换礼品信息'.$insertarr['point_ordersn'].'消耗积分';
+                    $insertarr['pl_desc'] = 'Redeem Gift'.$insertarr['point_ordersn'].'Used Point';
                 }
                 break;
             case 'app':
@@ -80,19 +76,19 @@ class pointsModel extends Model {
                 break;
             case 'signin':
                 if (!$insertarr['pl_desc']){
-                    $insertarr['pl_desc'] = '签到领积分';
+                    $insertarr['pl_desc'] = 'Attendance Point';
                 }
 				break;
 			//邀请积分返利
 			case 'inviter':
 				if (!$insertarr['pl_desc']){
-					$insertarr['pl_desc'] = '邀请新会员['.$insertarr['invited'].']注册';
+					$insertarr['pl_desc'] = 'Invite['.$insertarr['invited'].']Register';
 				}
 				$insertarr['pl_points'] = intval($GLOBALS['setting_config']['points_invite']);
 				break;
 			case 'rebate':
 				if (!$insertarr['pl_desc']){
-					$insertarr['pl_desc'] = '被邀请人['.$_SESSION['member_name'].']消费';
+					$insertarr['pl_desc'] = 'invitee['.$_SESSION['member_name'].']Purchase';
 				}
 				$insertarr['pl_points'] = $insertarr['rebate_amount'];
                 break;

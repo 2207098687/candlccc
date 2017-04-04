@@ -1,10 +1,7 @@
 <?php
 /**
  * 平台红包模型
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ * *
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 class redpacketModel extends Model {
@@ -17,11 +14,11 @@ class redpacketModel extends Model {
     public function __construct(){
         parent::__construct();
         //红包领取方式
-        $this->gettype_arr = array('points'=>array('sign'=>1,'name'=>'积分兑换'),'pwd'=>array('sign'=>2,'name'=>'卡密兑换'),'free'=>array('sign'=>3,'name'=>'免费领取'));
+        $this->gettype_arr = array('points'=>array('sign'=>1,'name'=>'Redeem'),'pwd'=>array('sign'=>2,'name'=>'Card Code Redeem'),'free'=>array('sign'=>3,'name'=>'Get'));
         //红包模板状态
-        $this->templatestate_arr = array('usable'=>array('sign'=>1,'name'=>'有效'),'disabled'=>array('sign'=>2,'name'=>'失效'));
+        $this->templatestate_arr = array('usable'=>array('sign'=>1,'name'=>'Valid'),'disabled'=>array('sign'=>2,'name'=>'Invalid'));
         //红包状态
-        $this->redpacket_state_arr = array('unused'=>array('sign'=>1,'name'=>'未使用'),'used'=>array('sign'=>2,'name'=>'已使用'),'expire'=>array('sign'=>3,'name'=>'已过期'));
+        $this->redpacket_state_arr = array('unused'=>array('sign'=>1,'name'=>'Not Used'),'used'=>array('sign'=>2,'name'=>'Used'),'expire'=>array('sign'=>3,'name'=>'Expired'));
     }
 
     /**

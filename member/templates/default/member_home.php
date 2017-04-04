@@ -26,7 +26,7 @@
     </dl>
     <dl class="account04">
       <a href="<?php echo urlMember('member_redpacket');?>">
-      <dt>Gift Voucher</dt>
+      <dt>My Voucher</dt>
       <dd class="icon"></dd>
       <dd class="value"><em><?php echo $output['member_info']['redpacket_count']?$output['member_info']['redpacket_count']:0;?></em>Pcs</dd>
       </a>

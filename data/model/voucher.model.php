@@ -1,10 +1,7 @@
 <?php
 /**
  * 代金券模型
- * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 class voucherModel extends Model {
@@ -13,13 +10,13 @@ class voucherModel extends Model {
     const VOUCHER_STATE_EXPIRE = 3;
 
     private $voucher_state_array = array(
-        self::VOUCHER_STATE_UNUSED => '未使用',
-        self::VOUCHER_STATE_USED => '已使用',
-        self::VOUCHER_STATE_EXPIRE => '已过期',
+        self::VOUCHER_STATE_UNUSED => 'Not Used',
+        self::VOUCHER_STATE_USED => 'Used',
+        self::VOUCHER_STATE_EXPIRE => 'Expired',
     );
 
     const VOUCHER_GETTYPE_DEFAULT = 'points';//默认领取方式
-    private $voucher_gettype_array = array('points'=>array('sign'=>1,'name'=>'积分兑换'),'pwd'=>array('sign'=>2,'name'=>'卡密兑换'),'free'=>array('sign'=>3,'name'=>'免费领取'));
+    private $voucher_gettype_array = array('points'=>array('sign'=>1,'name'=>'Claim Point'),'pwd'=>array('sign'=>2,'name'=>'Code Claim'),'free'=>array('sign'=>3,'name'=>'Get Free'));
     private $applystate_arr;
     private $quotastate_arr;
     private $templatestate_arr;
@@ -31,7 +28,7 @@ class voucherModel extends Model {
         //套餐状态
         $this->quotastate_arr = array('activity'=>array(1,Language::get('voucher_quotastate_activity')),'cancel'=>array(2,Language::get('voucher_quotastate_cancel')),'expire'=>array(3,Language::get('voucher_quotastate_expire')));
         //代金券模板状态
-        $this->templatestate_arr = array('usable'=>array(1,'有效'),'disabled'=>array(2,'失效'));
+        $this->templatestate_arr = array('usable'=>array(1,'Valid'),'disabled'=>array(2,'Invalid'));
 
     }
 
@@ -62,9 +59,9 @@ class voucherModel extends Model {
            if ($goods_total < $voucher['voucher_limit']) {
                unset($voucher_list[$key]);
            } else {
-               $voucher_list[$key]['desc'] = sprintf('面额%s元 有效期至 %s ',$voucher['voucher_price'],date('Y-m-d',$voucher['voucher_end_date']));
+               $voucher_list[$key]['desc'] = sprintf('Value%s₱ Valid Before %s ',$voucher['voucher_price'],date('Y-m-d',$voucher['voucher_end_date']));
                if ($voucher['voucher_limit'] > 0) {
-                   $voucher_list[$key]['desc'] .= sprintf(' 消费满%s可用',$voucher['voucher_limit']);
+                   $voucher_list[$key]['desc'] .= sprintf(' Use When Purchase%s',$voucher['voucher_limit']);
                }
            }
        }
@@ -145,7 +142,7 @@ class voucherModel extends Model {
      */
     public function getCanChangeTemplateInfo($vid,$member_id,$store_id = 0){
         if ($vid <= 0 || $member_id <= 0 ){
-            return array('state'=>false,'msg'=>'参数错误');
+            return array('state'=>false,'msg'=>'Error Arguements');
         }
         //查询可用代金券模板
         $where = array();
@@ -154,33 +151,33 @@ class voucherModel extends Model {
         $where['voucher_t_end_date'] = array('gt',time());
         $template_info = $this->getVoucherTemplateInfo($where);
         if (empty($template_info) || $template_info['voucher_t_total']<=$template_info['voucher_t_giveout']){//代金券不存在或者已兑换完
-            return array('state'=>false,'msg'=>'代金券已兑换完');
+            return array('state'=>false,'msg'=>'Coupon Claimed');
         }
         //验证是否为店铺自己
         if ($store_id > 0 && $store_id == $template_info['voucher_t_store_id']){
-            return array('state'=>false,'msg'=>'不可以兑换自己店铺的代金券');
+            return array('state'=>false,'msg'=>'Not Avail For Your Own Store');
         }
         $model_member = Model('member');
         $member_info = $model_member->getMemberInfoByID($member_id);
         if (empty($member_info)){
-            return array('state'=>false,'msg'=>'参数错误');
+            return array('state'=>false,'msg'=>'Error Argument');
         }
         //验证会员积分是否足够
         if ($template_info['voucher_t_gettype'] == $this->voucher_gettype_array['points']['sign'] && $template_info['voucher_t_points'] > 0){
             if (intval($member_info['member_points']) < intval($template_info['voucher_t_points'])){
-                return array('state'=>false,'msg'=>'您的积分不足，暂时不能兑换该代金券');
+                return array('state'=>false,'msg'=>'Your Point Not Enough to Claim the Coupon');
             }
         }        
         //验证会员级别
         $member_currgrade = $model_member->getOneMemberGrade(intval($member_info['member_exppoints']));
         $member_info['member_currgrade'] = $member_currgrade?$member_currgrade['level']:0;
         if ($member_info['member_currgrade'] < intval($template_info['voucher_t_mgradelimit'])){
-            return array('state'=>false,'msg'=>'您的会员级别不够，暂时不能兑换该代金券');
+            return array('state'=>false,'msg'=>'Your Rank Is Not Avaible to Claim That Coupon');
         }
         //查询代金券对应的店铺信息
         $store_info = Model('store')->getStoreInfoByID($template_info['voucher_t_store_id']);
         if (empty($store_info)){
-            return array('state'=>false,'msg'=>'代金券已兑换完');
+            return array('state'=>false,'msg'=>'All Coupon Claimed');
         }
         //整理代金券信息
         $template_info = array_merge($template_info,$store_info);
@@ -203,12 +200,12 @@ class voucherModel extends Model {
             }
             //买家最多只能拥有同一个店铺尚未消费抵用的店铺代金券最大数量的验证
             if ($voucher_count >= intval(C('promotion_voucher_buyertimes_limit'))){
-                $message = sprintf('您的可用代金券已有%s张,不可再兑换了',C('promotion_voucher_buyertimes_limit'));
+                $message = sprintf('Your Available Coupon%sPcs,Cant Claim ',C('promotion_voucher_buyertimes_limit'));
                 return array('state'=>false,'msg'=>$message);
             }
             //同一张代金券最多能兑换的次数
             if (!empty($template_info['voucher_t_eachlimit']) && $voucherone_count >= $template_info['voucher_t_eachlimit']){
-                $message = sprintf('该代金券您已兑换%s次，不可再兑换了',$template_info['voucher_t_eachlimit']);
+                $message = sprintf('Coupon Has Been Claimed %s times.',$template_info['voucher_t_eachlimit']);
                 return array('state'=>false,'msg'=>$message);
             }
         }
@@ -459,13 +456,13 @@ class voucherModel extends Model {
      */
     public function exchangeVoucher($template_info, $member_id, $member_name = ''){
         if (intval($member_id) <= 0 || empty($template_info)){
-            return array('state'=>false,'msg'=>'参数错误');
+            return array('state'=>false,'msg'=>'Error');
         }
         //查询会员信息
         if (!$member_name){
             $member_info = Model('member')->getMemberInfoByID($member_id);
             if (empty($template_info)){
-                return array('state'=>false,'msg'=>'参数错误');
+                return array('state'=>false,'msg'=>'Error');
             }
             $member_name = $member_info['member_name'];
         }
@@ -497,19 +494,19 @@ class voucherModel extends Model {
             $points_arr['pl_desc'] = L('home_voucher').$insert_arr['voucher_code'].L('points_pointorderdesc');
             $result = Model('points')->savePointsLog('app',$points_arr,true);
             if (!$result){
-                return array('state'=>false,'msg'=>'兑换失败');
+                return array('state'=>false,'msg'=>'Claim Failed');
             }
         }
         if ($result){
             //代金券模板的兑换数增加
             $result = $this->editVoucherTemplate(array('voucher_t_id'=>$template_info['voucher_t_id']), array('voucher_t_giveout'=>array('exp','voucher_t_giveout+1')));
             if (!$result){
-                return array('state'=>false,'msg'=>'兑换失败');
+                return array('state'=>false,'msg'=>'Claim Failed');
             }
             wcache($member_id, array('voucher_count' => array('exp','voucher_count+1')), 'm_voucher');
-            return array('state'=>true,'msg'=>'兑换成功');
+            return array('state'=>true,'msg'=>'Claimed');
         } else {
-            return array('state'=>false,'msg'=>'兑换失败');
+            return array('state'=>false,'msg'=>'Claim Failed');
         }
     }
     /**

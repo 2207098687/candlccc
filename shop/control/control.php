@@ -3,9 +3,7 @@
  * 前台control父类,店铺control父类,会员control父类
  *
  *
- * @运维舫提供技术支持 授权请购买shopnc授权
- * @license    http://www.shopnc.club
- * @link       唯一论坛：www.shopnc.club
+ *
  */
 
 
@@ -399,7 +397,7 @@ class BaseMemberControl extends Control {
             'property' => array('name' => 'Assets', 'child' => array(
                 'predeposit'        => array('name' => 'Balance', 'url'=>urlMember('predeposit', 'pd_log_list')),
                 'member_voucher'    => array('name' => 'Coupon', 'url'=>urlMember('member_voucher', 'index')),
-                'member_redpacket'  => array('name' => 'Gift Voucher', 'url'=>urlMember('member_redpacket', 'index'))
+                'member_redpacket'  => array('name' => 'Voucher', 'url'=>urlMember('member_redpacket', 'index'))
             )),
         );
         return $menu_list;

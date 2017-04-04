@@ -168,7 +168,7 @@ $(document).ready(function() {
               <dt><a href="<?php echo urlMember('predeposit', 'pd_log_list')?>" style="color: #FF7F00">Assets</a></dt>
               <dd><a href="<?php echo urlMember('predeposit', 'recharge_add');?>">Balance</a></dd>
               <dd><a href="<?php echo urlMember('member_voucher', 'voucher_binding')?>">Coupon</a></dd>
-              <dd><a href="<?php echo urlMember('member_redpacket', 'rp_binding');?>">Gift Voucher</a></dd>
+              <dd><a href="<?php echo urlMember('member_redpacket', 'rp_binding');?>">Voucher</a></dd>
             </dl>
             <dl>
               <dt><a href="<?php echo urlMember('member_bind', 'qqbind')?>" style="color: #398EE8">Connect</a></dt>

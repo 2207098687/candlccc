@@ -247,7 +247,7 @@
     <tfoot>
       <!-- S rpt list -->
       <tr id="rpt_panel" style="display: none">
-        <td class="pd-account" colspan="20"><div class="ncc-store-account"><dl><dt>Gift Vouchers:</dt><dd class="rule">
+        <td class="pd-account" colspan="20"><div class="ncc-store-account"><dl><dt>My Vouchers:</dt><dd class="rule">
             <select nctype="rpt" id="rpt" name="rpt" class="select">
             </select>
             <dd class="sum"><em id="orderRpt" class="subtract">-0.00</em></dd></dl></div></td>

@@ -54,7 +54,7 @@ $lang['voucher_template_price_error']		= "模版面额不能为空且必须为�
 $lang['voucher_template_limit_error'] 		= "模版使用消费限额不能为空且必须是数字";
 $lang['voucher_template_describe_error'] 	= "模版描述不能为空且不能大于200个字符";
 $lang['voucher_template_title']			= '代金券名称';
-$lang['voucher_template_enddate']		= '有效期';
+$lang['voucher_template_enddate']		= 'Validity';
 $lang['voucher_template_enddate_tip']		= '有效期应在套餐有效期内，正使用的套餐有效期为';
 $lang['voucher_template_price']			= '面额';
 $lang['voucher_template_total']			= '可发放总数';
@@ -75,16 +75,16 @@ $lang['voucher_template_usednum']	= '已使用';
 /**
  * 代金券
  */
-$lang['voucher_voucher_state'] = "状态";
-$lang['voucher_voucher_state_unused'] = "未使用";
-$lang['voucher_voucher_state_used'] = "已使用";
-$lang['voucher_voucher_state_expire'] = "已过期";
-$lang['voucher_voucher_price'] = "金额";
-$lang['voucher_voucher_storename'] = "适用店铺";
-$lang['voucher_voucher_indate'] = "有效期";
-$lang['voucher_voucher_usecondition'] = "使用条件";
-$lang['voucher_voucher_usecondition_desc'] = "订单满";
-$lang['voucher_voucher_vieworder'] = "查看订单";
-$lang['voucher_voucher_readytouse'] = "马上使用";
-$lang['voucher_voucher_code'] = "编码";
+$lang['voucher_voucher_state'] = "Status";
+$lang['voucher_voucher_state_unused'] = "No Used";
+$lang['voucher_voucher_state_used'] = "Used";
+$lang['voucher_voucher_state_expire'] = "Expired";
+$lang['voucher_voucher_price'] = "Value";
+$lang['voucher_voucher_storename'] = "Store";
+$lang['voucher_voucher_indate'] = "Validity";
+$lang['voucher_voucher_usecondition'] = "Conditions";
+$lang['voucher_voucher_usecondition_desc'] = "Purchase";
+$lang['voucher_voucher_vieworder'] = "View Order";//查看订单
+$lang['voucher_voucher_readytouse'] = "Use Now";//马上使用
+$lang['voucher_voucher_code'] = "Code";//编码
 ?>

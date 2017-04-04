@@ -4,11 +4,11 @@ defined('ShopNC_CLUB') or exit('Access Invalid!');
 /**
  * core简体语言包
  */
-$lang['please_check_your_url_arg'] = '请检查您URL地址栏输入的参数信息！！ 错误编码：';
+$lang['please_check_your_url_arg'] = 'Pls Check Url Parameters. Error Code: ';
 
-$lang['error_info'] = '系统信息';
-$lang['error_notice_operate'] = '系统运行异常，由此给您带来的访问不便我们深感歉意，请联系客服寻求帮助';
-$lang['company_name'] = '运维舫';
+$lang['error_info'] = 'System Info';
+$lang['error_notice_operate'] = 'Sorry for Inconvenience. System Error.';
+$lang['company_name'] = 'Coolandless';
 
 //$lang['order_state_cancel'] = '已取消';
 //$lang['order_state_new'] = '待付款';
@@ -25,10 +25,10 @@ $lang['please_check_your_system_chmod_ad'] = '广告信息缓存文件不能写�
 $lang['please_check_your_system_chmod_adv'] = '广告位信息缓存文件不能写入，请检查文件以及文件夹权限是否正确!';
 $lang['please_check_your_system_chmod_goods_class']	= '分类商品列表缓存文件不能写入，请检查文件以及文件夹权限是否正确!';
 
-$lang['first_page'] = '首页';
-$lang['last_page'] = '末页';
-$lang['pre_page'] = '上一页';
-$lang['next_page'] = '下一页';
+$lang['first_page'] = 'First';
+$lang['last_page'] = 'Last';
+$lang['pre_page'] = 'Prev';
+$lang['next_page'] = 'Next';
 
 $lang['cant_find_temporary_files'] = '找不到临时文件，请确认临时文件夹是否存在可写';
 $lang['upload_file_size_none'] = '禁止上传空文件';
@@ -50,5 +50,5 @@ $lang['upload_image_is_not_image'] = '非法图像文件';
 $lang['upload_image_mime_error'] = '图像文件类型非法';
 $lang['upload_file_attack'] = '非法上传文件';
 
-$lang['transport_type_py']	= '平邮';
-$lang['transport_type_kd']	= '快递';
+$lang['transport_type_py']	= 'Regular Shipping';
+$lang['transport_type_kd']	= 'Express Shipping';

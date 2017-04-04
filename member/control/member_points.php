@@ -1,10 +1,7 @@
 <?php
 /**
  * 积分管理
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 
 
@@ -68,8 +65,8 @@ class member_pointsControl extends BaseMemberControl {
      */
     private function profile_menu($menu_key='',$array=array()) {
         $menu_array = array(
-            1=>array('menu_key'=>'points',  'menu_name'=>'积分明细',    'menu_url'=>'index.php?act=member_points'),
-            2=>array('menu_key'=>'orderlist','menu_name'=>'积分兑换',    'menu_url'=>'index.php?act=member_pointorder&op=orderlist')
+            1=>array('menu_key'=>'points',  'menu_name'=>'Point Report',    'menu_url'=>'index.php?act=member_points'),
+            2=>array('menu_key'=>'orderlist','menu_name'=>'Redemption',    'menu_url'=>'index.php?act=member_pointorder&op=orderlist')
         );
         if(!empty($array)) {
             $menu_array[] = $array;

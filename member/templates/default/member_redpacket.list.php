@@ -12,7 +12,7 @@
         <td>&nbsp;</td>
         <td class="w100 tr">
           <select name="rp_state_select">
-                <option value="" <?php if (!$_GET['rp_state_select']){ echo 'selected=true'; } ?>>红包状态</option>
+                <option value="" <?php if (!$_GET['rp_state_select']){ echo 'selected=true'; } ?>>Status</option>
                 <?php if (!empty($output['redpacketstate_arr'])){?>
                 <?php foreach ($output['redpacketstate_arr'] as $k=>$v){?>
                 <option value="<?php echo $k;?>" <?php if ($_GET['rp_state_select'] == $k){echo 'selected';}?>><?php echo $v['name'];?></option>

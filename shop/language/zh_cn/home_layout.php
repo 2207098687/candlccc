@@ -3,7 +3,7 @@ defined('ShopNC_CLUB') or exit('Access Invalid!');
 /**
  * header中的文字
  */
-$lang['nc_hello']	= "Hi";
+$lang['nc_hello']	= "Hi, ";
 $lang['nc_logout']	= "Logout";
 $lang['nc_guest']	= "Visitor";
 $lang['nc_login']	= "Login";

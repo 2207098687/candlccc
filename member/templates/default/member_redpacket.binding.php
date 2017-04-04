@@ -4,10 +4,10 @@
     <?php include template('layout/submenu');?>
   </div>
   <div class="alert alert-success">
-    <h4>操作提示：</h4>
+    <h4>Tips：</h4>
     <ul>
-      <li>1.请输入已获得的红包卡密领取红包</li>
-      <li>2.领取红包后可以在购买商品下单时选择符合使用条件的红包抵扣订单金额</li>
+      <li>1.Input Voucher Code</li>
+      <li>2.Use Voucher Upon Checking out, Subject to Terms and Conditions.</li>
     </ul>
   </div>
   <div class="ncm-default-form">
@@ -15,7 +15,7 @@
       <input type="hidden" name="form_submit" value="ok" />
       <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
       <dl style="overflow: visible;">
-        <dt><i class="required">*</i>请输入红包卡密：</dt>
+        <dt><i class="required">*</i>Input Voucher Code：</dt>
         <dd>
             <div class="parentCls">
                 <input type="text" class="inputElem text w160" value="" name="pwd_code" id="pwd_code" autocomplete="off" autofocus="autofocus" maxlength="20"/>
@@ -24,10 +24,10 @@
         </dd>
       </dl>
       <dl>
-        <dt><i class="required">*</i>验证码：</dt>
+        <dt><i class="required">*</i>Captcha：</dt>
         <dd>
           <input type="text" name="captcha" class="text" id="captcha" maxlength="4" size="10" autocomplete="off" />
-          <img src="index.php?act=seccode&op=makecode&nchash=<?php echo getNchash();?>" name="codeimage" border="0" id="codeimage" class="ml5 vm"><a href="javascript:void(0)" class="ml5 blue" onclick="javascript:document.getElementById('codeimage').src='index.php?act=seccode&op=makecode&nchash=<?php echo getNchash();?>&t=' + Math.random();">看不清？换张图</a>
+          <img src="index.php?act=seccode&op=makecode&nchash=<?php echo getNchash();?>" name="codeimage" border="0" id="codeimage" class="ml5 vm"><a href="javascript:void(0)" class="ml5 blue" onclick="javascript:document.getElementById('codeimage').src='index.php?act=seccode&op=makecode&nchash=<?php echo getNchash();?>&t=' + Math.random();">Refresh</a>
           <span class="error_span"></span>
         </dd>
       </dl>
@@ -35,7 +35,7 @@
         <dt>&nbsp;</dt>
         <dd>
           <label class="submit-border">
-            <input type="button" class="submit" id="submitbtn" value="确认，进入下一步" />
+            <input type="button" class="submit" id="submitbtn" value="Submit" />
           </label>
         </dd>
       </dl>
@@ -91,12 +91,12 @@ $(function(){
         },
         messages : {
             pwd_code : {
-                required : '<i class="icon-exclamation-sign"></i>请输入红包卡密'
+                required : '<i class="icon-exclamation-sign"></i>Input Voucher Code Pls'
             },
             captcha : {
-                required : '<i class="icon-exclamation-sign"></i>请正确输入图形验证码',
-                minlength: '<i class="icon-exclamation-sign"></i>请正确输入图形验证码',
-				remote	 : '<i class="icon-exclamation-sign"></i>请正确输入图形验证码'
+                required : '<i class="icon-exclamation-sign"></i>Input Captcha',
+                minlength: '<i class="icon-exclamation-sign"></i>Input Captcha',
+				remote	 : '<i class="icon-exclamation-sign"></i>Input Captcha'
             }
         }
     });

@@ -10,10 +10,10 @@
       <table class="ncp-table-style">
         <thead>
           <tr>
-            <th class="w200">添加时间</th>
-            <th class="w100">获得经验</th>
-            <th class="w200">操作阶段</th>
-            <th class="tl">描述</th>
+            <th class="w200">Time</th>
+            <th class="w100">Points</th>
+            <th class="w200">Management</th>
+            <th class="tl">Description</th>
           </tr>
         </thead>
         <tbody>
@@ -25,13 +25,13 @@
             <td><?php 
         	              	switch ($val['exp_stage']){
         	              		case 'login':
-        	              			echo '会员登录';
+        	              			echo 'Login';
         	              			break;
         	              		case 'comments':
-        	              			echo '商品评论';
+        	              			echo 'Review Product';
         	              			break;
         	              		case 'order':
-        	              			echo '订单消费';
+        	              			echo 'Order';
         	              			break;
         	              	}
         	              ?></td>

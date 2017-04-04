@@ -6,10 +6,10 @@
     <?php include template('layout/submenu');?>
   </div>
   <div class="alert alert-block">
-  <h4>积分获得规则</h4>
-<ul><li>成功注册会员：增加<em><?php echo C('points_reg');?></em>积分；会员每天登录：增加<em><?php echo C('points_login');?></em>积分；评价完成订单：增加<em><?php echo C('points_comments');?></em>积分。</li>
-<?php if (C('points_orderrate')) {?><li>购物并付款成功后将获得订单总价<?php printf('%d', 1/C('points_orderrate') * 100);?>%<?php if (C('points_ordermax')) {?>（最高限额不超过<?php echo C('points_ordermax');?>）<?php }?>积分。</li><?php }?>
-<li>如订单发生退款、退货等问题时，积分将不予退还。</li></ul>
+  <h4>Point Earning Rules: </h4>
+<ul><li>Register: Earn<em><?php echo C('points_reg');?></em>Points; Daily Login: Earn<em><?php echo C('points_login');?></em>Points; Review Product after Purchasing: Earn<em><?php echo C('points_comments');?></em>Points.</li>
+<?php if (C('points_orderrate')) {?><li>For Each Successful Order, Earn <?php printf('%d', 1/C('points_orderrate') * 100);?>%<?php if (C('points_ordermax')) {?> of Total Order Value(Not Exceeding<?php echo C('points_ordermax');?>）<?php }?>Points.</li><?php }?>
+<li>For Refund or Return Order, Points Should Be Deducted Accordingly.</li></ul>
   </div>
   <form method="get" action="index.php">
     <table class="ncm-search-table">
