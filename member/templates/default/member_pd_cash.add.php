@@ -8,43 +8,43 @@
     <form method="post" id="cash_form" action="<?php echo MEMBER_SITE_URL;?>/index.php?act=predeposit&op=pd_cash_add">
       <input type="hidden" name="form_submit" value="ok" />
       <dl>
-        <dt><i class="required">*</i>提现金额：</dt>
+        <dt><i class="required">*</i>Cash-out Amount：</dt>
         <dd><input name="pdc_amount" type="text" class="text w50" id="pdc_amount" maxlength="10" ><em class="add-on">
-<i class="icon-renminbi"></i></em> （当前可用金额：<strong class="orange"><?php echo floatval($output['member_info']['available_predeposit']); ?></strong>&nbsp;&nbsp;元）<span></span>
+<i class="icon-renminbi"></i></em> （Available Balance：<strong class="orange"><?php echo floatval($output['member_info']['available_predeposit']); ?></strong>&nbsp;&nbsp;₱）<span></span>
           <p class="hint mt5"></p>
         </dd>
       </dl>
       <dl>
-        <dt><i class="required">*</i>收款银行：</dt>
+        <dt><i class="required">*</i>Receiving Bank：</dt>
         <dd><input name="pdc_bank_name" type="text" class="text w200" id="pdc_bank_name" maxlength="40"/><span></span>
-          <p class="hint">强烈建议优先填写国有4大银行(中国银行、中国建设银行、中国工商银行和中国农业银行)
-请填写详细的开户银行分行名称，虚拟账户如支付宝、财付通填写“支付宝”、“财付通”即可。</p>
+<!--          <p class="hint">强烈建议优先填写国有4大银行(中国银行、中国建设银行、中国工商银行和中国农业银行)-->
+<!--请填写详细的开户银行分行名称，虚拟账户如支付宝、财付通填写“支付宝”、“财付通”即可。</p>-->
         </dd>
       </dl>
       <dl>
-        <dt><i class="required">*</i>收款账号：</dt>
+        <dt><i class="required">*</i>Bank Account：</dt>
         <dd><input name="pdc_bank_no" type="text" class="text w200" id="pdc_bank_no" maxlength="30"/><span></span>
-          <p class="hint">银行账号或虚拟账号(支付宝、财付通等账号)</p>
+<!--          <p class="hint">银行账号或虚拟账号(支付宝、财付通等账号)</p>-->
         </dd>
       </dl>
       <dl>
-        <dt><i class="required">*</i>开户人姓名：</dt>
+        <dt><i class="required">*</i>Recipient：</dt>
         <dd><input name="pdc_bank_user" type="text" class="text w100" id="pdc_bank_user" maxlength="10"/><span></span>
-        <p class="hint">收款账号的开户人姓名</p>
+<!--        <p class="hint">收款账号的开户人姓名</p>-->
           </dd>
       </dl>
       <dl>
-        <dt><i class="required">*</i>支付密码：</dt>
+        <dt><i class="required">*</i>Payment Password：</dt>
         <dd><input name="password" type="password" class="text w100" id="password" maxlength="20"/><span></span>
         <p class="hint">
               <?php if (!$output['member_info']['member_paypwd']) {?>
-              <strong class="red">还未设置支付密码</strong><a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=member_security&op=auth&type=modify_paypwd" class="ncm-btn-mini ncm-btn-acidblue vm ml10" target="_blank">马上设置</a>
+              <strong class="red">Not Yet Set Password</strong><a href="<?php echo MEMBER_SITE_URL;?>/index.php?act=member_security&op=auth&type=modify_paypwd" class="ncm-btn-mini ncm-btn-acidblue vm ml10" target="_blank">Set Now</a>
               <?php } ?>
         </p>
           </dd>
       </dl>
       <dl class="bottom"><dt>&nbsp;</dt>
-          <dd><label class="submit-border"><input type="submit"  class="submit" value="确认提现" /></label><a class="ncm-btn ml10" href="javascript:history.go(-1);">取消并返回</a></dd>
+          <dd><label class="submit-border"><input type="submit"  class="submit" value="Confirm" /></label><a class="ncm-btn ml10" href="javascript:history.go(-1);">Back</a></dd>
       </dl>
     </form>
   </div>
@@ -81,22 +81,22 @@ $(function(){
         },
         messages : {
         	pdc_amount	  : {
-            	required  :'<i class="icon-exclamation-sign"></i>请正确输入提现金额',
-            	number    :'<i class="icon-exclamation-sign"></i>请正确输入提现金额',
-            	min    	  :'<i class="icon-exclamation-sign"></i>请正确输入提现金额',
-            	max       :'<i class="icon-exclamation-sign"></i>请正确输入提现金额'
+            	required  :'<i class="icon-exclamation-sign"></i>Input Correct Amount',
+            	number    :'<i class="icon-exclamation-sign"></i>Input Correct Amount',
+            	min    	  :'<i class="icon-exclamation-sign"></i>Input Correct Amount',
+            	max       :'<i class="icon-exclamation-sign"></i>Input Correct Amount'
             },
             pdc_bank_name :{
-            	required   :'<i class="icon-exclamation-sign"></i>请输入收款银行'
+            	required   :'<i class="icon-exclamation-sign"></i>Input Receiving Bank'
             },
             pdc_bank_no : {
-            	required   :'<i class="icon-exclamation-sign"></i>请输入收款账号'
+            	required   :'<i class="icon-exclamation-sign"></i>Input Receiving Bank'
             },
             pdc_bank_user : {
-	        	required  : '<i class="icon-exclamation-sign"></i>请输入开户人姓名'
+	        	required  : '<i class="icon-exclamation-sign"></i>Input Recipient Name'
 	        },
 	        password : {
-		        required : '<i class="icon-exclamation-sign"></i>请输入支付密码'
+		        required : '<i class="icon-exclamation-sign"></i>Input Payment Password'
 		    }
         }
     });

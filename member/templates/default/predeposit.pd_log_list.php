@@ -3,16 +3,16 @@
 <div class="wrap">
   <div class="tabmenu">
     <?php include template('layout/submenu'); ?>
-    <a class="ncbtn ncbtn-bittersweet" title="在线充值" href="index.php?act=predeposit&op=recharge_add" style="right: 207px;"><i class="icon-shield"></i>在线充值</a> <a class="ncbtn ncbtn-mint" href="index.php?act=member_security&op=auth&type=pd_cash" style="right: 107px;"><i class="icon-money"></i>申请提现</a> <a class="ncbtn ncbtn-bluejeansjeans" href="index.php?act=predeposit&op=rechargecard_add"><i class="icon-shield"></i>充值卡充值</a> </div>
+<!--    <a class="ncbtn ncbtn-bittersweet" title="在线充值" href="index.php?act=predeposit&op=recharge_add" style="right: 207px;"><i class="icon-shield"></i>Online Payment</a> <a class="ncbtn ncbtn-mint" href="index.php?act=member_security&op=auth&type=pd_cash" style="right: 107px;"><i class="icon-money"></i>Cash-out</a> <a class="ncbtn ncbtn-bluejeansjeans" href="index.php?act=predeposit&op=rechargecard_add"><i class="icon-shield"></i>Reload Card</a> </div>-->
   <div class="alert"><span class="mr30"><?php echo $lang['predeposit_pricetype_available'].$lang['nc_colon']; ?><strong class="mr5 red" style="font-size: 18px;"><?php echo $output['member_info']['available_predeposit']; ?></strong><?php echo $lang['currency_zh'];?></span><span><?php echo $lang['predeposit_pricetype_freeze'].$lang['nc_colon']; ?><strong class="mr5 blue" style="font-size: 18px;"><?php echo $output['member_info']['freeze_predeposit']; ?></strong><?php echo $lang['currency_zh'];?></span></div>
   <table class="ncm-default-table">
     <thead>
       <tr>
         <th class="w10"></th>
         <th class="w150 tl"><?php echo $lang['predeposit_addtime']; ?></th>
-        <th class="w150 tl">收入(<?php echo $lang['currency_zh'];?>)</th>
-        <th class="w150 tl">支出(<?php echo $lang['currency_zh'];?>)</th>
-        <th class="w150 tl">冻结(<?php echo $lang['currency_zh'];?>)</th>
+        <th class="w150 tl">In(<?php echo $lang['currency_zh'];?>)</th>
+        <th class="w150 tl">Out(<?php echo $lang['currency_zh'];?>)</th>
+        <th class="w150 tl">Freeze(<?php echo $lang['currency_zh'];?>)</th>
         <th class="tl"><?php echo $lang['predeposit_log_desc'];?></th>
       </tr>
     </thead>

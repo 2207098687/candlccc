@@ -9,7 +9,7 @@
       <input type="hidden" name="act" value="predeposit" />
       <input type="hidden" name="op" value="rechargecard_add" />
       <dl>
-        <dt><i class="required">*</i>平台充值卡号<?php echo $lang['nc_colon']; ?></dt>
+        <dt><i class="required">*</i>Reload Card No.<?php echo $lang['nc_colon']; ?></dt>
         <dd>
           <input name="rc_sn" type="text" class="text w400" id="rc_sn" maxlength="50" /><span></span></dd>
       </dl>
@@ -37,8 +37,8 @@ $('#rechargecard_form').validate({
     },
     messages : {
         rc_sn : {
-            required :'<i class="icon-exclamation-sign"></i>请输入平台充值卡号',
-            maxlength :'<i class="icon-exclamation-sign"></i>平台充值卡号长度小于50'
+            required :'<i class="icon-exclamation-sign"></i>Pls Input Card No.',
+            maxlength :'<i class="icon-exclamation-sign"></i>Must Be Less Than 50 Digits'
         }
     }
 });

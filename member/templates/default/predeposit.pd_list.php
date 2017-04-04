@@ -4,7 +4,7 @@
 <div class="wrap">
   <div class="tabmenu">
     <?php include template('layout/submenu');?>
-    <a class="ncbtn ncbtn-bittersweet" title="在线充值" href="index.php?act=predeposit&op=recharge_add"> <i class="icon-shield"></i> 在线充值 </a> </div>
+<!--    <a class="ncbtn ncbtn-bittersweet" title="Online Payment" href="index.php?act=predeposit&op=recharge_add"> <i class="icon-shield"></i> Online Payment </a> </div>-->
   <div class="alert"><span class="mr30"><?php echo $lang['predeposit_pricetype_available'].$lang['nc_colon']; ?><strong class="mr5 red" style="font-size: 18px;"><?php echo $output['member_info']['available_predeposit']; ?></strong><?php echo $lang['currency_zh'];?></span><span><?php echo $lang['predeposit_pricetype_freeze'].$lang['nc_colon']; ?><strong class="mr5 blue" style="font-size: 18px;"><?php echo $output['member_info']['freeze_predeposit']; ?></strong><?php echo $lang['currency_zh'];?></span></div>
   <form method="get" action="index.php">
     <table class="ncm-search-table">
@@ -39,10 +39,10 @@
         <td><?php echo date('Y-m-d H:i:s',$val['pdr_add_time']);?></td>
         <td><?php echo $val['pdr_payment_name'];?></td>
         <td class="red">+<?php echo $val['pdr_amount'];?></td>
-        <td><?php echo intval($val['pdr_payment_state']) ? '已支付' : '未支付';?></td>
+        <td><?php echo intval($val['pdr_payment_state']) ? 'Paid' : 'Unpaid';?></td>
         <td class="ncm-table-handle"><?php if (!intval($val['pdr_payment_state'])){?>
           <span><a class="btn-mint" href="<?php echo urlShop('buy', 'pd_pay', array('pay_sn' => $val['pdr_sn']));?>"> <i class="icon-shield"></i>
-          <p>支付</p>
+          <p>Pay</p>
           </a></span> <span><a class="btn-grapefruit" href="javascript:void(0)" onclick="ajax_get_confirm('<?php echo $lang['nc_ensure_del'];?>', '<?php echo MEMBER_SITE_URL;?>/index.php?act=predeposit&op=recharge_del&id=<?php echo $val['pdr_id']; ?>');"><i class="icon-trash"></i>
           <p><?php echo $lang['nc_del'];?></p>
           </a></span>

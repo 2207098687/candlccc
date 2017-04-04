@@ -92,7 +92,6 @@ class member_securityControl extends BaseMemberControl {
         $email	= new Email();
 	    $result	= $email->send_sys_email($_POST["email"],$subject,$message);
 	    showDialog('Verification Email Sent, Pls Check Email within 24 Hours and Complete Verification Process. <br/>You Can Resend in 60s If You Didnt Receive.','index.php?act=member_security&op=index','succ','',10);
-
     }
 
 

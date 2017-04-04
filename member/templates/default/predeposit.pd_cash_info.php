@@ -31,7 +31,7 @@
     </dl>
     <dl>
       <dt><?php echo $lang['predeposit_paystate'].$lang['nc_colon'];?></dt>
-      <dd><?php echo str_replace(array('0','1'),array('未支付','已支付'),$output['info']['pdc_payment_state']);?></dd>
+      <dd><?php echo str_replace(array('0','1'),array('Unpaid','Paid'),$output['info']['pdc_payment_state']);?></dd>
     </dl>
    <?php if (intval($output['info']['pdc_check_time'])) {?>
     <dl>

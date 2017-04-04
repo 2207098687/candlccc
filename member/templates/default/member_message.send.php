@@ -35,7 +35,7 @@
             </dd>
           </dl>
           <dl>
-            <dt>消息类型：</dt>
+            <dt>Msg Type: </dt>
             <dd><span class="mr10">
               <input type="radio" class="radio vm" value="2" name="msg_type" checked="checked" />
               <?php echo $lang['home_message_open'];?></span><span>
@@ -70,7 +70,7 @@
         
       </ul><?php } else { ?>
         <div class="nomessage"><p><?php echo $lang['home_message_no_friends'];?></p>
-        <a href="index.php?act=member_snsfriend&op=find" class="ncbtn-mini" target="_blank">添加好友</a>
+        <a href="index.php?act=member_snsfriend&op=find" class="ncbtn-mini" target="_blank">Add Contact</a>
         </div>
         <?php } ?>
     </div>

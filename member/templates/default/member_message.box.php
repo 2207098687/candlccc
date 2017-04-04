@@ -22,7 +22,7 @@
 }?>
     </ul>
     <?php if ($output['isallowsend']){?>
-    <a href="index.php?act=member_message&op=sendmsg" class="ncbtn ncbtn-bittersweet" title="<?php echo $lang['home_message_send_message'];?>"><i class="icon-envelope-alt"></i><?php echo $lang['home_message_send_message'];?></a>
+<!--    <a href="index.php?act=member_message&op=sendmsg" class="ncbtn ncbtn-bittersweet" title="--><?php //echo $lang['home_message_send_message'];?><!--"><i class="icon-envelope-alt"></i>--><?php //echo $lang['home_message_send_message'];?><!--</a>-->
     <?php }?>
   </div>
   <table class="ncm-default-table">

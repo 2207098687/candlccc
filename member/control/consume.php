@@ -4,10 +4,6 @@
  *
  *
  *
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
  */
 
 
@@ -41,7 +37,7 @@ class consumeControl extends BaseMemberControl {
         switch ($menu_type) {
             case 'consume':
                 $menu_array = array(
-                1=>array('menu_key'=>'consume','menu_name'=>'消费记录',   'menu_url'=>'index.php?act=consume'));
+                1=>array('menu_key'=>'consume','menu_name'=>'Order Report',   'menu_url'=>'index.php?act=consume'));
                 break;
         }
         Tpl::output('member_menu',$menu_array);

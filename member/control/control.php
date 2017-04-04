@@ -318,12 +318,12 @@ class BaseMemberControl extends Control {
                 'member_security'   => array('name' => 'Account Security', 'url'=>urlMember('member_security', 'index')),
                 'member_address'    => array('name' => 'Shipping Address', 'url'=>urlMember('member_address', 'address')),
                 'member_message'    => array('name' => 'My Message', 'url'=>urlMember('member_message', 'message')),
-                'member_snsfriend'  => array('name' => 'My Friends', 'url'=>urlMember('member_snsfriend', 'find')),
-                'member_bind'       => array('name' => 'Third Party', 'url'=>urlMember('member_bind', 'qqbind')),
-                'member_sharemanage'=> array('name' => 'Share Bind', 'url'=>urlMember('member_sharemanage', 'index'))
+//                'member_snsfriend'  => array('name' => 'My Friends', 'url'=>urlMember('member_snsfriend', 'find')),
+//                'member_bind'       => array('name' => 'Third Party', 'url'=>urlMember('member_bind', 'qqbind')),
+//                'member_sharemanage'=> array('name' => 'Share Bind', 'url'=>urlMember('member_sharemanage', 'index'))
             )),
             'property' => array('name' => 'My Asset', 'child' => array(
-                'consume'           => array('name' => 'Expenses', 'url'=>urlMember('consume')),
+                'consume'           => array('name' => 'Transactions', 'url'=>urlMember('consume')),
                 'predeposit'        => array('name' => 'Account Balance', 'url'=>urlMember('predeposit', 'pd_log_list')),
                 'member_points'     => array('name' => 'Reward Points', 'url'=>urlMember('member_points', 'index')),
                 'member_voucher'    => array('name' => 'My Coupon', 'url'=>urlMember('member_voucher', 'index')),

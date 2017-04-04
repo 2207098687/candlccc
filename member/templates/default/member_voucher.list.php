@@ -29,8 +29,8 @@
       <tr>
         <th class="w10"></th>
         <th class="w70"></th>
-        <th class="tl">代金券编码</th>
-        <th class="w80">面额（元）</th>
+        <th class="tl">Coupon No.</th>
+        <th class="w80">Value（₱）</th>
         <th class="w200"><?php echo $lang['voucher_voucher_indate'];?></th>
         <th class="w100"><?php echo $lang['voucher_voucher_state'];?></th>
         <th class="w70"><?php echo $lang['nc_handle'];?></th>
@@ -50,7 +50,7 @@
         <td class="goods-time"><?php echo date("Y-m-d",$val['voucher_start_date']).'~'.date("Y-m-d",$val['voucher_end_date']);?></td>
         <td><?php echo $val['voucher_state_text'];?></td>
         <?php if ($val['voucher_state'] == '1'){?>
-        <td class="ncm-table-handle"><span><a href="<?php echo urlShop('show_store', 'index', array('store_id'=>$val['store_id']));?>" class="btn-mint"><i class="icon-shopping-cart"></i><p>使用</p></a></span></td>
+        <td class="ncm-table-handle"><span><a href="<?php echo urlShop('show_store', 'index', array('store_id'=>$val['store_id']));?>" class="btn-mint"><i class="icon-shopping-cart"></i><p>Use</p></a></span></td>
         <?php } elseif ($val['voucher_state'] == '2'){?>
         <td class=""><span><a href="<?php echo urlShop('member_order', 'show_order', array('order_id' => $val['voucher_order_id']))?>"><p><?php echo $lang['voucher_voucher_vieworder'];?></p></a><span></td>
         <?php }?>

@@ -42,25 +42,25 @@
       </dl>
       <?php if (!intval($output['address_info']['dlyp_id'])) { ?>
       <dl>
-        <dt><em class="pngFix"></em>设为默认地址<?php echo $lang['nc_colon'];?></dt>
-        <dd>
+<!--        <dt><em class="pngFix"></em>Set as Default Addr--><?php //echo $lang['nc_colon'];?><!--</dt>-->
+        <dd style="margin-left: 60px">
           <input type="checkbox" class="checkbox vm mr5" <?php if ($output['address_info']['is_default']) echo 'checked';?> name="is_default" id="is_default" value="1" />
-          <label for="is_default">设置为默认收货地址</label>
+          <label for="is_default">Set as Default Address</label>
         </dd>
       </dl>
       <?php } ?>
       <?php if (C('delivery_isuse')) { ?>
       <dl>
         <dt>&nbsp;</dt>
-        <dd> <a href="javascript:void(0);" class="ncbtn-mini ncbtn-bittersweet" id="zt"><i class="icon-flag"></i>使用自提服务站</a>
-        <p class="hint">当您需要对自己的收货地址保密或担心收货时间冲突时可使用该业务，<br/>添加后可在购物车中作为收货地址进行选择，货品将直接发送至自提服务站，<br/>到货后短信、站内消息进行通知，届时您可使用“自提码”至该服务站兑码取货。</p> </dd>
+        <dd> <a href="javascript:void(0);" class="ncbtn-mini ncbtn-bittersweet" id="zt"><i class="icon-flag"></i>For Meetup</a>
+        <p class="hint">For Your Convenience, We Offer Meetup by Appointment Service.<br/>You Can Use Meetup Point (MRT or LRT Stations Only) When Purchasing as Shipping Address.<br/>We Will Coordinate and Delivery to Meetup Points.</p> </dd>
       </dl>
       <?php } ?>
       <div class="bottom">
         <label class="submit-border">
           <input type="submit" class="submit" value="<?php if($output['type'] == 'add'){?><?php echo $lang['member_address_new_address'];?><?php }else{?><?php echo $lang['member_address_edit_address'];?><?php }?>" />
         </label>
-        <a class="ncbtn ml5" href="javascript:DialogManager.close('my_address_edit');">取消</a> </div>
+        <a class="ncbtn ml5" href="javascript:DialogManager.close('my_address_edit');">Cancel</a> </div>
     </form>
   </div>
 </div>
@@ -131,7 +131,7 @@ $(document).ready(function(){
     });
     $('#zt').on('click',function(){
     	DialogManager.close('my_address_edit');
-    	ajax_form('daisou','使用代收货（自提）', '<?php echo MEMBER_SITE_URL;?>/index.php?act=member_address&op=delivery_add', '900',0);
+    	ajax_form('daisou','Meetup Point', '<?php echo MEMBER_SITE_URL;?>/index.php?act=member_address&op=delivery_add', '900',0);
     });
 });
 function check_phone(){

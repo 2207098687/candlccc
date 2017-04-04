@@ -110,16 +110,16 @@ $(function() {
           <dd>
             <ul>
               <li><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_pwd'));?>"><span class="zhaq01"></span><sub></sub>
-                <h5>Change Password</h5>
+                <h5>Password</h5>
                 </a> </li>
               <li <?php if($output['member_info']['member_email_bind'] == '1') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_email'));?>"><span class="zhaq02"></span><sub></sub>
                 <h5>Bind Email</h5>
                 </a> </li>
-              <li <?php if($output['member_info']['member_mobile_bind'] == '1') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">
-                      <span class="zhaq03"></span><sub></sub>
-                <h5>Mobile</h5>
-                </a> </li>
-              <li <?php if($output['member_info']['member_paypwd'] != '') {?>class="have"<?php }?>><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>">
+<!--              <li --><?php //if($output['member_info']['member_mobile_bind'] == '1') {?><!--class="have"--><?php //}?><!--<a href="--><?php //echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?><!--">-->
+<!--                      <span class="zhaq03"></span><sub></sub>-->
+<!--                <h5>Mobile</h5>-->
+<!--                </a> </li>-->
+<!--              <li --><?php //if($output['member_info']['member_paypwd'] != '') {?><!--class="have"--><?php //}?><!--<a href="--><?php //echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?><!--">-->
 <!--                      <span class="zhaq04"></span><sub></sub>-->
 <!--                <h5>支付密码</h5>-->
                 </a> </li>
@@ -154,7 +154,7 @@ $(function() {
                 <h5>Shipping Address</h5>
                 </a> </li>
               <li><a href="<?php echo urlMember('member_message', 'setting');?>"><span class="xgsz02"></span>
-                <h5>Message Notification</h5>
+                <h5>Notification</h5>
                 </a> </li>
               
             </ul>

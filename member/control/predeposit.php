@@ -1,10 +1,7 @@
 <?php
 /**
  * 预存款管理
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 
 
@@ -57,13 +54,13 @@ class predepositControl extends BaseMemberControl {
 
         $sn = (string) $_POST['rc_sn'];
         if (!$sn || strlen($sn) > 50) {
-            showMessage('平台充值卡卡号不能为空且长度不能大于50', '', 'html', 'error');
+            showMessage('Cash-in Card No. Should Not Be Empty or More than 50 digits', '', 'html', 'error');
             exit;
         }
 
         try {
             model('predeposit')->addRechargeCard($sn, $_SESSION);
-            showMessage('平台充值卡使用成功', urlMember('predeposit', 'rcb_log_list'));
+            showMessage('Success', urlMember('predeposit', 'rcb_log_list'));
         } catch (Exception $e) {
             showMessage($e->getMessage(), '', 'html', 'error');
             exit;
@@ -181,7 +178,7 @@ class predepositControl extends BaseMemberControl {
             $validate_arr[] = array("input"=>$_POST["pdc_bank_name"], "require"=>"true","message"=>Language::get('predeposit_cash_add_shoukuanbanknull_error'));
             $validate_arr[] = array("input"=>$_POST["pdc_bank_no"], "require"=>"true","message"=>Language::get('predeposit_cash_add_shoukuanaccountnull_error'));
             $validate_arr[] = array("input"=>$_POST["pdc_bank_user"], "require"=>"true","message"=>Language::get('predeposit_cash_add_shoukuannamenull_error'));
-            $validate_arr[] = array("input"=>$_POST["password"], "require"=>"true","message"=>'请输入支付密码');
+            $validate_arr[] = array("input"=>$_POST["password"], "require"=>"true","message"=>'Input Payment Pass');
             $obj_validate -> validateparam = $validate_arr;
             $error = $obj_validate->validate();
             if ($error != ''){
@@ -193,7 +190,7 @@ class predepositControl extends BaseMemberControl {
             $member_info = $model_member->getMemberInfoByID($_SESSION['member_id']);
             //验证支付密码
             if (md5($_POST['password']) != $member_info['member_paypwd']) {
-                showDialog('支付密码错误','','error');
+                showDialog('Wrong Payment Pass','','error');
             }
             //验证金额是否足够
             if (floatval($member_info['available_predeposit']) < $pdc_amount){
@@ -284,26 +281,26 @@ class predepositControl extends BaseMemberControl {
      */
     private function profile_menu($menu_type,$menu_key=''){
         $menu_array = array(
-            array('menu_key'=>'loglist',        'menu_name'=>'账户余额',    'menu_url'=>'index.php?act=predeposit&op=pd_log_list'),
-            array('menu_key'=>'recharge_list',  'menu_name'=>'充值明细',    'menu_url'=>'index.php?act=predeposit&op=index'),
-            array('menu_key'=>'cashlist',       'menu_name'=>'余额提现',    'menu_url'=>'index.php?act=predeposit&op=pd_cash_list'),
-            array('menu_key'=>'rcb_log_list',   'menu_name'=>'充值卡余额',   'menu_url'=>'index.php?act=predeposit&op=rcb_log_list',),
+            array('menu_key'=>'loglist',        'menu_name'=>'Account Balance',    'menu_url'=>'index.php?act=predeposit&op=pd_log_list'),
+            array('menu_key'=>'recharge_list',  'menu_name'=>'Report',    'menu_url'=>'index.php?act=predeposit&op=index'),
+            array('menu_key'=>'cashlist',       'menu_name'=>'Cash-out',    'menu_url'=>'index.php?act=predeposit&op=pd_cash_list'),
+            array('menu_key'=>'rcb_log_list',   'menu_name'=>'Load Card',   'menu_url'=>'index.php?act=predeposit&op=rcb_log_list',),
         );
         switch ($menu_type) {
             case 'rechargeinfo':
-                $menu_array[] = array('menu_key'=>'rechargeinfo','menu_name'=>'充值详细',  'menu_url'=>'');
+                $menu_array[] = array('menu_key'=>'rechargeinfo','menu_name'=>'Payment Detail',  'menu_url'=>'');
                 break;
             case 'recharge_add':
-                $menu_array[] = array('menu_key'=>'recharge_add','menu_name'=>'在线充值',   'menu_url'=>'');
+                $menu_array[] = array('menu_key'=>'recharge_add','menu_name'=>'Online Payment',   'menu_url'=>'');
                 break;
             case 'rechargecard_add':
-                $menu_array[] = array('menu_key'=>'rechargecard_add','menu_name'=>'充值卡充值','menu_url'=>'javascript:;');
+                $menu_array[] = array('menu_key'=>'rechargecard_add','menu_name'=>'Reload Card','menu_url'=>'javascript:;');
                 break;
             case 'cashadd':
-                $menu_array[] = array('menu_key'=>'cashadd','menu_name'=>'提现申请',    'menu_url'=>'index.php?act=predeposit&op=pd_cash_add');
+                $menu_array[] = array('menu_key'=>'cashadd','menu_name'=>'Cash-out',    'menu_url'=>'index.php?act=predeposit&op=pd_cash_add');
                 break;
             case 'cashinfo':
-                $menu_array[] = array('menu_key'=>'cashinfo','menu_name'=>'提现详细',  'menu_url'=>'');
+                $menu_array[] = array('menu_key'=>'cashinfo','menu_name'=>'Cash-out Detail',  'menu_url'=>'');
                 break;
             case 'log':
             default:

@@ -1,10 +1,7 @@
 <?php
 /**
  * 收货地址
- * * @运维舫 (c) 2015-2018 ywf Inc. (http://www.shopnc.club)
- * @license    http://www.sho p.club
- * @link       唯一论坛：www.shopnc.club
- * @since      运维舫提供技术支持 授权请购买shopnc授权
+ *
  */
 
 
@@ -674,9 +671,9 @@ class member_messageControl extends BaseMemberControl {
             array('menu_key'=>'message', 'menu_name'=>Language::get('home_message_received_message'),'menu_url'=>'index.php?act=member_message&op=message'),
             array('menu_key'=>'private', 'menu_name'=>Language::get('home_message_private_message'), 'menu_url'=>'index.php?act=member_message&op=privatemsg'),
             array('menu_key'=>'system',  'menu_name'=>Language::get('home_message_system_message'),  'menu_url'=>'index.php?act=member_message&op=systemmsg'),
-            array('menu_key'=>'ggmsg',  'menu_name'=>'系统公告',  'menu_url'=>'index.php?act=member_message&op=ggmsg'),
+            array('menu_key'=>'ggmsg',  'menu_name'=>'System Bulletin',  'menu_url'=>'index.php?act=member_message&op=ggmsg'),
             array('menu_key'=>'close',   'menu_name'=>Language::get('home_message_close'),   'menu_url'=>'index.php?act=member_message&op=personalmsg'),
-            array('menu_key'=>'setting', 'menu_name'=>'接收设置', 'menu_url'=>urlMember('member_message', 'setting'))
+//            array('menu_key'=>'setting', 'menu_name'=>'Settings', 'menu_url'=>urlMember('member_message', 'setting'))
         );
         if($menu_key == 'sendmsg') {
             $menu_array[] = array('menu_key'=>'sendmsg','menu_name'=>Language::get('home_message_send_message'),'menu_url'=>'index.php?act=member_message&op=sendmsg');

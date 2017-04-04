@@ -8,9 +8,9 @@
     <thead>
       <tr>
         <th class="w10"></th>
-        <th class="w150 tl">记录时间</th>
-        <th class="w150 tl">金额</th>
-        <th class="tl">备注</th>
+        <th class="w150 tl">Time</th>
+        <th class="w150 tl">Amount</th>
+        <th class="tl">Comment</th>
       </tr>
     </thead>
     <tbody>

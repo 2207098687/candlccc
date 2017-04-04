@@ -99,7 +99,7 @@ class member_addressControl extends BaseMemberControl{
             }else {
                 $count = $address_class->getAddressCount(array('member_id'=>$_SESSION['member_id']));
                 if ($count >= 20) {
-                    showDialog('最多允许添加20个有效地址','','error');
+                    showDialog('Maximum of 20 Addresses.','','error');
                 }
                 $rs = $address_class->addAddress($data);
                 if (!$rs){
@@ -200,7 +200,7 @@ class member_addressControl extends BaseMemberControl{
         switch ($menu_type) {
             case 'address':
                 $menu_array = array(
-                1=>array('menu_key'=>'address','menu_name'=>'地址列表',   'menu_url'=>'index.php?act=member_adderss&op=address'));
+                1=>array('menu_key'=>'address','menu_name'=>'Address List',   'menu_url'=>'index.php?act=member_adderss&op=address'));
                 break;
         }
         Tpl::output('member_menu',$menu_array);
