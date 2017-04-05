@@ -87,6 +87,8 @@ class store_joininControl extends BaseHomeControl {
     }
 
     public function indexOp() {
+        //关闭开店
+        die;
         $this->step0Op();
     }
 

@@ -12,7 +12,6 @@
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 
 class store_joinincControl extends BaseHomeControl {
-
     private $joinin_detail = NULL;
 
     public function __construct() {
@@ -84,6 +83,7 @@ class store_joinincControl extends BaseHomeControl {
     }
 
 	public function indexOp() {
+        die;
         $this->step0Op();
 	}
 

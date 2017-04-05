@@ -1,8 +1,7 @@
 <?php
 /**
  * 邀请返利页面 
- * 
- * by 运维舫 S7 www.shopnc.club
+ *
  */
 defined('ShopNC_CLUB') or exit('Access Invalid!');
 class inviteControl extends BaseHomeControl{
@@ -49,7 +48,7 @@ class inviteControl extends BaseHomeControl{
    {
 	   
 	 $id=$_GET['id'];
-	 if($id<=0)die('请先登录会员后，再来这里操作哦。');
+	 if($id<=0)die('Please Login First');
 	 $str_member="memberqr_".$id;
 	 $fileurl=BASE_UPLOAD_PATH.DS."shop".DS."member".DS.$str_member.".png";
 	 

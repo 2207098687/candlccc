@@ -33,7 +33,7 @@ function initInviteForm() {
 		<?php if ($_SESSION['is_login']) {?>
 		$(this).select();
 		 <?} else {?>
-	     	if (confirm("请先登录后，再到这里复制邀请链接哦，点确定去登录")){
+	     	if (confirm("Please Login First")){
 			window.location.href="<?php echo MEMBER_SITE_URL;?>/index.php?act=login&op=index&ref_url=<?php echo BASE_SITE_URL;?>/index.php?act=invite"
 		    } 
 	     <?php } ?>
@@ -56,9 +56,9 @@ function initInviteForm() {
 
 	    clip.addEventListener('complete', function(client, text) {
 		<?php if ($_SESSION['is_login']) {?>
-	    	alert("邀请链接复制成功！\n\n马上分享给你的好友吧!" );
+	    	alert("Invite Link Copied！\n\nShare with Friends Now!" );
 		 <?} else {?>
-		 if (confirm("请先登录后，再到这里复制邀请链接哦，点确定去登录")){
+		 if (confirm("Please Login First")){
 			window.location.href="<?php echo MEMBER_SITE_URL;?>/index.php?act=login&op=index&ref_url=<?php echo BASE_SITE_URL;?>/index.php?act=invite"
 		    } 
 	     <?php } ?>
@@ -77,7 +77,7 @@ function initInviteForm() {
 
 	    	e.preventDefault();
 
-	    	alert("啊哦，好像复制失败了……手动复制一下吧！");
+	    	alert("Whoopss...Failed to Copy, Do It Manually");
 
 	    });
 
@@ -93,26 +93,29 @@ $member_id = base64_encode(intval($_SESSION['member_id'])*1);
     <div class="span-24" id="content">
       <div class="invite-bd">
         <div class="invite-form">
-          <div class="invite-text"> 邀请链接： <span class="invite-help">复制下面的链接，通过QQ，旺旺，微博，论坛发帖等方式发给好友，对方通过该链接注册即可~</span> </div>
+          <div class="invite-text"> Invitation Link： <span class="invite-help">Copy the Link Below and Paste to Your Facebook, Google+ and Others, Registered Accounts Will Be Under Your Referral~</span> </div>
           <div>
             <input type="text" readonly value="<?php echo BASE_SITE_URL;?>/#V5<?php echo $member_id;?>" class="std-input i-invite-link">
-            <a class="button copy-btn" data-url="<?php echo SHOP_TEMPLATES_URL;?>/images/invite/ZeroClipboard.swf" id="copy-button" href="javascrit:;" hidefocus="true">复制</a> </div>
+            <a class="button copy-btn" data-url="<?php echo SHOP_TEMPLATES_URL;?>/images/invite/ZeroClipboard.swf" id="copy-button" href="javascrit:;" hidefocus="true">Copy</a> </div>
         </div>
-        <div class="invite-share-site clearfix"> 
+        <div class="invite-share-site clearfix">
+
           <!-- Baidu Button BEGIN -->
-          <p id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'url':'<?php echo BASE_SITE_URL;?>/#V5<?php echo intval($_SESSION['member_id'])*1;?>'}"> <span class="bds_more">快捷邀请：</span> <a class="bds_qzone">QQ空间</a> <a class="bds_tsina">新浪微博</a> <a class="bds_tqq">腾讯微博</a> <a class="bds_taobao">我的淘宝</a> <a class="bds_renren">人人网</a> <a class="bds_douban">豆瓣</a> </p>
-          <!-- Baidu Button END --> 
+            <span style="float:left;line-height:28px; color: orangered;font-size: 16px;">Invite, Share & Earn：</span>
+            <span id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'url':'<?php echo BASE_SITE_URL;?>/#V5<?php echo $member_id; ?>'}"> <a class="bds_fbook">facebook</a> <a class="bds_twi">Twitter</a> <a class="bds_linkedin">Linkedin</a></span>
+          <!-- Baidu Button END -->
+
         </div>
         <div class="invite-rebate"><a href="<?php echo urlMember('member_points','index');?>" target="_blank" hidefocus="true"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/invite/income.png"></a></div>
         <div class="invite-rules">
-          <p>1. 成功邀请一位好友，可获积分奖励；</p>
-          <p>2. 当好友产生消费时，再获得积分奖励; </p>
-		  <p>(如：好友注册，获100积分，购买100元商品，您再获得50积分)</p>
+          <p>1. Get Referral of 300₱-2000₱；</p>
+          <p>2. Earn 80 Points; </p>
+		  <p>3. Commissions;</p>
         </div>
         <?php if ($_SESSION['is_login']) {?>
         <div class="invite-qr">
           <p><img src="<?php echo $output['myurl']; ?>" style="width:110px;height:110px"/>
-          <a href="<?php echo $output['mydownurl']; ?>" target="_blank">下载邀请二维码</a>
+          <a href="<?php echo $output['mydownurl']; ?>" target="_blank"> Dowload QR</a>
           </p>
         </div>
         <?php } ?>
@@ -122,7 +125,7 @@ $member_id = base64_encode(intval($_SESSION['member_id'])*1);
       <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=645315" ></script> 
       <script type="text/javascript" id="bdshell_js"></script> 
       <script type="text/javascript">
-    var bds_config = {'bdText':'购买这么多年，才发现，原来在【<?php echo $output['setting_config']['site_name']; ?>】购买东西这么便宜的，赶紧试试吧，一般人我不告诉他！','bdPic':'<?php echo BASE_SITE_URL;?>/data/upload/shop/adv/snsspic.png','bdDesc':'分享个我的购物省钱小窍门，我在【<?php echo $output['setting_config']['site_name']; ?>】购买的都是正品，超便宜，省钱So easy！','review':'off'};
+    var bds_config = {'bdText':'Great Supplier【<?php echo $output['setting_config']['site_name']; ?>】Good Price, Nice Products！','bdPic':'<?php echo BASE_SITE_URL;?>/data/upload/shop/adv/snsspic.png','bdDesc':'I Get My Supplies here 【<?php echo $output['setting_config']['site_name']; ?>】So easy！','review':'off'};
     document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
 </script> 
       <!-- Baidu Button END --> </div>

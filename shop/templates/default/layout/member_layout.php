@@ -155,7 +155,7 @@ $(document).ready(function() {
               <dt><a href="<?php echo urlMember('member_security', 'index');?>" style="color: #3AAC8A;">Security</a></dt>
               <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_pwd'));?>">Login Password</a></dd>
                 <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_paypwd'));?>">Payout Password</a></dd>
-              <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?>">Update Mobile</a></dd>
+<!--              <dd><a href="--><?php //echo urlMember('member_security', 'auth', array('type' => 'modify_mobile'));?><!--">Update Mobile</a></dd>-->
               <dd><a href="<?php echo urlMember('member_security', 'auth', array('type' => 'modify_email'));?>">Update Email</a></dd>
             </dl>
             <dl>
@@ -172,9 +172,9 @@ $(document).ready(function() {
             </dl>
             <dl>
               <dt><a href="<?php echo urlMember('member_bind', 'qqbind')?>" style="color: #398EE8">Connect</a></dt>
-              <dd><a href="<?php echo urlMember('member_bind', 'qqbind');?>">Facebook</a></dd>
-              <dd><a href="<?php echo urlMember('member_bind', 'sinabind')?>">Integram</a></dd>
-              <dd><a href="<?php echo urlMember('member_bind', 'weixinbind');?>">Google+</a></dd>
+<!--              <dd><a href="--><?php //echo urlMember('member_bind', 'qqbind');?><!--">Facebook</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlMember('member_bind', 'sinabind')?><!--">Integram</a></dd>-->
+<!--              <dd><a href="--><?php //echo urlMember('member_bind', 'weixinbind');?><!--">Google+</a></dd>-->
 <!--              <dd><a href="--><?php //echo urlMember('member_sharemanage', 'index');?><!--">分享绑定</a></dd>-->
             </dl>
           </div>

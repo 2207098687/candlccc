@@ -159,15 +159,15 @@
           </ul>
         </dd>
       </dl>
-      <dl>
-        <dt><a href="<?php echo urlShop('show_joinin','index');?>" title="<?php echo $lang['hao_seller'];?>"><?php echo $lang['hao_seller'];?></a><i></i></dt>
-        <dd>
-          <ul>
-		    <li><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=show_joinin&op=index" title="<?php echo $lang['hao_enter'];?>"><?php echo $lang['hao_enter'];?></a></li>
-            <li><a href="<?php echo urlShop('seller_login','show_login');?>" target="_blank" title="<?php echo $lang['hao_seller_login'];?>"><?php echo $lang['hao_seller_login'];?></a></li>
-          </ul>
-	 </dd>
-      </dl>
+<!--      <dl>-->
+<!--        <dt><a href="--><?php //echo urlShop('show_joinin','index');?><!--" title="--><?php //echo $lang['hao_seller'];?><!--">--><?php //echo $lang['hao_seller'];?><!--</a><i></i></dt>-->
+<!--        <dd>-->
+<!--          <ul>-->
+<!--		    <li><a href="--><?php //echo SHOP_SITE_URL;?><!--/index.php?act=show_joinin&op=index" title="--><?php //echo $lang['hao_enter'];?><!--">--><?php //echo $lang['hao_enter'];?><!--</a></li>-->
+<!--            <li><a href="--><?php //echo urlShop('seller_login','show_login');?><!--" target="_blank" title="--><?php //echo $lang['hao_seller_login'];?><!--">--><?php //echo $lang['hao_seller_login'];?><!--</a></li>-->
+<!--          </ul>-->
+<!--	 </dd>-->
+<!--      </dl>-->
       <?php
       if(!empty($output['nav_list']) && is_array($output['nav_list'])){
 	      foreach($output['nav_list'] as $nav){
