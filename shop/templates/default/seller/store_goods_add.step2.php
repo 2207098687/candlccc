@@ -731,7 +731,7 @@ $(function(){
             g_name : {
                 required    : true,
                 minlength   : 3,
-                maxlength   : 50
+                maxlength   : 150
             },
             g_jingle : {
                 maxlength   : 140
